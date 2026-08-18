@@ -1,0 +1,528 @@
+<title>삼토의 Travelog — 오사카·고베 2026.09</title>
+<style>
+:root{
+  --bg:#faf7f2; --surface:#ffffff; --sunk:#f1ece1; --ink:#26221c; --ink2:#554e40; --muted:#8a8172;
+  --hair:#e3dccd; --hair2:#eee8db;
+  --accent:#c8442c; --accent-bg:#f7e2da;
+  --gold:#a1781f; --gold-bg:#f2e8cf;
+  --water:#1f5f6b; --water-bg:#dfecee;
+  --ok:#3d6b4f; --ok-bg:#e2ece4;
+  --warn:#8a5a12; --warn-bg:#f5ead0;
+  --serif:"Noto Serif KR","Nanum Myeongjo","AppleMyungjo",serif;
+  --sans:"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,-apple-system,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181d; --surface:#1e2229; --sunk:#252a32; --ink:#e9e4d8; --ink2:#bcb4a2; --muted:#847d6e;
+    --hair:#333944; --hair2:#292e37;
+    --accent:#e87c60; --accent-bg:#33201a;
+    --gold:#d2a94e; --gold-bg:#2e2717;
+    --water:#6ab5c1; --water-bg:#17272b;
+    --ok:#87b795; --ok-bg:#1b2820;
+    --warn:#d8b264; --warn-bg:#2b2314;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181d; --surface:#1e2229; --sunk:#252a32; --ink:#e9e4d8; --ink2:#bcb4a2; --muted:#847d6e;
+  --hair:#333944; --hair2:#292e37;
+  --accent:#e87c60; --accent-bg:#33201a;
+  --gold:#d2a94e; --gold-bg:#2e2717;
+  --water:#6ab5c1; --water-bg:#17272b;
+  --ok:#87b795; --ok-bg:#1b2820;
+  --warn:#d8b264; --warn-bg:#2b2314;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;padding:0 0 5rem;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1.05rem}
+a{color:var(--water)}
+b,strong{color:var(--ink);font-weight:650}
+
+/* ---------- masthead ---------- */
+header.mast{padding:2.6rem 0 1.4rem;border-bottom:3px double var(--ink)}
+.eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 .6rem}
+h1.site{font-family:var(--serif);font-size:clamp(1.9rem,7vw,2.7rem);line-height:1.15;letter-spacing:-.02em;
+  font-weight:800;margin:0 0 .6rem;text-wrap:balance}
+h1.site .accent{color:var(--accent)}
+.stand{color:var(--ink2);margin:0;max-width:36rem}
+.phase{display:inline-flex;gap:.45rem;align-items:center;margin-top:1rem;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--accent-bg);color:var(--accent);padding:.3rem .7rem;border-radius:999px;font-weight:700}
+.phase .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.phaseline{margin-top:.55rem;font-size:.8rem;color:var(--muted)}
+
+/* ---------- nav ---------- */
+nav.chips{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--hair);
+  margin:0 -1.05rem;padding:.55rem 1.05rem;display:flex;gap:.45rem;overflow-x:auto;-webkit-overflow-scrolling:touch}
+nav.chips a{flex:0 0 auto;font-size:.83rem;font-weight:600;text-decoration:none;color:var(--ink2);
+  background:var(--surface);border:1px solid var(--hair);border-radius:999px;padding:.32rem .8rem;white-space:nowrap}
+nav.chips a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---------- sections ---------- */
+section{scroll-margin-top:3.6rem;margin-top:2.8rem}
+h2.sec{font-family:var(--serif);font-size:1.5rem;font-weight:800;letter-spacing:-.015em;margin:0 0 .25rem;
+  padding-bottom:.4rem;border-bottom:2px solid var(--ink)}
+h2.sec .no{font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.14em;vertical-align:.35em;margin-right:.5rem}
+.lede{color:var(--muted);font-size:.88rem;margin:.5rem 0 1.1rem}
+h3.sub{font-size:1.05rem;font-weight:720;margin:1.6rem 0 .5rem;letter-spacing:-.01em}
+
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.6rem 0}
+table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:20rem}
+th,td{text-align:left;padding:.42rem .55rem;border-bottom:1px solid var(--hair2);vertical-align:top}
+thead th{font-family:var(--mono);font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  font-weight:600;border-bottom:1px solid var(--hair)}
+td.num,th.num{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+
+.card{background:var(--surface);border:1px solid var(--hair2);border-radius:6px;padding:1rem 1.1rem;margin-top:.9rem}
+.alert{background:var(--warn-bg);border-left:3px solid var(--warn);padding:.6rem .75rem;border-radius:0 4px 4px 0;
+  margin:.8rem 0 0;font-size:.87rem;color:var(--ink2)}
+.alert b{color:var(--warn)}
+.alert.red{background:var(--accent-bg);border-left-color:var(--accent)}
+.alert.red b{color:var(--accent)}
+
+.tag{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.07em;text-transform:uppercase;
+  padding:.14rem .45rem;border-radius:3px;vertical-align:.12em;font-weight:700;white-space:nowrap}
+.tag.ok{background:var(--ok-bg);color:var(--ok)}
+.tag.warn{background:var(--warn-bg);color:var(--warn)}
+.tag.red{background:var(--accent-bg);color:var(--accent)}
+.tag.gray{background:var(--sunk);color:var(--muted)}
+.tag.gold{background:var(--gold-bg);color:var(--gold)}
+.tag.water{background:var(--water-bg);color:var(--water)}
+
+.btn-map{display:inline-flex;align-items:center;gap:.3rem;font-size:.76rem;font-weight:650;text-decoration:none;
+  color:var(--water);background:var(--water-bg);border-radius:999px;padding:.22rem .65rem;white-space:nowrap}
+.btn-map::before{content:"⌖";font-size:.9em}
+
+/* ---------- timeline ---------- */
+.day{margin-top:1.9rem}
+.dayhd{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;border-bottom:1px solid var(--hair);padding-bottom:.45rem}
+.dayhd .d{font-family:var(--serif);font-size:1.22rem;font-weight:780}
+.dayhd .w{font-family:var(--mono);font-size:.71rem;color:var(--muted);letter-spacing:.05em}
+.daynote{color:var(--muted);font-size:.85rem;margin:.5rem 0 .2rem}
+.tl{display:flex;flex-direction:column}
+.ev{display:grid;grid-template-columns:3.9rem 1px 1fr;column-gap:.9rem;align-items:start}
+.ev>.t{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:.8rem;font-weight:600;color:var(--ink2);
+  padding-top:.72rem;text-align:right;white-space:nowrap}
+.ev>.rail{background:var(--hair2);position:relative;min-height:100%}
+.ev>.rail::before{content:"";position:absolute;left:50%;top:.98rem;width:7px;height:7px;margin-left:-3.5px;
+  border-radius:50%;background:var(--hair);outline:3px solid var(--bg)}
+.ev.key>.rail::before{background:var(--accent);width:9px;height:9px;margin-left:-4.5px}
+.ev.run>.rail::before{background:var(--water);width:9px;height:9px;margin-left:-4.5px}
+.ev:first-child>.rail{background:linear-gradient(to bottom,transparent .98rem,var(--hair2) .98rem)}
+.ev:last-child>.rail{background:linear-gradient(to bottom,var(--hair2) 1.4rem,transparent 1.4rem)}
+.ev>.body{padding:.56rem 0 .85rem;min-width:0}
+.ev .h{font-weight:650;letter-spacing:-.01em;margin:0}
+.ev.key .h{color:var(--accent)}
+.ev.run .h{color:var(--water)}
+.ev .s{color:var(--muted);font-size:.86rem;margin:.15rem 0 0}
+.ev .s b{color:var(--ink2)}
+.ev .links{margin:.35rem 0 0;display:flex;gap:.4rem;flex-wrap:wrap}
+.ev .links a.glink{font-size:.76rem;font-weight:650;color:var(--accent);text-decoration:none;
+  background:var(--accent-bg);border-radius:999px;padding:.22rem .65rem}
+.tl .alert{grid-column:3;margin:.05rem 0 .8rem}
+
+/* ---------- meals ---------- */
+.slot{background:var(--surface);border:1px solid var(--hair2);border-radius:6px;padding:.95rem 1.05rem;margin-top:.9rem}
+.slot.fixed{border-left:4px solid var(--ok)}
+.slot.opt{border-style:dashed;background:transparent}
+.slot-top{display:flex;align-items:baseline;gap:.55rem;flex-wrap:wrap}
+.when{font-family:var(--mono);font-size:.73rem;color:var(--muted);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.nm{font-size:1.06rem;font-weight:720;letter-spacing:-.012em;margin:.15rem 0 0}
+.nm .jp{color:var(--muted);font-weight:450;font-size:.8em;margin-left:.35rem}
+.what{background:var(--sunk);border-radius:4px;padding:.55rem .7rem;margin:.55rem 0 0;font-size:.87rem;color:var(--ink2)}
+.what .lbl{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;display:block;margin-bottom:.2rem}
+.why{color:var(--ink2);font-size:.9rem;margin:.55rem 0 0}
+dl.spec{display:grid;grid-template-columns:4.6rem 1fr;gap:.26rem .8rem;margin:.75rem 0 0;padding-top:.65rem;
+  border-top:1px dashed var(--hair);font-size:.86rem}
+dl.spec dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-top:.16rem}
+dl.spec dd{margin:0;color:var(--ink2)}
+.voices{display:grid;gap:.4rem;margin-top:.7rem}
+.v{font-size:.84rem;padding:.42rem .6rem;border-radius:3px;color:var(--ink2)}
+.v.good{background:var(--ok-bg)}
+.v.bad{background:var(--accent-bg)}
+.v .vt{font-family:var(--mono);font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;margin-right:.45rem}
+.v.good .vt{color:var(--ok)}
+.v.bad .vt{color:var(--accent)}
+.cutrow{display:grid;grid-template-columns:1fr 1.6fr;gap:.3rem .8rem;padding:.45rem 0;border-bottom:1px solid var(--hair2);font-size:.85rem}
+.cutrow .who{color:var(--ink2);font-weight:600}
+.cutrow .rsn{color:var(--muted)}
+
+/* ---------- guide chapters ---------- */
+.chapter{background:var(--surface);border:1px solid var(--hair2);border-radius:6px;margin-top:.8rem;overflow:hidden}
+.chapter summary{cursor:pointer;list-style:none;padding:.95rem 1.05rem;display:flex;gap:.7rem;align-items:baseline}
+.chapter summary::-webkit-details-marker{display:none}
+.chapter summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.chapter summary .cno{font-family:var(--mono);font-size:.7rem;color:var(--accent);letter-spacing:.1em;font-weight:700;min-width:1.6rem}
+.chapter summary .ct{font-family:var(--serif);font-size:1.06rem;font-weight:750;letter-spacing:-.01em;flex:1;line-height:1.35}
+.chapter summary .cday{font-family:var(--mono);font-size:.66rem;color:var(--muted);white-space:nowrap}
+.chapter summary::after{content:"▾";color:var(--muted);font-size:.8rem;transition:transform .15s}
+.chapter[open] summary::after{transform:rotate(180deg)}
+.chapter[open] summary{border-bottom:1px solid var(--hair2)}
+.chbody{padding:.4rem 1.05rem 1.2rem}
+.chbody h4{font-family:var(--serif);font-size:1rem;font-weight:750;margin:1.4rem 0 .45rem;color:var(--ink);
+  padding-left:.6rem;border-left:3px solid var(--accent)}
+.chbody p{margin:.55rem 0;color:var(--ink2);font-size:.93rem}
+.chbody ul,.chbody ol{margin:.5rem 0;padding-left:1.25rem;color:var(--ink2);font-size:.93rem}
+.chbody li{margin:.35rem 0}
+.chbody blockquote{margin:.6rem 0;padding:.5rem .8rem;background:var(--sunk);border-left:3px solid var(--hair);
+  border-radius:0 4px 4px 0;color:var(--muted);font-size:.85rem}
+.chbody blockquote p{margin:.2rem 0;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.chapter summary::after{transition:none}}
+
+/* ---------- figures ---------- */
+.figs{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:.9rem 0 .3rem}
+.figs.single{grid-template-columns:1fr}
+.figs figure{margin:0;background:var(--sunk);border-radius:5px;overflow:hidden}
+.figs img{width:100%;height:11rem;object-fit:cover;display:block}
+.figs.single img{height:auto;max-height:20rem}
+.figs figcaption{padding:.4rem .55rem .5rem;font-size:.72rem;line-height:1.45;color:var(--muted)}
+.figs figcaption b{color:var(--ink2);font-weight:600}
+.figs figcaption a{color:var(--muted)}
+.figtag{display:inline-block;font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--water-bg);color:var(--water);border-radius:3px;padding:.08rem .35rem;margin-right:.35rem;font-weight:700}
+@media (max-width:26rem){.figs{grid-template-columns:1fr}.figs img{height:12rem}}
+
+/* ---------- map ---------- */
+.mapbox{background:var(--surface);border:1px solid var(--hair2);border-radius:6px;padding:.9rem;margin-top:.9rem}
+.mapbox svg{width:100%;height:auto;display:block}
+.mapcap{font-size:.78rem;color:var(--muted);margin:.5rem 0 0}
+.maplinks{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.7rem}
+
+footer{margin-top:3rem;padding-top:1.1rem;border-top:1px solid var(--hair);color:var(--muted);font-size:.79rem}
+footer p{margin:.35rem 0}
+@media (max-width:26rem){
+  .ev{grid-template-columns:3.2rem 1px 1fr;column-gap:.65rem}
+  dl.spec{grid-template-columns:1fr;gap:.12rem}
+  dl.spec dd{margin-bottom:.4rem}
+  .cutrow{grid-template-columns:1fr}
+}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Samto's Travelog · No.01</p>
+  <h1 class="site">오사카 <span class="accent">·</span> 고베<br>2026.09.21 – 09.25</h1>
+  <p class="stand">4박 5일 · 1인 · 배낭 하나 · 공유자전거. <b>실버위크 5연휴의 한복판</b>으로 들어가서, 평일이 되는 순간 살아나는 것들을 먹고 옵니다.</p>
+  <p class="phase"><span class="dot"></span>출발 전 · 안내서</p>
+  <p class="phaseline">이 주소는 여행 중엔 사진·메모가 쌓이는 기록으로, 귀국 후엔 공개 여행기로 이어집니다.</p>
+</header>
+
+<nav class="chips" aria-label="섹션 이동">
+  <a href="#overview">개요</a>
+  <a href="#map">지도</a>
+  <a href="#schedule">일정</a>
+  <a href="#meals">끼니표</a>
+  <a href="#guide">해설집</a>
+  <a href="#money">돈·실무</a>
+  <a href="#open">미해결</a>
+</nav>
+
+<!-- ================= 개요 ================= -->
+<section id="overview">
+  <h2 class="sec"><span class="no">01</span>개요</h2>
+  <p class="lede">닫힌 날을 먼저 지우고, 남은 자리에 배치했습니다. 9/19~23은 11년 만의 실버위크 5연휴 — 숙소·혼잡·휴무 변수의 근본 원인입니다.</p>
+
+  <div class="tblwrap"><table>
+    <thead><tr><th>날</th><th>권역</th><th>잠</th></tr></thead>
+    <tbody>
+      <tr><td class="num">9/21 월<br><span class="tag red">경로의 날</span></td><td>KIX → 고베 — 기타노 이진칸 · 메리켄파크 · 하버랜드 야경 · 이시다야</td><td>고베 미나토 휘테</td></tr>
+      <tr><td class="num">9/22 화<br><span class="tag red">국민의 휴일</span></td><td>아리마 온천 반나절 → 오사카 진입 → 오사카성</td><td>신사이바시 아티 인</td></tr>
+      <tr><td class="num">9/23 수<br><span class="tag red">추분의 날</span></td><td>오사카 남쪽 — 스미요시타이샤 · 신세카이</td><td>〃</td></tr>
+      <tr><td class="num">9/24 목<br><span class="tag ok">평일</span></td><td>도톤보리 · 천진바시스지 · 우라난바 스시 <b>(평일 런치가 살아나는 유일한 날)</b></td><td>〃</td></tr>
+      <tr><td class="num">9/25 금<br><span class="tag ok">평일</span></td><td>나카노시마 도서관 오전 → KIX 16:05 출발</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card">
+    <h3 class="sub" style="margin-top:0">전제</h3>
+    <ul style="margin:.3rem 0;padding-left:1.2rem;color:var(--ink2);font-size:.9rem">
+      <li>하루 <b>1끼 이벤트</b>(많아야 2끼) · 아침 <b>러닝 4~5km</b> · <b>작업 블록 2~3시간/일</b></li>
+      <li>이동은 <b>공유자전거 중심</b>(지하철 보조) · 잠자리·이동에서 아껴 <b>한 끼에 몰아주는</b> 배분</li>
+    </ul>
+  </div>
+
+  <h3 class="sub">결제 완료 (257,171원)</h3>
+  <div class="tblwrap"><table>
+    <tbody>
+      <tr><td>고베 숙소 미나토 휘테 (9/21)</td><td class="num">39,000원</td><td><span class="tag ok">결제완료</span></td></tr>
+      <tr><td>오사카 숙소 아티 인 신사이바시 (3박)</td><td class="num">196,809원</td><td><span class="tag warn">9/19 후지불 · 무료취소 9/21 00:00</span></td></tr>
+      <tr><td>아리마 클룩 세트권 (왕복버스+금탕·은탕)</td><td class="num">21,362원</td><td><span class="tag ok">결제완료</span></td></tr>
+      <tr><td>이시다야 좌석 9/21 20:00 · 스시 아마토 9/24 16:00</td><td class="num">현장결제</td><td><span class="tag ok">예약확정</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">현지 지출 추정 — 약 31,900엔 ≈ 29만원</h3>
+  <div class="tblwrap"><table>
+    <tbody>
+      <tr><td>식비 · 고베권 (이시다야 7,700 + 아카시야키 600)</td><td class="num">8,300엔</td></tr>
+      <tr><td>식비 · 오사카 (7끼 확정)</td><td class="num">12,500엔</td></tr>
+      <tr><td>입장 (오사카성 1,200 + 이진칸 1,550)</td><td class="num">2,750엔</td></tr>
+      <tr><td>이동 (리무진 2,000 · 자전거 · 전철 · 난카이)</td><td class="num">6,525엔</td></tr>
+      <tr><td>카페 · 작업 블록</td><td class="num">1,800엔</td></tr>
+      <tr><td style="color:var(--muted)">선택사항 (와나카 · 히데조 · 츠텐카쿠 전망대)</td><td class="num" style="color:var(--muted)">+최대 4,000엔</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ================= 지도 ================= -->
+<section id="map">
+  <h2 class="sec"><span class="no">02</span>지도</h2>
+  <p class="lede">개념도입니다(축척 아님). 정확한 길찾기는 각 포인트의 「구글지도」 버튼으로 — 폰에서 바로 구글지도 앱이 열립니다.</p>
+
+  <div class="mapbox">
+    <svg viewBox="0 0 380 320" role="img" aria-label="간사이 개념도 — 고베·아리마·오사카·간사이공항의 위치와 일자별 이동">
+      <!-- japan inset -->
+      <g transform="translate(268,8)">
+        <rect x="0" y="0" width="104" height="86" rx="6" fill="var(--sunk)" stroke="var(--hair)"/>
+        <path d="M14 62 Q 26 56 36 52 Q 50 46 58 40 Q 66 34 74 26 Q 82 18 92 14" fill="none" stroke="var(--muted)" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+        <path d="M10 70 Q 16 66 22 64" fill="none" stroke="var(--muted)" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+        <circle cx="52" cy="45" r="5" fill="var(--accent)"/>
+        <text x="52" y="76" text-anchor="middle" font-size="9" fill="var(--muted)" font-family="var(--sans)">간사이는 여기</text>
+      </g>
+      <!-- bay water -->
+      <path d="M 60 120 Q 110 132 150 160 Q 195 192 210 236 Q 216 254 214 272 L 60 272 Z"
+            fill="var(--water-bg)" stroke="none" opacity=".85"/>
+      <text x="118" y="225" font-size="10" fill="var(--water)" opacity=".8" font-family="var(--sans)">오사카만</text>
+      <!-- mountains near arima -->
+      <path d="M 52 74 l 10 -14 l 10 14 Z M 74 74 l 10 -14 l 10 14 Z" fill="var(--sunk)" stroke="var(--hair)"/>
+      <!-- routes -->
+      <path d="M 196 258 Q 120 220 78 128" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="6 4"/>
+      <path d="M 78 118 Q 70 92 76 80" fill="none" stroke="var(--gold)" stroke-width="2.5"/>
+      <path d="M 84 80 Q 96 96 86 118" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-dasharray="2 3"/>
+      <path d="M 88 124 Q 170 108 252 116" fill="none" stroke="var(--gold)" stroke-width="2.5"/>
+      <path d="M 262 124 Q 246 196 208 252" fill="none" stroke="var(--water)" stroke-width="2.5" stroke-dasharray="6 4"/>
+      <!-- nodes -->
+      <circle cx="80" cy="122" r="7" fill="var(--accent)"/>
+      <text x="66" y="146" font-size="12" font-weight="700" fill="var(--ink)" font-family="var(--sans)">고베</text>
+      <text x="40" y="160" font-size="9" fill="var(--muted)" font-family="var(--sans)">산노미야 · 9/21 잠</text>
+      <circle cx="80" cy="76" r="6" fill="var(--gold)"/>
+      <text x="94" y="72" font-size="11" font-weight="700" fill="var(--ink)" font-family="var(--sans)">아리마온천</text>
+      <text x="94" y="84" font-size="9" fill="var(--muted)" font-family="var(--sans)">9/22 반나절 · 버스 30분</text>
+      <circle cx="258" cy="120" r="8" fill="var(--accent)"/>
+      <text x="272" y="118" font-size="12" font-weight="700" fill="var(--ink)" font-family="var(--sans)">오사카</text>
+      <text x="272" y="131" font-size="9" fill="var(--muted)" font-family="var(--sans)">신사이바시 · 9/22–25 잠</text>
+      <circle cx="202" cy="256" r="6" fill="var(--water)"/>
+      <text x="214" y="260" font-size="11" font-weight="700" fill="var(--ink)" font-family="var(--sans)">KIX</text>
+      <text x="214" y="272" font-size="9" fill="var(--muted)" font-family="var(--sans)">9/21 입국 · 9/25 16:05 출국</text>
+      <!-- legend -->
+      <g transform="translate(14,286)" font-family="var(--sans)">
+        <line x1="0" y1="0" x2="22" y2="0" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="6 4"/>
+        <text x="27" y="4" font-size="9" fill="var(--muted)">9/21 리무진버스</text>
+        <line x1="112" y1="0" x2="134" y2="0" stroke="var(--gold)" stroke-width="2.5"/>
+        <text x="139" y="4" font-size="9" fill="var(--muted)">9/22 아리마↔산노미야→오사카</text>
+        <line x1="272" y1="0" x2="294" y2="0" stroke="var(--water)" stroke-width="2.5" stroke-dasharray="6 4"/>
+        <text x="299" y="4" font-size="9" fill="var(--muted)">9/25 난카이</text>
+      </g>
+    </svg>
+    <p class="mapcap">고베·오사카는 만(灣)을 사이에 두고 30km — JR 신쾌속 21분. 아리마는 고베 뒷산(롯코산) 너머 계곡에 있습니다.</p>
+    <div class="maplinks">
+      <a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=神戸市三宮" target="_blank" rel="noopener">고베 산노미야</a>
+      <a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=有馬温泉" target="_blank" rel="noopener">아리마온천</a>
+      <a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=心斎橋" target="_blank" rel="noopener">신사이바시</a>
+      <a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=関西国際空港" target="_blank" rel="noopener">간사이공항</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 일정 ================= -->
+<section id="schedule">
+  <h2 class="sec"><span class="no">03</span>일정</h2>
+  <p class="lede">주홍 점 = 시간을 놓치면 되돌릴 수 없는 것 · 청록 점 = 러닝. 포인트명 옆 「해설」을 누르면 해설집으로 내려갑니다.</p>
+
+  <!-- 9/21 -->
+  <div class="day">
+    <div class="dayhd"><span class="d">9/21 월 — 도착과 야경</span><span class="w">敬老の日 · 고베</span></div>
+    <div class="tl">
+      <div class="ev"><div class="t">13:10</div><div class="rail"></div><div class="body">
+        <p class="h">KIX 착륙 (Peach MM736)</p><p class="s">배낭 하나 — 수하물 대기 없음</p></div></div>
+      <div class="ev"><div class="t">14:00</div><div class="rail"></div><div class="body">
+        <p class="h">리무진버스 → 산노미야 <span class="tag gold">약 2,000엔</span></p><p class="s">T1 1층 · 직행 1시간 5분 · 20~30분 간격</p></div></div>
+      <div class="ev"><div class="t">15:15</div><div class="rail"></div><div class="body">
+        <p class="h">미나토 휘테 — 짐 맡김 <span class="tag ok">결제완료</span></p>
+        <p class="s">JR산노미야 <b>동쪽출구</b> 도보 4분 · <b>현금 전용 시설</b></p>
+        <div class="links"><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=神戸市中央区二宮町4-6-3" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev key"><div class="t">15:20</div><div class="rail"></div><div class="body">
+        <p class="h">아리마 세트권 실물 교환</p>
+        <p class="s">미인트 고베 JR버스 카운터 · <b>가는 편 3호 09:50 / 복편 12호 13:50 편명 지정</b></p></div></div>
+      <div class="alert red"><b>여기서 두 가지를 한 번에:</b> ① 버스 좌석은 교환 시점 확정 — 만석이면 다음 편. 「5호 10:15 당일 변경 가능한지」도 질문. ② <b>내일 킨노유가 영업하는지</b> 겸사 확인 (휴장이어도 플랜 확정 — 긴노유 직행)</div>
+      <div class="ev"><div class="t">15:35</div><div class="rail"></div><div class="body">
+        <p class="h">코베린 자전거 대여 <span class="tag gold">30분 165엔</span></p><p class="s">도코모 바이크셰어 앱 가입·결제 완료 · <b>세워둬도 과금</b> — 오래 머물 땐 반납</p></div></div>
+      <div class="ev"><div class="t">15:50</div><div class="rail"></div><div class="body">
+        <p class="h">풍향계의 집 <span class="tag gold">500엔</span></p><p class="s">입관 마감 16:45 · 2025-07 내진공사 후 재개관</p>
+        <div class="links"><a class="glink" href="#g-kitano">해설 ↓</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=風見鶏の館" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev"><div class="t">16:35</div><div class="rail"></div><div class="body">
+        <p class="h">우로코노이에 · 전망갤러리 <span class="tag gold">1,050엔</span></p><p class="s">9월 18:00까지 · 두 관 공통권 없음(운영 주체 다름) — 합 1,550엔</p>
+        <div class="links"><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=うろこの家" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev"><div class="t">17:40</div><div class="rail"></div><div class="body">
+        <p class="h">메리켄파크</p><p class="s">지진 메모리얼파크 → BE KOBE → 포트타워 · 남하 자전거 15분 내리막</p>
+        <div class="links"><a class="glink" href="#g-meriken">해설 ↓</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=メリケンパーク" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev key"><div class="t">18:05</div><div class="rail"></div><div class="body">
+        <p class="h">일몰</p><p class="s">붉은벽돌창고 산책로 따라 모자이크 방향 — 매직아워 18:30~19:00</p></div></div>
+      <div class="ev"><div class="t">18:15</div><div class="rail"></div><div class="body">
+        <p class="h">하버랜드 모자이크 2층 데크 <span class="tag gray">무료</span></p><p class="s">포트타워 + 해양박물관 + 관람차 한 프레임</p>
+        <div class="links"><a class="glink" href="#g-harbor">해설 ↓</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=神戸ハーバーランドumieモザイク" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev key"><div class="t">19:45</div><div class="rail"></div><div class="body">
+        <p class="h">자전거 반납 — 마시기 전에</p><p class="s">일본은 자전거 음주운전도 단속 대상 · 앱에서 포트 잔여 확인</p></div></div>
+      <div class="ev key"><div class="t">20:00</div><div class="rail"></div><div class="body">
+        <p class="h">炭焼肉 石田屋。本店 <span class="tag ok">예약완료</span></p>
+        <p class="s">JR산노미야 <b>서쪽출구</b> 도보 2분 (숙소는 동쪽 — 도보 8~10분) · 코스는 끼니표 참조</p>
+        <div class="links"><a class="glink" href="#meals">끼니표 ↑</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=炭焼肉石田屋本店+神戸" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev"><div class="t">22:00</div><div class="rail"></div><div class="body">
+        <p class="h">숙소 1층 바</p><p class="s">L.O. 23:30 · 주인장·현지인이 섞이는 자리</p></div></div>
+    </div>
+  </div>
+
+  <!-- 9/22 -->
+  <div class="day">
+    <div class="dayhd"><span class="d">9/22 화 — 아리마, 그리고 오사카로</span><span class="w">国民の休日</span></div>
+    <div class="tl">
+      <div class="ev run"><div class="t">08:15</div><div class="rail"></div><div class="body">
+        <p class="h">러닝 — 고베 바다까지 <span class="tag water">약 5km</span></p><p class="s">숙소 → 플라워로드 남하 → 메리켄파크 → 하버랜드 → 복귀 · 전 구간 평지, 전날 밤 자전거로 지난 그 길</p></div></div>
+      <div class="ev"><div class="t">09:00</div><div class="rail"></div><div class="body">
+        <p class="h">샤워 → 09:30 체크아웃</p><p class="s">샤워 공용 — 밀리면 버스 5호 10:15로 변경. 어차피 3시간 뒤 온천</p></div></div>
+      <div class="ev key"><div class="t">09:50</div><div class="rail"></div><div class="body">
+        <p class="h">버스 3호 → 아리마 <span class="tag ok">세트권</span></p><p class="s">10:20 도착</p></div></div>
+      <div class="ev"><div class="t">10:20</div><div class="rail"></div><div class="body">
+        <p class="h">킨노유 — 금탕 <span class="tag ok">세트권</span></p><p class="s">철분·염분의 갈색 탁탕 · 오전이 가장 한산 (피크는 17시 이후)</p>
+        <div class="links"><a class="glink" href="#g-arima">해설 ↓</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=有馬温泉金の湯" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="alert"><b>✅ 확정 플랜:</b> 9/22는 제4화요일 = 킨노유 정기휴일에 해당하지만(「축일 영업」 예외 적용 가능성 있음), <b>열려 있으면 입탕 · 휴장이면 긴노유 직행.</b> 휴장 시 킨노유 앞 무료 족탕(태합의 족탕)으로 붉은 물만 체험하고, 세트권 처리는 현장 문의</div>
+      <div class="ev"><div class="t">11:25</div><div class="rail"></div><div class="body">
+        <p class="h">有馬十八番 — 아카시야키 <span class="tag gold">600엔</span></p><p class="s">타코야키의 원형 — 소스가 아니라 <b>따뜻한 다시에 적셔</b> 먹습니다 · 카운터석 · 목요일 휴무라 화요일 영업</p>
+        <div class="links"><a class="glink" href="#meals">끼니표 ↑</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=有馬十八番" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev"><div class="t">12:30</div><div class="rail"></div><div class="body">
+        <p class="h">긴노유 — 은탕 <span class="tag ok">세트권 · 9/22 영업 확정</span></p><p class="s">무색 탄산·라듐천 · 가는 길 유모토자카에서 탄산센베</p>
+        <div class="links"><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=有馬温泉銀の湯" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev key"><div class="t">13:50</div><div class="rail"></div><div class="body">
+        <p class="h">복편 버스 12호 → 산노미야 <span class="tag ok">세트권</span></p><p class="s">14:20 도착 · 13:40에는 정류장에. 아리마→오사카 직행버스는 운휴 중 — 이 길이 유일</p></div></div>
+      <div class="ev"><div class="t">14:35</div><div class="rail"></div><div class="body">
+        <p class="h">JR 신쾌속 + 미도스지선 <span class="tag gold">660엔</span></p><p class="s">산노미야 → (21분) → 오사카 → 신사이바시</p></div></div>
+      <div class="ev"><div class="t">15:15</div><div class="rail"></div><div class="body">
+        <p class="h">아티 인 신사이바시 체크인 <span class="tag ok">결제완료</span></p><p class="s">3박 · 도톤보리 도보 5분</p>
+        <div class="links"><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=アルティイン心斎橋" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev key"><div class="t">16:10</div><div class="rail"></div><div class="body">
+        <p class="h">오사카성 — 천수각 + 이시가키관 <span class="tag gold">1,200엔</span></p>
+        <p class="s"><b>🚨 최종입관 17:30</b> · 관람 후 서쪽 해자 일몰 · 연휴 마지막 축일이라 혼잡 — 웹티켓 권장</p>
+        <div class="links"><a class="glink" href="#g-castle">해설 ↓</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=大阪城天守閣" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev key"><div class="t">18:00</div><div class="rail"></div><div class="body">
+        <p class="h">中華そば うえまち <span class="tag warn">현금 전용</span></p>
+        <p class="s">성에서 자전거 8분 · 예약 불가 · 재료 소진 시 美津の(도톤보리, 연중무휴)로 대피</p>
+        <div class="links"><a class="glink" href="#meals">끼니표 ↑</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=中華そばうえまち" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev"><div class="t">20:00</div><div class="rail"></div><div class="body">
+        <p class="h">(선택) 와나카 타코야키 <span class="tag gray">500엔</span></p><p class="s">점심 아카시야키와 문어 중복 — 건너뛰어도 됨</p></div></div>
+    </div>
+  </div>
+
+  <!-- 9/23 -->
+  <div class="day">
+    <div class="dayhd"><span class="d">9/23 수 — 오사카 남쪽</span><span class="w">秋分の日</span></div>
+    <div class="tl">
+      <div class="ev run"><div class="t">아침</div><div class="rail"></div><div class="body">
+        <p class="h">러닝 — 우츠보 공원 <span class="tag water">약 4.3km</span></p>
+        <p class="s">숙소 → 요츠바시스지 북상 편도 1.7km → 공원 1바퀴 0.9km → 복귀 (5km 원하면 2바퀴) · 오사카성 왕복 9km는 폐기 — 성은 어제 저녁에 봤습니다</p>
+        <div class="links"><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=靱公園" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev"><div class="t">12:00</div><div class="rail"></div><div class="body">
+        <p class="h">恵美須屋 카스우동 <span class="tag gold">~1,000엔</span></p><p class="s">에비스초역 3번출구 앞 · 축일 영업 확인 · 닫혀 있으면 잔잔요코초 2호점(도보 3분)</p>
+        <div class="links"><a class="glink" href="#meals">끼니표 ↑</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=新世界かすうどん恵美須屋" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev key"><div class="t">오후</div><div class="rail"></div><div class="body">
+        <p class="h">스미요시타이샤 <span class="tag gray">무료</span></p>
+        <p class="s"><b>외주문 폐문 16:00</b> — 15시대 진입 권장 · 한카이 노면전차로 이동(신사와 세트인 쇼와 풍경)</p>
+        <div class="links"><a class="glink" href="#g-sumiyoshi">해설 ↓</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=住吉大社" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev"><div class="t">—</div><div class="rail"></div><div class="body">
+        <p class="h">신세카이 · 츠텐카쿠 + 작업 블록 2h</p><p class="s">잔잔요코초 · 빌리켄 · 전망대는 선택(1,500엔)</p>
+        <div class="links"><a class="glink" href="#g-shinsekai">해설 ↓</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=通天閣" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev key"><div class="t">17:30</div><div class="rail"></div><div class="body">
+        <p class="h">八重勝 쿠시카츠 <span class="tag gold">~2,000엔</span></p><p class="s">잔잔요코초 · 넷째 수요일이라 영업 · 소스 두 번 찍기 금지 — 양배추로 떠서</p>
+        <div class="links"><a class="glink" href="#meals">끼니표 ↑</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=八重勝+新世界" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev"><div class="t">20:00</div><div class="rail"></div><div class="body">
+        <p class="h">(선택) 魚屋ひでぞう 다치노미 <span class="tag gray">~2,000엔</span></p><p class="s">숙소 복귀 길(우라난바) · 만석이면 패스 — 그게 이 동네 방식</p></div></div>
+    </div>
+  </div>
+
+  <!-- 9/24 -->
+  <div class="day">
+    <div class="dayhd"><span class="d">9/24 목 — 남 → 북 → 남</span><span class="w">유일한 평일 · 스시 16:00 기준 재배치</span></div>
+    <div class="tl">
+      <div class="ev run"><div class="t">아침</div><div class="rail"></div><div class="body">
+        <p class="h">러닝 — 나카노시마 <span class="tag water">약 4.6km</span></p>
+        <p class="s">미도스지 북상 → 요도야바시 → 나카노시마 공원 장미원 반환 · 도서관·공회당 앞을 지납니다</p>
+        <div class="links"><a class="glink" href="#g-nakanoshima">해설 ↓</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=中之島公園" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev key"><div class="t">11:00</div><div class="rail"></div><div class="body">
+        <p class="h">美津の 오코노미야키 — 오픈런 <span class="tag gold">1,730엔</span></p>
+        <p class="s">10:40 도착 (도보 10분) · 저녁 20명 줄을 오픈런으로 회피</p>
+        <div class="links"><a class="glink" href="#meals">끼니표 ↑</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=美津の+道頓堀" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev"><div class="t">12:15</div><div class="rail"></div><div class="body">
+        <p class="h">사카이스지선 — 닛폰바시 → 미나미모리마치</p><p class="s">약 6분 · 환승 없음</p></div></div>
+      <div class="ev"><div class="t">12:45</div><div class="rail"></div><div class="body">
+        <p class="h">천진바시스지 상점가 — 남→북 2.6km 종주</p>
+        <p class="s">中村屋 고로케 70엔(<b>평일만</b> — 오늘이 그 평일) · 중간 카페 휴식 · <b>16:00 스시 대비 배 비우기</b> — 고로케 하나로 끝</p>
+        <div class="links"><a class="glink" href="#g-tenjinbashi">해설 ↓</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=天神橋筋商店街" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev"><div class="t">15:10</div><div class="rail"></div><div class="body">
+        <p class="h">사카이스지선 남하 → 우라난바 도보</p><p class="s">텐진바시스지로쿠초메 → 닛폰바시 약 10분 · 15:50 도착</p></div></div>
+      <div class="ev key"><div class="t">16:00</div><div class="rail"></div><div class="body">
+        <p class="h">鮨 あまと — 얼리버드 오마카세 15관 <span class="tag ok">예약 H6FAQWVHY8</span></p>
+        <p class="s">6,000엔(정가 6,800) · 90분 · 음료 1잔 별도 · <b>무료취소 9/23 05:59 JST까지</b></p>
+        <div class="links"><a class="glink" href="#meals">끼니표 ↑</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=鮨あまと+裏難波" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev"><div class="t">17:30</div><div class="rail"></div><div class="body">
+        <p class="h">작업 블록 2~3h → 저녁 자유</p><p class="s">15관+디저트로 충분 · 출출하면 도톤보리 간식 or 히데조(도보 3분, 21:00 마감)</p>
+        <div class="links"><a class="glink" href="#g-dotonbori">도톤보리 해설 ↓</a></div></div></div>
+    </div>
+  </div>
+
+  <!-- 9/25 -->
+  <div class="day">
+    <div class="dayhd"><span class="d">9/25 금 — 도서관, 그리고 귀국</span><span class="w">KIX 16:05</span></div>
+    <div class="tl">
+      <div class="ev run"><div class="t">아침</div><div class="rail"></div><div class="body">
+        <p class="h">러닝 — 나카노시마 단축 <span class="tag water">약 4km</span></p><p class="s">출국일이라 짧게</p></div></div>
+      <div class="ev"><div class="t">08:30</div><div class="rail"></div><div class="body">
+        <p class="h">喫茶エリカ 모닝 <span class="tag gold">450엔</span></p><p class="s">7시 오픈 · 난바워크 지하 · 전석 흡연 가능 — 싫으면 南海パーラー</p>
+        <div class="links"><a class="glink" href="#meals">끼니표 ↑</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=喫茶エリカ+なんばウォーク" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev key"><div class="t">오전</div><div class="rail"></div><div class="body">
+        <p class="h">나카노시마 도서관 <span class="tag gray">무료</span></p>
+        <p class="s">일·축일 휴관이라 <b>오늘 오전이 유일 창구</b> (금 9:00~20:00 개관 확인) · 작업 블록은 1층 북카페 스모브렌</p>
+        <div class="links"><a class="glink" href="#g-nakanoshima">해설 ↓</a><a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=大阪府立中之島図書館" target="_blank" rel="noopener">구글지도</a></div></div></div>
+      <div class="ev"><div class="t">14:00</div><div class="rail"></div><div class="body">
+        <p class="h">난카이 → KIX <span class="tag gold">970엔</span></p><p class="s">난바에서 공항급행 약 45분</p></div></div>
+      <div class="ev key"><div class="t">16:05</div><div class="rail"></div><div class="body">
+        <p class="h">KIX 출발</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 끼니표 ================= -->
+<section id="meals">
+  <h2 class="sec"><span class="no">04</span>끼니표</h2>
+  <p class="lede">끼니 전부 확정 + 예약 완료. 가게마다 「무슨 음식인가」 → 왜 여기인가 → 값·시간·휴일 → 후기 양쪽 순서입니다. 2026-08-11 승인 형식(v4) 기준.</p>
+  {{MEALS}}
+</section>
+
+<!-- ================= 해설집 ================= -->
+<section id="guide">
+  <h2 class="sec"><span class="no">05</span>해설집</h2>
+  <p class="lede">가는 곳마다 위키백과를 뒤지는 대신, 여기서 끝냅니다. 각 편: 요약 → 역사 → 현대적 의미 → 경제·부동산 → 가서 볼 것 → 참고 미디어 → 지도. 참고사진 자리는 여행 후 현장 사진으로 갈아끼웁니다.</p>
+  {{GUIDE}}
+</section>
+
+<!-- ================= 돈·실무 ================= -->
+<section id="money">
+  <h2 class="sec"><span class="no">06</span>돈 · 실무</h2>
+  {{MONEY}}
+</section>
+
+<!-- ================= 미해결 ================= -->
+<section id="open">
+  <h2 class="sec"><span class="no">07</span>미해결 · 확인 못 한 것</h2>
+  {{OPEN}}
+</section>
+
+<footer>
+  <p><b>삼토의 Travelog</b> · 오사카·고베 2026.09 · 2026-08-12 빌드 v1 (출발 D-40)</p>
+  <p>같은 주소가 세 번 삽니다 — 출발 전 안내서 → 여행 중 기록(디스코드로 사진·메모 수집) → 귀국 후 공개 여행기.</p>
+  <p>가격·영업시간은 조사 시점 기준. 격자형 데이터(휴일·요금)는 공식 원문 대조를 거쳤고, 못 거친 항목은 「미해결」에 명시했습니다. 참고 사진·영상은 출처를 표기한 외부 링크입니다 (비상업 개인 기록).</p>
+</footer>
+
+</div>
