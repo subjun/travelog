@@ -9,6 +9,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 GUIDE_DIR = ROOT / "trips" / "2026-09_osaka-kobe" / "해설집"
 SITE = ROOT / "site"
+FIELD_DIR = ROOT / "trips" / "2026-09_osaka-kobe" / "현장"
+FIELD_PHOTO_DIR = FIELD_DIR / "사진"
+FIELD_LOG = FIELD_DIR / "기록.md"
+UNSORTED = "미분류"
+SIZE_WARN = 12 * 1024 * 1024  # 아티팩트 상한 16MB — 12MB 넘으면 경고
 
 # (파일 슬러그, 앵커 id, 번호, 일정 칩)
 CHAPTERS = [
@@ -95,6 +100,83 @@ def figure_html(slug: str) -> str:
         return ""
     single = " single" if len(items) == 1 else ""
     return f'<div class="figs{single}">' + "".join(items) + "</div>"
+
+
+def _field_photos() -> dict:
+    """현장/사진/MMDD-HHMM_<슬러그>_NN.jpg → {슬러그: [(스탬프, Path)]} (파일명순 = 시간순)."""
+    out: dict = {}
+    if not FIELD_PHOTO_DIR.exists():
+        return out
+    for f in sorted(FIELD_PHOTO_DIR.iterdir()):
+        if f.suffix.lower() != ".jpg":
+            continue
+        parts = f.stem.split("_")
+        if len(parts) != 3:
+            print(f"  ! 이름 규칙 밖의 현장 사진, 건너뜀: {f.name}")
+            continue
+        stamp, slug, _n = parts
+        out.setdefault(slug, []).append((stamp, f))
+    return out
+
+
+def _field_memos() -> dict:
+    """현장/기록.md 의 「## MM/DD HH:MM · <슬러그>」 블록 → {슬러그: [(시각, [본문줄])]}."""
+    out: dict = {}
+    if not FIELD_LOG.exists():
+        return out
+    cur = None
+    for raw in FIELD_LOG.read_text(encoding="utf-8").splitlines():
+        m = re.match(r"^## (\d\d/\d\d \d\d:\d\d) · (.+?)\s*$", raw)
+        if m:
+            cur = (m.group(1), [])
+            out.setdefault(m.group(2), []).append(cur)
+            continue
+        if cur is None:
+            continue                       # 파일 머리말
+        if raw.startswith("사진: "):        # 사진은 파일명 기준으로 따로 렌더
+            continue
+        if raw.strip():
+            cur[1].append(raw.strip())
+    return out
+
+
+def _stamp_label(stamp: str) -> str:
+    return f"{stamp[0:2]}/{stamp[2:4]} {stamp[5:7]}:{stamp[7:9]}" if len(stamp) == 9 else stamp
+
+
+def field_html(slug: str) -> str:
+    """해당 포인트의 현장 사진 + 현장 메모. 자료 0건이면 빈 문자열 (빈 껍데기 섹션 금지)."""
+    photos = _field_photos().get(slug, [])
+    memos = _field_memos().get(slug, [])
+    if not photos and not memos:
+        return ""
+    out = []
+    items = []
+    for stamp, f in photos:
+        b64 = base64.b64encode(f.read_bytes()).decode("ascii")
+        cap = _stamp_label(stamp)
+        items.append(
+            f'<figure><img src="data:image/jpeg;base64,{b64}" alt="현장 사진 {cap}" loading="lazy">'
+            f'<figcaption><span class="figtag">현장</span><b>{cap}</b></figcaption></figure>'
+        )
+    if items:
+        single = " single" if len(items) == 1 else ""
+        out.append(f'<div class="figs{single}">' + "".join(items) + "</div>")
+    for label, lines in memos:
+        body = "".join(f"<p>{inline(x)}</p>" for x in lines)
+        out.append(f'<blockquote><p><span class="figtag">현장 메모</span><b>{label}</b></p>{body}</blockquote>')
+    return "\n".join(out)
+
+
+def build_unsorted() -> str:
+    """포인트를 특정 못 한 자료 — 페이지 맨 끝에 모은다. 0건이면 섹션 자체를 내지 않는다."""
+    inner = field_html(UNSORTED)
+    if not inner:
+        return ""
+    return ('<section id="field-unsorted">\n'
+            '<h2 class="sec"><span class="no">08</span>미분류 기록</h2>\n'
+            '<p class="lede">포인트를 특정하지 못한 현장 사진·메모입니다. 확인되면 해당 편으로 옮깁니다.</p>\n'
+            f'<div class="chbody">\n{inner}\n</div>\n</section>')
 
 
 def inline(s: str) -> str:
@@ -195,7 +277,7 @@ def build_guide() -> str:
             f'<summary><span class="cno">{i:02d}</span>'
             f'<span class="ct">{title}</span>'
             f'<span class="cday">{day}</span></summary>\n'
-            f'<div class="chbody">\n{figure_html(slug)}\n{body}\n</div>\n</details>'
+            f'<div class="chbody">\n{figure_html(slug)}\n{field_html(slug)}\n{body}\n</div>\n</details>'
         )
     return "\n".join(parts)
 
@@ -206,10 +288,16 @@ def main():
             .replace("{{GUIDE}}", build_guide())
             .replace("{{MEALS}}", (SITE / "partials" / "meals.html").read_text(encoding="utf-8"))
             .replace("{{MONEY}}", (SITE / "partials" / "money.html").read_text(encoding="utf-8"))
-            .replace("{{OPEN}}", (SITE / "partials" / "open.html").read_text(encoding="utf-8")))
+            .replace("{{OPEN}}", (SITE / "partials" / "open.html").read_text(encoding="utf-8"))
+            .replace("{{FIELD_UNSORTED}}", build_unsorted()))
     out = SITE / "index.html"
     out.write_text(html, encoding="utf-8")
-    print(f"built: {out} ({len(html):,} chars)")
+    nbytes = len(html.encode("utf-8"))
+    print(f"built: {out} ({len(html):,} chars / {nbytes:,} bytes = {nbytes / 1024 / 1024:.2f} MB)")
+    if nbytes > SIZE_WARN:
+        print(f"⚠️  용량 경고: {nbytes / 1024 / 1024:.2f} MB — 아티팩트 상한 16MB에 근접했다.")
+        print("   대응: tools/ingest.py 의 MAX_EDGE·JPEG_Q 를 낮춰 현장/사진/ 을 재생성한 뒤 재빌드.")
+        print("   (자동 삭제하지 않는다 — 무엇을 깎을지는 원장님 판단)")
 
 
 if __name__ == "__main__":
