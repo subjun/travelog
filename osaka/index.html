@@ -127,6 +127,15 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
   border-top:1px solid var(--jade); padding:12px 18px; display:flex; gap:14px; align-items:center;
   flex-wrap:wrap; box-shadow:0 -2px 14px rgba(0,0,0,.08)}
 .bar .inner{max-width:940px; margin:0 auto; width:100%; display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+/* 🔴 모바일에서 고정 바가 화면의 22%(176px)를 먹고 본문 56px 을 가렸다 (2026-09-08 실측).
+   안내문을 접고 버튼을 촘촘히 해서 높이를 줄인다. 남는 어긋남은 JS 가 여백으로 맞춘다. */
+@media (max-width:560px){
+  .bar{padding:9px 14px}
+  .bar .inner{gap:8px}
+  .bar .msg{display:none}   /* 안내문은 넓은 화면에서만 */
+  .btn,.gosub{padding:8px 12px; font-size:12.5px}
+  .bar .barcnt{gap:10px}
+}
 .cnt{font-family:"IBM Plex Mono",monospace; font-size:13.5px}
 .cnt b{font-size:20px; color:var(--jade-ink)}
 .btn{font-family:inherit; font-size:13.5px; font-weight:500; color:#fff; background:var(--jade);
@@ -203,7 +212,10 @@ footer{margin-top:44px; padding-top:18px; border-top:1px solid var(--line); font
   font-family:"Gowun Batang",serif; border-left:2px solid var(--jade); padding-left:10px}
 .nums{display:flex; gap:6px 16px; flex-wrap:wrap; margin-top:10px; font-size:12.5px; color:var(--ink-2);
   font-family:"IBM Plex Mono",monospace}
-.nums span{display:inline-flex; align-items:center; gap:5px; white-space:nowrap}
+/* 🔴 nowrap 이면 긴 값이 모바일 화면 밖으로 나간다 — 375px 에서 최대 473px 까지 삐져나갔다 (2026-09-08) */
+.nums span{display:inline-flex; align-items:flex-start; gap:5px; min-width:0; max-width:100%;
+  white-space:normal; overflow-wrap:anywhere}
+.nums i{flex:none}
 .nums i{font-style:normal; opacity:.75}
 .cover{background:var(--sunken)}
 .cover figure{margin:0; display:flex; flex-direction:column}
@@ -474,7 +486,7 @@ blockquote.qb{border-left-color:var(--brick)}
 .escard:hover .ecat{background:var(--jade-ink)}
 .escard .ecat:empty{display:none}
 </style>
-<style>.submit-only{display:none!important}</style></head>
+<style>.submit-only{display:none!important}/* 고정 바를 숨겼으니 그만큼의 하단 여백도 줄인다 */.wrap{padding-bottom:40px}</style></head>
 <body>
 <div class="wrap">
 
@@ -482,7 +494,7 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="eyebrow">삼토의 Travelog · 사전조사</div>
   <h1>오사카·고베</h1>
   <p class="sub">2026년 9월 21일 ~ 25일 · 4박5일 · 1인</p>
-  <a class="langsw" href="zh/">中文版 ↗</a>
+  
   <div class="stat">
     <span>장소 <b>26곳</b></span>
     <span>계획에 들어간 곳 <b>12곳</b></span>
@@ -505,7 +517,7 @@ blockquote.qb{border-left-color:var(--brick)}
 <section class="plan" id="plan">
   <div class="sec-head"><h2>여행계획</h2><span class="sec-note">예약이 끝난 4박5일</span></div>
   <p class="planlede">🔴 <b>확정 일정</b>입니다. 2026-09-08 재조사에서 값·영업시간 정정 6건과 일정 오류 1건(일몰과 라멘 시각이 양립 불가)을 잡아 반영했습니다. 이번에 <b>안 가기로 한 것</b>은 지우지 않고 「다음 기회」 카드로 남겨 뒀습니다 — 왜 안 갔는지가 카드마다 적혀 있어 다음 오사카 여행에서 바로 쓸 수 있습니다.</p>
-  <div class="corebox"><b>이 여행의 뼈대</b><p>아래 14가지가 이 계획의 축입니다. 날짜나 영업시간에 묶여 있어서 순서를 바꾸기 어려운 것들입니다.</p><ul><li>🔴 아리마 온천 금탕·은탕 (9/22·세트권 결제완료)</li><li>🔴 스시 아마토 얼리버드 15관 (9/24 16:00·예약확정)</li><li>🔴 이시다야 고베규 (9/21 20:00·예약확정)</li><li>기타노 이진칸 (9/21·입관 마감이 하루를 지배한다)</li><li>오사카성 천수각 + 이시가키관 (9/22·최종입관 17:30)</li><li>중화소바 우에마치 (9/22·백명점+빕구르망 동시 수상 유일)</li><li>천진바시스지 종주 + 中村屋 고로케 (9/24·평일만)</li><li>美津の 오코노미야키 오픈런 (9/24 11:00)</li><li>야에카츠 쿠시카츠 (9/23·신세카이=발상지)</li><li>나카노시마 도서관 (9/25 오전·유일 창구)</li><li>아침 러닝 4~5km — 날마다</li><li>작업 블록 2~3시간 — 날마다</li></ul></div>
+  <div class="corebox"><b>이 여행의 뼈대</b><p>아래 12가지가 이 계획의 축입니다. 날짜나 영업시간에 묶여 있어서 순서를 바꾸기 어려운 것들입니다.</p><ul><li>🔴 아리마 온천 금탕·은탕 (9/22·세트권 결제완료)</li><li>🔴 스시 아마토 얼리버드 15관 (9/24 16:00·예약확정)</li><li>🔴 이시다야 고베규 (9/21 20:00·예약확정)</li><li>기타노 이진칸 (9/21·입관 마감이 하루를 지배한다)</li><li>오사카성 천수각 + 이시가키관 (9/22·최종입관 17:30)</li><li>중화소바 우에마치 (9/22·백명점+빕구르망 동시 수상 유일)</li><li>천진바시스지 종주 + 中村屋 고로케 (9/24·평일만)</li><li>美津の 오코노미야키 오픈런 (9/24 11:00)</li><li>야에카츠 쿠시카츠 (9/23·신세카이=발상지)</li><li>나카노시마 도서관 (9/25 오전·유일 창구)</li><li>아침 러닝 4~5km — 날마다</li><li>작업 블록 2~3시간 — 날마다</li></ul></div>
   <div class="ptabs"><button class="ptab on" data-plan="1"><b>1</b> 확정안</button></div>
   
 <section class="pane" data-plan="1">
@@ -519,7 +531,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <div class="pm gives"><b>덜 담는 것</b><p>4박5일 1인 여행에 다 넣을 수 없어서, 조사는 했지만 이번엔 빼기로 한 것들이 있습니다.<br>🔴 <b>버린 게 아니라 「다음 기회」 카드로 남겨 뒀습니다</b> — 사유까지 적어 뒀으니<br>다음 오사카 여행에서 그대로 꺼내 쓰시면 됩니다.<br><br>· <b>나라 · 교토</b> — 나라는 9/23 오전에 성립했지만 패스. 교토는 반나절로 안 쪼개집니다<br>· <b>고베 나다 사케 양조장</b> — 이진칸과 시각이 배타적입니다<br>· <b>공공도로 고카트</b> — 혼자면 재미의 절반이 사라집니다<br>· <b>전망대(하루카스·우메다)</b> · <b>츠텐카쿠 슬라이더</b> · <b>도톤보리 리버크루즈</b><br>· <b>에어비앤비 바 투어(★4.99·후기 2,289)</b> · <b>텐마 바 크롤</b> · <b>쿠킹 클래스</b> · <b>스모</b> · <b>히메지</b></p></div>
     <div class="pm"><b>이런 분에게</b><p>이미 정해진 일정을 현장에서 그대로 굴리는 것. 그리고 다음 오사카 여행의 재료를 함께 들고 다니는 것.</p></div>
   </div>
-  <label class="pchoose"><input type="radio" name="planpick" value="1 확정안">
+  <label class="pchoose submit-only"><input type="radio" name="planpick" value="1 확정안">
     <span>이 계획으로 간다</span></label>
   <div class="days">
 <article class="day">
@@ -578,12 +590,12 @@ blockquote.qb{border-left-color:var(--brick)}
 <section class="lede archive"><h3>이 목록은 「가는 곳」이자 「아카이브」입니다</h3><p>등급이 세 가지입니다. <b class="grade gmust">확정</b> 은 예약·결제가 끝나 못 바꾸는 것, <b class="grade gspare">이번 일정</b> 은 이번에 가는 곳, <b class="grade gtaste">다음 기회</b> 는 <b>조사는 했지만 이번엔 안 가는 곳</b>입니다.</p><p>🔴 마지막 것을 지우지 않고 남겨 둔 이유가 있습니다 — <b>왜 이번에 안 갔는지</b>를 카드마다 적어 뒀습니다. 다음에 오사카에 올 때 그 사유부터 읽으면 판단이 바로 섭니다. 나라·교토·나다 사케 양조장·고카트·전망대·리버크루즈·에어비앤비 바 투어가 여기 있습니다.</p><p class="src">근거 자료: 플랫폼 8곳 전수조사 <b>10,748건</b> (Klook 1,523 · KKday 6,345 · 마이리얼트립 1,772 · GetYourGuide 701 · Viator 387 · Airbnb 체험 20). ⚠️ 플랫폼 가격은 전부 표시가·변동입니다.</p></section>
 
 <div class="filters">
-  <div class="frow"><span class="flabel">판정</span><button class="fb fb-gmust" data-f="grade" data-v="확정">확정</button><button class="fb fb-gspare" data-f="grade" data-v="이번 일정">이번 일정</button><button class="fb fb-gtaste" data-f="grade" data-v="다음 기회">다음 기회</button></div>
+  <div class="frow"><span class="flabel">등급</span><button class="fb fb-gmust" data-f="grade" data-v="확정">확정</button><button class="fb fb-gspare" data-f="grade" data-v="이번 일정">이번 일정</button><button class="fb fb-gtaste" data-f="grade" data-v="다음 기회">다음 기회</button></div>
   <div class="frow"><span class="flabel">권역</span><button class="fb" data-f="zone" data-v="고베·기타노">고베·기타노</button><button class="fb" data-f="zone" data-v="고베·항구">고베·항구</button><button class="fb" data-f="zone" data-v="아리마">아리마</button><button class="fb" data-f="zone" data-v="오사카성">오사카성</button><button class="fb" data-f="zone" data-v="오사카 남부">오사카 남부</button><button class="fb" data-f="zone" data-v="오사카 북부">오사카 북부</button><button class="fb" data-f="zone" data-v="난바·도톤보리">난바·도톤보리</button><button class="fb" data-f="zone" data-v="나카노시마">나카노시마</button><button class="fb" data-f="zone" data-v="혼마치">혼마치</button><button class="fb" data-f="zone" data-v="난바">난바</button><button class="fb" data-f="zone" data-v="근교·나라">근교·나라</button><button class="fb" data-f="zone" data-v="근교·교토">근교·교토</button><button class="fb" data-f="zone" data-v="고베·나다">고베·나다</button><button class="fb" data-f="zone" data-v="텐노지">텐노지</button><button class="fb" data-f="zone" data-v="오사카 시내">오사카 시내</button><button class="fb" data-f="zone" data-v="근교·히메지">근교·히메지</button></div>
   <div class="frow"><span class="flabel">시간대</span><button class="fb" data-f="slot" data-v="dawn">새벽~10시</button><button class="fb" data-f="slot" data-v="morning">오전</button><button class="fb" data-f="slot" data-v="noon">점심</button><button class="fb" data-f="slot" data-v="after">오후</button><button class="fb" data-f="slot" data-v="eve">저녁</button><button class="fb" data-f="slot" data-v="night">밤</button></div>
   <div class="frow"><span class="flabel">보기</span>
-    <button class="fb newf" data-f="new" data-v="1">새로 추가 11</button>
-    <button class="fb" data-f="only" data-v="picked">고른 것만</button>
+    <button class="fb newf" data-f="new" data-v="1" style="display:none">새로 추가 0</button>
+    <button class="fb" data-f="only" data-v="picked" style="display:none">고른 것만</button>
     <button class="fb" data-f="reset" data-v="1">전체</button>
   </div>
 </div>
@@ -594,14 +606,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#B91C1C"></span>고베·기타노</h2>
     <span class="zn">2곳 · 01, 29</span>
   </div>
-  <div class="zmap" id="z63194" data-zone="고베·기타노"></div>
+  <div class="zmap" id="z20366" data-zone="고베·기타노"></div>
   
 <article class="place" id="p-kitano-ijinkan" data-slot="after" data-zone="고베·기타노" data-grade="확정" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="kitano-ijinkan" data-name="기타노 이진칸 — 풍향계의 집 · 우로코노이에" data-zone="고베·기타노"></label>
     <span class="rank">01</span>
     <div class="pn">
-      <h3>기타노 이진칸 — 풍향계의 집 · 우로코노이에<span class="grade gmust">확정</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>기타노 이진칸 — 풍향계의 집 · 우로코노이에<span class="grade gmust">확정</span><span class="mine" title="이번 일정에 있음">일정에 있음</span></h3>
       <p class="anchor">인천 개항장 거리인데, 언덕 위에 서양인 저택이 통째로 30채 남아 있고 그중 두 채를 돈 내고 들어가 보는 것</p>
       <div class="nums"><span><i>⏱</i>1시간 30분 (15:50~17:20)</span><span><i>💰</i><b>1,600엔</b> (500 + 1,100)</span><span><i>🚕</i>산노미야에서 자전거 오르막 10분</span><span><i>☀</i>오후 늦게 (역광이 풀린다)</span></div>
       <div class="meta"><span class="zone">고베·기타노</span><span class="slot">오후</span><span class="tag">9/21</span><span class="tag">건축</span><span class="tag">개항장</span><span class="tag">입장료</span></div>
@@ -703,14 +715,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0E7490"></span>고베·항구</h2>
     <span class="zn">3곳 · 02, 03, 30</span>
   </div>
-  <div class="zmap" id="z52430" data-zone="고베·항구"></div>
+  <div class="zmap" id="z26066" data-zone="고베·항구"></div>
   
 <article class="place" id="p-meriken-park" data-slot="eve" data-zone="고베·항구" data-grade="확정" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="meriken-park" data-name="메리켄파크 — 지진 메모리얼파크" data-zone="고베·항구"></label>
     <span class="rank">02</span>
     <div class="pn">
-      <h3>메리켄파크 — 지진 메모리얼파크<span class="grade gmust">확정</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>메리켄파크 — 지진 메모리얼파크<span class="grade gmust">확정</span><span class="mine" title="이번 일정에 있음">일정에 있음</span></h3>
       <p class="anchor">원래 부두였던 자리를 공원으로 만든 곳인데, 한쪽 귀퉁이를 <b>1995년 지진으로 무너진 그대로</b> 남겨 뒀다</p>
       <div class="nums"><span><i>⏱</i>25분 (17:40~18:05)</span><span><i>💰</i><b>무료</b></span><span><i>🚕</i>기타노에서 자전거 내리막 15분</span><span><i>☀</i>일몰 직전</span></div>
       <div class="meta"><span class="zone">고베·항구</span><span class="slot">저녁</span><span class="tag">9/21</span><span class="tag">무료</span><span class="tag">지진</span><span class="tag">일몰</span></div>
@@ -760,7 +772,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="harborland" data-name="하버랜드 모자이크 야경" data-zone="고베·항구"></label>
     <span class="rank">03</span>
     <div class="pn">
-      <h3>하버랜드 모자이크 야경<span class="grade gmust">확정</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>하버랜드 모자이크 야경<span class="grade gmust">확정</span><span class="mine" title="이번 일정에 있음">일정에 있음</span></h3>
       <p class="anchor">부산 더베이101 같은 항구 야경 자리인데, 관람차와 붉은 포트타워가 물에 같이 비친다</p>
       <div class="nums"><span><i>⏱</i>1시간 30분 (18:15~19:45)</span><span><i>💰</i><b>무료</b> (관람차 탑승은 별도)</span><span><i>🚕</i>메리켄파크에서 도보·자전거 5분</span><span><i>☀</i>점등 직후</span></div>
       <div class="meta"><span class="zone">고베·항구</span><span class="slot">밤</span><span class="tag">9/21</span><span class="tag">무료</span><span class="tag">야경</span></div>
@@ -862,14 +874,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#B45309"></span>아리마</h2>
     <span class="zn">1곳 · 04</span>
   </div>
-  <div class="zmap" id="z65316" data-zone="아리마"></div>
+  <div class="zmap" id="z36145" data-zone="아리마"></div>
   
 <article class="place" id="p-arima-onsen" data-slot="morning" data-zone="아리마" data-grade="확정" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="arima-onsen" data-name="아리마 온천 — 킨노유(금탕) · 긴노유(은탕)" data-zone="아리마"></label>
     <span class="rank">04</span>
     <div class="pn">
-      <h3>아리마 온천 — 킨노유(금탕) · 긴노유(은탕)<span class="grade gmust">확정</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>아리마 온천 — 킨노유(금탕) · 긴노유(은탕)<span class="grade gmust">확정</span><span class="mine" title="이번 일정에 있음">일정에 있음</span></h3>
       <p class="anchor">일본 3대 온천 중 가장 오래된 곳. 철분·염분 때문에 물이 <b>황갈색</b>인 금탕과, 무색 라듐·탄산천인 은탕이 걸어서 10분 거리에 따로 있다</p>
       <div class="nums"><span><i>⏱</i>3시간 30분 (10:20~13:50)</span><span><i>💰</i><b>클룩 세트권에 포함</b> (왕복버스+금탕+은탕 21,362원 기결제)</span><span><i>🚕</i>산노미야 버스터미널에서 30분</span><span><i>☀</i>오전 (가장 한산)</span></div>
       <div class="meta"><span class="zone">아리마</span><span class="slot">오전</span><span class="tag">9/22</span><span class="tag">온천</span><span class="tag">결제완료</span><span class="tag">🔴규정주의</span></div>
@@ -921,14 +933,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#7C3AED"></span>오사카성</h2>
     <span class="zn">1곳 · 05</span>
   </div>
-  <div class="zmap" id="z8886" data-zone="오사카성"></div>
+  <div class="zmap" id="z71238" data-zone="오사카성"></div>
   
 <article class="place" id="p-osaka-castle" data-slot="after" data-zone="오사카성" data-grade="확정" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="osaka-castle" data-name="오사카성 천수각 + 도요토미 이시가키관" data-zone="오사카성"></label>
     <span class="rank">05</span>
     <div class="pn">
-      <h3>오사카성 천수각 + 도요토미 이시가키관<span class="grade gmust">확정</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>오사카성 천수각 + 도요토미 이시가키관<span class="grade gmust">확정</span><span class="mine" title="이번 일정에 있음">일정에 있음</span></h3>
       <p class="anchor">경복궁 근정전이 아니라 <b>1931년에 시민 모금으로 지은 철근콘크리트 복원 천수각</b>. 그런데 그 복원 건물 자체가 이제 등록문화재다</p>
       <div class="nums"><span><i>⏱</i>1시간 40분 (16:10~17:50)</span><span><i>💰</i><b>1,200엔</b> ✅공식</span><span><i>🚕</i>신사이바시에서 자전거 20분</span><span><i>☀</i>늦은 오후</span></div>
       <div class="meta"><span class="zone">오사카성</span><span class="slot">오후</span><span class="tag">9/22</span><span class="tag">입장료</span><span class="tag">역사</span><span class="tag">🔴최종입관</span></div>
@@ -980,14 +992,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#C2410C"></span>오사카 남부</h2>
     <span class="zn">3곳 · 06, 07, 25</span>
   </div>
-  <div class="zmap" id="z28437" data-zone="오사카 남부"></div>
+  <div class="zmap" id="z11374" data-zone="오사카 남부"></div>
   
 <article class="place" id="p-sumiyoshi" data-slot="after" data-zone="오사카 남부" data-grade="이번 일정" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="sumiyoshi" data-name="스미요시타이샤" data-zone="오사카 남부"></label>
     <span class="rank">06</span>
     <div class="pn">
-      <h3>스미요시타이샤<span class="grade gspare">이번 일정</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>스미요시타이샤<span class="grade gspare">이번 일정</span><span class="mine" title="이번 일정에 있음">일정에 있음</span></h3>
       <p class="anchor">한국으로 치면 종묘급 오래된 신사인데, 관광 상품이 <b>9건밖에 없다</b> — 즉 관광객이 거의 안 간다</p>
       <div class="nums"><span><i>⏱</i>1시간~1시간 30분</span><span><i>💰</i><b>무료</b> (한카이 전차 편도 230엔)</span><span><i>🚕</i>신세카이에서 한카이 전차 20분</span><span><i>☀</i>오후</span></div>
       <div class="meta"><span class="zone">오사카 남부</span><span class="slot">오후</span><span class="tag">9/23</span><span class="tag">무료</span><span class="tag">신사</span><span class="tag">🟢관광객 적음</span></div>
@@ -1037,7 +1049,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="shinsekai" data-name="신세카이 · 츠텐카쿠 · 잔잔요코초" data-zone="오사카 남부"></label>
     <span class="rank">07</span>
     <div class="pn">
-      <h3>신세카이 · 츠텐카쿠 · 잔잔요코초<span class="grade gspare">이번 일정</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>신세카이 · 츠텐카쿠 · 잔잔요코초<span class="grade gspare">이번 일정</span><span class="mine" title="이번 일정에 있음">일정에 있음</span></h3>
       <p class="anchor">을지로 노가리 골목의 밀도에 라스베가스 간판을 얹은 동네. <b>쿠시카츠의 발상지</b>다</p>
       <div class="nums"><span><i>⏱</i>2시간 30분</span><span><i>💰</i>야에카츠 ~2,000엔 (츠텐카쿠 전망대는 별도 1,200엔)</span><span><i>🚕</i>에비스초역 바로</span><span><i>☀</i>저녁</span></div>
       <div class="meta"><span class="zone">오사카 남부</span><span class="slot">저녁</span><span class="tag">9/23</span><span class="tag">쿠시카츠</span><span class="tag">노포</span><span class="tag">간판</span></div>
@@ -1139,14 +1151,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#4D7C0F"></span>오사카 북부</h2>
     <span class="zn">2곳 · 08, 28</span>
   </div>
-  <div class="zmap" id="z26596" data-zone="오사카 북부"></div>
+  <div class="zmap" id="z92189" data-zone="오사카 북부"></div>
   
 <article class="place" id="p-tenjinbashisuji" data-slot="after" data-zone="오사카 북부" data-grade="이번 일정" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="tenjinbashisuji" data-name="천진바시스지 상점가 — 남→북 2.6km 종주" data-zone="오사카 북부"></label>
     <span class="rank">08</span>
     <div class="pn">
-      <h3>천진바시스지 상점가 — 남→북 2.6km 종주<span class="grade gspare">이번 일정</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>천진바시스지 상점가 — 남→북 2.6km 종주<span class="grade gspare">이번 일정</span><span class="mine" title="이번 일정에 있음">일정에 있음</span></h3>
       <p class="anchor"><b>일본에서 가장 긴 상점가</b>(2.6km·600점포·400년). 구로몬 시장이 관광객 값이라면 여기는 현지인 값이다</p>
       <div class="nums"><span><i>⏱</i>2시간 25분 (12:45~15:10)</span><span><i>💰</i>中村屋 고로케 <b>70엔</b> ✅ + 카페</span><span><i>🚕</i>미나미모리마치역 (닛폰바시에서 지하철 6분)</span><span><i>☀</i>평일 낮</span></div>
       <div class="meta"><span class="zone">오사카 북부</span><span class="slot">오후</span><span class="tag">9/24</span><span class="tag">시장</span><span class="tag">현지물가</span><span class="tag">🟢관광객 적음</span></div>
@@ -1248,14 +1260,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#BE185D"></span>난바·도톤보리</h2>
     <span class="zn">3곳 · 09, 23, 26</span>
   </div>
-  <div class="zmap" id="z97347" data-zone="난바·도톤보리"></div>
+  <div class="zmap" id="z71330" data-zone="난바·도톤보리"></div>
   
 <article class="place" id="p-dotonbori" data-slot="night" data-zone="난바·도톤보리" data-grade="이번 일정" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="dotonbori" data-name="도톤보리 · 우라난바" data-zone="난바·도톤보리"></label>
     <span class="rank">09</span>
     <div class="pn">
-      <h3>도톤보리 · 우라난바<span class="grade gspare">이번 일정</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>도톤보리 · 우라난바<span class="grade gspare">이번 일정</span><span class="mine" title="이번 일정에 있음">일정에 있음</span></h3>
       <p class="anchor">명동 한복판인데 강이 흐르고, 그 강을 향해 거대한 입체 간판이 몸을 내밀고 있다</p>
       <div class="nums"><span><i>⏱</i>상시 (숙소에서 도보 5분)</span><span><i>💰</i><b>무료</b> (먹는 값은 별도)</span><span><i>🚕</i>아티 인 신사이바시에서 도보 5분</span><span><i>☀</i>밤</span></div>
       <div class="meta"><span class="zone">난바·도톤보리</span><span class="slot">밤</span><span class="tag">9/22</span><span class="tag">9/24</span><span class="tag">간판</span><span class="tag">미식</span></div>
@@ -1407,14 +1419,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0369A1"></span>나카노시마</h2>
     <span class="zn">1곳 · 10</span>
   </div>
-  <div class="zmap" id="z27314" data-zone="나카노시마"></div>
+  <div class="zmap" id="z95458" data-zone="나카노시마"></div>
   
 <article class="place" id="p-nakanoshima" data-slot="morning" data-zone="나카노시마" data-grade="이번 일정" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="nakanoshima" data-name="오사카부립 나카노시마 도서관" data-zone="나카노시마"></label>
     <span class="rank">10</span>
     <div class="pn">
-      <h3>오사카부립 나카노시마 도서관<span class="grade gspare">이번 일정</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>오사카부립 나카노시마 도서관<span class="grade gspare">이번 일정</span><span class="mine" title="이번 일정에 있음">일정에 있음</span></h3>
       <p class="anchor">서울시립미술관 본관 같은 신고전주의 석조 건물인데, <b>아직도 도서관으로 쓰인다</b></p>
       <div class="nums"><span><i>⏱</i>1시간</span><span><i>💰</i><b>무료</b></span><span><i>🚕</i>숙소에서 지하철 10분 · 러닝 코스와 같은 방향</span><span><i>☀</i>오전</span></div>
       <div class="meta"><span class="zone">나카노시마</span><span class="slot">오전</span><span class="tag">9/25</span><span class="tag">무료</span><span class="tag">건축</span><span class="tag">🔴유일창구</span></div>
@@ -1466,14 +1478,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#15803D"></span>혼마치</h2>
     <span class="zn">1곳 · 11</span>
   </div>
-  <div class="zmap" id="z38500" data-zone="혼마치"></div>
+  <div class="zmap" id="z70430" data-zone="혼마치"></div>
   
 <article class="place" id="p-utsubo" data-slot="dawn" data-zone="혼마치" data-grade="이번 일정" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="utsubo" data-name="우츠보 공원 — 러닝 코스" data-zone="혼마치"></label>
     <span class="rank">11</span>
     <div class="pn">
-      <h3>우츠보 공원 — 러닝 코스<span class="grade gspare">이번 일정</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>우츠보 공원 — 러닝 코스<span class="grade gspare">이번 일정</span><span class="mine" title="이번 일정에 있음">일정에 있음</span></h3>
       <p class="anchor">여의도공원 같은 도심 직사각 공원. 옛 <b>미군 비행장</b> 자리라 길이 곧다</p>
       <div class="nums"><span><i>⏱</i>45분</span><span><i>💰</i><b>무료</b></span><span><i>🚕</i>숙소에서 요츠바시스지 북상 1.7km</span><span><i>☀</i>이른 아침</span></div>
       <div class="meta"><span class="zone">혼마치</span><span class="slot">새벽~10시</span><span class="tag">9/23</span><span class="tag">러닝</span><span class="tag">무료</span></div>
@@ -1485,7 +1497,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <summary>펼쳐서 판단하기</summary>
     <div class="body">
       <p class="what">전후 미군이 활주로로 쓰던 자리를 공원으로 되돌린 곳이다. 동서로 긴 직사각형이라 러닝 트랙처럼 쓰기 좋고, 장미원과 느티나무 길이 있다. 주변이 오피스 권역이라 이른 아침에는 조용하다.</p>
-      <div class="fits"><div class="fit yes"><b>✅ 이런 사람에게 맞다</b><p>아침 러닝이 습관인 사람.</p></div><div class="fit no"><b>❌ 이런 사람은 가지 마라</b><p>—</p></div></div>
+      <div class="fits"><div class="fit yes"><b>✅ 이런 사람에게 맞다</b><p>아침 러닝이 습관인 사람.</p></div><div class="fit no"><b>❌ 이런 사람은 가지 마라</b><p>아침에 못 일어나는 사람. 러닝 습관이 없으면 이 칸은 그냥 비워도 된다.</p></div></div>
       <div class="qh">후기 <span class="qnote">원문 인용이 아니라 여러 후기에서 반복되는 것을 요약한 것입니다.</span></div><div class="v vg"><span class="vm">칭찬</span>「도심인데 신호에 안 걸리고 달릴 수 있다」.</div><div class="v vb"><span class="vm">불만</span>「밤에는 조명이 어둡다」 — 우리는 아침이라 무관.</div>
       <div class="failbox"><b>⛔ 실패 조건</b><p>비가 오면 대체 코스가 필요하다. 나카노시마 코스(9/24·25)가 대안이다.</p></div>
       <div class="rows">
@@ -1525,14 +1537,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#9D174D"></span>난바</h2>
     <span class="zn">1곳 · 12</span>
   </div>
-  <div class="zmap" id="z25301" data-zone="난바"></div>
+  <div class="zmap" id="z30995" data-zone="난바"></div>
   
 <article class="place" id="p-bic-camera" data-slot="night" data-zone="난바" data-grade="이번 일정" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="bic-camera" data-name="빅카메라 난바점 — 맥미니 (기대치 하향)" data-zone="난바"></label>
     <span class="rank">12</span>
     <div class="pn">
-      <h3>빅카메라 난바점 — 맥미니 (기대치 하향)<span class="grade gspare">이번 일정</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>빅카메라 난바점 — 맥미니 (기대치 하향)<span class="grade gspare">이번 일정</span><span class="mine" title="이번 일정에 있음">일정에 있음</span></h3>
       <p class="anchor">용산 전자상가의 면세 버전. 다만 <b>살 물건이 지금 없을 가능성이 높다</b></p>
       <div class="nums"><span><i>⏱</i>50분</span><span><i>💰</i>Mac mini M4 16/256 면세가 ⚠️<b>122,545엔</b> (≈107만원)</span><span><i>🚕</i>에비스초에서 사카이스지선 2정거장</span><span><i>☀</i>저녁</span></div>
       <div class="meta"><span class="zone">난바</span><span class="slot">밤</span><span class="tag">9/23</span><span class="tag">쇼핑</span><span class="tag">면세</span><span class="tag">⚠️재고</span></div>
@@ -1544,7 +1556,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <summary>펼쳐서 판단하기</summary>
     <div class="body">
       <p class="what">난바 중심의 대형 가전 양판점이다. 면세 카운터가 있고 22시까지 연다. 목적은 Mac mini M4(16GB/256GB, 품번 <b>MU9D3J/A</b>) 면세 구매로, 한국 정가 1,349,000원 대비 약 28만원 절약이 계산의 출발점이었다.</p>
-      <div class="fits"><div class="fit yes"><b>✅ 이런 사람에게 맞다</b><p>—</p></div><div class="fit no"><b>❌ 이런 사람은 가지 마라</b><p>—</p></div></div>
+      <div class="fits"><div class="fit yes"><b>✅ 이런 사람에게 맞다</b><p>면세로 장비를 사려는 사람. 재고를 직접 눈으로 확인하고 결정하려는 사람.</p></div><div class="fit no"><b>❌ 이런 사람은 가지 마라</b><p>재고 없이 헛걸음할 가능성을 못 견디는 사람 — 지금이 정확히 그 상황이다.</p></div></div>
       <div class="qh">후기 <span class="qnote">원문 인용이 아니라 여러 후기에서 반복되는 것을 요약한 것입니다.</span></div><div class="v vg"><span class="vm">칭찬</span>「난바점은 면세 카운터 대기가 짧은 편」.</div><div class="v vb"><span class="vm">불만</span>「인기 모델은 재고가 없다」 — 지금 우리 상황이 정확히 그것이다.</div>
       <div class="failbox"><b>⛔ 실패 조건</b><p>🔴 <b>2026-08-23 원장님이 직접 조회해 빅카메라 3구성 전부 「판매종료(생산완료)」를 확인했다.</b> 애플 직영점은 판매 중이나 <b>면세가 안 된다</b>(2022 종료) — 즉 「면세되는 곳에 물건이 없다」. 메모리 대란으로 품절이 잦다. <b>방침은 「현지 확인 → 없으면 귀국 후 중고」로 이미 내려가 있다.</b></p></div>
       <div class="rows">
@@ -1584,7 +1596,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0F766E"></span>근교·나라</h2>
     <span class="zn">1곳 · 20</span>
   </div>
-  <div class="zmap" id="z76920" data-zone="근교·나라"></div>
+  <div class="zmap" id="z41377" data-zone="근교·나라"></div>
   
 <article class="place" id="p-nara" data-slot="dawn" data-zone="근교·나라" data-grade="다음 기회" data-new="">
   <div class="ph">
@@ -1643,7 +1655,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#6D28D9"></span>근교·교토</h2>
     <span class="zn">1곳 · 21</span>
   </div>
-  <div class="zmap" id="z54800" data-zone="근교·교토"></div>
+  <div class="zmap" id="z30785" data-zone="근교·교토"></div>
   
 <article class="place" id="p-kyoto" data-slot="morning" data-zone="근교·교토" data-grade="다음 기회" data-new="">
   <div class="ph">
@@ -1652,7 +1664,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <div class="pn">
       <h3>교토 — 아라시야마 · 기요미즈데라 · 후시미이나리<span class="grade gtaste">다음 기회</span></h3>
       <p class="anchor">오사카에서 30분인데, <b>하루로도 부족하다</b></p>
-      <div class="nums"><span><i>⏱</i>9~10시간 (반나절로 안 쪼개진다)</span><span><i>💰</i>⚠️투어 ₩57,946~ / 자유 교통 1,000엔대</span><span><i>🚕</i>오사카에서 JR·한큐 30분</span><span><i>☀</i>—</span></div>
+      <div class="nums"><span><i>⏱</i>9~10시간 (반나절로 안 쪼개진다)</span><span><i>💰</i>⚠️투어 ₩57,946~ / 자유 교통 1,000엔대</span><span><i>🚕</i>오사카에서 JR·한큐 30분</span><span><i>☀</i>🔴 이른 아침 (아라시야마는 8시 전이 다른 곳이다)</span></div>
       <div class="meta"><span class="zone">근교·교토</span><span class="slot">오전</span><span class="tag">다음기회</span><span class="tag">근교</span><span class="tag">🔴반나절 불가</span></div>
     </div>
   </div>
@@ -1702,7 +1714,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#166534"></span>고베·나다</h2>
     <span class="zn">1곳 · 22</span>
   </div>
-  <div class="zmap" id="z30044" data-zone="고베·나다"></div>
+  <div class="zmap" id="z24599" data-zone="고베·나다"></div>
   
 <article class="place" id="p-nada-sake" data-slot="morning" data-zone="고베·나다" data-grade="다음 기회" data-new="">
   <div class="ph">
@@ -1761,7 +1773,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#A16207"></span>텐노지</h2>
     <span class="zn">1곳 · 24</span>
   </div>
-  <div class="zmap" id="z66625" data-zone="텐노지"></div>
+  <div class="zmap" id="z82506" data-zone="텐노지"></div>
   
 <article class="place" id="p-harukas" data-slot="eve" data-zone="텐노지" data-grade="다음 기회" data-new="">
   <div class="ph">
@@ -1820,7 +1832,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#57534E"></span>오사카 시내</h2>
     <span class="zn">3곳 · 27, 31, 32</span>
   </div>
-  <div class="zmap" id="z11869" data-zone="오사카 시내"></div>
+  <div class="zmap" id="z65969" data-zone="오사카 시내"></div>
   
 <article class="place" id="p-airbnb-bar-tour" data-slot="night" data-zone="오사카 시내" data-grade="다음 기회" data-new="">
   <div class="ph">
@@ -1894,7 +1906,7 @@ blockquote.qb{border-left-color:var(--brick)}
       <div class="failbox"><b>⛔ 실패 조건</b><p>이번엔 <b>끼니와 정면 경합한다.</b> 4박5일에 확정 끼니가 9개고 그게 이 여행의 축이다. 1~2시간짜리 클래스를 넣으면 그 자리의 끼니가 날아간다.<br><br>→ 다음에 <b>일정이 헐거운 날</b>에 넣는 게 맞다.</p></div>
       <div class="rows">
         <div class="row "><span class="lb">왜 이 순위인가</span><span class="vl">원장님은 [[food-first-traveler]]다. 이 여행의 축이 미식인데 <b>「먹는 것」만 있고 「만드는 것」이 없었다.</b></span></div>
-        <div class="row "><span class="lb">가서 볼 것</span><span class="vl">—</span></div>
+        <div class="row "><span class="lb">가서 볼 것</span><span class="vl">반죽을 뒤집는 손목 각도, 다시를 뽑는 순서, 소스를 바르는 타이밍 — 먹기만 해서는 안 보이는 것들.</span></div>
         <div class="row "><span class="lb">언제</span><span class="vl">다음 여행.</span></div>
         <div class="row warn"><span class="lb">주의</span><span class="vl">🟡 값이 크게 갈린다 — 싼 쪽: 에어비앤비 젓가락 만들기 ⚠️₩13,111 · 말차 클래스 ⚠️₩30,592 · 떡치기 ⚠️₩42,829. 비싼 쪽: 미슐랭 셰프 일본요리 교실 ⚠️HK$2,486. <b>오코노미야키 클래스는 오사카에서만 되는 것</b>이라 우선순위가 높다.</span></div>
       </div>
@@ -1979,7 +1991,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#3730A3"></span>근교·히메지</h2>
     <span class="zn">1곳 · 33</span>
   </div>
-  <div class="zmap" id="z2942" data-zone="근교·히메지"></div>
+  <div class="zmap" id="z8103" data-zone="근교·히메지"></div>
   
 <article class="place" id="p-himeji" data-slot="morning" data-zone="근교·히메지" data-grade="다음 기회" data-new="">
   <div class="ph">
@@ -2040,11 +2052,11 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sec-head"><h2>먹거리</h2><span class="sec-note">확정 끼니 9 · 선택 2 · 다음 기회 5</span></div>
   <p class="planlede">🔴 <b>먹는 것이 이 여행의 축입니다.</b> 4박5일에 확정 끼니가 9개이고, 그 시각이 일정 전체를 정했습니다 — 中村屋 고로케는 <b>평일만</b>이라 9/24 하루뿐이고, 美津の는 예약이 안 돼 11:00 오픈런으로 줄을 피하며, 스시 아마토 16:00 예약 때문에 9/24 오후 동선이 남→북→남 왕복이 됐습니다. 🔴 정기휴일은 <b>원문을 인용하고 우리 날짜와 대조</b>했습니다 — 9/22가 「国民の休日」이지 법률상 「祝日」이 아니라는 점이 아리마 킨노유에 그대로 걸립니다.</p>
   <div class="filters">
-    <div class="frow"><span class="flabel">판정</span></div>
+    <div class="frow"><span class="flabel">등급</span><button class="fb fb-gmust" data-f="fgrade" data-v="확정">확정</button><button class="fb fb-gspare" data-f="fgrade" data-v="이번 일정">이번 일정</button><button class="fb fb-gtaste" data-f="fgrade" data-v="다음 기회">다음 기회</button></div>
     <div class="frow"><span class="flabel">장르</span><button class="fb" data-f="fgenre" data-v="고기·야키니쿠">고기·야키니쿠</button><button class="fb" data-f="fgenre" data-v="코나몬(가루음식)">코나몬(가루음식)</button><button class="fb" data-f="fgenre" data-v="라멘·면">라멘·면</button><button class="fb" data-f="fgenre" data-v="시장·노포">시장·노포</button><button class="fb" data-f="fgenre" data-v="스시·해산물">스시·해산물</button><button class="fb" data-f="fgenre" data-v="카페·모닝">카페·모닝</button><button class="fb" data-f="fgenre" data-v="다치노미·이자카야">다치노미·이자카야</button></div>
     <div class="frow"><span class="flabel">권역</span><button class="fb" data-f="fzone" data-v="고베·산노미야">고베·산노미야</button><button class="fb" data-f="fzone" data-v="아리마">아리마</button><button class="fb" data-f="fzone" data-v="오사카·우에마치">오사카·우에마치</button><button class="fb" data-f="fzone" data-v="오사카·신세카이">오사카·신세카이</button><button class="fb" data-f="fzone" data-v="오사카·도톤보리">오사카·도톤보리</button><button class="fb" data-f="fzone" data-v="오사카·천진바시스지">오사카·천진바시스지</button><button class="fb" data-f="fzone" data-v="오사카·우라난바">오사카·우라난바</button><button class="fb" data-f="fzone" data-v="오사카·난바">오사카·난바</button><button class="fb" data-f="fzone" data-v="오사카·혼마치">오사카·혼마치</button><button class="fb" data-f="fzone" data-v="오사카·남부">오사카·남부</button></div>
     <div class="frow"><span class="flabel">보기</span>
-      <button class="fb" data-f="fonly" data-v="picked">고른 것만</button>
+      <button class="fb" data-f="fonly" data-v="picked" style="display:none">고른 것만</button>
       <button class="fb" data-f="freset" data-v="1">전체</button>
     </div>
   </div>
@@ -2399,7 +2411,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <div class="pn">
       <h3>鮨 あまと — 얼리버드 오마카세 15관<span class="grade gmust">확정</span></h3>
       <p class="anchor">난바 스시 예약 1위 집의 <b>16시 얼리버드</b>. 정가 6,800엔짜리를 6,000엔에, 15관+디저트로 받는다</p>
-      <div class="nums"><span><i>💰</i><b>6,000엔</b> (정가 6,800 · 19품)</span><span><i>⏰</i>16:00 시작 · 약 70분</span><span><i>🚫</i>—</span></div>
+      <div class="nums"><span><i>💰</i><b>6,000엔</b> (정가 6,800 · 19품)</span><span><i>⏰</i>16:00 시작 · 약 70분</span><span><i>🚫</i>⚠️ 미확인 (예약제라 확인 불요)</span></div>
       <div class="meta"><span class="zone">오사카·우라난바</span><span class="slot">스시·해산물</span></div>
     </div>
   </div>
@@ -2555,7 +2567,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <summary>펼쳐서 판단하기</summary>
     <div class="body">
       <p class="what">타코야키 8개. 1~2층 80석이라 앉아서 먹을 수 있다.</p>
-      <div class="fits"><div class="fit yes"><b>✅ 이런 사람에게 맞다</b><p>타코야키를 꼭 먹어야겠는 사람.</p></div><div class="fit no"><b>❌ 이런 사람은 가지 마라</b><p>—</p></div></div>
+      <div class="fits"><div class="fit yes"><b>✅ 이런 사람에게 맞다</b><p>타코야키를 꼭 먹어야겠는 사람.</p></div><div class="fit no"><b>❌ 이런 사람은 가지 마라</b><p>문어를 싫어하는 사람. 9/22 점심에 아카시야키를 먹었다면 그날은 중복이다.</p></div></div>
       <div class="qh">후기 <span class="qnote">원문 인용이 아니라 여러 후기에서 반복되는 것을 요약한 것입니다.</span></div><div class="v vg"><span class="vm">칭찬</span>「관광지 한복판인데 값이 정직하다」.</div><div class="v vb"><span class="vm">불만</span>「어디나 비슷하다」는 말이 나오는 장르다.</div>
       <div class="failbox"><b>⛔ 실패 조건</b><p>🔴 <b>이번엔 건너뛰기를 권한다.</b> 9/22 점심에 아리마에서 <b>아카시야키</b>(문어 계란구이)를 먹는다. 같은 날 밤에 타코야키를 또 먹으면 <b>문어가 중복</b>이다.<br>→ 다음에 아카시야키 없는 일정이면 그때 넣으면 된다.</p></div>
       <div class="rows">
@@ -2604,7 +2616,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <summary>펼쳐서 판단하기</summary>
     <div class="body">
       <p class="what">하코즈시(箱寿司)는 나무 상자에 밥과 재료를 켜켜이 넣고 눌러 굳힌 뒤 잘라 내는 오사카식 스시다. 에도마에 니기리와는 계통이 완전히 다르다. 1841년 창업.</p>
-      <div class="fits"><div class="fit yes"><b>✅ 이런 사람에게 맞다</b><p>지역 고유 음식을 찾아 먹는 사람. 노포를 좋아하는 사람.</p></div><div class="fit no"><b>❌ 이런 사람은 가지 마라</b><p>—</p></div></div>
+      <div class="fits"><div class="fit yes"><b>✅ 이런 사람에게 맞다</b><p>지역 고유 음식을 찾아 먹는 사람. 노포를 좋아하는 사람.</p></div><div class="fit no"><b>❌ 이런 사람은 가지 마라</b><p>니기리 스시를 기대하는 사람 — 계통이 완전히 다르다. 저녁에 먹고 싶은 사람.</p></div></div>
       <div class="qh">후기 <span class="qnote">원문 인용이 아니라 여러 후기에서 반복되는 것을 요약한 것입니다.</span></div><div class="v vg"><span class="vm">칭찬</span>⚠️ 원문 미확보.</div><div class="v vb"><span class="vm">불만</span>⚠️ 원문 미확보.</div>
       <div class="failbox"><b>⛔ 실패 조건</b><p>🔴 <b>평일 낮에만 열고 토·일·축은 휴무</b>다. 이번 여행에서 평일 낮은 <b>9/24 하나뿐</b>인데, 그 자리에 이미 <b>美津の 오코노미야키(11:00)</b>와 <b>스시 아마토(16:00)</b>가 들어가 있다. 스시를 하루에 두 번 먹을 수도 없다.<br><br>→ 🟢 <b>다음에 평일이 이틀 이상인 일정이면 1순위 후보다.</b></p></div>
       <div class="rows">
@@ -2751,12 +2763,12 @@ blockquote.qb{border-left-color:var(--brick)}
     <summary>펼쳐서 판단하기</summary>
     <div class="body">
       <p class="what">해산물 꼬치, 게, 소고기 꼬치 등을 그 자리에서 구워 파는 형식.</p>
-      <div class="fits"><div class="fit yes"><b>✅ 이런 사람에게 맞다</b><p>—</p></div><div class="fit no"><b>❌ 이런 사람은 가지 마라</b><p>값을 보는 사람 전부.</p></div></div>
+      <div class="fits"><div class="fit yes"><b>✅ 이런 사람에게 맞다</b><p>시장의 활기 자체를 구경하고 싶은 사람. <b>사 먹지 않을 자신이 있는 사람.</b></p></div><div class="fit no"><b>❌ 이런 사람은 가지 마라</b><p>값을 보는 사람 전부.</p></div></div>
       <div class="qh">후기 <span class="qnote">원문 인용이 아니라 여러 후기에서 반복되는 것을 요약한 것입니다.</span></div><div class="v vg"><span class="vm">칭찬</span>「관광지로서 활기는 있다」 정도가 최선의 평가다.</div><div class="v vb"><span class="vm">불만</span>🔴 「게 다리 하나 5,000엔」·「현지인은 안 간다」가 반복된다.</div>
       <div class="failbox"><b>⛔ 실패 조건</b><p>🔴 <b>2026-08-09에 한 번 선택했다가 뒤집었다.</b> 대체지가 <b>천진바시스지</b>(일본 최장 2.6km · 600점포 · 400년 · 현지인 물가)다.<br><br>🟢 그리고 <b>2026-09-08 플랫폼 전수조사가 이 판단을 뒷받침했다</b> — Klook에 구로몬 시장 푸드투어 상품이 여러 건인데 <b>천진바시스지 상품은 4건뿐</b>이다. 관광 상품이 몰린 쪽과 안 몰린 쪽이 갈린다.</p></div>
       <div class="rows">
         <div class="row "><span class="lb">왜 이 순위인가</span><span class="vl">🔴 <b>이 카드는 「가지 마라」는 근거를 남기려고 만들었다.</b></span></div>
-        <div class="row "><span class="lb">주문할 것</span><span class="vl">—</span></div>
+        <div class="row "><span class="lb">주문할 것</span><span class="vl">🔴 <b>사 먹지 마라.</b> 지나가며 구경만 한다.</span></div>
         <div class="row "><span class="lb">지표</span><span class="vl">🔴 <b>봇타쿠리(바가지) 판정 — 2026-08-09 선택을 뒤집음</b></span></div>
         <div class="row "><span class="lb">결제</span><span class="vl">🟡</span></div>
         <div class="row "><span class="lb">이동</span><span class="vl">난바 (숙소 도보권)</span></div>
@@ -2800,12 +2812,12 @@ blockquote.qb{border-left-color:var(--brick)}
     <summary>펼쳐서 판단하기</summary>
     <div class="body">
       <p class="what">테우치 소바(손으로 뽑은 메밀국수).</p>
-      <div class="fits"><div class="fit yes"><b>✅ 이런 사람에게 맞다</b><p>소바를 좋아하는 사람. 고민가 분위기를 좋아하는 사람.</p></div><div class="fit no"><b>❌ 이런 사람은 가지 마라</b><p>—</p></div></div>
+      <div class="fits"><div class="fit yes"><b>✅ 이런 사람에게 맞다</b><p>소바를 좋아하는 사람. 고민가 분위기를 좋아하는 사람.</p></div><div class="fit no"><b>❌ 이런 사람은 가지 마라</b><p>줄을 못 기다리는 사람. 같은 날 저녁이 면 요리인 사람 — 우리가 그래서 뺐다.</p></div></div>
       <div class="qh">후기 <span class="qnote">원문 인용이 아니라 여러 후기에서 반복되는 것을 요약한 것입니다.</span></div><div class="v vg"><span class="vm">칭찬</span>⚠️ 원문 미확보.</div><div class="v vb"><span class="vm">불만</span>「런치 줄이 길고 조기 매진된다」.</div>
       <div class="failbox"><b>⛔ 실패 조건</b><p>🔴 <b>두 가지가 겹쳐 탈락했다.</b> ① 런치 줄과 조기 매진 리스크가 <b>1시간짜리 창구</b>(11:25~12:20)에 치명적이다. ② 같은 날 저녁이 <b>중화소바 우에마치</b>라 <b>면이 중복</b>된다.<br>→ 有馬十八番 아카시야키로 교체.</p></div>
       <div class="rows">
         <div class="row "><span class="lb">왜 이 순위인가</span><span class="vl">아리마 점심 후보 중 지표가 가장 강했다.</span></div>
-        <div class="row "><span class="lb">주문할 것</span><span class="vl">—</span></div>
+        <div class="row "><span class="lb">주문할 것</span><span class="vl">자루소바 또는 제철 메뉴 (현장 확인)</span></div>
         <div class="row "><span class="lb">지표</span><span class="vl">🟡 아리마 소바 명점</span></div>
         <div class="row "><span class="lb">결제</span><span class="vl">⚠️</span></div>
         <div class="row "><span class="lb">이동</span><span class="vl">아리마 온천 마을</span></div>
@@ -2944,10 +2956,10 @@ blockquote.qb{border-left-color:var(--brick)}
 <section class="tabpane hide" data-tab="stay">
 
 <section class="stay" id="stay">
-  <div class="sec-head"><h2>숙소 후보</h2><span class="sec-note">고르시면 그때 로그인해서 최종가를 대조합니다</span></div>
+  <div class="sec-head"><h2>숙소</h2><span class="sec-note">두 곳 다 결제가 끝났습니다</span></div>
   <p class="staylede">숙소는 <b>두 곳뿐이고 둘 다 결제가 끝났습니다.</b><br><br>· <b>9/21 하룻밤</b>은 고베입니다. 아리마 왕복이 산노미야 출발이라 여기서 자야 합니다<br>· <b>9/22~25 사흘</b>은 오사카 신사이바시 고정입니다. 3박 동안 짐을 안 옮깁니다<br><br>🔴 이 구조가 일정을 정했습니다 — 숙소를 한 번만 옮기기 때문에 9/22에 배낭을 메고 고베에서 오사카로 이동하는 한 구간만 감수하면 됩니다.</p>
-  <div class="staybox"><b>&#9200; 처음 날 심야 이동</b><p>🔴 <b>9/21 도착 동선은 분 단위로 짜여 있습니다.</b><br>KIX 13:10 착륙(Peach MM736) → 배낭 1개라 수하물 대기 없음 → <b>14:00 리무진버스</b>(T1 1층, 🔴 <b>2,200엔</b>, 직행 약 1시간 5분) → 산노미야 <b>15:05</b>.<br><br>그 뒤 15:15 숙소 짐 맡김 → <b>15:20 아리마 세트권 실물 교환</b>(미인트 고베 JR버스 카운터) → 15:35 자전거 대여 → 15:50 기타노 이진칸.<br><br>🔴 <b>이진칸 입관 마감(풍향계 16:45 / 우로코 17:45)이 이 하루 전체를 지배합니다.</b> 리무진이 한 편 밀리면 풍향계의 집이 먼저 날아갑니다.</p></div>
-  <div class="sec-head"><h2>후보 위치 한눈에 보기</h2></div>
+  <div class="staybox"><b>&#9200; 9/21 도착 동선</b><p>🔴 <b>9/21 도착 동선은 분 단위로 짜여 있습니다.</b><br>KIX 13:10 착륙(Peach MM736) → 배낭 1개라 수하물 대기 없음 → <b>14:00 리무진버스</b>(T1 1층, 🔴 <b>2,200엔</b>, 직행 약 1시간 5분) → 산노미야 <b>15:05</b>.<br><br>그 뒤 15:15 숙소 짐 맡김 → <b>15:20 아리마 세트권 실물 교환</b>(미인트 고베 JR버스 카운터) → 15:35 자전거 대여 → 15:50 기타노 이진칸.<br><br>🔴 <b>이진칸 입관 마감(풍향계 16:45 / 우로코 17:45)이 이 하루 전체를 지배합니다.</b> 리무진이 한 편 밀리면 풍향계의 집이 먼저 날아갑니다.</p></div>
+  <div class="sec-head"><h2>두 숙소 위치</h2></div>
   <div id="staymap"></div>
   <script>window.STAYPINS = [{"n": 1, "name": "고베 미나토 휘테", "lat": 34.6952, "lng": 135.1955, "zone": "산노미야 · JR 동출구 도보 4분", "rec": true}, {"n": 2, "name": "아티 인 신사이바시", "lat": 34.6725, "lng": 135.5013, "zone": "신사이바시 · 도톤보리 도보 5분", "rec": true}];</script>
   
@@ -2964,7 +2976,7 @@ blockquote.qb{border-left-color:var(--brick)}
   </div>
   <div class="snums">
     <span><i>&#11088;</i>게스트하우스</span>
-    <span><i>&#128077;</i>—</span>
+    <span><i>&#128077;</i>예약 확정</span>
     <span><i>&#128176;</i>₩39,000 / 1박 총액</span>
     <span><i>&#128205;</i>산노미야 · JR 동출구 도보 4분</span>
   </div>
@@ -2984,14 +2996,14 @@ blockquote.qb{border-left-color:var(--brick)}
   </div>
   <div class="snums">
     <span><i>&#11088;</i>비즈니스호텔</span>
-    <span><i>&#128077;</i>—</span>
+    <span><i>&#128077;</i>예약 확정</span>
     <span><i>&#128176;</i>₩196,809 / 3박 총액</span>
     <span><i>&#128205;</i>신사이바시 · 도톤보리 도보 5분</span>
   </div>
   <div class="sb"><b>3박 고정</b>이라 짐을 한 번도 안 옮깁니다. 그리고 위치가 이 여행의 절반을 해결합니다 — 도톤보리 도보 5분, 난바워크 지하 도보권, 우라난바(스시 아마토·히데조 다치노미)도 걸어서 닿습니다.<br><br>아침 러닝 두 코스(우츠보 공원 4.3km · 나카노시마 4.6km)가 모두 여기서 출발합니다.<div class="cau">🟡 <b>카약 경유 아고다 예약</b>입니다 — 2026-09-19 후지불(엔화 청구), <b>무료취소 9/21 00:00</b>까지.<br>🔴 결제가 엔화로 이루어지므로 카드 해외결제 수수료가 붙습니다. 결제 수단은 <b>토스뱅크 체크(수수료 전액 면제)</b>로 확정돼 있습니다.</div></div>
   <a class="sgo" href="https://www.google.com/maps/search/?api=1&amp;query=Arty+Inn+Shinsaibashi+Osaka" target="_blank" rel="noopener">예약 페이지에서 보기 ↗</a>
 </article>
-  <div class="unk"><b>아직 확인 못 한 것</b><ul><li>🔴 <b>미나토 휘테는 현금 전용이다.</b> 체크인 전에 현금을 확보해야 한다 — ATM 인출은 트래블로그×세븐뱅크 단독, 총 2~3만엔을 1~2만엔씩 분할 (`03_실무.md`).</li><li>🟡 <b>미나토 휘테 공용 샤워의 실제 대기</b>는 가 봐야 안다. 밀리면 아리마 버스를 5호(10:15)로 바꾼다.</li><li>🟡 <b>아티 인 체크인 15:15</b>은 계획값이다. 조기 입실이 되는지는 현장에서 확인한다.</li><li>🟡 <b>9/25 레이트 체크아웃·짐 보관</b> 정책 미확인. 출국이 16:05 KIX라 오전에 나카노시마 도서관을 다녀와야 하는데, 그동안 배낭을 어디에 두는지가 정해져 있지 않다.</li><li>🔴 <b>다음 오사카 여행을 위한 기록</b> — 이번 구조(고베 1박 + 오사카 3박 고정)의 장단점: 장점은 짐을 한 번만 옮기고 미나미 권역이 전부 도보권이 된다는 것. 단점은 <b>고베가 반나절뿐</b>이라 나다 사케 양조장·누노비키 허브원·방재 미래센터를 전부 못 넣었다는 것. 고베를 제대로 보려면 <b>고베 2박</b>이 필요하다.</li></ul></div>
+  <div class="unk"><b>현장에서 확인할 것 · 다음 여행을 위한 기록</b><ul><li>🔴 <b>미나토 휘테는 현금 전용이다.</b> 체크인 전에 현금을 확보해야 한다 — ATM 인출은 트래블로그×세븐뱅크 단독, 총 2~3만엔을 1~2만엔씩 분할 (`03_실무.md`).</li><li>🟡 <b>미나토 휘테 공용 샤워의 실제 대기</b>는 가 봐야 안다. 밀리면 아리마 버스를 5호(10:15)로 바꾼다.</li><li>🟡 <b>아티 인 체크인 15:15</b>은 계획값이다. 조기 입실이 되는지는 현장에서 확인한다.</li><li>🟡 <b>9/25 레이트 체크아웃·짐 보관</b> 정책 미확인. 출국이 16:05 KIX라 오전에 나카노시마 도서관을 다녀와야 하는데, 그동안 배낭을 어디에 두는지가 정해져 있지 않다.</li><li>🔴 <b>다음 오사카 여행을 위한 기록</b> — 이번 구조(고베 1박 + 오사카 3박 고정)의 장단점: 장점은 짐을 한 번만 옮기고 미나미 권역이 전부 도보권이 된다는 것. 단점은 <b>고베가 반나절뿐</b>이라 나다 사케 양조장·누노비키 허브원·방재 미래센터를 전부 못 넣었다는 것. 고베를 제대로 보려면 <b>고베 2박</b>이 필요하다.</li></ul></div>
 </section>
 </section>
 
@@ -3019,7 +3031,7 @@ blockquote.qb{border-left-color:var(--brick)}
 <footer>사진은 위키미디어 커먼즈의 CC 라이선스 이미지이며 각 사진에 작가·라이선스를 표기하고 원본 페이지로 연결했습니다. 가격·영업시간은 별도 표기가 없는 한 공식 원문 대조 전입니다. 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.</footer>
 </div>
 
-<div class="bar">
+<div class="bar submit-only">
   <div class="inner">
     <span class="barcnt">
       <span>볼거리 <b id="cnt">0</b></span>
@@ -3060,8 +3072,13 @@ blockquote.qb{border-left-color:var(--brick)}
     var map = L.map(el, {scrollWheelZoom:false, zoomControl:true});
     L.tileLayer(TILE, {attribution:ATTR, maxZoom:19}).addTo(map);
     var group = L.featureGroup(list.map(marker)).addTo(map);
-    map.fitBounds(group.getBounds(), {padding:[pad,pad], maxZoom:15});
-    setTimeout(function(){ map.invalidateSize(); }, 60);
+    var fit = function(){ map.fitBounds(group.getBounds(), {padding:[pad,pad], maxZoom:15}); };
+    fit();
+    // 🔴 숨은 탭에서 초기화되면 컨테이너 높이가 0이라 fitBounds 가 엉뚱한 줌으로 잡힌다.
+    //    invalidateSize 로 크기를 되찾은 뒤 반드시 다시 맞춘다 (2026-09-08 실측:
+    //    오사카 전체 지도가 핀 중심의 산속을 확대해 보여주고 있었다).
+    setTimeout(function(){ map.invalidateSize(); fit(); }, 60);
+    map.__refit = function(){ map.invalidateSize(); fit(); };
     return map;
   }
 
@@ -3071,7 +3088,8 @@ blockquote.qb{border-left-color:var(--brick)}
     var el=document.getElementById("staymap");
     if(!el || !window.STAYPINS || !window.STAYPINS.length || el.dataset.done) return;
     el.dataset.done="1";
-    var m=L.map(el,{scrollWheelZoom:false}).setView([13.73,100.52],12);
+    var p0=window.STAYPINS[0];
+    var m=L.map(el,{scrollWheelZoom:false}).setView([p0.lat, p0.lng], 12);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       {maxZoom:19, attribution:"&copy; OpenStreetMap"}).addTo(m);
     var ms=window.STAYPINS.map(function(p){
@@ -3082,8 +3100,10 @@ blockquote.qb{border-left-color:var(--brick)}
       return L.marker([p.lat,p.lng],{icon:ic}).addTo(m)
         .bindPopup("<b>"+p.n+". "+p.name+"</b><br>"+p.zone);
     });
-    m.fitBounds(L.featureGroup(ms).getBounds(),{padding:[36,36], maxZoom:13});
-    setTimeout(function(){ m.invalidateSize(); }, 80);
+    var fitStay = function(){ m.fitBounds(L.featureGroup(ms).getBounds(),{padding:[36,36], maxZoom:13}); };
+    fitStay();
+    setTimeout(function(){ m.invalidateSize(); fitStay(); }, 80);
+    m.__refit = function(){ m.invalidateSize(); fitStay(); };
     window.__travelogMaps.push(m);
   };
 
@@ -3202,12 +3222,27 @@ blockquote.qb{border-left-color:var(--brick)}
     var gs=document.getElementById('gosub'); if(gs) gs.classList.toggle('hide', id==='submit');
     if(id==='stay' && window.__stayMap) setTimeout(window.__stayMap, 60);
     window.scrollTo(0,0);
+    // 🔴 크기만 되찾고 끝내면 숨은 상태에서 잘못 잡힌 줌이 그대로 남는다 → 범위도 다시 맞춘다
     if(window.__travelogMaps) window.__travelogMaps.forEach(function(m){
-      setTimeout(function(){ try{ m.invalidateSize(); }catch(e){} }, 60); });
+      setTimeout(function(){ try{ (m.__refit ? m.__refit() : m.invalidateSize()); }catch(e){} }, 60); });
   }
   document.querySelectorAll('.tb').forEach(function(b){
     b.addEventListener('click', function(){ showTab(b.dataset.tab); });
   });
+
+  // 🔴 고정 바 높이는 화면 폭에 따라 달라진다. 여백을 CSS 상수(120px)로 박아 두면
+  //    좁은 화면에서 본문 아래가 가려진다 — 실제 높이를 재서 맞춘다 (2026-09-08).
+  (function(){
+    var bar=document.querySelector('.bar'), wrap=document.querySelector('.wrap');
+    if(!bar||!wrap) return;
+    function fitPad(){
+      var h = bar.offsetHeight;
+      wrap.style.paddingBottom = (h ? h + 24 : 40) + 'px';
+    }
+    fitPad();
+    addEventListener('resize', fitPad);
+    if(window.ResizeObserver) new ResizeObserver(fitPad).observe(bar);
+  })();
   (function(){
     var h=(location.hash||'').replace('#','');
     if(['plan','places','food','essays','submit'].indexOf(h)>=0) showTab(h);

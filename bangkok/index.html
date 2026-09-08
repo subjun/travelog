@@ -127,6 +127,15 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
   border-top:1px solid var(--jade); padding:12px 18px; display:flex; gap:14px; align-items:center;
   flex-wrap:wrap; box-shadow:0 -2px 14px rgba(0,0,0,.08)}
 .bar .inner{max-width:940px; margin:0 auto; width:100%; display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+/* 🔴 모바일에서 고정 바가 화면의 22%(176px)를 먹고 본문 56px 을 가렸다 (2026-09-08 실측).
+   안내문을 접고 버튼을 촘촘히 해서 높이를 줄인다. 남는 어긋남은 JS 가 여백으로 맞춘다. */
+@media (max-width:560px){
+  .bar{padding:9px 14px}
+  .bar .inner{gap:8px}
+  .bar .msg{display:none}   /* 안내문은 넓은 화면에서만 */
+  .btn,.gosub{padding:8px 12px; font-size:12.5px}
+  .bar .barcnt{gap:10px}
+}
 .cnt{font-family:"IBM Plex Mono",monospace; font-size:13.5px}
 .cnt b{font-size:20px; color:var(--jade-ink)}
 .btn{font-family:inherit; font-size:13.5px; font-weight:500; color:#fff; background:var(--jade);
@@ -203,7 +212,10 @@ footer{margin-top:44px; padding-top:18px; border-top:1px solid var(--line); font
   font-family:"Gowun Batang",serif; border-left:2px solid var(--jade); padding-left:10px}
 .nums{display:flex; gap:6px 16px; flex-wrap:wrap; margin-top:10px; font-size:12.5px; color:var(--ink-2);
   font-family:"IBM Plex Mono",monospace}
-.nums span{display:inline-flex; align-items:center; gap:5px; white-space:nowrap}
+/* 🔴 nowrap 이면 긴 값이 모바일 화면 밖으로 나간다 — 375px 에서 최대 473px 까지 삐져나갔다 (2026-09-08) */
+.nums span{display:inline-flex; align-items:flex-start; gap:5px; min-width:0; max-width:100%;
+  white-space:normal; overflow-wrap:anywhere}
+.nums i{flex:none}
 .nums i{font-style:normal; opacity:.75}
 .cover{background:var(--sunken)}
 .cover figure{margin:0; display:flex; flex-direction:column}
@@ -519,7 +531,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <div class="pm gives"><b>덜 담는 것</b><p>6일에 권역 9개는 안 들어갑니다. 그래서 잘랐습니다.<br><br>· <b>수쿰빗 권역 통째</b> — 벤짜끼띠 · at ease · 룽르엉 · 히어하이<br>· <b>왓 아룬</b> · 아시아티크 · 센트럴월드<br>· <b>마사지 4곳</b> — 그 권역에 갈 일이 없습니다<br>· 쇼핑 8곳이 서로 겹쳐 <b>짜뚜짝 · 팬팁 · 플래티넘 3곳</b>만 남겼습니다</p></div>
     <div class="pm"><b>이런 분에게</b><p>고르신 것을 빠뜨리지 않으면서, 비 오는 오후에도 무너지지 않기를 바라는 쪽.</p></div>
   </div>
-  <label class="pchoose"><input type="radio" name="planpick" value="1 최종안">
+  <label class="pchoose submit-only"><input type="radio" name="planpick" value="1 최종안">
     <span>이 계획으로 간다</span></label>
   <div class="days">
 <article class="day">
@@ -602,14 +614,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#C2410C"></span>라따나꼬신</h2>
     <span class="zn">11곳 · 01, 05, 06, 23, 33, 34, 36, 37, 39, 47, 63</span>
   </div>
-  <div class="zmap" id="z27476" data-zone="라따나꼬신"></div>
+  <div class="zmap" id="z73139" data-zone="라따나꼬신"></div>
   
 <article class="place" id="p-royal-barge" data-slot="after" data-zone="라따나꼬신" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="royal-barge" data-name="왕실 바지선 행렬 리허설" data-zone="라따나꼬신"></label>
     <span class="rank">01</span>
     <div class="pn">
-      <h3>왕실 바지선 행렬 리허설<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>왕실 바지선 행렬 리허설<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">종묘제례악을 한강 위에서 배 52척으로 하는 것. 다만 이쪽은 노꾼이 2,200명이다</p>
       <div class="nums"><span><i>⏱</i>3시간 (14:00 자리잡기 ~ 17:00)</span><span><i>💰</i>฿0</span><span><i>🚕</i>실롬에서 40분</span><span><i>☀</i>오후</span></div>
       <div class="meta"><span class="zone">라따나꼬신</span><span class="slot">오후</span><span class="tag">의례</span><span class="tag">무료</span><span class="tag">10/8</span><span class="tag">일생일회</span></div>
@@ -659,7 +671,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="grand-palace" data-name="왕궁 + 왓 프라깨우" data-zone="라따나꼬신"></label>
     <span class="rank">05</span>
     <div class="pn">
-      <h3>왕궁 + 왓 프라깨우<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>왕궁 + 왓 프라깨우<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">경복궁 + 종묘를 금으로 덮고 규모를 두 배로 키운 것. 다만 여기는 지금도 살아 있는 왕실의 것이다</p>
       <div class="nums"><span><i>⏱</i>2~2.5시간</span><span><i>💰</i>฿1,000</span><span><i>🚕</i>실롬에서 25분</span><span><i>☀</i>오전</span></div>
       <div class="meta"><span class="zone">라따나꼬신</span><span class="slot">오전</span><span class="tag">사원</span><span class="tag">필수</span><span class="tag">오전</span></div>
@@ -709,7 +721,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="wat-pho" data-name="왓 포" data-zone="라따나꼬신"></label>
     <span class="rank">06</span>
     <div class="pn">
-      <h3>왓 포<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>왓 포<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">와불 하나가 46m라 한 화면에 안 들어온다. 회랑 벽의 의학 도해가 타이마사지의 원본 교과서</p>
       <div class="nums"><span><i>⏱</i>1~1.5시간</span><span><i>💰</i>฿600</span><span><i>🚕</i>왕궁에서 도보 7분</span><span><i>☀</i>오전</span></div>
       <div class="meta"><span class="zone">라따나꼬신</span><span class="slot">오전</span><span class="tag">사원</span><span class="tag">마사지</span><span class="tag">오전</span></div>
@@ -759,7 +771,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="nang-loeng" data-name="낭르엉 시장" data-zone="라따나꼬신"></label>
     <span class="rank">23</span>
     <div class="pn">
-      <h3>낭르엉 시장<span class="grade gspare">시간 남으면</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>낭르엉 시장<span class="grade gspare">시간 남으면</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">광장시장인데 관광객이 없다. 1900년 개장한 방콕 최초의 육상시장</p>
       <div class="nums"><span><i>⏱</i>1~1.5시간</span><span><i>💰</i>฿200~400</span><span><i>🚕</i>실롬에서 25분</span><span><i>☀</i>오전~오후 3시</span></div>
       <div class="meta"><span class="zone">라따나꼬신</span><span class="slot">오전</span><span class="tag">시장</span><span class="tag">미식</span><span class="tag">일요휴무</span><span class="tag">오전</span></div>
@@ -1152,14 +1164,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0F766E"></span>강 건너</h2>
     <span class="zn">2곳 · 02, 25</span>
   </div>
-  <div class="zmap" id="z64886" data-zone="강 건너"></div>
+  <div class="zmap" id="z158" data-zone="강 건너"></div>
   
 <article class="place" id="p-bang-krachao" data-slot="morning" data-zone="강 건너" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="bang-krachao" data-name="방까차오 자전거 + 방남픙 수상시장" data-zone="강 건너"></label>
     <span class="rank">02</span>
     <div class="pn">
-      <h3>방까차오 자전거 + 방남픙 수상시장<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>방까차오 자전거 + 방남픙 수상시장<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">한강 밤섬이 개발을 안 당하고 정글로 남아서, 그 안에 마을과 주말장이 있는 것</p>
       <div class="nums"><span><i>⏱</i>4~5시간</span><span><i>💰</i>฿480~800</span><span><i>🚕</i>BTS 방나 역 + 페리 5분</span><span><i>☀</i>토·일 오전</span></div>
       <div class="meta"><span class="zone">강 건너</span><span class="slot">오전</span><span class="tag">자연</span><span class="tag">자전거</span><span class="tag">오전</span><span class="tag">주말만</span></div>
@@ -1261,14 +1273,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#B91C1C"></span>야오와랏</h2>
     <span class="zn">6곳 · 03, 09, 15, 16, 35, 38</span>
   </div>
-  <div class="zmap" id="z44118" data-zone="야오와랏"></div>
+  <div class="zmap" id="z73898" data-zone="야오와랏"></div>
   
 <article class="place" id="p-yaowarat" data-slot="morning" data-zone="야오와랏" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="yaowarat" data-name="야오와랏 — 낮의 노포" data-zone="야오와랏"></label>
     <span class="rank">03</span>
     <div class="pn">
-      <h3>야오와랏 — 낮의 노포<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>야오와랏 — 낮의 노포<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">을지로 노포 골목인데 100년 된 집이 스무 곳이고, 관광객이 아는 밤 풍경과 완전히 다른 낮 얼굴이 따로 있다</p>
       <div class="nums"><span><i>⏱</i>3~4시간</span><span><i>💰</i>฿400~800</span><span><i>🚕</i>MRT 왓망꼰 · 실롬에서 20분</span><span><i>☀</i>오전~오후 3시</span></div>
       <div class="meta"><span class="zone">야오와랏</span><span class="slot">오전</span><span class="tag">미식</span><span class="tag">현지</span><span class="tag">오전</span></div>
@@ -1318,7 +1330,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="vegetarian-festival" data-name="채식축제 개막 (10/10)" data-zone="야오와랏"></label>
     <span class="rank">09</span>
     <div class="pn">
-      <h3>채식축제 개막 (10/10)<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>채식축제 개막 (10/10)<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">중국 도교 축제가 태국 거리를 아흐레 덮는 것. 노란 깃발이 야오와랏 전체에 걸린다</p>
       <div class="nums"><span><i>⏱</i>2~3시간</span><span><i>💰</i>฿300~600</span><span><i>🚕</i>MRT 왓망꼰</span><span><i>☀</i>저녁</span></div>
       <div class="meta"><span class="zone">야오와랏</span><span class="slot">저녁</span><span class="tag">축제</span><span class="tag">무료</span><span class="tag">10/10</span><span class="tag">일생일회</span></div>
@@ -1368,7 +1380,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="song-wat" data-name="송왓로드" data-zone="야오와랏"></label>
     <span class="rank">15</span>
     <div class="pn">
-      <h3>송왓로드<span class="grade gspare">시간 남으면</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>송왓로드<span class="grade gspare">시간 남으면</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">을지로 인쇄골목이 카페거리가 된 것과 같은 구조. 겉은 낡은 쌀창고, 문을 열면 스페셜티 카페</p>
       <div class="nums"><span><i>⏱</i>2~3시간</span><span><i>💰</i>฿400~800</span><span><i>🚕</i>MRT 왓망꼰 · 야오와랏 도보권</span><span><i>☀</i>오후</span></div>
       <div class="meta"><span class="zone">야오와랏</span><span class="slot">오후</span><span class="tag">동네</span><span class="tag">카페</span><span class="tag">평일</span></div>
@@ -1570,14 +1582,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#7C3AED"></span>톤부리</h2>
     <span class="zn">6곳 · 04, 08, 11, 12, 44, 49</span>
   </div>
-  <div class="zmap" id="z52906" data-zone="톤부리"></div>
+  <div class="zmap" id="z75337" data-zone="톤부리"></div>
   
 <article class="place" id="p-khlong-tour" data-slot="morning" data-zone="톤부리" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="khlong-tour" data-name="톤부리 운하 롱테일보트" data-zone="톤부리"></label>
     <span class="rank">04</span>
     <div class="pn">
-      <h3>톤부리 운하 롱테일보트<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>톤부리 운하 롱테일보트<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">한강 유람선이 아니라, 서울로 치면 청계천 복개 이전 골목 수로를 모터보트로 훑는 것</p>
       <div class="nums"><span><i>⏱</i>1~2시간</span><span><i>💰</i>฿1,500 (보트 1대 전세값)</span><span><i>🚕</i>타 띠안 선착장 · 왓포 앞</span><span><i>☀</i>오전</span></div>
       <div class="meta"><span class="zone">톤부리</span><span class="slot">오전</span><span class="tag">배</span><span class="tag">운하</span><span class="tag">오전</span><span class="tag">이색</span></div>
@@ -1677,7 +1689,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="kudi-chin" data-name="꾸디찐 + 타누싱하 베이커리" data-zone="톤부리"></label>
     <span class="rank">11</span>
     <div class="pn">
-      <h3>꾸디찐 + 타누싱하 베이커리<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>꾸디찐 + 타누싱하 베이커리<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">성당·중국 사당·이슬람 사원이 도보 5분 안에 같이 있는 마을. 250년 된 포르투갈식 컵케이크를 아직 숯불 화덕에 굽는다</p>
       <div class="nums"><span><i>⏱</i>1~1.5시간</span><span><i>💰</i>฿200~400</span><span><i>🚕</i>강 건너 · 왓아룬에서 도보 15분</span><span><i>☀</i>오전</span></div>
       <div class="meta"><span class="zone">톤부리</span><span class="slot">오전</span><span class="tag">동네</span><span class="tag">간식</span><span class="tag">오전</span><span class="tag">골목</span></div>
@@ -1879,14 +1891,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0E7490"></span>실롬·방락</h2>
     <span class="zn">3곳 · 07, 20, 45</span>
   </div>
-  <div class="zmap" id="z82241" data-zone="실롬·방락"></div>
+  <div class="zmap" id="z89115" data-zone="실롬·방락"></div>
   
 <article class="place" id="p-bangrak" data-slot="morning" data-zone="실롬·방락" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="bangrak" data-name="방락 골목 노포" data-zone="실롬·방락"></label>
     <span class="rank">07</span>
     <div class="pn">
-      <h3>방락 골목 노포<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>방락 골목 노포<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">도보 5분 반경에 100년 노포가 열아홉 곳 있는 동네. 서울에 비유할 게 마땅치 않다 — 이 밀도는 한국에 없다</p>
       <div class="nums"><span><i>⏱</i>2~3시간</span><span><i>💰</i>฿700~1,000</span><span><i>🚕</i>BTS 사판탁신 · 숙소 도보권</span><span><i>☀</i>오전</span></div>
       <div class="meta"><span class="zone">실롬·방락</span><span class="slot">오전</span><span class="tag">미식</span><span class="tag">현지</span><span class="tag">오전</span></div>
@@ -2038,14 +2050,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#4D7C0F"></span>북부</h2>
     <span class="zn">6곳 · 10, 18, 19, 24, 52, 60</span>
   </div>
-  <div class="zmap" id="z95518" data-zone="북부"></div>
+  <div class="zmap" id="z83428" data-zone="북부"></div>
   
 <article class="place" id="p-chatuchak" data-slot="morning" data-zone="북부" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="chatuchak" data-name="짜뚜짝 주말시장" data-zone="북부"></label>
     <span class="rank">10</span>
     <div class="pn">
-      <h3>짜뚜짝 주말시장<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>짜뚜짝 주말시장<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">동대문 도매시장을 야외에 노점 15,000개로 펼친 것. 냉방 없음</p>
       <div class="nums"><span><i>⏱</i>3~4시간</span><span><i>💰</i>฿1,000~3,000 (사는 만큼)</span><span><i>🚕</i>BTS 모칫 / MRT 깜팽펫</span><span><i>☀</i>토·일 오전</span></div>
       <div class="meta"><span class="zone">북부</span><span class="slot">오전</span><span class="tag">시장</span><span class="tag">쇼핑</span><span class="tag">주말만</span><span class="tag">오전</span></div>
@@ -2195,7 +2207,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="or-tor-kor" data-name="오또꼬 시장" data-zone="북부"></label>
     <span class="rank">24</span>
     <div class="pn">
-      <h3>오또꼬 시장<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>오또꼬 시장<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">가락시장 프리미엄 매장을 냉방 실내에 넣은 것. 정부가 운영해서 품질이 균일하다</p>
       <div class="nums"><span><i>⏱</i>1~1.5시간</span><span><i>💰</i>฿400~800</span><span><i>🚕</i>MRT 깜팽펫 · 짜뚜짝 길 건너</span><span><i>☀</i>점심</span></div>
       <div class="meta"><span class="zone">북부</span><span class="slot">점심</span><span class="tag">시장</span><span class="tag">냉방</span><span class="tag">미식</span><span class="tag">점심</span></div>
@@ -2338,14 +2350,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#57534E"></span>전 권역</h2>
     <span class="zn">2곳 · 13, 17</span>
   </div>
-  <div class="zmap" id="z10133" data-zone="전 권역"></div>
+  <div class="zmap" id="z86304" data-zone="전 권역"></div>
   
 <article class="place" id="p-thai-massage" data-slot="after" data-zone="전 권역" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="thai-massage" data-name="마사지 · 스파" data-zone="전 권역"></label>
     <span class="rank">13</span>
     <div class="pn">
-      <h3>마사지 · 스파<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>마사지 · 스파<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">찜질방을 매일 갈 수 있는 값에, 사람이 붙어서 관절을 늘려주는 것</p>
       <div class="nums"><span><i>⏱</i>1~2시간</span><span><i>💰</i>฿600~1,600</span><span><i>🚕</i>어디에나</span><span><i>☀</i>오후</span></div>
       <div class="meta"><span class="zone">전 권역</span><span class="slot">오후</span><span class="tag">휴식</span><span class="tag">비 올 때</span><span class="tag">매일</span></div>
@@ -2447,7 +2459,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#2C7A67"></span>근교</h2>
     <span class="zn">3곳 · 14, 43, 46</span>
   </div>
-  <div class="zmap" id="z98309" data-zone="근교"></div>
+  <div class="zmap" id="z85405" data-zone="근교"></div>
   
 <article class="place" id="p-ayutthaya" data-slot="dawn" data-zone="근교" data-grade="취향 탐" data-new="">
   <div class="ph">
@@ -2606,7 +2618,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#15803D"></span>수쿰빗</h2>
     <span class="zn">7곳 · 21, 30, 51, 53, 56, 57, 58</span>
   </div>
-  <div class="zmap" id="z86918" data-zone="수쿰빗"></div>
+  <div class="zmap" id="z73173" data-zone="수쿰빗"></div>
   
 <article class="place" id="p-benchakitti" data-slot="eve" data-zone="수쿰빗" data-grade="시간 남으면" data-new="">
   <div class="ph">
@@ -2938,7 +2950,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0369A1"></span>실롬·사톤</h2>
     <span class="zn">6곳 · 22, 31, 32, 40, 42, 54</span>
   </div>
-  <div class="zmap" id="z32290" data-zone="실롬·사톤"></div>
+  <div class="zmap" id="z98215" data-zone="실롬·사톤"></div>
   
 <article class="place" id="p-lumphini" data-slot="dawn" data-zone="실롬·사톤" data-grade="시간 남으면" data-new="">
   <div class="ph">
@@ -3145,7 +3157,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="dusit-central-hawker" data-name="룸피니 파크 호커센터" data-zone="실롬·사톤"></label>
     <span class="rank">42</span>
     <div class="pn">
-      <h3>룸피니 파크 호커센터<span class="grade gspare">시간 남으면</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>룸피니 파크 호커센터<span class="grade gspare">시간 남으면</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">공원 옆에 노점을 모아둔 공영 호커센터. 싱가포르 호커센터의 태국판인데 훨씬 싸다</p>
       <div class="nums"><span><i>⏱</i>1시간</span><span><i>💰</i>฿200~400</span><span><i>🚕</i>숙소 도보권 (실롬)</span><span><i>☀</i>점심 또는 저녁</span></div>
       <div class="meta"><span class="zone">실롬·사톤</span><span class="slot">점심</span><span class="tag">미식</span><span class="tag">저녁</span><span class="tag">현지</span></div>
@@ -3195,7 +3207,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="massage-silom" data-name="FoRest 마사지 — 실롬" data-zone="실롬·사톤"></label>
     <span class="rank">54</span>
     <div class="pn">
-      <h3>FoRest 마사지 — 실롬<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span><span class="newbadge">NEW</span></h3>
+      <h3>FoRest 마사지 — 실롬<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span><span class="newbadge">NEW</span></h3>
       <p class="anchor">회사 밀집지 뒷골목의 「직장인 단골집」. 값은 로컬인데 개인실·샤워가 붙는다</p>
       <div class="nums"><span><i>⏱</i>1~2시간</span><span><i>💰</i>🟡 ฿1,100 (2시간·팁 포함)</span><span><i>🚕</i>BTS 살라댕 · MRT 실롬 · 컨벤트로</span><span><i>☀</i>오후~저녁</span></div>
       <div class="meta"><span class="zone">실롬·사톤</span><span class="slot">오후</span><span class="tag">마사지</span><span class="tag">실롬</span><span class="tag">예약권장</span></div>
@@ -3238,14 +3250,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#B45309"></span>시암</h2>
     <span class="zn">10곳 · 26, 27, 28, 29, 41, 48, 55, 59, 61, 62</span>
   </div>
-  <div class="zmap" id="z35240" data-zone="시암"></div>
+  <div class="zmap" id="z99804" data-zone="시암"></div>
   
 <article class="place" id="p-platinum" data-slot="after" data-zone="시암" data-grade="시간 남으면" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="platinum" data-name="플래티넘 패션몰" data-zone="시암"></label>
     <span class="rank">26</span>
     <div class="pn">
-      <h3>플래티넘 패션몰<span class="grade gspare">시간 남으면</span><span class="mine" title="일정 포함">1계획에 있음</span></h3>
+      <h3>플래티넘 패션몰<span class="grade gspare">시간 남으면</span><span class="mine" title="일정 포함">일정에 있음</span></h3>
       <p class="anchor">동대문 도매상가를 여섯 층짜리 냉방 건물에 넣은 것. 두 벌 이상 사면 도매가가 붙는다</p>
       <div class="nums"><span><i>⏱</i>3~4시간</span><span><i>💰</i>사는 만큼</span><span><i>🚕</i>BTS 칫롬 도보 10분</span><span><i>☀</i>오후</span></div>
       <div class="meta"><span class="zone">시암</span><span class="slot">오후</span><span class="tag">쇼핑</span><span class="tag">냉방</span><span class="tag">실내</span></div>
@@ -3545,7 +3557,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="massage-pratunam" data-name="Arunda 오리엔탈 마사지 — 쁘라뚜남" data-zone="시암"></label>
     <span class="rank">55</span>
     <div class="pn">
-      <h3>Arunda 오리엔탈 마사지 — 쁘라뚜남<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span><span class="newbadge">NEW</span></h3>
+      <h3>Arunda 오리엔탈 마사지 — 쁘라뚜남<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span><span class="newbadge">NEW</span></h3>
       <p class="anchor">한 시간에 만원이 안 되는데 새벽 2시까지 여는 곳</p>
       <div class="nums"><span><i>⏱</i>1~2시간</span><span><i>💰</i>🟡 ฿250/시간</span><span><i>🚕</i>쁘라뚜남 · 펫부리 소이 15</span><span><i>☀</i>저녁~심야</span></div>
       <div class="meta"><span class="zone">시암</span><span class="slot">오후</span><span class="tag">마사지</span><span class="tag">쁘라뚜남</span><span class="tag">심야</span></div>
@@ -3711,7 +3723,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#6D28D9"></span>사뭇쁘라깐</h2>
     <span class="zn">1곳 · 50</span>
   </div>
-  <div class="zmap" id="z73883" data-zone="사뭇쁘라깐"></div>
+  <div class="zmap" id="z47598" data-zone="사뭇쁘라깐"></div>
   
 <article class="place" id="p-erawan-museum" data-slot="after" data-zone="사뭇쁘라깐" data-grade="취향 탐" data-new="">
   <div class="ph">
@@ -3770,14 +3782,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#2C7A67"></span>논타부리</h2>
     <span class="zn">1곳 · 64</span>
   </div>
-  <div class="zmap" id="z99921" data-zone="논타부리"></div>
+  <div class="zmap" id="z32545" data-zone="논타부리"></div>
   
 <article class="place isnew" id="p-pantip-ngamwongwan" data-slot="noon" data-zone="논타부리" data-grade="꼭" data-new="1">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="pantip-ngamwongwan" data-name="팬팁 응암웡완 — 냉방 구제시장 + 부적" data-zone="논타부리"></label>
     <span class="rank">64</span>
     <div class="pn">
-      <h3>팬팁 응암웡완 — 냉방 구제시장 + 부적<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">1계획에 있음</span><span class="newbadge">NEW</span></h3>
+      <h3>팬팁 응암웡완 — 냉방 구제시장 + 부적<span class="grade gmust">꼭</span><span class="mine" title="일정 포함">일정에 있음</span><span class="newbadge">NEW</span></h3>
       <p class="anchor">에어컨 나오는 건물 한 층을 통째로 쓰는 구제 벼룩시장. 짜뚜짝의 실내판인데 관광객이 없다</p>
       <div class="nums"><span><i>⏱</i>1~2시간</span><span><i>💰</i>🟡 사는 만큼</span><span><i>🚕</i>MRT 퍼플라인 + 오토바이택시 5~10분</span><span><i>☀</i>점심~오후</span></div>
       <div class="meta"><span class="zone">논타부리</span><span class="slot">점심</span><span class="tag">빈티지</span><span class="tag">구제</span><span class="tag">부적</span><span class="tag">냉방</span><span class="tag">금토일만</span></div>
@@ -6171,7 +6183,7 @@ blockquote.qb{border-left-color:var(--brick)}
 <footer>사진은 위키미디어 커먼즈의 CC 라이선스 이미지이며 각 사진에 작가·라이선스를 표기하고 원본 페이지로 연결했습니다. 가격·영업시간은 별도 표기가 없는 한 공식 원문 대조 전입니다. 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.</footer>
 </div>
 
-<div class="bar">
+<div class="bar submit-only">
   <div class="inner">
     <span class="barcnt">
       <span>볼거리 <b id="cnt">0</b></span>
@@ -6212,8 +6224,13 @@ blockquote.qb{border-left-color:var(--brick)}
     var map = L.map(el, {scrollWheelZoom:false, zoomControl:true});
     L.tileLayer(TILE, {attribution:ATTR, maxZoom:19}).addTo(map);
     var group = L.featureGroup(list.map(marker)).addTo(map);
-    map.fitBounds(group.getBounds(), {padding:[pad,pad], maxZoom:15});
-    setTimeout(function(){ map.invalidateSize(); }, 60);
+    var fit = function(){ map.fitBounds(group.getBounds(), {padding:[pad,pad], maxZoom:15}); };
+    fit();
+    // 🔴 숨은 탭에서 초기화되면 컨테이너 높이가 0이라 fitBounds 가 엉뚱한 줌으로 잡힌다.
+    //    invalidateSize 로 크기를 되찾은 뒤 반드시 다시 맞춘다 (2026-09-08 실측:
+    //    오사카 전체 지도가 핀 중심의 산속을 확대해 보여주고 있었다).
+    setTimeout(function(){ map.invalidateSize(); fit(); }, 60);
+    map.__refit = function(){ map.invalidateSize(); fit(); };
     return map;
   }
 
@@ -6223,7 +6240,8 @@ blockquote.qb{border-left-color:var(--brick)}
     var el=document.getElementById("staymap");
     if(!el || !window.STAYPINS || !window.STAYPINS.length || el.dataset.done) return;
     el.dataset.done="1";
-    var m=L.map(el,{scrollWheelZoom:false}).setView([13.73,100.52],12);
+    var p0=window.STAYPINS[0];
+    var m=L.map(el,{scrollWheelZoom:false}).setView([p0.lat, p0.lng], 12);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       {maxZoom:19, attribution:"&copy; OpenStreetMap"}).addTo(m);
     var ms=window.STAYPINS.map(function(p){
@@ -6234,8 +6252,10 @@ blockquote.qb{border-left-color:var(--brick)}
       return L.marker([p.lat,p.lng],{icon:ic}).addTo(m)
         .bindPopup("<b>"+p.n+". "+p.name+"</b><br>"+p.zone);
     });
-    m.fitBounds(L.featureGroup(ms).getBounds(),{padding:[36,36], maxZoom:13});
-    setTimeout(function(){ m.invalidateSize(); }, 80);
+    var fitStay = function(){ m.fitBounds(L.featureGroup(ms).getBounds(),{padding:[36,36], maxZoom:13}); };
+    fitStay();
+    setTimeout(function(){ m.invalidateSize(); fitStay(); }, 80);
+    m.__refit = function(){ m.invalidateSize(); fitStay(); };
     window.__travelogMaps.push(m);
   };
 
@@ -6354,12 +6374,27 @@ blockquote.qb{border-left-color:var(--brick)}
     var gs=document.getElementById('gosub'); if(gs) gs.classList.toggle('hide', id==='submit');
     if(id==='stay' && window.__stayMap) setTimeout(window.__stayMap, 60);
     window.scrollTo(0,0);
+    // 🔴 크기만 되찾고 끝내면 숨은 상태에서 잘못 잡힌 줌이 그대로 남는다 → 범위도 다시 맞춘다
     if(window.__travelogMaps) window.__travelogMaps.forEach(function(m){
-      setTimeout(function(){ try{ m.invalidateSize(); }catch(e){} }, 60); });
+      setTimeout(function(){ try{ (m.__refit ? m.__refit() : m.invalidateSize()); }catch(e){} }, 60); });
   }
   document.querySelectorAll('.tb').forEach(function(b){
     b.addEventListener('click', function(){ showTab(b.dataset.tab); });
   });
+
+  // 🔴 고정 바 높이는 화면 폭에 따라 달라진다. 여백을 CSS 상수(120px)로 박아 두면
+  //    좁은 화면에서 본문 아래가 가려진다 — 실제 높이를 재서 맞춘다 (2026-09-08).
+  (function(){
+    var bar=document.querySelector('.bar'), wrap=document.querySelector('.wrap');
+    if(!bar||!wrap) return;
+    function fitPad(){
+      var h = bar.offsetHeight;
+      wrap.style.paddingBottom = (h ? h + 24 : 40) + 'px';
+    }
+    fitPad();
+    addEventListener('resize', fitPad);
+    if(window.ResizeObserver) new ResizeObserver(fitPad).observe(bar);
+  })();
   (function(){
     var h=(location.hash||'').replace('#','');
     if(['plan','places','food','essays','submit'].indexOf(h)>=0) showTab(h);

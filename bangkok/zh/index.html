@@ -127,6 +127,15 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
   border-top:1px solid var(--jade); padding:12px 18px; display:flex; gap:14px; align-items:center;
   flex-wrap:wrap; box-shadow:0 -2px 14px rgba(0,0,0,.08)}
 .bar .inner{max-width:940px; margin:0 auto; width:100%; display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+/* 🔴 모바일에서 고정 바가 화면의 22%(176px)를 먹고 본문 56px 을 가렸다 (2026-09-08 실측).
+   안내문을 접고 버튼을 촘촘히 해서 높이를 줄인다. 남는 어긋남은 JS 가 여백으로 맞춘다. */
+@media (max-width:560px){
+  .bar{padding:9px 14px}
+  .bar .inner{gap:8px}
+  .bar .msg{display:none}   /* 안내문은 넓은 화면에서만 */
+  .btn,.gosub{padding:8px 12px; font-size:12.5px}
+  .bar .barcnt{gap:10px}
+}
 .cnt{font-family:"IBM Plex Mono",monospace; font-size:13.5px}
 .cnt b{font-size:20px; color:var(--jade-ink)}
 .btn{font-family:inherit; font-size:13.5px; font-weight:500; color:#fff; background:var(--jade);
@@ -203,7 +212,10 @@ footer{margin-top:44px; padding-top:18px; border-top:1px solid var(--line); font
   font-family:"Gowun Batang",serif; border-left:2px solid var(--jade); padding-left:10px}
 .nums{display:flex; gap:6px 16px; flex-wrap:wrap; margin-top:10px; font-size:12.5px; color:var(--ink-2);
   font-family:"IBM Plex Mono",monospace}
-.nums span{display:inline-flex; align-items:center; gap:5px; white-space:nowrap}
+/* 🔴 nowrap 이면 긴 값이 모바일 화면 밖으로 나간다 — 375px 에서 최대 473px 까지 삐져나갔다 (2026-09-08) */
+.nums span{display:inline-flex; align-items:flex-start; gap:5px; min-width:0; max-width:100%;
+  white-space:normal; overflow-wrap:anywhere}
+.nums i{flex:none}
 .nums i{font-style:normal; opacity:.75}
 .cover{background:var(--sunken)}
 .cover figure{margin:0; display:flex; flex-direction:column}
@@ -298,6 +310,15 @@ blockquote.qb{border-left-color:var(--brick)}
 
 /* ── 숙소 탭 ─────────────────────────────────────────── */
 .staylede{margin:0 0 14px; font-size:14px; line-height:1.75; color:var(--ink-2)}
+/* 볼거리 탭 머리말 — 오사카는 「가는 곳 + 아카이브」라 성격을 먼저 설명한다.
+   🔴 b 규칙은 직계자식(> b)으로 한정하지 않는다 — 본문 안에서 등급 배지를 인라인으로 쓰기 때문. */
+.lede{margin:0 0 16px; padding:14px 16px; border:1px solid var(--line);
+      border-radius:10px; background:var(--surface)}
+.lede h3{margin:0 0 8px; font-size:14.5px; letter-spacing:-.01em}
+.lede p{margin:0 0 7px; font-size:13.5px; line-height:1.75; color:var(--ink-2)}
+.lede p:last-child{margin-bottom:0}
+.lede .src{font-size:12px; color:var(--ink-3); padding-top:8px; border-top:1px dashed var(--line)}
+.lede .grade{display:inline-block; vertical-align:baseline; margin:0 1px}
 .staybox{margin:14px 0 22px; padding:13px 15px; background:var(--surface); border:1px solid var(--line); border-radius:10px}
 .staybox > b{display:block; margin-bottom:6px; font-size:12px; letter-spacing:.05em; color:var(--ink-3)}
 .staybox p b, .stg .sno b, .scard .sb b{font-weight:650; color:var(--ink)}
@@ -488,7 +509,7 @@ blockquote.qb{border-left-color:var(--brick)}
   <button class="tb" data-tab="food">美食<b>40</b></button>
   <button class="tb" data-tab="essays">解说集<b>0</b></button>
   <button class="tb" data-tab="stay">숙소<b>15</b></button>
-  <button class="tb" data-tab="submit">提交</button>
+  <button class="tb submit-only" data-tab="submit">提交</button>
 </nav>
 
 <section class="tabpane" data-tab="plan">
@@ -510,7 +531,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <div class="pm gives"><b>舍弃的东西</b><p>6天塞不下9个区，所以<b>整个素坤逸区都放弃了</b>（benjakitti公园·at ease·Rung Rueang·Hia Hai）。另外去掉了郑王庙、Asiatique、CentralWorld、DD Mall、水门市场，以及4家按摩店。购物点原本8处彼此重复，收敛为<b>乍都乍·Pantip·Platinum 三处</b>。</p></div>
     <div class="pm"><b>适合这样的人</b><p>希望选中的东西不落下，同时下午下雨也不至于全盘崩掉的人。</p></div>
   </div>
-  <label class="pchoose"><input type="radio" name="planpick" value="1 最终方案">
+  <label class="pchoose submit-only"><input type="radio" name="planpick" value="1 最终方案">
     <span>就照这份走</span></label>
   <div class="days">
 <article class="day">
@@ -574,6 +595,8 @@ blockquote.qb{border-left-color:var(--brick)}
   <a class="gmap" href="https://www.google.com/maps/place/Bangkok,+Thailand/@13.7563,100.5018,12z" target="_blank" rel="noopener">在谷歌地图打开 ↗</a>
 </section>
 
+
+
 <div class="filters">
   <div class="frow"><span class="flabel">判定</span><button class="fb fb-gmust" data-f="grade" data-v="꼭">必去</button><button class="fb fb-gspare" data-f="grade" data-v="시간 남으면">有时间就去</button><button class="fb fb-gtaste" data-f="grade" data-v="취향 탐">看口味</button></div>
   <div class="frow"><span class="flabel">区域</span><button class="fb" data-f="zone" data-v="拉达那哥辛">拉达那哥辛</button><button class="fb" data-f="zone" data-v="河对岸">河对岸</button><button class="fb" data-f="zone" data-v="耀华力">耀华力</button><button class="fb" data-f="zone" data-v="吞武里">吞武里</button><button class="fb" data-f="zone" data-v="是隆·挽叻">是隆·挽叻</button><button class="fb" data-f="zone" data-v="北部">北部</button><button class="fb" data-f="zone" data-v="全区域">全区域</button><button class="fb" data-f="zone" data-v="近郊">近郊</button><button class="fb" data-f="zone" data-v="素坤逸">素坤逸</button><button class="fb" data-f="zone" data-v="是隆·沙吞">是隆·沙吞</button><button class="fb" data-f="zone" data-v="暹罗">暹罗</button><button class="fb" data-f="zone" data-v="北榄">北榄</button><button class="fb" data-f="zone" data-v="논타부리">논타부리</button></div>
@@ -591,14 +614,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#C2410C"></span>拉达那哥辛</h2>
     <span class="zn">11处 · 01, 05, 06, 23, 33, 34, 36, 37, 39, 47, 63</span>
   </div>
-  <div class="zmap" id="z99248" data-zone="拉达那哥辛"></div>
+  <div class="zmap" id="z95887" data-zone="拉达那哥辛"></div>
   
 <article class="place" id="p-royal-barge" data-slot="after" data-zone="拉达那哥辛" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="royal-barge" data-name="王室驳船巡游彩排" data-zone="拉达那哥辛"></label>
     <span class="rank">01</span>
     <div class="pn">
-      <h3>王室驳船巡游彩排<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Royal Barge Procession / ขบวนพยุหยาตราชลมารค</span>
+      <h3>王室驳船巡游彩排<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Royal Barge Procession / ขบวนพยุหยาตราชลมารค</span>
       <p class="anchor">像是在汉江上用52艘船做宗庙祭礼 — 只是这边划桨的人有2,200名</p>
       <div class="nums"><span><i>⏱</i>3小时（14:00占位 ~ 17:00）</span><span><i>💰</i>฿0</span><span><i>🚕</i>从是隆40分钟</span><span><i>☀</i>下午</span></div>
       <div class="meta"><span class="zone">拉达那哥辛</span><span class="slot">下午</span><span class="tag">仪礼</span><span class="tag">免费</span><span class="tag">10/8</span><span class="tag">一生一次</span></div>
@@ -648,7 +671,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="grand-palace" data-name="大皇宫 + 玉佛寺" data-zone="拉达那哥辛"></label>
     <span class="rank">05</span>
     <div class="pn">
-      <h3>大皇宫 + 玉佛寺<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Grand Palace / วัดพระแก้ว</span>
+      <h3>大皇宫 + 玉佛寺<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Grand Palace / วัดพระแก้ว</span>
       <p class="anchor">把景福宫加宗庙镀上金、规模再翻一倍 — 只是这里到现在还是活着的王室的东西</p>
       <div class="nums"><span><i>⏱</i>2~2.5小时</span><span><i>💰</i>฿1,000</span><span><i>🚕</i>从是隆25分钟</span><span><i>☀</i>上午</span></div>
       <div class="meta"><span class="zone">拉达那哥辛</span><span class="slot">上午</span><span class="tag">寺庙</span><span class="tag">必去</span><span class="tag">上午</span></div>
@@ -698,7 +721,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="wat-pho" data-name="卧佛寺" data-zone="拉达那哥辛"></label>
     <span class="rank">06</span>
     <div class="pn">
-      <h3>卧佛寺<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Wat Pho / วัดโพธิ์</span>
+      <h3>卧佛寺<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Wat Pho / วัดโพธิ์</span>
       <p class="anchor">一尊卧佛长46米，一个画面装不下。回廊墙上的医学图解就是泰式按摩的原始教科书</p>
       <div class="nums"><span><i>⏱</i>1~1.5小时</span><span><i>💰</i>฿600</span><span><i>🚕</i>从大皇宫步行7分钟</span><span><i>☀</i>上午</span></div>
       <div class="meta"><span class="zone">拉达那哥辛</span><span class="slot">上午</span><span class="tag">寺庙</span><span class="tag">按摩</span><span class="tag">上午</span></div>
@@ -748,7 +771,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="nang-loeng" data-name="Nang Loeng 老市场" data-zone="拉达那哥辛"></label>
     <span class="rank">23</span>
     <div class="pn">
-      <h3>Nang Loeng 老市场<span class="grade gspare">有时间就去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Nang Loeng / นางเลิ้ง</span>
+      <h3>Nang Loeng 老市场<span class="grade gspare">有时间就去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Nang Loeng / นางเลิ้ง</span>
       <p class="anchor">像广藏市场，但没有游客。1900年开的曼谷第一个陆上市场</p>
       <div class="nums"><span><i>⏱</i>1~1.5小时</span><span><i>💰</i>฿200~400</span><span><i>🚕</i>从是隆25分钟</span><span><i>☀</i>上午~下午3点</span></div>
       <div class="meta"><span class="zone">拉达那哥辛</span><span class="slot">上午</span><span class="tag">市场</span><span class="tag">美食</span><span class="tag">周日休</span><span class="tag">上午</span></div>
@@ -1141,14 +1164,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0F766E"></span>河对岸</h2>
     <span class="zn">2处 · 02, 25</span>
   </div>
-  <div class="zmap" id="z29028" data-zone="河对岸"></div>
+  <div class="zmap" id="z41352" data-zone="河对岸"></div>
   
 <article class="place" id="p-bang-krachao" data-slot="morning" data-zone="河对岸" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="bang-krachao" data-name="邦卡造（曼谷绿肺）" data-zone="河对岸"></label>
     <span class="rank">02</span>
     <div class="pn">
-      <h3>邦卡造（曼谷绿肺）<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Bang Krachao / บางกระเจ้า</span>
+      <h3>邦卡造（曼谷绿肺）<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Bang Krachao / บางกระเจ้า</span>
       <p class="anchor">像是汉江上的栗岛没被开发、留成一片丛林，里面还有村子和周末市集</p>
       <div class="nums"><span><i>⏱</i>4~5小时</span><span><i>💰</i>฿480~800</span><span><i>🚕</i>BTS Bang Na站 + 渡船5分钟</span><span><i>☀</i>周六日上午</span></div>
       <div class="meta"><span class="zone">河对岸</span><span class="slot">上午</span><span class="tag">自然</span><span class="tag">自行车</span><span class="tag">上午</span><span class="tag">只有周末</span></div>
@@ -1250,14 +1273,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#B91C1C"></span>耀华力</h2>
     <span class="zn">6处 · 03, 09, 15, 16, 35, 38</span>
   </div>
-  <div class="zmap" id="z31744" data-zone="耀华力"></div>
+  <div class="zmap" id="z43296" data-zone="耀华力"></div>
   
 <article class="place" id="p-yaowarat" data-slot="morning" data-zone="耀华力" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="yaowarat" data-name="耀华力路 — 白天的老店" data-zone="耀华力"></label>
     <span class="rank">03</span>
     <div class="pn">
-      <h3>耀华力路 — 白天的老店<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Yaowarat / เยาวราช</span>
+      <h3>耀华力路 — 白天的老店<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Yaowarat / เยาวราช</span>
       <p class="anchor">像乙支路的老店巷，但这里有二十家开了上百年 — 而且游客熟知的夜景和白天的样子完全是两回事</p>
       <div class="nums"><span><i>⏱</i>3~4小时</span><span><i>💰</i>฿400~800</span><span><i>🚕</i>MRT龙莲寺站 · 从是隆20分钟</span><span><i>☀</i>上午~下午3点</span></div>
       <div class="meta"><span class="zone">耀华力</span><span class="slot">上午</span><span class="tag">美食</span><span class="tag">本地</span><span class="tag">上午</span></div>
@@ -1307,7 +1330,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="vegetarian-festival" data-name="九皇斋节 开幕（10/10）" data-zone="耀华力"></label>
     <span class="rank">09</span>
     <div class="pn">
-      <h3>九皇斋节 开幕（10/10）<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Vegetarian Festival / เทศกาลกินเจ</span>
+      <h3>九皇斋节 开幕（10/10）<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Vegetarian Festival / เทศกาลกินเจ</span>
       <p class="anchor">中国道教的斋节把泰国街道盖住九天。整条耀华力路挂满黄旗</p>
       <div class="nums"><span><i>⏱</i>2~3小时</span><span><i>💰</i>฿300~600</span><span><i>🚕</i>MRT龙莲寺站</span><span><i>☀</i>傍晚</span></div>
       <div class="meta"><span class="zone">耀华力</span><span class="slot">傍晚</span><span class="tag">祭典</span><span class="tag">免费</span><span class="tag">10/10</span><span class="tag">一生一次</span></div>
@@ -1357,7 +1380,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="song-wat" data-name="宋瓦路" data-zone="耀华力"></label>
     <span class="rank">15</span>
     <div class="pn">
-      <h3>宋瓦路<span class="grade gspare">有时间就去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Song Wat Rd / ถนนทรงวาด</span>
+      <h3>宋瓦路<span class="grade gspare">有时间就去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Song Wat Rd / ถนนทรงวาด</span>
       <p class="anchor">和乙支路印刷巷变成咖啡街是同一个结构。外面是旧米仓，推开门是精品咖啡</p>
       <div class="nums"><span><i>⏱</i>2~3小时</span><span><i>💰</i>฿400~800</span><span><i>🚕</i>MRT龙莲寺 · 耀华力步行可达</span><span><i>☀</i>下午</span></div>
       <div class="meta"><span class="zone">耀华力</span><span class="slot">下午</span><span class="tag">街区</span><span class="tag">咖啡</span><span class="tag">平日</span></div>
@@ -1559,14 +1582,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#7C3AED"></span>吞武里</h2>
     <span class="zn">6处 · 04, 08, 11, 12, 44, 49</span>
   </div>
-  <div class="zmap" id="z93541" data-zone="吞武里"></div>
+  <div class="zmap" id="z61464" data-zone="吞武里"></div>
   
 <article class="place" id="p-khlong-tour" data-slot="morning" data-zone="吞武里" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="khlong-tour" data-name="吞武里运河长尾船" data-zone="吞武里"></label>
     <span class="rank">04</span>
     <div class="pn">
-      <h3>吞武里运河长尾船<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Khlong Bang Luang / คลองบางหลวง</span>
+      <h3>吞武里运河长尾船<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Khlong Bang Luang / คลองบางหลวง</span>
       <p class="anchor">不是汉江游览船 — 更像是在清溪川加盖之前，用摩托艇穿过那些小巷水道</p>
       <div class="nums"><span><i>⏱</i>1~2小时</span><span><i>💰</i>฿1,500（整条船的价钱）</span><span><i>🚕</i>Tha Tien码头 · 卧佛寺前</span><span><i>☀</i>上午</span></div>
       <div class="meta"><span class="zone">吞武里</span><span class="slot">上午</span><span class="tag">坐船</span><span class="tag">运河</span><span class="tag">上午</span><span class="tag">特别</span></div>
@@ -1666,7 +1689,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="kudi-chin" data-name="库迪钦村 + Thanusingha" data-zone="吞武里"></label>
     <span class="rank">11</span>
     <div class="pn">
-      <h3>库迪钦村 + Thanusingha<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Kudi Chin / กุฎีจีน</span>
+      <h3>库迪钦村 + Thanusingha<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Kudi Chin / กุฎีจีน</span>
       <p class="anchor">天主堂、中国庙、清真寺在步行5分钟内并存的村子。250年历史的葡式杯子蛋糕至今还用炭炉烤</p>
       <div class="nums"><span><i>⏱</i>1~1.5小时</span><span><i>💰</i>฿200~400</span><span><i>🚕</i>过河 · 从郑王庙步行15分钟</span><span><i>☀</i>上午</span></div>
       <div class="meta"><span class="zone">吞武里</span><span class="slot">上午</span><span class="tag">街区</span><span class="tag">点心</span><span class="tag">上午</span><span class="tag">巷弄</span></div>
@@ -1868,14 +1891,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0E7490"></span>是隆·挽叻</h2>
     <span class="zn">3处 · 07, 20, 45</span>
   </div>
-  <div class="zmap" id="z78122" data-zone="是隆·挽叻"></div>
+  <div class="zmap" id="z9527" data-zone="是隆·挽叻"></div>
   
 <article class="place" id="p-bangrak" data-slot="morning" data-zone="是隆·挽叻" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="bangrak" data-name="挽叻老街小馆" data-zone="是隆·挽叻"></label>
     <span class="rank">07</span>
     <div class="pn">
-      <h3>挽叻老街小馆<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Bang Rak / บางรัก</span>
+      <h3>挽叻老街小馆<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Bang Rak / บางรัก</span>
       <p class="anchor">步行5分钟半径里有十九家百年老店的街区。韩国找不到对应物 — 这种密度韩国没有</p>
       <div class="nums"><span><i>⏱</i>2~3小时</span><span><i>💰</i>฿700~1,000</span><span><i>🚕</i>BTS沙潘塔克辛 · 住处步行可达</span><span><i>☀</i>上午</span></div>
       <div class="meta"><span class="zone">是隆·挽叻</span><span class="slot">上午</span><span class="tag">美食</span><span class="tag">本地</span><span class="tag">上午</span></div>
@@ -2027,14 +2050,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#4D7C0F"></span>北部</h2>
     <span class="zn">6处 · 10, 18, 19, 24, 52, 60</span>
   </div>
-  <div class="zmap" id="z52382" data-zone="北部"></div>
+  <div class="zmap" id="z64030" data-zone="北部"></div>
   
 <article class="place" id="p-chatuchak" data-slot="morning" data-zone="北部" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="chatuchak" data-name="乍都乍周末市场" data-zone="北部"></label>
     <span class="rank">10</span>
     <div class="pn">
-      <h3>乍都乍周末市场<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Chatuchak / จตุจักร</span>
+      <h3>乍都乍周末市场<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Chatuchak / จตุจักร</span>
       <p class="anchor">把东大门批发市场摊在露天，变成15,000个摊位。没有冷气</p>
       <div class="nums"><span><i>⏱</i>3~4小时</span><span><i>💰</i>฿1,000~3,000（看买多少）</span><span><i>🚕</i>BTS蒙奇 / MRT甘烹碧</span><span><i>☀</i>周六日上午</span></div>
       <div class="meta"><span class="zone">北部</span><span class="slot">上午</span><span class="tag">市场</span><span class="tag">购物</span><span class="tag">只有周末</span><span class="tag">上午</span></div>
@@ -2184,7 +2207,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="or-tor-kor" data-name="Or Tor Kor 市场" data-zone="北部"></label>
     <span class="rank">24</span>
     <div class="pn">
-      <h3>Or Tor Kor 市场<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">อ.ต.ก. / Or Tor Kor</span>
+      <h3>Or Tor Kor 市场<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">อ.ต.ก. / Or Tor Kor</span>
       <p class="anchor">把可乐洞市场的高级卖场搬进有冷气的室内。政府经营，品质均一</p>
       <div class="nums"><span><i>⏱</i>1~1.5小时</span><span><i>💰</i>฿400~800</span><span><i>🚕</i>MRT甘烹碧 · 恰图恰对面</span><span><i>☀</i>午餐</span></div>
       <div class="meta"><span class="zone">北部</span><span class="slot">午餐</span><span class="tag">市场</span><span class="tag">有冷气</span><span class="tag">美食</span><span class="tag">午餐</span></div>
@@ -2327,14 +2350,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#57534E"></span>全区域</h2>
     <span class="zn">2处 · 13, 17</span>
   </div>
-  <div class="zmap" id="z37768" data-zone="全区域"></div>
+  <div class="zmap" id="z39161" data-zone="全区域"></div>
   
 <article class="place" id="p-thai-massage" data-slot="after" data-zone="全区域" data-grade="꼭" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="thai-massage" data-name="泰式按摩 · SPA" data-zone="全区域"></label>
     <span class="rank">13</span>
     <div class="pn">
-      <h3>泰式按摩 · SPA<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Thai massage / นวดแผนไทย</span>
+      <h3>泰式按摩 · SPA<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Thai massage / นวดแผนไทย</span>
       <p class="anchor">用能天天去的价钱，让人上手把你的关节拉开</p>
       <div class="nums"><span><i>⏱</i>1~2小时</span><span><i>💰</i>฿600~1,600</span><span><i>🚕</i>到处都有</span><span><i>☀</i>下午</span></div>
       <div class="meta"><span class="zone">全区域</span><span class="slot">下午</span><span class="tag">休息</span><span class="tag">下雨时</span><span class="tag">每天</span></div>
@@ -2436,7 +2459,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#2C7A67"></span>近郊</h2>
     <span class="zn">3处 · 14, 43, 46</span>
   </div>
-  <div class="zmap" id="z77657" data-zone="近郊"></div>
+  <div class="zmap" id="z91009" data-zone="近郊"></div>
   
 <article class="place" id="p-ayutthaya" data-slot="dawn" data-zone="近郊" data-grade="취향 탐" data-new="">
   <div class="ph">
@@ -2595,7 +2618,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#15803D"></span>素坤逸</h2>
     <span class="zn">7处 · 21, 30, 51, 53, 56, 57, 58</span>
   </div>
-  <div class="zmap" id="z46458" data-zone="素坤逸"></div>
+  <div class="zmap" id="z41088" data-zone="素坤逸"></div>
   
 <article class="place" id="p-benchakitti" data-slot="eve" data-zone="素坤逸" data-grade="시간 남으면" data-new="">
   <div class="ph">
@@ -2927,7 +2950,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0369A1"></span>是隆·沙吞</h2>
     <span class="zn">6处 · 22, 31, 32, 40, 42, 54</span>
   </div>
-  <div class="zmap" id="z80458" data-zone="是隆·沙吞"></div>
+  <div class="zmap" id="z24751" data-zone="是隆·沙吞"></div>
   
 <article class="place" id="p-lumphini" data-slot="dawn" data-zone="是隆·沙吞" data-grade="시간 남으면" data-new="">
   <div class="ph">
@@ -3134,7 +3157,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="dusit-central-hawker" data-name="伦披尼公园 美食广场" data-zone="是隆·沙吞"></label>
     <span class="rank">42</span>
     <div class="pn">
-      <h3>伦披尼公园 美食广场<span class="grade gspare">有时间就去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Lumphini Park Hawker Center</span>
+      <h3>伦披尼公园 美食广场<span class="grade gspare">有时间就去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Lumphini Park Hawker Center</span>
       <p class="anchor">公园旁把摊贩集中起来的公营熟食中心。是新加坡Hawker Centre的泰国版，而且便宜得多</p>
       <div class="nums"><span><i>⏱</i>1小时</span><span><i>💰</i>฿200~400</span><span><i>🚕</i>住处步行可达（是隆）</span><span><i>☀</i>午餐或晚餐</span></div>
       <div class="meta"><span class="zone">是隆·沙吞</span><span class="slot">午餐</span><span class="tag">美食</span><span class="tag">傍晚</span><span class="tag">本地</span></div>
@@ -3184,7 +3207,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="massage-silom" data-name="FoRest 按摩 — 是隆" data-zone="是隆·沙吞"></label>
     <span class="rank">54</span>
     <div class="pn">
-      <h3>FoRest 按摩 — 是隆<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span><span class="newbadge">NEW</span></h3><span class="psub">FoRest Massage Parlour / Convent Rd</span>
+      <h3>FoRest 按摩 — 是隆<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span><span class="newbadge">NEW</span></h3><span class="psub">FoRest Massage Parlour / Convent Rd</span>
       <p class="anchor">회사 밀집지 뒷골목의 「직장인 단골집」. 값은 로컬인데 개인실·샤워가 붙는다</p>
       <div class="nums"><span><i>⏱</i>1~2시간</span><span><i>💰</i>🟡 ฿1,100 (2시간·팁 포함)</span><span><i>🚕</i>BTS 살라댕 · MRT 실롬 · 컨벤트로</span><span><i>☀</i>오후~저녁</span></div>
       <div class="meta"><span class="zone">是隆·沙吞</span><span class="slot">下午</span><span class="tag">按摩</span><span class="tag">실롬</span><span class="tag">예약권장</span></div>
@@ -3227,14 +3250,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#B45309"></span>暹罗</h2>
     <span class="zn">10处 · 26, 27, 28, 29, 41, 48, 55, 59, 61, 62</span>
   </div>
-  <div class="zmap" id="z30945" data-zone="暹罗"></div>
+  <div class="zmap" id="z31660" data-zone="暹罗"></div>
   
 <article class="place" id="p-platinum" data-slot="after" data-zone="暹罗" data-grade="시간 남으면" data-new="">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="platinum" data-name="白金时尚购物中心" data-zone="暹罗"></label>
     <span class="rank">26</span>
     <div class="pn">
-      <h3>白金时尚购物中心<span class="grade gspare">有时间就去</span><span class="mine" title="已选入行程">1计划里有</span></h3><span class="psub">Platinum Fashion Mall</span>
+      <h3>白金时尚购物中心<span class="grade gspare">有时间就去</span><span class="mine" title="已选入行程">일정에 있음</span></h3><span class="psub">Platinum Fashion Mall</span>
       <p class="anchor">把东大门批发商城塞进六层有冷气的楼里。买两件以上就是批发价</p>
       <div class="nums"><span><i>⏱</i>3~4小时</span><span><i>💰</i>看买多少</span><span><i>🚕</i>BTS奇隆步行10分钟</span><span><i>☀</i>下午</span></div>
       <div class="meta"><span class="zone">暹罗</span><span class="slot">下午</span><span class="tag">购物</span><span class="tag">有冷气</span><span class="tag">室内</span></div>
@@ -3534,7 +3557,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <label class="pick"><input type="checkbox" data-key="massage-pratunam" data-name="Arunda 东方按摩 — 水门" data-zone="暹罗"></label>
     <span class="rank">55</span>
     <div class="pn">
-      <h3>Arunda 东方按摩 — 水门<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span><span class="newbadge">NEW</span></h3><span class="psub">Arunda Oriental Massage / Phetchaburi Soi 15</span>
+      <h3>Arunda 东方按摩 — 水门<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span><span class="newbadge">NEW</span></h3><span class="psub">Arunda Oriental Massage / Phetchaburi Soi 15</span>
       <p class="anchor">한 시간에 만원이 안 되는데 새벽 2시까지 여는 곳</p>
       <div class="nums"><span><i>⏱</i>1~2시간</span><span><i>💰</i>🟡 ฿250/시간</span><span><i>🚕</i>쁘라뚜남 · 펫부리 소이 15</span><span><i>☀</i>저녁~심야</span></div>
       <div class="meta"><span class="zone">暹罗</span><span class="slot">下午</span><span class="tag">按摩</span><span class="tag">쁘라뚜남</span><span class="tag">심야</span></div>
@@ -3700,7 +3723,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#6D28D9"></span>北榄</h2>
     <span class="zn">1处 · 50</span>
   </div>
-  <div class="zmap" id="z64398" data-zone="北榄"></div>
+  <div class="zmap" id="z64272" data-zone="北榄"></div>
   
 <article class="place" id="p-erawan-museum" data-slot="after" data-zone="北榄" data-grade="취향 탐" data-new="">
   <div class="ph">
@@ -3759,14 +3782,14 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#2C7A67"></span>논타부리</h2>
     <span class="zn">1处 · 64</span>
   </div>
-  <div class="zmap" id="z70104" data-zone="논타부리"></div>
+  <div class="zmap" id="z87593" data-zone="논타부리"></div>
   
 <article class="place isnew" id="p-pantip-ngamwongwan" data-slot="noon" data-zone="논타부리" data-grade="꼭" data-new="1">
   <div class="ph">
     <label class="pick"><input type="checkbox" data-key="pantip-ngamwongwan" data-name="Pantip 岸汪湾 — 有冷气的二手市集 + 佛牌" data-zone="논타부리"></label>
     <span class="rank">64</span>
     <div class="pn">
-      <h3>Pantip 岸汪湾 — 有冷气的二手市集 + 佛牌<span class="grade gmust">必去</span><span class="mine" title="已选入行程">1计划里有</span><span class="newbadge">NEW</span></h3><span class="psub">The Pantip at Ngamwongwan / พันธุ์ทิพย์ งามวงศ์วาน</span>
+      <h3>Pantip 岸汪湾 — 有冷气的二手市集 + 佛牌<span class="grade gmust">必去</span><span class="mine" title="已选入行程">일정에 있음</span><span class="newbadge">NEW</span></h3><span class="psub">The Pantip at Ngamwongwan / พันธุ์ทิพย์ งามวงศ์วาน</span>
       <p class="anchor">에어컨 나오는 건물 한 층을 통째로 쓰는 구제 벼룩시장. 짜뚜짝의 실내판인데 관광객이 없다</p>
       <div class="nums"><span><i>⏱</i>1~2시간</span><span><i>💰</i>🟡 사는 만큼</span><span><i>🚕</i>MRT 퍼플라인 + 오토바이택시 5~10분</span><span><i>☀</i>점심~오후</span></div>
       <div class="meta"><span class="zone">논타부리</span><span class="slot">午餐</span><span class="tag">古着</span><span class="tag">구제</span><span class="tag">부적</span><span class="tag">有冷气</span><span class="tag">금토일만</span></div>
@@ -6029,7 +6052,7 @@ blockquote.qb{border-left-color:var(--brick)}
 </section>
 </section>
 
-<section class="tabpane hide" data-tab="submit">
+<section class="tabpane hide submit-only" data-tab="submit">
 <section class="fbsec" id="feedback">
   <h2>反馈</h2>
   <div class="sumbox">
@@ -6053,7 +6076,7 @@ blockquote.qb{border-left-color:var(--brick)}
 <footer>照片来自维基共享资源的 CC 授权图片，每张都标注了作者与授权并链接到原页面。除另有标注外，价格与营业时间尚未与官方原文核对。这是非商业的个人旅行记录，已阻止搜索引擎收录。</footer>
 </div>
 
-<div class="bar">
+<div class="bar submit-only">
   <div class="inner">
     <span class="barcnt">
       <span>景点 <b id="cnt">0</b></span>
@@ -6094,8 +6117,13 @@ blockquote.qb{border-left-color:var(--brick)}
     var map = L.map(el, {scrollWheelZoom:false, zoomControl:true});
     L.tileLayer(TILE, {attribution:ATTR, maxZoom:19}).addTo(map);
     var group = L.featureGroup(list.map(marker)).addTo(map);
-    map.fitBounds(group.getBounds(), {padding:[pad,pad], maxZoom:15});
-    setTimeout(function(){ map.invalidateSize(); }, 60);
+    var fit = function(){ map.fitBounds(group.getBounds(), {padding:[pad,pad], maxZoom:15}); };
+    fit();
+    // 🔴 숨은 탭에서 초기화되면 컨테이너 높이가 0이라 fitBounds 가 엉뚱한 줌으로 잡힌다.
+    //    invalidateSize 로 크기를 되찾은 뒤 반드시 다시 맞춘다 (2026-09-08 실측:
+    //    오사카 전체 지도가 핀 중심의 산속을 확대해 보여주고 있었다).
+    setTimeout(function(){ map.invalidateSize(); fit(); }, 60);
+    map.__refit = function(){ map.invalidateSize(); fit(); };
     return map;
   }
 
@@ -6105,7 +6133,8 @@ blockquote.qb{border-left-color:var(--brick)}
     var el=document.getElementById("staymap");
     if(!el || !window.STAYPINS || !window.STAYPINS.length || el.dataset.done) return;
     el.dataset.done="1";
-    var m=L.map(el,{scrollWheelZoom:false}).setView([13.73,100.52],12);
+    var p0=window.STAYPINS[0];
+    var m=L.map(el,{scrollWheelZoom:false}).setView([p0.lat, p0.lng], 12);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       {maxZoom:19, attribution:"&copy; OpenStreetMap"}).addTo(m);
     var ms=window.STAYPINS.map(function(p){
@@ -6116,8 +6145,10 @@ blockquote.qb{border-left-color:var(--brick)}
       return L.marker([p.lat,p.lng],{icon:ic}).addTo(m)
         .bindPopup("<b>"+p.n+". "+p.name+"</b><br>"+p.zone);
     });
-    m.fitBounds(L.featureGroup(ms).getBounds(),{padding:[36,36], maxZoom:13});
-    setTimeout(function(){ m.invalidateSize(); }, 80);
+    var fitStay = function(){ m.fitBounds(L.featureGroup(ms).getBounds(),{padding:[36,36], maxZoom:13}); };
+    fitStay();
+    setTimeout(function(){ m.invalidateSize(); fitStay(); }, 80);
+    m.__refit = function(){ m.invalidateSize(); fitStay(); };
     window.__travelogMaps.push(m);
   };
 
@@ -6236,12 +6267,27 @@ blockquote.qb{border-left-color:var(--brick)}
     var gs=document.getElementById('gosub'); if(gs) gs.classList.toggle('hide', id==='submit');
     if(id==='stay' && window.__stayMap) setTimeout(window.__stayMap, 60);
     window.scrollTo(0,0);
+    // 🔴 크기만 되찾고 끝내면 숨은 상태에서 잘못 잡힌 줌이 그대로 남는다 → 범위도 다시 맞춘다
     if(window.__travelogMaps) window.__travelogMaps.forEach(function(m){
-      setTimeout(function(){ try{ m.invalidateSize(); }catch(e){} }, 60); });
+      setTimeout(function(){ try{ (m.__refit ? m.__refit() : m.invalidateSize()); }catch(e){} }, 60); });
   }
   document.querySelectorAll('.tb').forEach(function(b){
     b.addEventListener('click', function(){ showTab(b.dataset.tab); });
   });
+
+  // 🔴 고정 바 높이는 화면 폭에 따라 달라진다. 여백을 CSS 상수(120px)로 박아 두면
+  //    좁은 화면에서 본문 아래가 가려진다 — 실제 높이를 재서 맞춘다 (2026-09-08).
+  (function(){
+    var bar=document.querySelector('.bar'), wrap=document.querySelector('.wrap');
+    if(!bar||!wrap) return;
+    function fitPad(){
+      var h = bar.offsetHeight;
+      wrap.style.paddingBottom = (h ? h + 24 : 40) + 'px';
+    }
+    fitPad();
+    addEventListener('resize', fitPad);
+    if(window.ResizeObserver) new ResizeObserver(fitPad).observe(bar);
+  })();
   (function(){
     var h=(location.hash||'').replace('#','');
     if(['plan','places','food','essays','submit'].indexOf(h)>=0) showTab(h);
@@ -6404,7 +6450,7 @@ blockquote.qb{border-left-color:var(--brick)}
     var now=new Date();
     var stamp=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')
       +' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-    var title='[Bangkok] '+(planPicked()? planPicked().split(' ')[0]+' · ' : '')+FB.places+' '+list.length+' · '+FB.food+' '+pickedFood().length+' — '+stamp;
+    var title='[방콕] '+(planPicked()? planPicked().split(' ')[0]+' · ' : '')+FB.places+' '+list.length+' · '+FB.food+' '+pickedFood().length+' — '+stamp;
     var base='https://github.com/subjun/travelog-private/issues/new?title='
       + encodeURIComponent(title) + '&labels=' + encodeURIComponent('선택');
     var body=bodyText();
