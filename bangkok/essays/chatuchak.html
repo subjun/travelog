@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>짜뚜짝 — 15,000 노점의 경제학 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">경제</div>
+  <h1>짜뚜짝 — 15,000 노점의 경제학</h1>
+  <p class="sub">도매·소매·관광이 한 자리에 겹치면 무슨 일이 생기나</p>
+  <div class="lens"><span>경제</span><span>도시계획</span><span>지금의 이슈</span><span>한국과의 비교</span><span>숫자</span></div>
+</header>
+<article><blockquote class="note"><p>「세계 최대 주말시장」이라는 수식이 붙습니다. 🔴 <strong>그런데 거주자들은 「살 게 없으면 갈 이유도 없다」고 말합니다.</strong> 왜 그런지에 대한 글입니다.</p></blockquote>
+<hr>
+<h3>1. 숫자</h3>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>노점 수</td><td><strong>약 15,000개</strong></td></tr><tr><td>구역</td><td><strong>27개 섹션</strong></td></tr><tr><td>면적</td><td>약 0.11㎢ (축구장 약 15개)</td></tr><tr><td>영업</td><td>🔴 <strong>토·일</strong> (일부 구역은 금요일 야간·수목 식물시장)</td></tr><tr><td>주말 방문객</td><td><strong>수십만 명</strong> 규모로 추산</td></tr><tr><td>시작</td><td>1942년 사남루앙 → <strong>1982년 현재 자리로 이전</strong></td></tr></tbody></table></div>
+<p><strong>한국에 대응시키면</strong>: 동대문 도매상가 + 남대문 + 황학동을 야외에 펼쳐놓고, 냉방을 뺀 것이다.</p>
+<hr>
+<h3>2. 왜 「주말」인가 — 이 시장의 출발점</h3>
+<p>1942년 피분 송크람 정권이 <strong>「모든 지방에 시장을 하나씩」</strong> 정책으로 사남루앙(왕궁 앞 광장)에 세운 시장이 원형이다. 이후 여러 번 옮겨 다니다 1982년 방콕 천도 200주년에 맞춰 지금의 짜뚜짝 자리로 왔다. 국철 부지였다.</p>
+<p>🔴 <strong>주말에만 여는 이유는 「장터(periodic market)」의 형식을 물려받았기 때문</strong>이다. 상설 점포가 아니라 <strong>주말에 사람이 모이는 자리를 임대해 쓰는 구조</strong>다. 그래서 노점 하나하나는 작고, 상인은 다른 요일에 다른 일을 한다.</p>
+<p>이 구조가 두 가지를 만든다.</p>
+<ul><li>🟢 <strong>진입장벽이 낮다</strong> — 젊은 디자이너·수공예 작가가 주말에 자기 물건을 팔 수 있다</li><li>🔴 <strong>품질과 가격이 균일하지 않다</strong> — 옆 가게가 같은 물건을 다른 값에 판다</li></ul>
+<hr>
+<h3>3. 🔴 세 시장이 겹쳐 있다</h3>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/chatuchak_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/chatuchak_1.jpg" alt="chatuchak"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Chatuchak_Weekend_Market,_Bangkok,_Thailand_(4570440063).jpg" target="_blank" rel="noopener">yeowatzup · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/chatuchak_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/chatuchak_2.jpg" alt="chatuchak"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Chatuchak_Weekend_Market,_Bangkok,_Thailand_(4570450571).jpg" target="_blank" rel="noopener">yeowatzup · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/chatuchak_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/chatuchak_3.jpg" alt="chatuchak"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Chatuchak_Weekend_Market_P1100754.JPG" target="_blank" rel="noopener">Deror Avi · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/chatuchak_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/chatuchak_4.jpg" alt="chatuchak"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Weekend_market_bangkok.jpg" target="_blank" rel="noopener">edwin11_79 · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/chatuchak_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/chatuchak_5.jpg" alt="chatuchak"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Chatuchak_Weekend_Market_Soi.jpg" target="_blank" rel="noopener">JJ Harrison (https://www.jjharrison.com.au/) · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/chatuchak_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/chatuchak_6.jpg" alt="chatuchak"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Chatuchak_weekend_market_roofs.jpg" target="_blank" rel="noopener">Jarcje at en.wikipedia · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/chatuchak_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/chatuchak_7.jpg" alt="chatuchak"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Chatuchak_Weekend_Market_P1100750.JPG" target="_blank" rel="noopener">Deror Avi · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/chatuchak_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/chatuchak_8.jpg" alt="chatuchak"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Chatuchak_weekend_market_inner_stalls.JPG" target="_blank" rel="noopener">BrokenSphere · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/chatuchak_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/chatuchak_9.jpg" alt="chatuchak"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Chatuchak_weekend_market_outdoor_stalls_1.JPG" target="_blank" rel="noopener">BrokenSphere · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/chatuchak_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/chatuchak_10.jpg" alt="chatuchak"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Chatuchak_weekend_market_outdoor_stalls_2.JPG" target="_blank" rel="noopener">BrokenSphere · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/chatuchak_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/chatuchak_11.jpg" alt="chatuchak"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Chatuchak_weekend_market.jpg" target="_blank" rel="noopener">Jarcje at en.wikipedia · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/chatuchak_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/chatuchak_12.jpg" alt="chatuchak"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Chatuchak_Weekend_Market_P1100751.JPG" target="_blank" rel="noopener">Deror Avi · CC BY-SA 3.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<p>짜뚜짝을 이해하는 열쇠는 <strong>여기가 한 시장이 아니라는 것</strong>이다.</p>
+<div class="tw"><table><thead><tr><th>층</th><th>누가 사나</th><th>구역</th></tr></thead><tbody><tr><td><strong>도매</strong></td><td>지방 소매상, 리셀러. <strong>대량으로 산다</strong></td><td>의류·잡화 구역 다수</td></tr><tr><td><strong>소매</strong></td><td>방콕 시민</td><td>전 구역</td></tr><tr><td><strong>관광</strong></td><td>외국인</td><td>입구 쪽, 기념품·수공예</td></tr></tbody></table></div>
+<p>🔴 <strong>그리고 값이 층마다 다르다.</strong> 같은 티셔츠가 도매 단위로는 개당 ฿80이고 한 장만 사면 ฿150이다. <strong>「2벌 이상」이라고 말하면 값이 내려가는 구조</strong>가 여기서도 작동한다. (플래티넘 패션몰과 같은 논리다.)</p>
+<p><strong>그래서 「살 게 없으면 갈 이유가 없다」는 말이 나온다.</strong> 구경만 하는 사람에게 이 시장은 <strong>덥고 넓고 반복적</strong>이다. 하지만 살 것이 정해져 있으면 방콕에서 가장 효율적인 장소다.</p>
+<hr>
+<h3>4. 구역을 모르면 진다</h3>
+<p>27개 섹션이 품목별로 갈려 있는데, <strong>표지가 부실하고 골목이 비슷해서 같은 자리를 세 번 돈다.</strong> 대략의 지도만 적어 둔다. ⚠️ 구역 번호는 바뀔 수 있으니 현장 지도를 확인할 것.</p>
+<div class="tw"><table><thead><tr><th>대략</th><th>무엇</th></tr></thead><tbody><tr><td><strong>2~4구역</strong></td><td>🔴 <strong>빈티지 의류</strong> — 이 시장에서 가장 유명한 층</td></tr><tr><td><strong>7구역 일대</strong></td><td>수공예·아트</td></tr><tr><td><strong>26구역 일대</strong></td><td>도자기·홈데코</td></tr><tr><td><strong>먹거리 구역</strong></td><td>코코넛 아이스크림, 꼬치, 음료</td></tr><tr><td><strong>주변</strong></td><td>반려동물·식물(수·목·금에 따로 선다)</td></tr></tbody></table></div>
+<blockquote class="note"><p><strong>🔴 실전 배치</strong> 우리 계획은 <strong>09:30 도착 → 짜뚜짝 → 12:00 오또꼬 시장(길 건너, 냉방)에서 점심 → 필요하면 다시 들어감</strong>으로 짰다. 오또꼬는 정부가 운영하는 프리미엄 농산물 시장이라 <strong>냉방이 되고 앉을 데가 있다.</strong> 이 「피신처」가 있어야 짜뚜짝을 오래 버틴다.</p></blockquote>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=Or+Tor+Kor+Market+Bangkok&output=embed" title="오또꼬 시장 — 짜뚜짝에서 길 하나 건너, 냉방"></iframe><figcaption>오또꼬 시장 — 짜뚜짝에서 길 하나 건너, 냉방 · 구글지도</figcaption></figure>
+<hr>
+<h3>5. 🔴 지금의 위기 — 세 방향에서 압력</h3>
+<h4>① 온라인</h4>
+<p>태국은 <strong>Shopee·Lazada·TikTok Shop</strong>의 침투가 매우 빠른 시장이다. 도매 기능이 온라인으로 옮겨가면 짜뚜짝의 존재 이유 중 하나가 사라진다. 이미 상인 상당수가 <strong>주말엔 좌판, 주중엔 온라인</strong>으로 이중 운영을 한다.</p>
+<h4>② 냉방 경쟁자</h4>
+<p>🔴 <strong>방수 정션(Bang Sue Junction)</strong> 같은 <strong>실내 냉방 빈티지 백화점</strong>이 등장했다. 여섯 층에 시대별로 정리돼 있고, <strong>매일 열고, 덥지 않다.</strong> 짜뚜짝의 가장 강한 카드였던 「빈티지」를 정확히 겨냥한 형식이다.</p>
+<p><strong>우리 목록에도 방수 정션이 「비 오는 날 대체 카드」로 들어 있는 이유가 이것이다.</strong></p>
+<h4>③ 임대료와 재개발</h4>
+<p>국철 부지 위에 있고, 바로 옆에 <strong>끄룽텝 아피왓 중앙역</strong>(2023년 개통, 동남아 최대 규모 철도역)이 들어섰다. 🔴 <strong>이 일대의 지가가 근본적으로 달라졌다.</strong> 장기적으로 이 땅이 언제까지 주말시장으로 남을지는 정치·경제의 문제다.</p>
+<hr>
+<h3>6. 한국과 비교하면</h3>
+<div class="tw"><table><thead><tr><th></th><th>짜뚜짝</th><th>한국</th></tr></thead><tbody><tr><td>형식</td><td><strong>주말 장터</strong>, 노점 임대</td><td>동대문은 <strong>상설 상가</strong></td></tr><tr><td>냉방</td><td>🔴 <strong>없다</strong></td><td>있다</td></tr><tr><td>도매·소매</td><td><strong>한 자리에 겹침</strong></td><td>층·건물로 분리(도매는 새벽, 소매는 낮)</td></tr><tr><td>관광</td><td>겹쳐 있음</td><td>분리됨</td></tr><tr><td>위협</td><td>온라인 + 냉방 경쟁자</td><td>온라인 + 해외 직구</td></tr></tbody></table></div>
+<p>🔴 <strong>가장 큰 차이는 「분리하지 않았다」는 것이다.</strong> 동대문은 도매(새벽)와 소매(낮)를 시간으로, 건물로 분리했다. 짜뚜짝은 분리하지 않았고, 그래서 <strong>혼란스럽지만 동시에 발견의 재미가 있다.</strong></p>
+<p>어느 쪽이 낫다는 이야기가 아니다. 다만 <strong>「구경만 하러 가면 지친다」는 평가가 왜 나오는지</strong>는 이 구조로 설명된다.</p>
+<hr>
+<h3>7. 이 시장을 쓰는 법</h3>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>🔴 <strong>시간</strong></td><td><strong>오전.</strong> 오후엔 지붕 아래 냉방이 없어 체감 40도에 가깝다</td></tr><tr><td>🔴 <strong>목표</strong></td><td><strong>살 것을 정하고 들어간다.</strong> 「구경」은 세 시간을 소모할 뿐이다</td></tr><tr><td><strong>동선</strong></td><td>목표 구역 → 오또꼬에서 점심·냉방 → 필요하면 재진입</td></tr><tr><td><strong>결제</strong></td><td>현금 위주</td></tr><tr><td><strong>흥정</strong></td><td>2개 이상이면 값이 내려간다. 「두 개 사면?」이 마법의 문장</td></tr><tr><td><strong>물</strong></td><td>반드시 사서 들고 들어갈 것</td></tr><tr><td><strong>대안</strong></td><td>비 오면 → <strong>방수 정션</strong>(실내·냉방·매일)</td></tr></tbody></table></div>
+<p>🔴 <strong>그리고 우리 일정에서는 짜뚜짝과 플래티넘을 다른 날에 둘지 같은 날에 둘지가 버전마다 다르다.</strong> 둘 다 쇼핑이라 같은 날에 몰면 하루가 통째로 쇼핑이 되고, 나누면 다른 항목을 밀어낸다. <strong>계획 D는 몰았고, 계획 A는 나눴다.</strong></p>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Qu4s1AWhI60" title="짜뚜짝 — 15,000 노점을 어떻게 도나" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>짜뚜짝 — 15,000 노점을 어떻게 도나 · YouTube</figcaption></figure>
+<hr>
+<h3>이어 읽기</h3>
+<ul><li>「실롬·사톤은 어떻게 CBD가 됐나」 — 방콕 상업지구의 다른 축</li><li>「동양의 베니스는 어쩌다 도로의 도시가 됐나」 — 큰길과 골목의 값 차이가 왜 그렇게 큰가</li></ul></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-chatuchak">짜뚜짝 주말시장</a><a href="../#p-or-tor-kor">오또꼬 시장</a><a href="../#p-platinum">플래티넘 패션몰</a><a href="../#p-bang-sue">방수 정션 (붉은 건물)</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>

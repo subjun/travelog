@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>카오산로드 — 배낭여행의 성지는 어디로 갔나 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">동네</div>
+  <h1>카오산로드 — 배낭여행의 성지는 어디로 갔나</h1>
+  <p class="sub">300m 거리가 40년 동안 세 번 바뀐 이야기</p>
+  <div class="lens"><span>관광</span><span>경제</span><span>인구</span><span>이민</span><span>도시</span><span>지금의 이슈</span><span>한국과의 비교</span></div>
+</header>
+<article><blockquote class="note"><p>🔴 <strong>이 글은 「가지 마라」는 글이 아닙니다.</strong> 20년 전에 들었던 그 카오산과 지금의 카오산이 왜 다른지, 그리고 그럼에도 무엇이 남았는지에 대한 글입니다.</p></blockquote>
+<hr>
+<h3>1. 먼저 숫자</h3>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>길이</td><td><strong>약 300m</strong> — 걸어서 4분이면 끝난다</td></tr><tr><td>이름의 뜻</td><td><strong>「빻은 쌀」</strong> — 원래 쌀 도매 거리였다</td></tr><tr><td>배낭여행자 거리가 된 시점</td><td><strong>1980년대</strong></td></tr><tr><td>게스트하우스 1박 (1990년대)</td><td>🔴 <strong>US$1~3</strong> 수준으로 회자된다</td></tr><tr><td>지금 이 일대 호텔</td><td>부티크 호텔·호스텔이 다수, <strong>US$20~80대</strong></td></tr><tr><td>플랫폼 상품 수</td><td><strong>Klook 5건</strong> — 상품은 거의 없는데 <strong>모든 플랫폼의 「방콕 소개」 첫 문장에 등장한다</strong></td></tr></tbody></table></div>
+<p>🔴 <strong>마지막 줄이 이 거리의 성격이다.</strong> 카오산은 팔 상품이 아니라 <strong>상징</strong>이다.</p>
+<hr>
+<h3>2. 1단계 — 쌀 거리가 배낭여행자 거리가 된 이유 (1980년대)</h3>
+<p>카오산로드는 왕궁에서 도보 15분이다. 원래 쌀 도매상이 늘어선 평범한 상업 거리였다.</p>
+<p><strong>왜 여기에 배낭여행자가 모였나.</strong> 세 가지가 겹쳤다.</p>
+<p><strong>① 지리.</strong> 왕궁·왓포·왓아룬이 전부 걸어서 닿는다. 그리고 <strong>당시 방콕에는 지하철도 경전철도 없었다.</strong> 관광지에 걸어갈 수 있는 곳에 싸게 자는 것이 유일한 합리적 선택이었다.</p>
+<p><strong>② 값.</strong> 쌀 도매가 쇠퇴하면서 빈 샵하우스가 생겼고, 그걸 게스트하우스로 개조하는 비용이 거의 들지 않았다. 방 하나에 매트리스 하나면 됐다.</p>
+<p><strong>③ 시대.</strong> 🔴 <strong>1970~80년대는 「히피 트레일」의 끝물이었다.</strong> 유럽에서 육로로 이스탄불–테헤란–카불–델리–카트만두를 거쳐 동남아로 내려오는 경로가 있었고, 이란 혁명(1979)과 소련의 아프가니스탄 침공(1979)으로 그 육로가 끊기자 <strong>여행자들이 항공편으로 동남아에 직접 들어오기 시작했다.</strong> 방콕이 그 관문이었다.</p>
+<blockquote class="note"><p><strong>🔴 그래서 카오산은 「태국이 만든 것」이 아니다.</strong> 세계 여행 경로가 바뀌면서 <strong>떠밀려온 사람들이 만든 거리</strong>다.</p></blockquote>
+<hr>
+<h3>3. 2단계 — 「성지」가 된 시기 (1990년대~2000년대 초)</h3>
+<div class="gal ess" data-n="7"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/khaosan_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_1.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Khao_San_East_2007.jpg" target="_blank" rel="noopener">chadmoone · CC BY-SA 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khaosan_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_2.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Khaosan_road_2005.jpg" target="_blank" rel="noopener">Original uploader was Tnlavie at fr.wikipedia · CC BY-SA 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khaosan_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_3.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Khao_San_Road_at_night_by_kevinpoh.jpg" target="_blank" rel="noopener">Kevin Poh from Petaling Jaya, Malaysia · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khaosan_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_4.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Shopping_at_Khao_San_Rd_(6491938909).jpg" target="_blank" rel="noopener">McKay Savage from London, UK · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khaosan_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_5.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Thailand_06_-_27_Bankoks_Khao_San_Road_(158628997).jpg" target="_blank" rel="noopener">McKay Savage from London, UK · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khaosan_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_6.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Thanon_Khao_San,_Bangkok,_Thailand_(4245976903).jpg" target="_blank" rel="noopener">yeowatzup · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khaosan_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_7.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Thanon_Khao_San,_Bangkok,_Thailand_(4246684760).jpg" target="_blank" rel="noopener">yeowatzup · CC BY 2.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/7</span></div>
+<p>이때가 원장님이 기억하시는 그 카오산이다.</p>
+<p><strong>무엇이 있었나.</strong></p>
+<ul><li><strong>정보 게시판.</strong> 인터넷이 없거나 비싸던 시절, 게스트하우스 벽의 코르크판이 정보 인프라였다. 「내일 아침 앙코르와트행 미니밴 두 자리」 같은 쪽지가 붙었다</li><li><strong>중고 책 교환.</strong> 론리플래닛을 다 읽으면 다음 사람에게 넘겼다</li><li><strong>여행사 골목.</strong> 비자 대행, 국경 넘는 버스, 가짜 학생증</li><li><strong>값.</strong> 하루 US$5로 살 수 있었다</li></ul>
+<p><strong>결정타는 소설과 영화였다.</strong> 알렉스 갈랜드의 소설 『비치』(1996)가 카오산의 게스트하우스에서 시작하고, 2000년 레오나르도 디카프리오 주연으로 영화화되면서 🔴 <strong>카오산은 「배낭여행」이라는 개념의 시각적 아이콘이 됐다.</strong></p>
+<p>한국에서는 여기에 하나가 더 붙는다. <strong>1990년대 말~2000년대 초 배낭여행 붐</strong>과 여행 커뮤니티(태사랑 등), 그리고 여행 에세이 출판이 겹치며 <strong>「카오산 = 배낭여행의 성지」라는 표현이 한국어로 굳었다.</strong></p>
+<p>🔴 <strong>그러니까 원장님의 로망은 정확히 이 시기의 것이다.</strong> 그리고 그 시기는 실제로 있었다.</p>
+<hr>
+<h3>4. 3단계 — 무엇이 그 거리를 끝냈나 (2000년대 중반~)</h3>
+<p>「변했다」는 평가가 나오는 이유는 감성이 아니라 <strong>구조</strong>다. 다섯 가지가 순서대로 일어났다.</p>
+<h4>① 정보가 벽에서 손으로 옮겨갔다</h4>
+<p>게시판·중고책·여행사 골목이 하던 일을 <strong>스마트폰이 전부 흡수했다.</strong> 항공권·숙소·국경 정보가 손 안에 있으면, 「정보를 얻으러 가는 거리」는 존재 이유를 잃는다. 🔴 <strong>카오산의 핵심 기능이 기술로 대체된 것이다.</strong></p>
+<h4>② 숙소가 분산됐다</h4>
+<p>BTS(1999)·MRT(2004)가 깔리면서 <strong>관광지에서 멀어도 되는</strong> 구조가 됐다. 수쿰빗·실롬·아리 어디에 자도 30분이면 왕궁에 간다. 카오산의 지리적 우위가 사라졌다.</p>
+<h4>③ 에어비앤비와 호스텔 체인</h4>
+<p>「싸게 자는 것」이 카오산의 독점이 아니게 됐다. 방콕 전역에 디자인 호스텔이 생겼다.</p>
+<h4>④ 손님이 바뀌었다</h4>
+<p>장기 배낭여행자(한 달 이상)에서 <strong>주말 파티 관광객</strong>으로 무게중심이 옮겨갔다. 그러자 거리도 바에 맞춰 재편됐다. 🔴 <strong>이건 카오산이 「망한」 게 아니라 다른 수요에 적응한 것이다.</strong></p>
+<h4>⑤ 2020~2021년의 공백</h4>
+<p>팬데믹으로 이 거리가 거의 통째로 문을 닫았다. 방콕시는 그 사이에 <strong>약 4,800만 바트를 들여 보도를 넓히고 전선을 지중화하고 노점 구역을 정비했다.</strong> 2021년에 재개장했다.</p>
+<blockquote class="note"><p><strong>🔴 그래서 지금의 카오산은 「방치된 옛 거리」가 아니라 「정비된 관광거리」다.</strong> 원장님이 보신 「많이 변했다」는 평가의 실체가 이것이다. <strong>낡아서 변한 게 아니라 새로 깔아서 변했다.</strong></p></blockquote>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=Khao+San+Road+Bangkok&output=embed" title="카오산로드 — 왕궁에서 도보 15분, 300m"></iframe><figcaption>카오산로드 — 왕궁에서 도보 15분, 300m · 구글지도</figcaption></figure>
+<hr>
+<h3>5. 지금 거기엔 무엇이 있나 — 있는 그대로</h3>
+<p><strong>있는 것</strong></p>
+<ul><li>300m에 압축된 밀도. 밤 9시 이후 도로가 보행자로 꽉 찬다</li><li>전갈·귀뚜라미 튀김 노점 (🔴 대부분 관광객 사진용이다. 태국인은 안 먹는다)</li><li>팟타이 노점, 버킷 칵테일, 라이브 밴드, 문신·머리땋기</li><li><strong>람부뜨리 로드(Rambuttri)</strong> — 카오산 바로 뒤 반달 모양 골목. 🔴 <strong>더 조용하고 나무가 있고 노포 카페가 남아 있다.</strong> 옛 카오산의 결에 가장 가까운 게 여기다</li></ul>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=Soi+Rambuttri+Bangkok&output=embed" title="람부뜨리 로드 — 카오산 바로 뒤, 훨씬 조용하다"></iframe><figcaption>람부뜨리 로드 — 카오산 바로 뒤, 훨씬 조용하다 · 구글지도</figcaption></figure>
+<p><strong>없는 것</strong></p>
+<ul><li>정보 게시판. 중고 책 교환. US$3 도미토리</li><li>한 달씩 머무는 장기 여행자 커뮤니티</li><li>🔴 <strong>「여기서만 얻을 수 있는 것」</strong></li></ul>
+<p><strong>거주자 커뮤니티의 평가</strong>는 명확하다 — 회피 대상으로 반복 지목된다. 이유는 호객·바가지·소음이다. 다만 🔴 <strong>「한 번은 봐야 한다」는 의견은 반대하는 사람들 사이에도 있다.</strong></p>
+<hr>
+<h3>6. 🔴 그럼에도 가야 하는 이유가 있다면</h3>
+<p>이 거리의 값어치는 지금 파는 물건에 있지 않다. <strong>역사에 있다.</strong></p>
+<ul><li>여기는 <strong>세계 여행 경로가 바뀌면서 생긴 거리</strong>다. 이란 혁명과 아프가니스탄 전쟁이 300m짜리 태국 골목을 만들었다</li><li>여기는 <strong>정보가 아날로그이던 시대의 인프라</strong>가 어떻게 생겼는지를 보여주는 마지막 현장이다</li><li>그리고 여기는 🔴 <strong>기술이 한 거리의 존재 이유를 통째로 없앨 수 있다는 것</strong>의 표본이다</li></ul>
+<p><strong>한국과 비교하면</strong>: 이태원의 「외국인 거리」 기능이 온라인과 도시 확산으로 흩어진 과정, 또는 명동이 「한국 청년의 거리」에서 「관광 상권」으로 바뀐 과정과 구조가 같다. 🔴 <strong>거리가 무너진 게 아니라, 그 거리가 독점하던 기능이 사라진 것이다.</strong></p>
+<hr>
+<h3>7. 실무 — 이 여행에서 어떻게 다룰 것인가</h3>
+<p>우리 계획 <strong>1안과 4안</strong>에 <strong>10/8 밤 21:00, 「선택 항목, 30분」</strong>으로 넣었다. 그 배치의 이유는 이렇다.</p>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>언제</strong></td><td>🔴 밤이 본편이다. 낮에는 그냥 좁은 상가 거리다</td></tr><tr><td><strong>얼마나</strong></td><td>🔴 <strong>30분.</strong> 저녁 전체를 여기 쓰면 만족도가 떨어진다는 후기가 지배적이다</td></tr><tr><td><strong>어디서 오나</strong></td><td>왕궁·왓사켓에서 도보 15분. 10/8은 왕실 바지선을 보고 야오와랏에서 저녁을 먹은 뒤라 동선이 이어진다</td></tr><tr><td><strong>같이 볼 것</strong></td><td>🟢 <strong>람부뜨리 로드를 꼭 함께 걸으시라.</strong> 카오산에서 골목 하나만 넘으면 되고, 그쪽이 원장님이 기억하는 결에 훨씬 가깝다</td></tr><tr><td><strong>주의</strong></td><td>🔴 소지품. 툭툭 보석점·양복점 사기가 현재진행형이다. 「오늘 왕궁 문 닫았다」와 같은 계열이다</td></tr><tr><td><strong>먹을 것</strong></td><td>팟타이 노점은 관광객 가격이다. 미식은 야오와랏·방락에서 이미 해결했으니 여기선 맥주 한 잔이면 충분하다</td></tr></tbody></table></div>
+<p>🔴 <strong>기대치 조정이 이 항목의 전부다.</strong> 「20년 전 그 거리」를 찾으러 가면 실패하고, 「그 거리가 있던 자리」를 보러 가면 30분이 아깝지 않다.</p>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Yj0pCTPTVBU" title="지금의 카오산로드는 어떤 모습인가" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>지금의 카오산로드는 어떤 모습인가 · YouTube</figcaption></figure>
+<hr>
+<h3>8. 한 줄로 줄이면</h3>
+<p><strong>카오산로드는 사라진 게 아니라 이사했다.</strong> 정보는 스마트폰으로, 값싼 잠자리는 도시 전역으로, 장기 여행자 커뮤니티는 온라인으로 옮겨갔다. 남은 건물과 300m 도로는 그대로인데 <strong>그 안에 있던 기능이 전부 빠져나간 것</strong>이다.</p>
+<p>그 빈자리에 파티 관광객이 들어왔다. 그게 지금의 카오산이다.</p>
+<hr>
+<h3>이어 읽기</h3>
+<ul><li>「동양의 베니스는 어쩌다 도로의 도시가 됐나」 — 왜 왕궁 옆에 그런 거리가 생길 수 있었나</li><li>「야오와랏 — 화교 자본이 태국 경제를 쥔 경위」 — 같은 도시의 다른 「거리의 생애」</li></ul></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-khaosan">카오산로드</a><a href="../#p-grand-palace">왕궁 + 왓 프라깨우</a><a href="../#p-wat-saket">왓 사켓 (황금산)</a><a href="../#p-ong-ang">옹앙 운하 워킹스트리트</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>

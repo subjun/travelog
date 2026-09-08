@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>대마 — 합법화에서 재불법화까지 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">지금의 이슈</div>
+  <h1>대마 — 합법화에서 재불법화까지</h1>
+  <p class="sub">2022~2025 정책 급변의 정치, 그리고 여행자가 알아야 할 선</p>
+  <div class="lens"><span>지금의 이슈</span><span>정치</span><span>경제</span><span>실무</span><span>한국과의 비교</span></div>
+</header>
+<article><blockquote class="note"><p>🔴 <strong>이 글은 「해보라」는 글이 아니라 「선을 알아두라」는 글입니다.</strong> 방콕 거리에 초록 잎 간판이 아직 많이 남아 있는데, 그게 무슨 상태인지가 지금 매우 복잡합니다. <strong>그리고 한국인에게는 이 이야기가 태국법보다 한국법의 문제입니다.</strong></p></blockquote>
+<hr>
+<h3>1. 🔴 한국인에게 먼저 — 결론부터</h3>
+<p><strong>대한민국 형법은 속인주의를 채택한다.</strong> 즉 <strong>한국 국민이 해외에서 한 행위도 한국법으로 처벌할 수 있다.</strong></p>
+<p>🔴 <strong>태국에서 대마를 사용하는 것이 태국에서 합법이든 아니든, 한국인에게는 마약류관리법 위반이 될 수 있다.</strong> 실제로 해외에서 대마를 사용하고 귀국한 한국인이 입건된 사례가 여러 건 보도됐다.</p>
+<p><strong>결론: 하지 마시라.</strong> 이 글의 나머지는 「왜 거리에 저런 간판이 많은가」를 이해하기 위한 것이다.</p>
+<hr>
+<h3>2. 무슨 일이 있었나 — 3년의 급변</h3>
+<h4>2018 — 의료용 허용</h4>
+<p>태국이 <strong>아시아 최초로 의료용 대마를 합법화</strong>했다. 이 시점의 명분은 명확했다 — 태국은 원래 대마를 전통 약재와 음식(똠얌 국물에 넣는 지역도 있었다)에 쓰던 나라였고, 1930년대에야 서구의 압력으로 금지했다.</p>
+<h4>🔴 2022년 6월 9일 — 마약 목록에서 삭제</h4>
+<p>태국 보건부가 대마를 <strong>마약류 목록에서 제외</strong>했다. 이건 「합법화」라기보다 <strong>「규제 공백」</strong>이었다. 관리할 법을 만들기 전에 금지를 먼저 풀어버렸기 때문이다.</p>
+<p><strong>그 결과 몇 달 만에 벌어진 일:</strong></p>
+<ul><li>대마 판매점이 <strong>전국에 수천 곳</strong> 생겼다 (추정치가 6,000~11,000곳까지 갈린다)</li><li>관광지·카오산·수쿰빗에 초록 잎 간판이 도배됐다</li><li>🔴 <strong>THC 함량 규제와 연령 확인이 사실상 작동하지 않았다</strong></li></ul>
+<p><strong>왜 그랬나.</strong> 이 정책은 당시 <strong>품짜이타이당(Bhumjaithai Party)</strong> 의 간판 공약이었다. 농민 소득 증대와 신산업 육성이 명분이었고, 실제로 동북부 농가에 새 작물이 됐다. <strong>정치적 상품이었다.</strong></p>
+<h4>2023~2024 — 반발</h4>
+<ul><li>청소년 사용 급증, 관광지 난립, 이웃국가(특히 싱가포르·말레이시아)와의 마찰</li><li>2023년 총선 후 정권이 바뀌며 <strong>재규제 방침</strong>이 나왔다</li><li>그러나 연립정부에 품짜이타이당이 들어 있어 <strong>법 개정이 계속 막혔다</strong></li></ul>
+<h4>🔴 2025년 6월 — 처방전 의무화</h4>
+<p>보건부가 <strong>대마를 「통제 허브」로 재분류</strong>하고, 판매를 <strong>의사 처방 기반으로만</strong> 허용하는 규칙을 시행했다. 사실상 <strong>기호용 판매 금지</strong>다.</p>
+<p><strong>다만 이건 「법률」이 아니라 「보건부 고시」 수준이라</strong> 집행 강도와 후속 입법이 계속 유동적이다. ⚠️ <strong>2026년 10월 현재의 정확한 시행 상태는 확인하지 못했다. 이 글의 날짜 이후 상황은 현지에서 확인해야 한다.</strong></p>
+<hr>
+<h3>3. 그래서 지금 거리에 보이는 것은 무엇인가</h3>
+<p>🔴 <strong>간판은 남아 있는데 상태가 제각각이다.</strong></p>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>처방 기반으로 전환한 곳</td><td>합법</td></tr><tr><td>간판만 남기고 다른 걸 파는 곳</td><td>흔하다</td></tr><tr><td>규제를 무시하고 영업하는 곳</td><td>🔴 <strong>단속 대상</strong></td></tr><tr><td>폐업했는데 간판이 안 내려간 곳</td><td>매우 흔하다</td></tr></tbody></table></div>
+<p><strong>여행자가 겉으로 구분할 방법이 사실상 없다.</strong> 이게 이 상황의 가장 위험한 지점이다.</p>
+<div class="gal ess" data-n="7"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/khaosan_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_1.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Khao_San_East_2007.jpg" target="_blank" rel="noopener">chadmoone · CC BY-SA 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khaosan_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_2.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Khaosan_road_2005.jpg" target="_blank" rel="noopener">Original uploader was Tnlavie at fr.wikipedia · CC BY-SA 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khaosan_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_3.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Khao_San_Road_at_night_by_kevinpoh.jpg" target="_blank" rel="noopener">Kevin Poh from Petaling Jaya, Malaysia · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khaosan_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_4.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Shopping_at_Khao_San_Rd_(6491938909).jpg" target="_blank" rel="noopener">McKay Savage from London, UK · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khaosan_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_5.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Thailand_06_-_27_Bankoks_Khao_San_Road_(158628997).jpg" target="_blank" rel="noopener">McKay Savage from London, UK · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khaosan_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_6.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Thanon_Khao_San,_Bangkok,_Thailand_(4245976903).jpg" target="_blank" rel="noopener">yeowatzup · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khaosan_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khaosan_7.jpg" alt="khaosan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Thanon_Khao_San,_Bangkok,_Thailand_(4246684760).jpg" target="_blank" rel="noopener">yeowatzup · CC BY 2.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/7</span></div>
+<hr>
+<h3>4. 🔴 여행자가 알아야 할 선 — 대마보다 훨씬 중요한 것</h3>
+<p>이 주제보다 우리 여행에서 <strong>비교할 수 없이 더 중요한 규정</strong>이 있다.</p>
+<h4>🔴 전자담배 = 최대 징역 10년</h4>
+<p><strong>태국은 전자담배(베이프)의 수입·판매·소지가 전면 금지다.</strong> 2014년부터 유지되고 있고, 관광객에게도 적용된다.</p>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>법정형</td><td><strong>최대 징역 10년 또는 벌금</strong> (수입 기준)</td></tr><tr><td>소지</td><td><strong>적발 시 압수 + 벌금.</strong> 실제 단속·요구 사례가 계속 보고된다</td></tr><tr><td>공항</td><td>반입 자체가 금지다</td></tr></tbody></table></div>
+<p>🔴 <strong>출발 전에 짐을 전수 확인하시라.</strong> 액상, 기기, 팟 전부다. <strong>가방 구석에 하나 남아 있는 것이 가장 흔한 사고 유형이다.</strong></p>
+<h4>일반 담배</h4>
+<p>합법이지만 <strong>금연 구역이 넓고 벌금이 세다.</strong> 해변·공공장소 흡연 벌금이 크다.</p>
+<h4>술</h4>
+<ul><li><strong>판매 시간 제한</strong>이 있다 (통상 11:00~14:00, 17:00~24:00) ⚠️ 최근 완화 논의가 있으나 확인 못 함</li><li>🔴 <strong>불교 재일(佛日)에는 주류 판매가 금지된다.</strong> 조사 결과 <strong>우리 여행 기간(10/6~11)에는 금주일이 없다</strong></li><li>사원 경내 음주 금지</li></ul>
+<h4>🔴 왕실 관련</h4>
+<p>형법 112조(왕실모독죄)는 <strong>최고 15년</strong>이다. 정치적 입장의 문제가 아니라 <strong>법적 리스크의 문제</strong>다. (→ 「왕실 바지선」 §5)</p>
+<hr>
+<h3>5. 한국과 비교하면</h3>
+<div class="tw"><table><thead><tr><th></th><th>태국</th><th>한국</th></tr></thead><tbody><tr><td>대마</td><td>2022 규제 공백 → 2025 처방 기반</td><td>전면 금지, <strong>속인주의 적용</strong></td></tr><tr><td>전자담배</td><td>🔴 <strong>전면 금지, 최대 10년</strong></td><td>합법</td></tr><tr><td>술 판매 시간</td><td>🔴 <strong>제한 있음</strong></td><td>제한 없음</td></tr><tr><td>왕실·국가원수 모독</td><td>🔴 <strong>형법 112조, 최고 15년</strong></td><td>명예훼손 일반법</td></tr></tbody></table></div>
+<p>🔴 <strong>주목할 것은 「한국에서 합법인 것이 태국에서 중범죄」인 항목이 있다는 점이다.</strong> 전자담배가 정확히 그 경우다. 여행 준비에서 이 비대칭을 놓치기 쉽다.</p>
+<hr>
+<h3>6. 이 이야기가 여행에서 갖는 의미</h3>
+<p>굳이 이 주제를 해설집에 넣은 이유가 있다.</p>
+<p><strong>① 거리 풍경이 설명된다.</strong> 카오산·수쿰빗·송왓 일대에 남은 초록 잎 간판이 왜 그렇게 많고 왜 상태가 제각각인지가, 3년 사이의 정책 급변으로 설명된다.</p>
+<p><strong>② 태국 정치의 작동 방식이 보인다.</strong> 한 정당의 간판 공약이 3년 만에 뒤집히는 과정, 연립정부의 제약, 고시와 법률의 차이 — 이건 <strong>태국 민주주의가 지금 어떻게 굴러가는지의 표본</strong>이다.</p>
+<p><strong>③ 그리고 선을 안다.</strong> 🔴 <strong>모르고 넘는 선이 가장 위험하다.</strong></p>
+<hr>
+<h3>7. 출발 전 체크</h3>
+<ul><li>☐ 🔴 <strong>전자담배·액상·팟 전수 확인 — 하나도 없어야 한다</strong></li><li>☐ 대마 관련: 하지 않는다. 속인주의로 한국법 적용</li><li>☐ 왕실 관련 언행·촬영 주의</li><li>☐ 술 판매 시간 제한 인지 (우리 기간에 금주일은 없음)</li><li>☐ 처방약이 있으면 <strong>영문 처방전</strong> 지참 (일부 성분은 태국에서 규제 대상일 수 있다)</li></ul>
+<hr>
+<h3>이어 읽기</h3>
+<ul><li>「왕실 바지선 — 의례가 담은 권력」 — 112조가 왜 존재하나</li><li>실무 정보 전문은 <code>_리서치/research-06-실무.md</code></li></ul></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-khaosan">카오산로드</a><a href="../#p-song-wat">송왓로드</a><a href="../#p-banthat-thong">반탓통 거리</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>

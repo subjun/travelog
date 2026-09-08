@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>방콕은 왜 여기에 있나 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">역사</div>
+  <h1>방콕은 왜 여기에 있나</h1>
+  <p class="sub">1767년의 화재가 도시 하나를 옮겨 놓았다</p>
+  <div class="lens"><span>역사</span><span>지리</span><span>종교</span><span>정치</span><span>한국과의 비교</span></div>
+</header>
+<article><blockquote class="note"><p>이 글은 여행 첫날 왕궁에 들어가기 전에 읽으면 가장 값이 나갑니다. 왕궁이 <strong>1782년에 지어진 새 건물</strong>이라는 사실 하나만 알고 들어가도 보이는 게 달라집니다.</p></blockquote>
+<hr>
+<h3>1. 먼저 숫자 다섯 개</h3>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>아유타야가 수도였던 기간</td><td><strong>417년</strong> (1350~1767)</td></tr><tr><td>톤부리가 수도였던 기간</td><td>🔴 <strong>15년</strong> (1767~1782)</td></tr><tr><td>방콕이 수도인 기간</td><td>244년 (1782~현재)</td></tr><tr><td>아유타야 전성기 인구</td><td><strong>약 100만</strong> — 같은 시기 런던·파리보다 컸다</td></tr><tr><td>1767년 함락 후 남은 인구</td><td>🔴 <strong>1만 명 이하로 추정</strong></td></tr></tbody></table></div>
+<p>한국에 대응시키면 이렇다. <strong>아유타야가 경주라면, 톤부리는 15년짜리 개성이고, 방콕은 한양이다.</strong> 그런데 경주가 무너진 게 신라 말이 아니라 <strong>조선 건국 15년 전</strong>이었다고 생각하면 감이 맞는다. 방콕은 오래된 도시가 아니다. <strong>의도적으로 만들어진 계획도시</strong>다.</p>
+<hr>
+<h3>2. 아유타야 — 왜 그렇게 컸나</h3>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/ayutthaya_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ayutthaya_1.jpg" alt="ayutthaya"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Ayutthaya_Thailand_2004.jpg" target="_blank" rel="noopener">Evilarry · Public domain</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ayutthaya_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ayutthaya_2.jpg" alt="ayutthaya"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Chai_Watthanaram_-_Ayutthaya.jpg" target="_blank" rel="noopener">JJ Harrison (https://www.jjharrison.com.au/) · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ayutthaya_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ayutthaya_3.jpg" alt="ayutthaya"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Ayutthaya_Historical_Park_1.jpg" target="_blank" rel="noopener">Mr.Peerapong Prasutr · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ayutthaya_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ayutthaya_4.jpg" alt="ayutthaya"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:%E0%B9%80%E0%B8%A8%E0%B8%B5%E0%B8%A2%E0%B8%A3%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%9E%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B9%83%E0%B8%99%E0%B8%A3%E0%B8%B2%E0%B8%81%E0%B9%82%E0%B8%9E%E0%B8%98%E0%B8%B4%E0%B9%8C.jpg" target="_blank" rel="noopener">Siripatwongpin · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ayutthaya_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ayutthaya_5.jpg" alt="ayutthaya"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Ayutthaya_Historical_Park_(44638637840).jpg" target="_blank" rel="noopener">Gary Todd from Xinzheng, China · CC0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ayutthaya_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ayutthaya_6.jpg" alt="ayutthaya"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Stupas_in_Ayutthaya,_Thailand.jpg" target="_blank" rel="noopener">Vyacheslav Argenberg · CC BY 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ayutthaya_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ayutthaya_7.jpg" alt="ayutthaya"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Stupa_in_Ayutthaya,_Thailand.jpg" target="_blank" rel="noopener">Vyacheslav Argenberg · CC BY 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ayutthaya_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ayutthaya_8.jpg" alt="ayutthaya"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Pratuchai,_Ayutthaya,_Tailandia,_2013-08-23,_DD_02.jpg" target="_blank" rel="noopener">Diego Delso · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ayutthaya_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ayutthaya_9.jpg" alt="ayutthaya"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Historic_City_of_Ayutthaya-111219.jpg" target="_blank" rel="noopener">Francesco Bandarin · CC BY-SA 3.0 igo</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ayutthaya_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ayutthaya_10.jpg" alt="ayutthaya"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Historic_City_of_Ayutthaya-111221.jpg" target="_blank" rel="noopener">Francesco Bandarin · CC BY-SA 3.0 igo</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ayutthaya_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ayutthaya_11.jpg" alt="ayutthaya"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Historic_City_of_Ayutthaya-111223.jpg" target="_blank" rel="noopener">Francesco Bandarin · CC BY-SA 3.0 igo</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ayutthaya_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ayutthaya_12.jpg" alt="ayutthaya"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Historic_City_of_Ayutthaya-111225.jpg" target="_blank" rel="noopener">Francesco Bandarin · CC BY-SA 3.0 igo</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<p>아유타야는 짜오프라야·롭부리·빠삭 세 강이 합류하는 지점의 <strong>섬</strong>에 있었다. 이 위치가 두 가지를 동시에 해결했다.</p>
+<p><strong>① 방어.</strong> 사방이 물이라 성벽 노릇을 했고, 우기에는 일부러 둑을 터뜨려 주변을 물바다로 만들 수 있었다. 버마군은 건기에만 공격할 수 있었고, 그래서 <strong>200년 넘게 함락되지 않았다.</strong></p>
+<p><strong>② 무역.</strong> 바다에서 강을 거슬러 올라올 수 있는 가장 안쪽 지점이었다. 중국 정크선, 일본 주인선, 네덜란드 동인도회사, 포르투갈, 페르시아 상관이 강변에 각각 자기 구역을 갖고 있었다. <strong>17세기 아유타야는 동남아시아 최대의 국제도시였다.</strong></p>
+<figure class="epic"><a href="../img/essay/ayutthaya-iudea.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/essay/ayutthaya-iudea.jpg" alt="1665년경 네덜란드 화가가 그린 아유타야(「유디아」). 강과 운하로 둘러싸인 섬 도시였다"></a><figcaption>1665년경 네덜란드 화가가 그린 아유타야(「유디아」). 강과 운하로 둘러싸인 섬 도시였다<br><a href="https://commons.wikimedia.org/wiki/File:Iudea-Ayutthaya.jpg" target="_blank" rel="noopener">circa 1665 · Josh at Dutch Wikipedia (Original text: josh) · CC BY-SA 3.0</a></figcaption></figure>
+<figure class="epic"><a href="../img/essay/ayutthaya-1746-struys.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/essay/ayutthaya-1746-struys.jpg" alt="1746년 얀 얀손 스트라위스의 아유타야 조감도 — 함락 21년 전의 모습이다"></a><figcaption>1746년 얀 얀손 스트라위스의 아유타야 조감도 — 함락 21년 전의 모습이다<br><a href="https://commons.wikimedia.org/wiki/File:De_Stadt_Iudia_(City_Ayutthaya)_by_Jan_Jansz_Struys_1746.jpg" target="_blank" rel="noopener">1746 · Jan Janszoon Struys · Public domain</a></figcaption></figure>
+<p>일본인 마을에는 한때 1,500명이 살았고, 그 우두머리 야마다 나가마사는 시암 관직을 받았다.</p>
+<p>🔴 <strong>그리고 여기가 중요하다 — 아유타야에는 그리스인 재상이 있었다.</strong> 콘스탄틴 파울콘은 영국 동인도회사 선원으로 왔다가 시암 궁정에 들어가 재상까지 올랐고, 프랑스와의 동맹을 밀다가 1688년 궁정 쿠데타로 처형됐다. 이 사건 뒤 시암은 서구에 문을 닫았다. <strong>일본의 쇄국과 거의 같은 시기, 거의 같은 논리다.</strong></p>
+<hr>
+<h3>3. 1767년 — 무엇이 무너졌나</h3>
+<p>1767년 4월, 14개월의 포위 끝에 버마 꼰바웅 왕조가 아유타야를 함락시켰다. 그리고 <strong>불태웠다.</strong></p>
+<p>이 파괴의 성격을 오해하면 안 된다. 버마군은 도시를 점령해 다스릴 생각이 없었다. <strong>금을 벗겨 가고, 사람을 끌고 가고, 나머지를 태웠다.</strong></p>
+<blockquote class="note"><p><strong>🔴 침공한 쪽이 그린 지도</strong> 아래는 <strong>18세기 버마 첩자가 그린 톤부리 일대 지도</strong>다. 아유타야를 함락시킨 그 나라가 다음 목표인 강 하구를 어떻게 파악하고 있었는지가 그대로 남아 있다.</p></blockquote>
+<figure class="epic"><a href="../img/essay/thonburi-burmese-18c.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/essay/thonburi-burmese-18c.jpg" alt="18세기 버마가 그린 톤부리(방콕) 지도 — 「Burmese spy」로 기록된 작자 미상"></a><figcaption>18세기 버마가 그린 톤부리(방콕) 지도 — 「Burmese spy」로 기록된 작자 미상<br><a href="https://commons.wikimedia.org/wiki/File:Thonburi_Map_Detail_(Bangkok)_by_Burmese_18th_Century.png" target="_blank" rel="noopener">18th century (circa  · Burmese spy · Public domain</a></figcaption></figure>
+<p>불상의 금박을 벗기려고 불에 녹였고, 그래서 지금 아유타야에 목이 잘린 불상이 그렇게 많다. 왕실 문서고가 타면서 <strong>시암의 기록 상당수가 이때 사라졌다.</strong></p>
+<p>한국사에 굳이 대응시키면 임진왜란보다는 <strong>몽골의 고려 침입 + 병자호란 + 경주 소실을 한꺼번에 겪은 것</strong>에 가깝다. 왕조가 끊겼고, 인구가 흩어졌고, 기록이 탔다.</p>
+<blockquote class="note"><p><strong>🔴 여행에서 볼 것 — 왓 마하탓의 나무뿌리 불두</strong> 보리수 뿌리에 감긴 불상 머리는 방콕 관광 사진의 상징인데, 저 머리가 왜 땅에 떨어져 있는지를 아는 사람은 적다. <strong>1767년에 몸통에서 떨어져 나온 것</strong>이고, 그 뒤 250년 동안 나무가 자라며 감싼 것이다. 즉 저건 유물이 아니라 <strong>파괴의 흔적 위에 자란 식물</strong>이다.</p></blockquote>
+<div class="vsbox"><figure class="vsold"><a href="../img/essay/ayutthaya-birdseye.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/essay/ayutthaya-birdseye.jpg" alt="18세기 네덜란드가 그린 아유타야 조감도 — 함락 전의 섬 도시"></a><figcaption><b>옛 지도</b>18세기 네덜란드가 그린 아유타야 조감도 — 함락 전의 섬 도시<br><a href="https://commons.wikimedia.org/wiki/File:AMH-7236-KB_Bird%27s_eye_view_of_the_city_of_Judia_in_Siam.jpg" target="_blank" rel="noopener">1724 · Johannes Vingboons / Johannes van Braam / G. onder de Linden · Public domain</a></figcaption></figure><figure class="vsnew"><iframe loading="lazy" src="https://www.google.com/maps?q=Ayutthaya+Historical+Park&output=embed" title="같은 섬의 지금 — 벽돌 폐허만 남아 유네스코 유산이 됐다"></iframe><figcaption><b>지금</b>같은 섬의 지금 — 벽돌 폐허만 남아 유네스코 유산이 됐다 · 구글지도</figcaption></figure></div>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=Wat+Mahathat+Ayutthaya&output=embed" title="왓 마하탓 — 나무뿌리 불두가 있는 자리"></iframe><figcaption>왓 마하탓 — 나무뿌리 불두가 있는 자리 · 구글지도</figcaption></figure>
+<hr>
+<h3>4. 톤부리 — 15년짜리 수도, 그리고 지워진 왕</h3>
+<p>함락 직후 나라를 되찾은 것은 <strong>딱신(Taksin)</strong> 이라는 인물이다. 아버지가 중국 조주(潮州)계 이민자이고 어머니가 태국인인 혼혈 지방관이었다. 그는 함락 직전 500명을 이끌고 탈출해 동부 해안에서 세력을 모았고, <strong>7개월 만에 버마 주둔군을 몰아냈다.</strong></p>
+<p>그가 새 수도로 고른 곳이 <strong>톤부리</strong> — 지금 짜오프라야 강 서안이다. 이유가 명확하다.</p>
+<div class="tw"><table><thead><tr><th>아유타야를 버린 이유</th><th>톤부리를 고른 이유</th></tr></thead><tbody><tr><td>이미 폐허고 재건 비용이 크다</td><td>바다에 더 가까워 <strong>중국 무역선이 바로 들어온다</strong></td></tr><tr><td>버마가 다시 오면 같은 길로 온다</td><td>하구에 가까워 <strong>함대로 방어</strong>가 된다</td></tr><tr><td>인구가 흩어져 유지가 안 된다</td><td>이미 세관과 요새가 있던 항구 마을이었다</td></tr></tbody></table></div>
+<p>🔴 <strong>핵심은 「중국 무역」이다.</strong> 딱신은 조주계 혈통을 활용해 청과의 교역을 대대적으로 열었고, 그 수입으로 나라를 재건했다. <strong>지금 태국 경제에서 화교 자본이 차지하는 위치의 뿌리가 이 15년에 있다.</strong> (→ 별도 해설 「야오와랏」)</p>
+<p>그런데 그는 1782년에 폐위되어 처형됐다. 말년에 정신이상을 보였다는 것이 공식 기록이고, 승려들에게 자신을 신으로 예배하라 강요했다는 기술이 있다. <strong>다만 그 기록을 쓴 것은 그를 몰아낸 다음 왕조다.</strong> 역사가들 사이에서 이 기술의 신빙성은 지금도 논쟁 중이다.</p>
+<div class="gal ess" data-n="8"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/wat-intharam_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-intharam_1.jpg" alt="wat-intharam"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Intharam_(Wat_Bang_Yi_Ruea_Nok)_-_Thoed_Thai_Road_in_front_of_the_temple.JPG" target="_blank" rel="noopener">Xiengyod · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/wat-intharam_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-intharam_2.jpg" alt="wat-intharam"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A1%E0%B8%A7%E0%B8%A3%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3_%E0%B9%80%E0%B8%82%E0%B8%95%E0%B8%98%E0%B8%99%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5_%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3_(7).JPG" target="_blank" rel="noopener">กสิณธร ราชโอรส · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/wat-intharam_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-intharam_3.jpg" alt="wat-intharam"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:(2024)_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A1%E0%B8%A7%E0%B8%A3%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3_%E0%B9%80%E0%B8%82%E0%B8%95%E0%B8%98%E0%B8%99%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5_%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3_(1).jpg" target="_blank" rel="noopener">กสิณธร ราชโอรส · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/wat-intharam_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-intharam_4.jpg" alt="wat-intharam"></a><figcaption><a href="https://www.flickr.com/photos/nikonslave/55296232249/" target="_blank" rel="noopener">Plan R · Flickr (개인 기록용 인용)</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/wat-intharam_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-intharam_5.jpg" alt="wat-intharam"></a><figcaption><a href="https://www.flickr.com/photos/daniel_james/54603353236/" target="_blank" rel="noopener">daniel_james · Flickr (개인 기록용 인용)</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/wat-intharam_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-intharam_6.jpg" alt="wat-intharam"></a><figcaption><a href="https://www.flickr.com/photos/daniel_james/54600729442/" target="_blank" rel="noopener">daniel_james · Flickr (개인 기록용 인용)</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/wat-intharam_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-intharam_7.jpg" alt="wat-intharam"></a><figcaption><a href="https://www.flickr.com/photos/daniel_james/54600729277/" target="_blank" rel="noopener">daniel_james · Flickr (개인 기록용 인용)</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/wat-intharam_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-intharam_8.jpg" alt="wat-intharam"></a><figcaption><a href="https://www.flickr.com/photos/bindubaba/53386053084/" target="_blank" rel="noopener">bindubaba · Flickr (개인 기록용 인용)</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/8</span></div>
+<blockquote class="note"><p><strong>🔴 여행에서 볼 것 — 왓 인타람</strong> 딱신의 유해가 안치된 절이다. 톤부리에 있고, <strong>관광객이 없다.</strong> 왕궁에는 하루에 수만 명이 들어가는데 나라를 되찾은 왕의 절은 비어 있다. 그 대비 자체가 이 도시의 정치사를 말한다.</p></blockquote>
+<hr>
+<h3>5. 1782년 — 강을 건넌 이유</h3>
+<p>딱신을 몰아낸 장군 짜끄리는 라마 1세로 즉위하고 <strong>곧바로 수도를 강 건너 동안으로 옮겼다.</strong> 지금의 라따나꼬신이다. 왜 강 하나를 건넜을까. 세 가지가 겹친다.</p>
+<p><strong>① 지형.</strong> 톤부리 쪽은 강이 크게 굽어 도는 바깥쪽이라 물살이 침식한다. 동안은 안쪽이라 퇴적된다. <strong>동안이 더 넓고 안정적인 땅이었다.</strong></p>
+<p><strong>② 방어.</strong> 동쪽으로 운하를 파서 인공 해자를 만들면 <strong>도시 전체가 아유타야처럼 「섬」이 된다.</strong> 실제로 라마 1세는 즉위하자마자 옹앙 운하와 방람푸 운하를 팠다. <strong>아유타야의 설계를 다시 그린 것이다.</strong></p>
+<figure class="epic"><a href="../img/essay/menam-bkk-ayutthaya.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/essay/menam-bkk-ayutthaya.jpg" alt="1753년경 네덜란드에서 만든 「메남(짜오프라야)강 지도」 — 🔴 한 장 안에 방콕과 아유타야가 같이 있다. 강 하나가 두 수도를 이어 준다"></a><figcaption>1753년경 네덜란드에서 만든 「메남(짜오프라야)강 지도」 — 🔴 한 장 안에 방콕과 아유타야가 같이 있다. 강 하나가 두 수도를 이어 준다<br><a href="https://commons.wikimedia.org/wiki/File:AMH-8009-KB_Map_of_the_Menam_River,_with_Bangkok_and_Ayuthaya.jpg" target="_blank" rel="noopener">circa 1753 · Pieter de Hondt / Jakob van der Schley · Public domain</a></figcaption></figure>
+<p><strong>③ 정통성.</strong> 새 왕조는 「딱신을 무너뜨린 자」가 아니라 「아유타야를 계승한 자」로 보여야 했다. 그래서 새 왕궁은 <strong>아유타야 왕궁의 배치를 의도적으로 모방</strong>했다. 왕궁 옆에 왕실 사원을 두고, 그 안에 나라의 수호 불상을 모시는 구조가 그대로다.</p>
+<p>🔴 <strong>에메랄드 불상이 강을 건넌 것이 이 이야기의 결정적 장면이다.</strong> 이 옥 불상은 원래 라오스 비엔티안에 있었는데, 딱신 시대에 전리품으로 가져와 <strong>왓 아룬</strong>에 모셨다. 라마 1세는 즉위 뒤 이것을 강 건너 새 왕궁의 왓 프라깨우로 옮겼다. <strong>불상이 옮겨간 것이 곧 정통성이 옮겨간 것이다.</strong></p>
+<div class="gal ess" data-n="8"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/grand-palace_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_1.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:A_roof_of_a_building_at_the_Grand_Palace,_Bangkok,_sunrise,_2017.jpg" target="_blank" rel="noopener">Bjørn Erik Pedersen · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_2.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%A3%E0%B8%B1%E0%B8%95%E0%B8%99%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%94%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A1_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7_%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3_-_Wat_Phra_Kaew,_Temple_of_Emerald_Buddha,_Bangkok,_Thailand.jpg" target="_blank" rel="noopener">Basile Morin · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_3.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:20160727_-_Royal_guard_in_the_Grand_Palace_in_Bangkok_-_5389.jpg" target="_blank" rel="noopener">Jakub Hałun · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_4.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Grand_Palace_Bangkok,_Thailand.jpg" target="_blank" rel="noopener">Andy Marchand · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_5.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Regimiento_Primero_de_Infanter%C3%ADa_de_la_Guardia_Real,_Gran_Palacio,_Bangkok,_Tailandia,_2013-08-22,_DD_07.JPG" target="_blank" rel="noopener">Diego Delso · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_6.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:20160727_-_Royal_guard_in_the_Grand_Palace_in_Bangkok_-_5273.jpg" target="_blank" rel="noopener">Jakub Hałun · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_7.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:20160727_Grand_Palace_Bangkok_5405.jpg" target="_blank" rel="noopener">Jakub Hałun · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_8.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Phra_Borom_Maha_Ratchawang,_Phra_Nakhon,_Bangkok,_Thailand_-_panoramio_(25).jpg" target="_blank" rel="noopener">东京村子 · CC BY-SA 3.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/8</span></div>
+<blockquote class="note"><p><strong>🔴 여행에서 볼 것</strong> 왕궁의 왓 프라깨우에 서서 강 건너 왓 아룬을 생각해 보면, 이 두 절은 <strong>같은 불상을 두고 앞뒤로 놓인 한 쌍</strong>이다. 우리 일정에서 두 곳이 다른 날 다른 시간대에 배치돼 있지만, 이야기로는 붙어 있다.</p></blockquote>
+<hr>
+<h3>6. 그래서 지금 무엇이 남았나</h3>
+<h4>도시 구조</h4>
+<p>방콕의 옛 중심은 <strong>동심원</strong>이다. 왕궁을 가운데 두고, 첫 번째 운하(옹앙·방람푸), 두 번째 운하(파둥끄룽까셈), 세 번째로 넓어진다. 이건 <strong>아유타야의 물 위 도시 구조를 육지에 옮겨 그린 것</strong>이다. 지금 지도를 보면 도로가 왜 저렇게 활처럼 휘어 있는지가 설명된다 — <strong>운하를 메운 자리이기 때문이다.</strong> (→ 별도 해설 「동양의 베니스」)</p>
+<h4>인구</h4>
+<p>아유타야 함락은 <strong>디아스포라를 만들었다.</strong> 포르투갈계 가톨릭 신자들은 강 서안에 정착해 꾸디찐을 만들었고, 무슬림들은 다른 구역에, 중국인들은 지금 왕궁 자리에 있다가 1782년 천도 때 다시 남쪽으로 밀려나 야오와랏을 만들었다. <strong>지금 방콕의 동네 구분은 250년 전 누가 어디로 밀려났는지의 지도다.</strong></p>
+<h4>왕실</h4>
+<p>🔴 <strong>그리고 이 이야기는 아직 안 끝났다.</strong> 짜끄리 왕조는 1782년부터 지금까지 이어지고 있고, 왕실 바지선 행렬은 <strong>그 왕조가 강을 지배한다는 것을 재연하는 의례</strong>다. 우리가 10/8에 보는 것이 바로 그 재연이다. (→ 별도 해설 「왕실 바지선」)</p>
+<hr>
+<h3>7. 한국과 나란히 놓고 보면</h3>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/-zHxjhd45nA" title="아유타야 — 1767년에 불탄 도시를 지금 걷는다" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>아유타야 — 1767년에 불탄 도시를 지금 걷는다 · YouTube</figcaption></figure>
+<div class="tw"><table><thead><tr><th></th><th>시암</th><th>조선</th></tr></thead><tbody><tr><td>17세기</td><td>국제 무역도시 아유타야, 서구 상관 다수</td><td>병자호란 후 청 조공, 사실상 폐쇄</td></tr><tr><td>1688</td><td>궁정 쿠데타 → <strong>서구와 단절</strong></td><td>—</td></tr><tr><td>1767</td><td><strong>수도 함락·소실, 왕조 단절</strong></td><td>영조 치세 안정기</td></tr><tr><td>1782</td><td><strong>새 왕조·새 수도</strong></td><td>정조 즉위 6년</td></tr><tr><td>19세기</td><td>🔴 <strong>식민지가 되지 않은 유일한 동남아 국가</strong></td><td>개항 압력 → 식민지화</td></tr></tbody></table></div>
+<p>🔴 <strong>가장 흥미로운 대비가 여기 있다.</strong> 시암은 19세기에 라마 4세·5세가 서구 제도를 대거 들여오며 <strong>영국과 프랑스 사이에서 완충국으로 살아남았다.</strong> 태국인들이 나라 이름 「타이(자유)」에 담는 자부심의 실체가 이것이다. 반면 조선은 같은 시기에 실패했다.</p>
+<p>이 차이를 만든 조건 중 하나가 <strong>1767년의 파괴</strong>라는 해석이 있다. 왕조가 한 번 끊기고 새로 세워진 나라는 <strong>제도를 바꾸는 데 대한 저항이 적었다</strong>는 것이다. 폐허에서 다시 지은 나라라서 유연했다는 이야기인데, 검증하기 어려운 가설이지만 아유타야의 벽돌더미 앞에서 떠올려 볼 만하다.</p>
+<hr>
+<h3>이어 읽기</h3>
+<ul><li>「동양의 베니스는 어쩌다 도로의 도시가 됐나」 — 라마 1세가 판 운하가 어떻게 사라졌는가</li><li>「야오와랏 — 화교 자본이 태국 경제를 쥔 경위」 — 딱신의 조주계 혈통에서 시작하는 이야기</li><li>「꾸디찐 — 1767년이 만든 디아스포라」 — 250년 된 컵케이크가 무엇의 증거인가</li><li>「왕실 바지선 — 의례가 담은 왕권」 — 10/8에 우리가 실제로 보는 것</li></ul></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-ayutthaya">아유타야 당일치기</a><a href="../#p-wat-intharam">왓 인타람 + 탈랏플루</a><a href="../#p-grand-palace">왕궁 + 왓 프라깨우</a><a href="../#p-wat-arun">왓 아룬 (새벽사원)</a><a href="../#p-kudi-chin">꾸디찐 + 타누싱하 베이커리</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>

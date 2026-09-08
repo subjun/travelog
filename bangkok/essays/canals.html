@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>「동양의 베니스」는 어쩌다 도로의 도시가 됐나 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">도시계획</div>
+  <h1>「동양의 베니스」는 어쩌다 도로의 도시가 됐나</h1>
+  <p class="sub">운하를 메운 100년, 그리고 다시 파는 지금</p>
+  <div class="lens"><span>도시계획</span><span>경제</span><span>부동산</span><span>지금의 이슈</span><span>한국과의 비교</span></div>
+</header>
+<article><blockquote class="note"><p>이 글을 읽고 나면 <strong>방콕의 도로가 왜 저렇게 휘어 있는지</strong>, 그리고 <strong>왜 그렇게 막히는지</strong>가 한 줄로 이어집니다.</p></blockquote>
+<hr>
+<h3>1. 19세기 방콕에는 도로가 거의 없었다</h3>
+<p>1855년 방콕에 온 영국 사절 존 보링은 이렇게 적었다 — 이 도시에는 <strong>바퀴 달린 것이 다닐 길이 없다.</strong> 사람들은 물 위의 집(뜬 집, 르안 팩)에 살았고, 시장은 배 위에 있었고, 관리는 배를 타고 출근했다.</p>
+<p>숫자로 보면 이렇다.</p>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>19세기 중반 방콕의 운하 총연장</td><td><strong>수백 km 추정</strong> (정확한 집계는 남아 있지 않다)</td></tr><tr><td>물 위에 뜬 집 비율</td><td>시내 주거의 <strong>과반</strong>으로 추정</td></tr><tr><td>방콕 최초의 포장도로</td><td>🔴 <strong>짜런끄룽(1861년)</strong> — 우리가 10/6에 걷는 그 길이다</td></tr><tr><td>방콕 최초의 육상시장</td><td>🔴 <strong>낭르엉(1900년)</strong> — 그 전 시장은 전부 물 위에 있었다</td></tr></tbody></table></div>
+<p>🔴 <strong>즉 「도로」와 「육지 시장」은 방콕에서 근대의 발명품이다.</strong></p>
+<blockquote class="note"><p><strong>🔴 지도 세 장으로 보는 40년</strong> 아래 세 장을 순서대로 보시라. <strong>같은 도시가 40년 사이에 물의 도시에서 길의 도시로 바뀐다.</strong></p></blockquote>
+<figure class="epic"><a href="../img/essay/bkk-1875-japanese.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/essay/bkk-1875-japanese.jpg" alt="① 1875년 — 일본에서 만든 방콕 지도. 도시를 채운 선이 대부분 운하다"></a><figcaption>① 1875년 — 일본에서 만든 방콕 지도. 도시를 채운 선이 대부분 운하다<br><a href="https://commons.wikimedia.org/wiki/File:Bangkok_Thailand_in_1875_Japanese_Map.jpg" target="_blank" rel="noopener">1875 · Unknown author · Public domain</a></figcaption></figure>
+<figure class="epic"><a href="../img/essay/bkk-1888-german.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/essay/bkk-1888-german.jpg" alt="② 1888년 — 독일 백과사전(마이어)의 방콕. 짜런끄룽(1861)이 강을 따라 그어져 있다"></a><figcaption>② 1888년 — 독일 백과사전(마이어)의 방콕. 짜런끄룽(1861)이 강을 따라 그어져 있다<br><a href="https://commons.wikimedia.org/wiki/File:Karte_Bangkok_MKL1888_kl.png" target="_blank" rel="noopener">circa 1888 · Unknown author · Public domain</a></figcaption></figure>
+<figure class="epic"><a href="../img/essay/bkk-1914-baedeker.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/essay/bkk-1914-baedeker.jpg" alt="③ 1914년 — 베데커 여행안내서의 방콕. 🔴 도로망이 격자처럼 굵어졌고 운하가 뒤로 물러나 있다"></a><figcaption>③ 1914년 — 베데커 여행안내서의 방콕. 🔴 도로망이 격자처럼 굵어졌고 운하가 뒤로 물러나 있다<br><a href="https://commons.wikimedia.org/wiki/File:Map_of_Bangkok_(Baedeker,_1914).jpg" target="_blank" rel="noopener">1914 · Cartographers (Heinrich) Wagner &amp; (Ernest) Debes, Leipzig. · Public domain</a></figcaption></figure>
+<p>우리 일정의 방락 코스(짜런끄룽)와 낭르엉 시장은 각각 <strong>도로의 시작점과 시장의 전환점</strong>을 밟는 것이다.</p>
+<hr>
+<h3>2. 왜 도로가 생겼나 — 외국인이 요구했다</h3>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/khlong-tour_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khlong-tour_1.jpg" alt="khlong-tour"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bkkwichaiprasit060919a.jpg" target="_blank" rel="noopener">Hdamm · CC BY 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khlong-tour_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khlong-tour_2.jpg" alt="khlong-tour"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Khlongbangkokyai060919a.jpg" target="_blank" rel="noopener">Hdamm · CC BY 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khlong-tour_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khlong-tour_3.jpg" alt="khlong-tour"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Scenery_alongside_Bangkok_khlong_11.JPG" target="_blank" rel="noopener">BrokenSphere · CC BY 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khlong-tour_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khlong-tour_4.jpg" alt="khlong-tour"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Intharam_(Wat_Bang_Yi_Ruea_Nok)_-_Khlong_Bangkok_Yai_(1).JPG" target="_blank" rel="noopener">Xiengyod · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khlong-tour_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khlong-tour_5.jpg" alt="khlong-tour"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Intharam_(Wat_Bang_Yi_Ruea_Nok)_-_Khlong_Bangkok_Yai_(2).JPG" target="_blank" rel="noopener">Xiengyod · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khlong-tour_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khlong-tour_6.jpg" alt="khlong-tour"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Intharam_(Wat_Bang_Yi_Ruea_Nok)_-_Khlong_Bangkok_Yai_(3).JPG" target="_blank" rel="noopener">Xiengyod · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khlong-tour_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khlong-tour_7.jpg" alt="khlong-tour"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_canals_Khlongs_in_the_Thon_Buri_district_-_panoramio.jpg" target="_blank" rel="noopener">David Broad · CC BY 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khlong-tour_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khlong-tour_8.jpg" alt="khlong-tour"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_canals_Khlongs_in_the_Thon_Buri_district_-_panoramio_(1).jpg" target="_blank" rel="noopener">David Broad · CC BY 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khlong-tour_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khlong-tour_9.jpg" alt="khlong-tour"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_canals_Khlongs_in_the_Thon_Buri_district_-_panoramio_(2).jpg" target="_blank" rel="noopener">David Broad · CC BY 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khlong-tour_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khlong-tour_10.jpg" alt="khlong-tour"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_canals_Khlongs_in_the_Thon_Buri_district_-_panoramio_(3).jpg" target="_blank" rel="noopener">David Broad · CC BY 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khlong-tour_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khlong-tour_11.jpg" alt="khlong-tour"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_canals_Khlongs_in_the_Thon_Buri_district_-_panoramio_(6).jpg" target="_blank" rel="noopener">David Broad · CC BY 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/khlong-tour_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/khlong-tour_12.jpg" alt="khlong-tour"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_canals_Khlongs_in_the_Thon_Buri_district_-_panoramio_(7).jpg" target="_blank" rel="noopener">David Broad · CC BY 3.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<p>짜런끄룽이 깔린 경위가 재미있다. <strong>방콕에 살던 서양인들이 라마 4세에게 청원했다</strong> — 마차를 타고 다닐 길이 없어 건강에 해롭다는 이유였다. 왕은 이를 받아들여 1861년 강변을 따라 8.5km 도로를 냈다.</p>
+<p>이 결정에는 계산이 있었다. 1855년 보링 조약으로 시암은 관세를 3%로 묶고 치외법권을 내줬다. <strong>불평등 조약이다.</strong> 그 상태에서 라마 4세와 5세가 택한 전략은 「서구가 요구하기 전에 서구처럼 보이는 것」이었다. 도로, 전차, 우체국, 육군사관학교, 서양식 관복이 그렇게 들어왔다.</p>
+<p>🔴 <strong>도로는 근대화의 도구이면서 동시에 외교였다.</strong> 「우리는 문명국이다」를 물리적으로 증명하는 장치였던 셈이다.</p>
+<hr>
+<h3>3. 그리고 100년에 걸쳐 운하가 사라졌다</h3>
+<p>도로가 생기자 논리가 뒤집혔다. 운하를 새로 파는 대신 <strong>있는 운하를 메워 도로를 만드는 게 싸다.</strong> 이미 선형이 잡혀 있고, 토지 수용이 필요 없고, 양안이 이미 상권이기 때문이다.</p>
+<p>메워진 대표적인 운하들이 지금 방콕의 주요 도로가 됐다.</p>
+<div class="tw"><table><thead><tr><th>지금 도로</th><th>원래</th></tr></thead><tbody><tr><td>라마 1세 로드 일부</td><td>운하</td></tr><tr><td>실롬 로드</td><td>🔴 <strong>운하 옆 길</strong> — 「실롬」은 태국어로 <strong>풍차</strong>라는 뜻이다. 운하에서 물을 퍼 올리던 풍차가 늘어서 있었다</td></tr><tr><td>사톤 로드</td><td>운하를 가운데 두고 양옆에 낸 길 — <strong>지금도 가운데 운하가 남아 있다</strong></td></tr><tr><td>방람푸 일대 여러 골목</td><td>해자 운하의 지선들</td></tr></tbody></table></div>
+<blockquote class="note"><p><strong>🔴 여행에서 확인할 것 — 사톤 로드</strong> 우리 숙소권인 사톤은 <strong>가운데에 운하가 흐르고 양쪽에 일방통행 도로가 붙은</strong> 구조다. 이건 「도로 사이에 물이 있는」 게 아니라 <strong>운하가 먼저 있고 도로가 나중에 양옆에 붙은 것</strong>이다. 방콕 도로 구조의 화석이다.</p></blockquote>
+<div class="vsbox"><figure class="vsold"><a href="../img/essay/bkk-1875-japanese.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/essay/bkk-1875-japanese.jpg" alt="1875년 — 도시를 채운 선이 대부분 운하다"></a><figcaption><b>옛 지도</b>1875년 — 도시를 채운 선이 대부분 운하다<br><a href="https://commons.wikimedia.org/wiki/File:Bangkok_Thailand_in_1875_Japanese_Map.jpg" target="_blank" rel="noopener">1875 · Unknown author · Public domain</a></figcaption></figure><figure class="vsnew"><iframe loading="lazy" src="https://www.google.com/maps?q=Sathorn+Road+Bangkok&output=embed" title="같은 자리의 지금 — 사톤 로드. 가운데 운하가 남고 양옆에 도로가 붙었다"></iframe><figcaption><b>지금</b>같은 자리의 지금 — 사톤 로드. 가운데 운하가 남고 양옆에 도로가 붙었다 · 구글지도</figcaption></figure></div>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=Sathorn+Road+Bangkok+canal&output=embed" title="사톤 로드 — 가운데 운하와 양옆 일방통행"></iframe><figcaption>사톤 로드 — 가운데 운하와 양옆 일방통행 · 구글지도</figcaption></figure>
+<p>🔴 <strong>실롬이 「풍차」라는 사실은 이 동네를 다시 보게 만든다.</strong> 지금 방콕 금융의 심장인 실롬은 200년 전 <strong>논에 물을 대던 풍차 구역</strong>이었다.</p>
+<blockquote class="note"><p><strong>🔴 지도와 현재를 겹쳐 보는 법</strong> 위 1875년 지도에서 왕궁 동쪽으로 활처럼 휜 운하 두 줄을 찾아보시라. 그게 <strong>옹앙 운하와 방람푸 운하</strong>다. 아래 현재 지도에서 같은 자리를 보면 — <strong>한 줄은 도로가 됐고, 한 줄은 2019년에 다시 파냈다.</strong></p></blockquote>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=Khlong+Ong+Ang+Bangkok&output=embed" title="지금의 옹앙 운하 — 1783년에 파고, 20세기에 덮었다가, 2019년에 되살렸다"></iframe><figcaption>지금의 옹앙 운하 — 1783년에 파고, 20세기에 덮었다가, 2019년에 되살렸다 · 구글지도</figcaption></figure>
+<hr>
+<h3>4. 그 대가 — 방콕이 막히는 진짜 이유</h3>
+<p>여기서 도시계획 이야기가 된다. 방콕의 교통 체증은 세계적으로 악명 높은데, 원인이 자동차 수만은 아니다. <strong>길의 구조 자체</strong>가 문제다.</p>
+<p><strong>① 격자가 없다.</strong> 운하는 물이 흐르는 대로 굽어 있었고, 그걸 그대로 도로로 바꿨다. 그래서 방콕에는 <strong>뉴욕이나 서울 강남 같은 격자 도로망이 없다.</strong> 큰길이 몇 개 있고 나머지는 전부 막다른 골목이다.</p>
+<p><strong>② 소이(Soi) 구조.</strong> 큰길에서 갈라진 골목을 「소이」라 하는데, 🔴 <strong>대부분이 반대편으로 뚫려 있지 않다.</strong> 운하 지선을 메운 자리라 원래 끝이 물이었기 때문이다. 그래서 옆 소이로 가려면 큰길까지 나갔다가 다시 들어가야 한다.</p>
+<p><strong>숫자로 보면</strong>: 방콕의 도로 면적 비율은 시가지의 <strong>약 7~8%</strong> 로 추정된다. 도쿄가 20%대, 뉴욕이 30%대다. 🔴 <strong>차를 아무리 줄여도 길이 물리적으로 모자란다.</strong></p>
+<p><strong>한국과 비교하면</strong>: 서울도 청계천을 복개해 도로로 만들었지만, 서울의 골격은 <strong>조선의 육상 도로 + 일제강점기 격자 정비 + 1960~80년대 신시가지</strong>로 짜였다. 방콕은 그 격자 단계를 건너뛰었다. <strong>그래서 방콕의 지하철·경전철이 전부 큰길 위를 따라가는 것</strong>이다. 다른 데로 갈 자리가 없다.</p>
+<hr>
+<h3>5. 부동산 — 왜 큰길가만 비싸나</h3>
+<p>이 구조가 지가에 그대로 찍힌다.</p>
+<ul><li><strong>큰길(BTS·MRT 역세권) 지가</strong>와 <strong>소이 안쪽 지가</strong>의 격차가 한국보다 훨씬 크다. 소이 안쪽은 접근성이 구조적으로 나쁘기 때문이다.</li><li>그래서 방콕의 고층 콘도는 <strong>역에서 도보 5분 안에 극단적으로 몰린다.</strong> 「스카이워크 직결」이 분양 광고의 첫 문구인 이유다.</li><li>🔴 <strong>반대로, 소이 안쪽에는 100년 된 목조 주택과 시장이 살아남았다.</strong> 개발 압력이 큰길만큼 세지 않았기 때문이다. <strong>우리가 가는 방락 골목·탈랏노이·반크루아가 전부 이 「소이 안쪽」이다.</strong></li></ul>
+<p>즉 <strong>우리가 좋아하는 그 골목들은, 접근성이 나빠서 살아남은 것</strong>이다.</p>
+<hr>
+<h3>6. 지금 — 운하를 다시 파고 있다</h3>
+<p>2010년대 들어 방향이 다시 바뀌었다.</p>
+<p><strong>옹앙 운하 복원(2019).</strong> 1783년 라마 1세가 판 해자 운하인데, 20세기에 양안 상가가 물 위까지 덮어 사실상 사라진 상태였다. 방콕시는 상가를 걷어내고 물길을 되살려 양쪽에 보행로를 냈다. 🔴 <strong>2020년 유엔 해비타트 아시아 도시경관상을 받았다.</strong></p>
+<p><strong>왜 지금 다시 파나.</strong> 세 가지가 겹친다.</p>
+<ol><li><strong>홍수.</strong> 운하를 메운 만큼 물이 빠질 데가 줄었다. (→ 별도 해설 「방콕은 매년 가라앉는다」)</li><li><strong>관광.</strong> 물길이 있는 거리가 상권으로 더 낫다는 게 증명됐다.</li><li><strong>더위.</strong> 물과 그늘이 있는 보행로가 도시 온도를 실제로 낮춘다.</li></ol>
+<blockquote class="note"><p><strong>🔴 여행에서 볼 것 — 옹앙과 톤부리 운하를 같은 여행에서 보는 것의 의미</strong> 옹앙은 <strong>메웠다가 다시 판 운하</strong>이고, 톤부리 클렁 방루앙은 <strong>한 번도 메우지 않은 운하</strong>다. 강 하나를 사이에 두고 이 두 가지가 공존한다. 계획 C는 이 대비를 하루 안에 배치했다 — 오전에 톤부리 운하를 배로 지나고, 그날 저녁에 옹앙 워킹스트리트를 걷는다.</p></blockquote>
+<div class="gal ess" data-n="7"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/ong-ang_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ong-ang_1.jpg" alt="ong-ang"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_Khlong_Rop_Mueang_canal_from_charoen_krung_road_IMG_6821_Khlong_Ong_Ang.JPG" target="_blank" rel="noopener">Bjoertvedt · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ong-ang_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ong-ang_2.jpg" alt="ong-ang"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_Khlong_Rop_Mueang_canal_from_charoen_krung_road_IMG_6823_Khlong_Ong_Ang.JPG" target="_blank" rel="noopener">Bjoertvedt · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ong-ang_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ong-ang_3.jpg" alt="ong-ang"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:%E0%B8%84%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B9%82%E0%B8%AD%E0%B9%88%E0%B8%87%E0%B8%AD%E0%B9%88%E0%B8%B2%E0%B8%871.jpg" target="_blank" rel="noopener">Phoebus 28 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ong-ang_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ong-ang_4.jpg" alt="ong-ang"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:%E0%B8%84%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B9%82%E0%B8%AD%E0%B9%88%E0%B8%87%E0%B8%AD%E0%B9%88%E0%B8%B2%E0%B8%87.jpg" target="_blank" rel="noopener">Phoebus 28 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ong-ang_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ong-ang_5.jpg" alt="ong-ang"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:%E0%B8%AA%E0%B8%B0%E0%B8%9E%E0%B8%B2%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%99_2564_Saphan_Han_(October_2021)_-_img_02.jpg" target="_blank" rel="noopener">Chainwit. · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ong-ang_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ong-ang_6.jpg" alt="ong-ang"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Deepavali_Bangkok_2022_at_Khlong_Ong_Ang_-_image_01.jpg" target="_blank" rel="noopener">Chainwit. · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/ong-ang_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/ong-ang_7.jpg" alt="ong-ang"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Deepavali_Bangkok_2022_at_Khlong_Ong_Ang_-_image_03.jpg" target="_blank" rel="noopener">Chainwit. · CC BY-SA 4.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/7</span></div>
+<hr>
+<h3>7. 🔴 그런데 왜 강 서쪽은 안 메웠나</h3>
+<p>이게 이 이야기의 마지막 반전이다. 짜오프라야 서안(톤부리)에는 운하가 아직 살아 있다. 이유는 간단하다 — <strong>다리가 없었기 때문이다.</strong></p>
+<p>강을 건너는 다리가 본격적으로 놓인 것은 20세기 후반이다. 그전까지 서안은 시내가 아니었고, 그래서 <strong>도로를 낼 이유가 없었다.</strong> 지가가 오르지 않았으니 메울 경제적 동기도 없었다.</p>
+<p>🔴 <strong>즉 톤부리의 운하는 「보존」된 게 아니라 「방치」된 것이다.</strong></p>
+<figure class="epic"><a href="../img/essay/bkk-sketch-native.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/essay/bkk-sketch-native.jpg" alt="현지인이 그린 19세기 방콕 스케치 — 존 크로퍼드의 1828년 시암 사절 보고서에 실린 것. 물 위에 뜬 집(르안 팩)이 도시의 기본 단위였다"></a><figcaption>현지인이 그린 19세기 방콕 스케치 — 존 크로퍼드의 1828년 시암 사절 보고서에 실린 것. 물 위에 뜬 집(르안 팩)이 도시의 기본 단위였다<br><a href="https://commons.wikimedia.org/wiki/File:Sketch_of_the_town_of_Bangkok_by_a_native.jpg" target="_blank" rel="noopener">John Crawfurd · Public domain</a></figcaption></figure>
+<p>우리가 롱테일보트를 타고 보는 수상가옥 풍경은, 개발이 도달하지 않았기 때문에 남아 있다.</p>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/HK7gjHTFpoI" title="톤부리 운하 — 메우지 않은 물길" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>톤부리 운하 — 메우지 않은 물길 · YouTube</figcaption></figure>
+<p><strong>같은 논리가 방까차오에도 적용된다.</strong> (→ 별도 해설 「방까차오는 왜 개발이 안 됐나」)</p>
+<hr>
+<h3>8. 여행 중에 실제로 확인할 수 있는 것</h3>
+<div class="tw"><table><thead><tr><th>어디서</th><th>무엇이 보이나</th></tr></thead><tbody><tr><td><strong>사톤 로드</strong> (숙소권)</td><td>가운데 운하 + 양옆 일방통행 = 운하가 먼저였다는 증거</td></tr><tr><td><strong>짜런끄룽</strong> (10/6 방락)</td><td>1861년 방콕 최초의 포장도로. 강을 따라 휘어 있다</td></tr><tr><td><strong>낭르엉 시장</strong> (10/8)</td><td>1900년 — 시장이 물에서 육지로 올라온 지점</td></tr><tr><td><strong>톤부리 운하 보트</strong></td><td>한 번도 메우지 않은 운하망</td></tr><tr><td><strong>옹앙 워킹스트리트</strong></td><td>메웠다가 2019년에 다시 판 운하</td></tr><tr><td><strong>짜오프라야 스카이파크</strong></td><td>30년 방치된 경전철 교각 위 보행교 — 실패한 계획의 재활용</td></tr><tr><td><strong>소이 하나를 끝까지 걸어보기</strong></td><td>막다른 골목으로 끝난다. 원래 거기가 물이었다</td></tr></tbody></table></div>
+<hr>
+<h3>이어 읽기</h3>
+<ul><li>「방콕은 매년 가라앉는다」 — 운하를 메운 것이 지반에 무슨 짓을 했나</li><li>「방까차오는 왜 개발이 안 됐나」 — 접근성이 나빠서 살아남은 또 하나의 사례</li><li>「실롬·사톤은 어떻게 CBD가 됐나」 — 풍차 구역이 금융가가 되기까지</li></ul></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-khlong-tour">톤부리 운하 롱테일보트</a><a href="../#p-ong-ang">옹앙 운하 워킹스트리트</a><a href="../#p-nang-loeng">낭르엉 시장</a><a href="../#p-chao-phraya-skypark">짜오프라야 스카이파크</a><a href="../#p-bang-krachao">방까차오 자전거 + 방남픙 수상시장</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>

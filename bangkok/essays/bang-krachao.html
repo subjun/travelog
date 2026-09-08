@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>방까차오는 왜 개발이 안 됐나 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">도시계획</div>
+  <h1>방까차오는 왜 개발이 안 됐나</h1>
+  <p class="sub">방콕 한복판에 정글이 남은 제도적 이유</p>
+  <div class="lens"><span>도시계획</span><span>경제</span><span>부동산</span><span>지리</span><span>지금의 이슈</span><span>한국과의 비교</span></div>
+</header>
+<article><blockquote class="note"><p>시내에서 자동차로 30분 거리에 <strong>11.6㎢짜리 정글</strong>이 있습니다. 부동산 논리로 보면 있을 수 없는 일입니다. 이 글은 왜 있는지에 대한 것입니다.</p></blockquote>
+<hr>
+<h3>1. 숫자와 지리</h3>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>면적</td><td><strong>약 11.6㎢</strong> (여의도의 4배)</td></tr><tr><td>행정구역</td><td>🔴 <strong>방콕이 아니라 사뭇쁘라깐 주</strong></td></tr><tr><td>시내에서 거리</td><td>직선 <strong>약 5km</strong></td></tr><tr><td>별명</td><td>「방콕의 허파」 · 「푸 아이 끄룽텝」</td></tr><tr><td>다리</td><td>🔴 <strong>없다.</strong> 배로만 건넌다</td></tr><tr><td>스리 나콘 케우안 칸 공원</td><td><strong>무료</strong>, 05:00~19:00</td></tr><tr><td>방남픙 수상시장</td><td>🔴 <strong>토·일 08:00~16:00만</strong></td></tr></tbody></table></div>
+<p><strong>모양이 핵심이다.</strong> 짜오프라야 강이 여기서 극단적으로 굽어 <strong>U자 고리</strong>를 만든다. 목이 좁고 안이 넓은 반도라서, 지도로 보면 코끼리 코 같기도 하고 심장 같기도 하다. 태국어 「방까차오」는 이 굽이를 가리키는 지명이다.</p>
+<hr>
+<h3>2. 첫 번째 이유 — 다리가 없다</h3>
+<p>가장 단순하고 강력한 이유다. <strong>차가 못 들어간다.</strong></p>
+<ul><li>방콕 쪽에서 건너는 방법은 <strong>소형 목선 페리</strong>뿐이다. 사람 ฿10, 오토바이는 실을 수 있지만 자동차는 안 된다</li><li>육로로 들어가려면 반도 목 쪽(프라쁘라댕)으로 크게 돌아야 하는데, 그 길이 좁다</li><li>🔴 <strong>대형 개발은 공사 차량과 자재를 못 넣으면 시작조차 안 된다</strong></li></ul>
+<p><strong>같은 논리가 톤부리와 꾸디찐에도 적용된다.</strong> (→ 「동양의 베니스」 §7, 「꾸디찐」 §5) 방콕에서 살아남은 것들의 공통점은 <strong>접근성이 나빴다는 것</strong>이다.</p>
+<hr>
+<h3>3. 두 번째 이유 — 제도적으로 묶었다</h3>
+<p>여기가 이 이야기의 핵심이다. 🔴 <strong>1977년 태국 내각이 이 지역을 「그린 에어리어(녹지 보전 구역)」로 지정했다.</strong></p>
+<p><strong>왜 그랬나.</strong> 1970년대 방콕은 급속히 팽창하며 대기오염과 홍수가 동시에 악화되고 있었다. 정부는 이 반도가 두 가지 기능을 한다고 봤다.</p>
+<ol><li><strong>녹지·대기 정화</strong> — 도심 바로 옆의 숲</li><li>🔴 <strong>홍수 완충</strong> — 강이 넘칠 때 물을 받아내는 저지대</li></ol>
+<p><strong>규제 내용</strong> (⚠️ 구체 조항은 확인하지 못했다)</p>
+<ul><li>건축 높이·용적 제한</li><li>토지 용도 변경 제한</li><li>왕실 프로젝트로도 보전이 지원됐다 — 스리 나콘 케우안 칸 공원이 그 결과다</li></ul>
+<p><strong>즉 이 정글은 「남은」 게 아니라 「남긴」 것이다.</strong> 자연이 아니라 제도다.</p>
+<hr>
+<h3>4. 세 번째 이유 — 땅이 잘게 쪼개져 있다</h3>
+<p>부동산 실무의 문제다. 방까차오의 토지는 <strong>오래된 과수원 단위로 잘게 나뉘어 상속돼 왔다.</strong></p>
+<ul><li>필지가 작고 소유자가 많다</li><li>상속이 여러 세대 반복되며 <strong>공동소유 지분이 복잡해졌다</strong></li><li>대규모 개발을 하려면 수십~수백 명에게서 땅을 사야 한다</li><li>🔴 <strong>규제가 있어 개발이 확실치 않은데 매수 비용은 크다</strong> → 아무도 시작하지 않는다</li></ul>
+<p>여기에 <strong>코코넛·망고 과수원과 맹그로브 습지</strong>라는 지목 특성이 겹친다. 물이 드나드는 땅이라 성토 비용도 크다.</p>
+<hr>
+<h3>5. 그래서 무엇이 생겼나 — 고가 자전거길</h3>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/bang-krachao_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/bang-krachao_1.jpg" alt="bang-krachao"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bang_Kachao_Landsat.jpg" target="_blank" rel="noopener">NASA Earth Observatory image by Jesse Allen, using Landsat data from t · Public domain</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/bang-krachao_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/bang-krachao_2.jpg" alt="bang-krachao"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok,_Thailand%E2%80%94split_by_the_Chao_Phraya_river_(iss072e757257).jpg" target="_blank" rel="noopener">NASA Johnson Space Center / Don Pettit · Public domain</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/bang-krachao_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/bang-krachao_3.jpg" alt="bang-krachao"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bang_Kachao_jungle_path.jpg" target="_blank" rel="noopener">James Antrobus · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/bang-krachao_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/bang-krachao_4.jpg" alt="bang-krachao"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:%E0%B8%9B%E0%B8%B1%E0%B9%88%E0%B8%99%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A3%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B8%9A%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B0%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2_%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%97%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3.jpg" target="_blank" rel="noopener">Naludon77 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/bang-krachao_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/bang-krachao_5.jpg" alt="bang-krachao"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_from_the_river_-_panoramio_(12).jpg" target="_blank" rel="noopener">mohigan · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/bang-krachao_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/bang-krachao_6.jpg" alt="bang-krachao"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bang_Kachao,_Phra_Pradaeng_District,_Samut_Prakan,_Thailand_-_panoramio.jpg" target="_blank" rel="noopener">mohigan · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/bang-krachao_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/bang-krachao_7.jpg" alt="bang-krachao"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bang_Kachao,_Phra_Pradaeng_District,_Samut_Prakan,_Thailand_-_panoramio_(1).jpg" target="_blank" rel="noopener">mohigan · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/bang-krachao_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/bang-krachao_8.jpg" alt="bang-krachao"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Samutprakarn_Bang_Kachao_1.jpg" target="_blank" rel="noopener">Mr.Sivakrit Saravit · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/bang-krachao_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/bang-krachao_9.jpg" alt="bang-krachao"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Samutprakarn_Bang_Kachao_2.jpg" target="_blank" rel="noopener">Mr.Sivakrit Saravit · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/bang-krachao_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/bang-krachao_10.jpg" alt="bang-krachao"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bang_Kachao,_Phra_Pradaeng_District,_Samut_Prakan,_Thailand_-_panoramio_(2).jpg" target="_blank" rel="noopener">mohigan · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/bang-krachao_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/bang-krachao_11.jpg" alt="bang-krachao"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bang_Kachao,_Phra_Pradaeng_District,_Samut_Prakan,_Thailand_-_panoramio_(3).jpg" target="_blank" rel="noopener">mohigan · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/bang-krachao_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/bang-krachao_12.jpg" alt="bang-krachao"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bang_Kachao,_Phra_Pradaeng_District,_Samut_Prakan,_Thailand_-_panoramio_(4).jpg" target="_blank" rel="noopener">mohigan · CC BY-SA 3.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<p>개발이 안 된 대신 이 지역은 <strong>자전거로 유명해졌다.</strong></p>
+<p>🔴 <strong>고가 콘크리트 보도가 이 지역의 정체성이다.</strong> 지면에서 1~2m 띄운 폭 1~1.5m짜리 좁은 길이 습지와 과수원 사이를 지그재그로 관통한다.</p>
+<p><strong>왜 띄웠나.</strong> 홍수 지대이기 때문이다. 이 지역은 애초에 물이 드나드는 땅이라 <strong>집도 전부 고상식</strong>이다. 사람이 다닐 길도 같은 논리로 띄웠다. 즉 이 자전거길은 관광용으로 만든 게 아니라 <strong>원래 마을 길이다.</strong></p>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>클래식 루프</td><td><strong>약 20km</strong></td></tr><tr><td>등록된 GPX 루트들</td><td>18.9~24.5km</td></tr><tr><td>인기 관광 루트</td><td>약 31km</td></tr><tr><td>🔴 2인 반나절 현실치</td><td><strong>12~18km · 3~4시간</strong></td></tr></tbody></table></div>
+<blockquote class="note"><p><strong>🔴 반드시 알아야 할 것</strong> 구글맵에 <strong>고가 좁은길이 상당수 안 나오거나 끊겨서 나온다.</strong> Bikemap·Komoot·AllTrails에 GPX 루트가 여러 개 등록돼 있으니 <strong>출발 전에 폰에 내려받아 오프라인으로 쓰는 게 사실상 필수</strong>다. 이 지역 후기의 가장 흔한 불만이 <strong>「길을 잃었다」</strong>이다.</p></blockquote>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=Sri+Nakhon+Khuean+Khan+Park+Bangkok&output=embed" title="스리 나콘 케우안 칸 공원 — 무료, 05:00~19:00"></iframe><figcaption>스리 나콘 케우안 칸 공원 — 무료, 05:00~19:00 · 구글지도</figcaption></figure>
+<hr>
+<h3>6. 지금 — 무엇이 바뀌고 있나</h3>
+<p><strong>관광이 들어오고 있다.</strong> Bangkok Tree House 같은 에코 리조트, 카페, 주말 시장이 늘었다. 코로나 이후 방콕 사람들의 근교 자전거 수요가 커지면서 방문객이 증가했다.</p>
+<p>🔴 <strong>그리고 규제 완화 압력이 있다.</strong> 도심에서 5km인 11.6㎢짜리 땅의 잠재 가치는 막대하다. 개발업자와 일부 지주가 규제 완화를 요구해 온 것으로 보도된다. ⚠️ <strong>구체적인 현행 논의 상황은 확인하지 못했다.</strong></p>
+<p><strong>동시에 반대 논리도 강해졌다.</strong> 2011년 대홍수 이후 「홍수 완충지가 필요하다」는 인식이 커졌고 (→ 「방콕은 매년 가라앉는다」), 기후 대응 관점에서 도심 녹지의 가치가 재평가됐다.</p>
+<p><strong>즉 이곳의 미래는 아직 결정되지 않았다.</strong> 우리가 자전거를 타는 그 길이 20년 뒤에도 있을지는 정치의 문제다.</p>
+<hr>
+<h3>7. 한국과 비교하면 — 그린벨트</h3>
+<p>🔴 <strong>대응물이 정확히 있다. 개발제한구역(그린벨트)이다.</strong></p>
+<div class="tw"><table><thead><tr><th></th><th>방까차오</th><th>한국 그린벨트</th></tr></thead><tbody><tr><td>지정</td><td><strong>1977년</strong> 내각 결정</td><td><strong>1971년</strong> 도입</td></tr><tr><td>목적</td><td>녹지·대기·홍수 완충</td><td>도시 확산 억제·환경 보전</td></tr><tr><td>소유</td><td>사유지 다수, 잘게 분할</td><td>사유지 다수</td></tr><tr><td>압력</td><td>도심 5km 거리의 잠재 가치</td><td>수도권 지가 상승</td></tr><tr><td>🔴 지금</td><td>관광이 들어오는 중</td><td><strong>지속적으로 해제·완화되고 있다</strong></td></tr></tbody></table></div>
+<p>두 제도의 도입 시기가 <strong>6년 차이</strong>라는 게 흥미롭다. 1970년대 아시아 대도시들이 같은 문제(급팽창)에 같은 처방(선을 그어 묶는다)을 냈다.</p>
+<p><strong>차이는 그 뒤다.</strong> 한국의 그린벨트는 반복적으로 해제됐다. 방까차오는 <strong>다리가 없다는 물리적 조건 덕분에</strong> 제도만으로 못 막았을 것을 함께 막았다. 🔴 <strong>제도와 지리가 겹쳐야 땅이 남는다</strong>는 것이 이 사례의 교훈이다.</p>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/EomtR2VQLoU" title="방까차오 — 자전거로 도는 「방콕의 허파」" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>방까차오 — 자전거로 도는 「방콕의 허파」 · YouTube</figcaption></figure>
+<hr>
+<h3>8. 여행에서 실제로 볼 것</h3>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>🔴 <strong>선착장</strong></td><td><strong>BTS 방나 역 → 왓 방나 녹 → 방남픙 녹.</strong> 투어가 쓰는 왓 클렁떠이 녹은 반도 <strong>북쪽 끝</strong>이라 볼 게 없다</td></tr><tr><td><strong>고가 보도</strong></td><td>난간이 없고 90도로 꺾인다. 맞은편에서 사람이 온다</td></tr><tr><td><strong>고상식 집</strong></td><td>왜 띄워 지었는지가 눈에 보인다</td></tr><tr><td><strong>스리 나콘 케우안 칸 공원</strong></td><td>무료 · 05:00~19:00 · 왕실 프로젝트의 결과물</td></tr><tr><td><strong>방남픙 수상시장</strong></td><td>🔴 토·일 오전에만. 평일이면 밀도가 절반</td></tr><tr><td><strong>강 건너 스카이라인</strong></td><td>정글 너머로 방콕 고층 빌딩이 보인다. 이 대비가 이 장소의 전부다</td></tr></tbody></table></div>
+<h4>🔴 리스크</h4>
+<ol><li><strong>길 잃기</strong> — GPX 필수</li><li><strong>낙차</strong> — 난간 없는 폭 1~1.5m + 90도 코너. 헬멧이 대여소에 있을지 보장 안 된다</li><li>🔴 <strong>비</strong> — 이끼 낀 콘크리트는 젖으면 매우 미끄럽다. <strong>비 예보가 있으면 그날은 접어라</strong></li><li><strong>물·화장실</strong> — 공원과 시장에는 있고 마을 구간에는 없다</li></ol>
+<hr>
+<h3>이어 읽기</h3>
+<ul><li>「방콕은 매년 가라앉는다」 — 왜 홍수 완충지가 필요한가</li><li>「동양의 베니스는 어쩌다 도로의 도시가 됐나」 — 접근성이 도시를 어떻게 나눴나</li></ul></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-bang-krachao">방까차오 자전거 + 방남픙 수상시장</a><a href="../#p-erawan-museum">에라완 박물관</a><a href="../#p-benchakitti">벤짜끼띠 森 공원 + 그린마일</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>

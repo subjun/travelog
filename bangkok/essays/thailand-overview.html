@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>태국이라는 나라 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">나라</div>
+  <h1>태국이라는 나라</h1>
+  <p class="sub">식민지가 되지 않은 유일한 동남아 국가 — 그 사실이 만든 것들</p>
+  <div class="lens"><span>나라 전반</span><span>역사</span><span>종교</span><span>정치</span><span>인구</span><span>한국과의 비교</span><span>숫자</span></div>
+</header>
+<article><blockquote class="note"><p>🔴 <strong>이 글은 「기본 정보」입니다.</strong> 나머지 해설을 읽기 전에 한 번 훑어두면 나머지가 훨씬 잘 붙습니다. ⚠️ 숫자는 2026년 9월 조회 기준입니다.</p></blockquote>
+<hr>
+<h3>1. 한눈에</h3>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>정식 국호</td><td><strong>타이 왕국 (Kingdom of Thailand)</strong> — 1939년까지는 <strong>시암</strong></td></tr><tr><td>「타이」의 뜻</td><td>🔴 <strong>「자유」</strong></td></tr><tr><td>인구</td><td>약 <strong>7,156만</strong> (2026) — 한국의 1.4배</td></tr><tr><td>면적</td><td>약 <strong>51.3만 ㎢</strong> — 🔴 <strong>한반도의 2.3배, 남한의 5배</strong></td></tr><tr><td>수도</td><td>방콕 (→ 별도 해설)</td></tr><tr><td>정치체제</td><td><strong>입헌군주제</strong> · 의원내각제</td></tr><tr><td>국왕</td><td><strong>라마 10세</strong> (마하 와치랄롱꼰, 2016~)</td></tr><tr><td>통화</td><td><strong>바트(THB)</strong> · ฿1 ≈ <strong>41원</strong> (2026-09 개략치)</td></tr><tr><td>언어</td><td><strong>태국어</strong>. 고유 문자(44 자음·32 모음). 🔴 <strong>성조 5개</strong></td></tr><tr><td>종교</td><td><strong>상좌부 불교 약 90%</strong> · 이슬람 약 5%(주로 남부) · 기독교 1% 미만</td></tr><tr><td>시차</td><td>🔴 <strong>한국보다 2시간 느림</strong> (UTC+7)</td></tr><tr><td>1인당 GDP</td><td>약 <strong>7천 달러대</strong> — 상위 중소득국</td></tr></tbody></table></div>
+<hr>
+<h3>2. 🔴 이 나라를 이해하는 열쇠 하나 — 식민지가 되지 않았다</h3>
+<p><strong>동남아에서 유럽의 식민 지배를 받지 않은 유일한 나라다.</strong></p>
+<div class="tw"><table><thead><tr><th>나라</th><th>식민 지배</th></tr></thead><tbody><tr><td>베트남·라오스·캄보디아</td><td>프랑스</td></tr><tr><td>미얀마·말레이시아·싱가포르</td><td>영국</td></tr><tr><td>인도네시아</td><td>네덜란드</td></tr><tr><td>필리핀</td><td>스페인 → 미국</td></tr><tr><td>🔴 <strong>태국</strong></td><td><strong>없음</strong></td></tr></tbody></table></div>
+<p><strong>어떻게 피했나.</strong> 19세기 후반 라마 4세·5세가 두 가지를 동시에 했다.</p>
+<ol><li><strong>완충국 전략</strong> — 영국령(미얀마·말레이)과 프랑스령(인도차이나) 사이에서 양쪽 다 상대의 세력 확장을 원치 않는 상황을 이용했다</li><li>🔴 <strong>선제적 근대화</strong> — 요구받기 전에 서구식 제도를 들여왔다. 도로·철도·전신·우체국·근대 관료제·법전. 그리고 <strong>영토 일부를 잘라 주면서 본토를 지켰다</strong>(라오스·캄보디아 일부, 말레이 북부 4주를 양도)</li></ol>
+<p><strong>그래서 남은 것</strong></p>
+<ul><li>🔴 <strong>왕실이 끊기지 않았다.</strong> 1782년 짜끄리 왕조가 지금까지 이어진다</li><li>식민 행정의 흔적이 없어 <strong>행정·문화가 방콕에 통째로 누적</strong>됐다 (→ 「방콕은 태국의 무엇인가」)</li><li><strong>자부심의 근거</strong>가 됐다. 나라 이름 「자유」에 그게 들어 있다</li></ul>
+<p><strong>한국과 비교하면</strong>: 같은 시기 조선은 같은 압력을 받고 실패했다. 🔴 <strong>개항 압력을 받은 시기가 거의 같은데 결과가 정반대</strong>라, 두 나라를 나란히 놓으면 근대사가 훨씬 선명해진다.</p>
+<div class="gal ess" data-n="8"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/grand-palace_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_1.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:A_roof_of_a_building_at_the_Grand_Palace,_Bangkok,_sunrise,_2017.jpg" target="_blank" rel="noopener">Bjørn Erik Pedersen · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_2.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%A3%E0%B8%B1%E0%B8%95%E0%B8%99%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%94%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A1_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7_%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3_-_Wat_Phra_Kaew,_Temple_of_Emerald_Buddha,_Bangkok,_Thailand.jpg" target="_blank" rel="noopener">Basile Morin · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_3.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:20160727_-_Royal_guard_in_the_Grand_Palace_in_Bangkok_-_5389.jpg" target="_blank" rel="noopener">Jakub Hałun · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_4.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Grand_Palace_Bangkok,_Thailand.jpg" target="_blank" rel="noopener">Andy Marchand · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_5.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Regimiento_Primero_de_Infanter%C3%ADa_de_la_Guardia_Real,_Gran_Palacio,_Bangkok,_Tailandia,_2013-08-22,_DD_07.JPG" target="_blank" rel="noopener">Diego Delso · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_6.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:20160727_-_Royal_guard_in_the_Grand_Palace_in_Bangkok_-_5273.jpg" target="_blank" rel="noopener">Jakub Hałun · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_7.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:20160727_Grand_Palace_Bangkok_5405.jpg" target="_blank" rel="noopener">Jakub Hałun · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/grand-palace_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/grand-palace_8.jpg" alt="grand-palace"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Phra_Borom_Maha_Ratchawang,_Phra_Nakhon,_Bangkok,_Thailand_-_panoramio_(25).jpg" target="_blank" rel="noopener">东京村子 · CC BY-SA 3.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/8</span></div>
+<hr>
+<h3>3. 종교 — 상좌부 불교가 일상을 굴린다</h3>
+<div class="gal ess" data-n="7"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/wat-pho_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-pho_1.jpg" alt="wat-pho"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Ang_Thong_-_Pho_Thong_(2024)_Reclining_Buddha_Wat_Khun_Inthapramun_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%82%E0%B8%B8%E0%B8%99%E0%B8%AD%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%A1%E0%B8%B9%E0%B8%A5_-_img_17.jpg" target="_blank" rel="noopener">Chainwit. · CC BY 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/wat-pho_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-pho_2.jpg" alt="wat-pho"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Pho,_Bangkok,_Tailandia,_2013-08-22,_DD_07.jpg" target="_blank" rel="noopener">Diego Delso · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/wat-pho_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-pho_3.jpg" alt="wat-pho"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Pho,_Bangkok,_Tailandia,_2013-08-22,_DD_02.jpg" target="_blank" rel="noopener">Diego Delso · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/wat-pho_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-pho_4.jpg" alt="wat-pho"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Pho,_Bangkok,_Tailandia,_2013-08-22,_DD_05.jpg" target="_blank" rel="noopener">Diego Delso · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/wat-pho_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-pho_5.jpg" alt="wat-pho"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Pho,_Bangkok,_Tailandia,_2013-08-22,_DD_06.jpg" target="_blank" rel="noopener">Diego Delso · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/wat-pho_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-pho_6.jpg" alt="wat-pho"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Pho,_Bangkok,_Tailandia,_2013-08-22,_DD_08.jpg" target="_blank" rel="noopener">Diego Delso · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/wat-pho_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/wat-pho_7.jpg" alt="wat-pho"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Pho,_Bangkok,_Tailandia,_2013-08-22,_DD_09.jpg" target="_blank" rel="noopener">Diego Delso · CC BY-SA 3.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/7</span></div>
+<p><strong>인구의 약 90%가 상좌부(테라와다) 불교도다.</strong> 한국의 대승불교와 다르다.</p>
+<div class="tw"><table><thead><tr><th></th><th>상좌부 (태국)</th><th>대승 (한국·중국·일본)</th></tr></thead><tbody><tr><td>목표</td><td><strong>개인의 해탈</strong></td><td>중생 구제·보살</td></tr><tr><td>승려</td><td><strong>탁발</strong>로 생활. 오후 불식</td><td>절에서 자급</td></tr><tr><td>경전</td><td>팔리어</td><td>산스크리트→한문</td></tr><tr><td>🔴 <strong>단기 출가</strong></td><td><strong>남성이 일생에 한 번 몇 주~몇 달 출가하는 관습</strong>이 있다</td><td>없음</td></tr></tbody></table></div>
+<p><strong>일상에서 보이는 것</strong></p>
+<ul><li><strong>아침 탁발.</strong> 새벽에 승려가 맨발로 줄지어 걷고 사람들이 음식을 올린다</li><li><strong>싼프라품(집 앞 정령의 집).</strong> 🔴 건물마다 작은 사당이 있고 매일 음료와 꽃을 올린다. <strong>이건 불교가 아니라 그 이전의 정령 신앙</strong>이고, 불교·힌두교와 겹쳐서 공존한다</li><li><strong>탐분(공덕 쌓기).</strong> 새를 놓아주고, 절에 보시하고, 물고기에 먹이를 준다</li></ul>
+<p>🔴 <strong>그래서 태국의 종교는 「불교 + 힌두교 + 정령신앙 + 중국 도교」가 층층이 겹친 상태다.</strong> 왕궁에 힌두 신화(라마끼얀) 벽화가 있고, 에라완 사당에 브라흐마가 있고, 야오와랏에 도교 사당이 있는 게 전부 그 결과다.</p>
+<div class="gal ess" data-n="7"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/sri-mariamman_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/sri-mariamman_1.jpg" alt="sri-mariamman"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Sri_Maha_Mariamman_Koyil_Bangkok_(Wat_Khaek_Silom)_2019_03.jpg" target="_blank" rel="noopener">Chainwit. · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/sri-mariamman_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/sri-mariamman_2.jpg" alt="sri-mariamman"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Khaek_Silom_Sri_Mariamman_Hindu_temple_in_Bangkok_Thailand.jpg" target="_blank" rel="noopener">eric molina from New York City, United States · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/sri-mariamman_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/sri-mariamman_3.jpg" alt="sri-mariamman"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Sri_Maha_Mariamman_Koyil_Bangkok_(Wat_Khaek_Silom)_2019_05.jpg" target="_blank" rel="noopener">Chainwit. · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/sri-mariamman_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/sri-mariamman_4.jpg" alt="sri-mariamman"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Street_Scene_at_Sri_Maha_Mariamman.jpg" target="_blank" rel="noopener">Adam Jones · CC BY-SA 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/sri-mariamman_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/sri-mariamman_5.jpg" alt="sri-mariamman"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Khaek_Silom_Sri_Mariamman_Hindu_temple_Bangkok.jpg" target="_blank" rel="noopener">m-louis .® from Osaka, Japan · CC BY-SA 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/sri-mariamman_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/sri-mariamman_6.jpg" alt="sri-mariamman"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%AD%E0%B8%B8%E0%B8%A1%E0%B8%B2%E0%B9%80%E0%B8%97%E0%B8%A7%E0%B8%B5_%E0%B9%80%E0%B8%82%E0%B8%95%E0%B8%9A%E0%B8%B2%E0%B8%87%E0%B8%A3%E0%B8%B1%E0%B8%81_%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3_(3).jpg" target="_blank" rel="noopener">กสิณธร ราชโอรส · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/sri-mariamman_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/sri-mariamman_7.jpg" alt="sri-mariamman"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%AD%E0%B8%B8%E0%B8%A1%E0%B8%B2%E0%B9%80%E0%B8%97%E0%B8%A7%E0%B8%B5_%E0%B9%80%E0%B8%82%E0%B8%95%E0%B8%9A%E0%B8%B2%E0%B8%87%E0%B8%A3%E0%B8%B1%E0%B8%81_%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3_(2).jpg" target="_blank" rel="noopener">กสิณธร ราชโอรส · CC BY-SA 4.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/7</span></div>
+<p><strong>절에서의 예의</strong></p>
+<ul><li>어깨와 무릎을 가린다. <strong>신발을 벗는다</strong></li><li>🔴 <strong>불상에 발을 향하지 않는다.</strong> 태국에서 발은 가장 낮고 머리는 가장 신성하다 — <strong>남의 머리를 만지지 않는다</strong></li><li>여성은 승려와 직접 접촉하지 않는다</li></ul>
+<hr>
+<h3>4. 왕실 — 그냥 상징이 아니다</h3>
+<p>이 부분은 여행자가 반드시 알아야 한다.</p>
+<ul><li>🔴 <strong>왕실모독죄(형법 112조)</strong> — 왕·왕비·왕세자를 모욕하면 <strong>최고 징역 15년</strong>이다. 외국인에게도 적용된다</li><li>2016년 서거한 <strong>라마 9세(푸미폰)</strong>는 70년 재위했고 국민적 존경이 절대적이었다. 지금은 <strong>라마 10세</strong></li><li><strong>영화관에서 상영 전 국왕 찬가가 나오면 전원 기립한다</strong></li><li><strong>화폐에 국왕의 얼굴이 있다.</strong> 🔴 <strong>지폐를 밟거나 구기지 않는다</strong> — 밟는 것 자체가 문제가 될 수 있다</li><li>2020~2021년 왕실 개혁을 요구하는 시위가 있었고, 그 뒤 112조 기소가 늘었다</li></ul>
+<p>🔴 <strong>여행자 실무: 왕실 관련 언행·촬영을 조심한다.</strong> 정치적 입장의 문제가 아니라 법적 리스크의 문제다. (→ 해설 「왕실 바지선 — 의례가 담은 왕권」)</p>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/royal-barge_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/royal-barge_1.jpg" alt="royal-barge"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Escort_Barge_crew.JPG" target="_blank" rel="noopener">Lerdsuwa · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/royal-barge_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/royal-barge_2.jpg" alt="royal-barge"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_Royal_Barge_National_Museum_1.jpg" target="_blank" rel="noopener">Mr.Peerapong Prasutr · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/royal-barge_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/royal-barge_3.jpg" alt="royal-barge"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_Royal_Barge_National_Museum_2.jpg" target="_blank" rel="noopener">Mr.Peerapong Prasutr · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/royal-barge_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/royal-barge_4.jpg" alt="royal-barge"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_National_Museum_-_2017-06-11_(043).jpg" target="_blank" rel="noopener">Iudexvivorum · CC0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/royal-barge_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/royal-barge_5.jpg" alt="royal-barge"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Arun_Ratchawararam_and_the_Royal_Barge_Procession.jpg" target="_blank" rel="noopener">Tee-12838 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/royal-barge_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/royal-barge_6.jpg" alt="royal-barge"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_National_Museum_of_Royal_Barges_2018-12-26_(01).jpg" target="_blank" rel="noopener">Index Librorum Permissorum · CC0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/royal-barge_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/royal-barge_7.jpg" alt="royal-barge"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_National_Museum_of_Royal_Barges_2018-12-26_(03).jpg" target="_blank" rel="noopener">Index Librorum Permissorum · CC0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/royal-barge_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/royal-barge_8.jpg" alt="royal-barge"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Escort_Barges.jpg" target="_blank" rel="noopener">Lerdsuwa · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/royal-barge_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/royal-barge_9.jpg" alt="royal-barge"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Royal_barge_procession_model,_Naval_Museum,_Samut_Prakan_(1).jpg" target="_blank" rel="noopener">Xiengyod · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/royal-barge_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/royal-barge_10.jpg" alt="royal-barge"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Royal_barge_procession_model,_Naval_Museum,_Samut_Prakan_(2).jpg" target="_blank" rel="noopener">Xiengyod · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/royal-barge_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/royal-barge_11.jpg" alt="royal-barge"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Wat_Arun_Ratchawararam_and_Royal_Barge_Procession.JPG" target="_blank" rel="noopener">เฉลิม อัชชมานะ · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/royal-barge_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/royal-barge_12.jpg" alt="royal-barge"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Bangkok_Royal_Barge_National_Museum_3.jpg" target="_blank" rel="noopener">Mr.Peerapong Prasutr · CC BY-SA 4.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<hr>
+<h3>5. 사회 — 알아두면 편한 것들</h3>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>🔴 <strong>마이 펜 라이 (ไม่เป็นไร)</strong></td><td>「괜찮아요/신경 쓰지 마세요」. <strong>이 나라의 정서를 한 마디로 압축한 표현</strong>이다. 갈등을 정면으로 키우지 않는다</td></tr><tr><td>🔴 <strong>끄렝 짜이 (เกรงใจ)</strong></td><td>「상대가 부담스러울까 봐 조심하는 마음」. 한국어에 정확한 대응어가 없다. <strong>직설적인 거절을 피하는 문화</strong>의 뿌리</td></tr><tr><td><strong>사눅 (สนุก)</strong></td><td>「재미」. 일에도 재미가 있어야 한다는 감각이 강하다</td></tr><tr><td><strong>와이 (합장 인사)</strong></td><td>손을 모아 고개를 숙인다. 손 위치가 높을수록 존경의 정도가 크다</td></tr><tr><td>🔴 <strong>체면과 목소리</strong></td><td><strong>공공장소에서 화를 내거나 목소리를 높이는 것이 매우 부정적으로 받아들여진다.</strong> 문제가 생겨도 낮은 목소리로</td></tr><tr><td><strong>LGBT</strong></td><td>🔴 <strong>아시아에서 가장 개방적인 축</strong>이다. 2025년 동성결혼이 법제화됐다</td></tr><tr><td><strong>미소</strong></td><td>「미소의 나라」라는 별명이 있지만, 그 미소가 <strong>긍정만 뜻하지는 않는다.</strong> 곤란함·사과·거절도 미소로 표현된다</td></tr></tbody></table></div>
+<hr>
+<h3>6. 지리와 기후 — 왜 10월에 가나</h3>
+<p><strong>나라 모양이 코끼리 머리를 닮았다</strong>고 흔히 말한다. 남북으로 길어서 지역차가 크다.</p>
+<div class="tw"><table><thead><tr><th>지역</th><th>성격</th></tr></thead><tbody><tr><td><strong>북부</strong></td><td>산악. 란나 문화권. 선선하다</td></tr><tr><td><strong>동북부(이싼)</strong></td><td>고원. 라오스 문화권. <strong>가장 가난하고 인구가 많다</strong></td></tr><tr><td><strong>중부</strong></td><td>짜오프라야 평야. <strong>쌀 생산의 중심이자 방콕</strong></td></tr><tr><td><strong>동부</strong></td><td>해안 공업지대(EEC)·파타야</td></tr><tr><td><strong>남부</strong></td><td>반도. 무슬림 비중이 높고 섬 관광지</td></tr></tbody></table></div>
+<p><strong>기후는 세 계절</strong></p>
+<ul><li><strong>시원한 건기 (11~2월)</strong> — 🔴 <strong>성수기.</strong> 가장 좋다</li><li><strong>더운 건기 (3~5월)</strong> — 40도를 넘는다. 4월 송끄란(물축제)</li><li><strong>우기 (6~10월)</strong> — 🔴 <strong>우리가 가는 10월은 우기의 막바지</strong>다</li></ul>
+<blockquote class="note"><p><strong>🔴 10월 방콕</strong> 연 강수량 2위 달(약 290mm / 18일)이고, <strong>강수의 57%가 낮 12~18시에 몰린다.</strong> 그래서 우리 계획이 전부 <strong>「오전 야외 / 오후 실내」</strong>로 짜여 있다. 대신 성수기가 아니라 <strong>덜 붐비고 값이 낮다.</strong></p></blockquote>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/QkLbeHCu9vo" title="태국 왕실과 왕궁 — 무엇을 보는 곳인가" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>태국 왕실과 왕궁 — 무엇을 보는 곳인가 · YouTube</figcaption></figure>
+<hr>
+<h3>7. 실무 — 출발 전 체크</h3>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>비자</strong></td><td>한국인은 관광 목적 <strong>무비자 체류 가능</strong>. ⚠️ 체류 가능 일수는 출발 전 외교부·대사관 공지로 재확인할 것</td></tr><tr><td>🔴 <strong>TDAC 전자입국카드</strong></td><td><strong>도착 3일 전부터 제출.</strong> 우리는 <strong>10/3(토)부터</strong>. 2인 1건, 무료. <code>tdac.immigration.go.th</code> <strong>만</strong> 공식</td></tr><tr><td><strong>전압·플러그</strong></td><td>220V. <strong>한국 플러그가 대체로 그대로 들어간다</strong>(A/B/C 혼용)</td></tr><tr><td>🔴 <strong>전자담배</strong></td><td><strong>소지·반입 전면 금지, 최대 징역 10년.</strong> 출발 전 짐 전수 확인 (→ 해설 「대마」)</td></tr><tr><td><strong>현금</strong></td><td>🔴 태국 ATM은 <strong>건당 220바트</strong>를 떼고 카드사가 면제해 주지 않는다. <strong>달러를 가져가 시내 환전소(슈퍼리치)에서 바꾸는 게 최저.</strong> 공항 환전소는 23:30 마감</td></tr><tr><td><strong>물</strong></td><td>🔴 <strong>수돗물을 마시지 않는다.</strong> 생수 편의점 ฿7~15</td></tr><tr><td><strong>팁</strong></td><td>노점·일반 식당은 불필요. 파인다이닝은 서비스차지 10%로 갈음</td></tr><tr><td><strong>교통</strong></td><td>BTS(지상철)·MRT(지하철)·수상보트·그랩. 🔴 <strong>지하철 20바트 균일요금은 태국 국적자 전용</strong> — 우리는 정가</td></tr><tr><td><strong>긴급</strong></td><td>관광경찰 <strong>1155</strong> (영어 가능)</td></tr></tbody></table></div>
+<hr>
+<h3>8. 🔴 한국과 태국 — 나란히 놓으면</h3>
+<div class="tw"><table><thead><tr><th></th><th>태국</th><th>한국</th></tr></thead><tbody><tr><td>19세기 개항 압력</td><td><strong>완충국 전략으로 독립 유지</strong></td><td>식민지화</td></tr><tr><td>왕조</td><td>🔴 <strong>1782년부터 지금까지</strong></td><td>1910년 단절</td></tr><tr><td>종교</td><td>상좌부 불교 90%</td><td>무종교 다수 · 기독교 · 불교</td></tr><tr><td>고추가 들어온 시기</td><td>16세기(포르투갈)</td><td>16~17세기</td></tr><tr><td>출산율</td><td><strong>1.18</strong></td><td>0.7대</td></tr><tr><td>고령화</td><td>🔴 <strong>7천 달러대에서 늙기 시작</strong></td><td>3만 달러대에서</td></tr><tr><td>종주도시</td><td>🔴 <strong>방콕 압도적 (2위 도시가 없다)</strong></td><td>서울 쏠림이지만 100만 도시 여럿</td></tr><tr><td>자동차 산업</td><td>「아시아의 디트로이트」, 지금 흔들림</td><td>완성차 보유국</td></tr></tbody></table></div>
+<p>🔴 <strong>가장 흥미로운 대비는 19세기다.</strong> 같은 시기 같은 압력을 받고 한쪽은 살아남고 한쪽은 실패했다. 그 차이가 지금 두 나라의 자기 인식에까지 남아 있다.</p>
+<hr>
+<h3>이어 읽기</h3>
+<ul><li>「방콕은 왜 여기에 있나」 — 1767년의 화재가 도시를 옮긴 이야기</li><li>「방콕은 태국의 무엇인가」 — 나라의 4분의 1이 한 도시에</li><li>「태국 경제는 지금 어떤 상태인가」 — 30년 만의 최저 성장</li><li>「태국 음식은 왜 이런 맛이 됐나」 — 네 가지 맛과 다섯 겹의 외래 요소</li></ul></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-grand-palace">왕궁 + 왓 프라깨우</a><a href="../#p-wat-pho">왓 포</a><a href="../#p-sri-mariamman">스리 마하 마리암만 사원</a><a href="../#p-royal-barge">왕실 바지선 행렬 리허설</a><a href="../#p-khaosan">카오산로드</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>
