@@ -31,6 +31,9 @@ img{max-width:100%}
 a{color:var(--jade-ink)}
 .wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
 header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+/* 🔴 해설집에서 보드까지만 갈 수 있었다 — 아카이브 홈으로 가는 길도 둔다 (2026-09-09) */
+.crumb{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
+.back.home{color:var(--ink-3)}
 .back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
   border-radius:6px; padding:4px 11px; display:inline-block}
 .back:hover{border-color:var(--jade); background:var(--jade-soft)}
@@ -126,7 +129,10 @@ figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
 <body>
 <div class="wrap">
 <header class="top">
-  <a class="back" href="../">← 오사카·고베 보드로</a>
+  <div class="crumb">
+    <a class="back" href="../">← 오사카·고베 보드로</a>
+    <a class="back home" href="../../">← 여행 목록</a>
+  </div>
   <div class="ecat big">도시</div>
   <h1>고베 — 개항이 만들고, 지진이 시험한 도시</h1>
   <p class="sub">개항장 · 대지진 · 그 뒤의 인구</p>

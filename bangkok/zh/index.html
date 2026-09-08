@@ -40,6 +40,12 @@ h1,h2,h3{font-family:"Gowun Batang","Apple SD Gothic Neo",serif; margin:0; text-
 .mono{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums}
 
 header.top{padding:48px 0 24px; border-bottom:1px solid var(--line)}
+/* 여행 페이지에서 아카이브 홈으로 돌아가는 길. 해설집의 .back 과 같은 모양으로 맞췄다.
+   🔴 2026-09-09 실측: 홈에서 여행으로 들어가면 되돌아갈 버튼이 아예 없었다. */
+.crumb{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.homeback{font-size:12px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:3px 10px; white-space:nowrap; flex:none}
+.homeback:hover{border-color:var(--jade); background:var(--jade-soft)}
 .eyebrow{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--jade); font-weight:600}
 h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spacing:-.01em}
 .sub{color:var(--ink-2); font-size:15px; margin-top:8px}
@@ -491,7 +497,10 @@ blockquote.qb{border-left-color:var(--brick)}
 <div class="wrap">
 
 <header class="top">
-  <div class="eyebrow">三土的 Travelog · 行前调查</div>
+  <div class="crumb">
+    <a class="homeback" href="../../">← 旅行列表</a>
+    <span class="eyebrow">三土的 Travelog · 行前调查</span>
+  </div>
   <h1>曼谷</h1>
   <p class="sub">2026年10月5日夜 ~ 11日夜 · 两人</p>
   <a class="langsw" href="../">한국어로 보기</a>
@@ -614,7 +623,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#C2410C"></span>拉达那哥辛</h2>
     <span class="zn">11处 · 01, 05, 06, 23, 33, 34, 36, 37, 39, 47, 63</span>
   </div>
-  <div class="zmap" id="z2173" data-zone="拉达那哥辛"></div>
+  <div class="zmap" id="z64811" data-zone="拉达那哥辛"></div>
   
 <article class="place" id="p-royal-barge" data-slot="after" data-zone="拉达那哥辛" data-grade="꼭" data-new="">
   <div class="ph">
@@ -1173,7 +1182,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0F766E"></span>河对岸</h2>
     <span class="zn">2处 · 02, 25</span>
   </div>
-  <div class="zmap" id="z36487" data-zone="河对岸"></div>
+  <div class="zmap" id="z84023" data-zone="河对岸"></div>
   
 <article class="place" id="p-bang-krachao" data-slot="morning" data-zone="河对岸" data-grade="꼭" data-new="">
   <div class="ph">
@@ -1282,7 +1291,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#B91C1C"></span>耀华力</h2>
     <span class="zn">6处 · 03, 09, 15, 16, 35, 38</span>
   </div>
-  <div class="zmap" id="z95407" data-zone="耀华力"></div>
+  <div class="zmap" id="z11872" data-zone="耀华力"></div>
   
 <article class="place" id="p-yaowarat" data-slot="morning" data-zone="耀华力" data-grade="꼭" data-new="">
   <div class="ph">
@@ -1591,7 +1600,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#7C3AED"></span>吞武里</h2>
     <span class="zn">6处 · 04, 08, 11, 12, 44, 49</span>
   </div>
-  <div class="zmap" id="z2029" data-zone="吞武里"></div>
+  <div class="zmap" id="z7711" data-zone="吞武里"></div>
   
 <article class="place" id="p-khlong-tour" data-slot="morning" data-zone="吞武里" data-grade="꼭" data-new="">
   <div class="ph">
@@ -1900,7 +1909,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0E7490"></span>是隆·挽叻</h2>
     <span class="zn">3处 · 07, 20, 45</span>
   </div>
-  <div class="zmap" id="z84843" data-zone="是隆·挽叻"></div>
+  <div class="zmap" id="z35977" data-zone="是隆·挽叻"></div>
   
 <article class="place" id="p-bangrak" data-slot="morning" data-zone="是隆·挽叻" data-grade="꼭" data-new="">
   <div class="ph">
@@ -2059,7 +2068,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#4D7C0F"></span>北部</h2>
     <span class="zn">6处 · 10, 18, 19, 24, 52, 60</span>
   </div>
-  <div class="zmap" id="z2484" data-zone="北部"></div>
+  <div class="zmap" id="z80385" data-zone="北部"></div>
   
 <article class="place" id="p-chatuchak" data-slot="morning" data-zone="北部" data-grade="꼭" data-new="">
   <div class="ph">
@@ -2368,7 +2377,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#57534E"></span>全区域</h2>
     <span class="zn">2处 · 13, 17</span>
   </div>
-  <div class="zmap" id="z14840" data-zone="全区域"></div>
+  <div class="zmap" id="z19805" data-zone="全区域"></div>
   
 <article class="place" id="p-thai-massage" data-slot="after" data-zone="全区域" data-grade="꼭" data-new="">
   <div class="ph">
@@ -2477,7 +2486,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#2C7A67"></span>近郊</h2>
     <span class="zn">3处 · 14, 43, 46</span>
   </div>
-  <div class="zmap" id="z53619" data-zone="近郊"></div>
+  <div class="zmap" id="z15266" data-zone="近郊"></div>
   
 <article class="place" id="p-ayutthaya" data-slot="dawn" data-zone="近郊" data-grade="취향 탐" data-new="">
   <div class="ph">
@@ -2636,7 +2645,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#15803D"></span>素坤逸</h2>
     <span class="zn">7处 · 21, 30, 51, 53, 56, 57, 58</span>
   </div>
-  <div class="zmap" id="z27919" data-zone="素坤逸"></div>
+  <div class="zmap" id="z32504" data-zone="素坤逸"></div>
   
 <article class="place" id="p-benchakitti" data-slot="eve" data-zone="素坤逸" data-grade="시간 남으면" data-new="">
   <div class="ph">
@@ -2995,7 +3004,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0369A1"></span>是隆·沙吞</h2>
     <span class="zn">6处 · 22, 31, 32, 40, 42, 54</span>
   </div>
-  <div class="zmap" id="z83293" data-zone="是隆·沙吞"></div>
+  <div class="zmap" id="z48593" data-zone="是隆·沙吞"></div>
   
 <article class="place" id="p-lumphini" data-slot="dawn" data-zone="是隆·沙吞" data-grade="시간 남으면" data-new="">
   <div class="ph">
@@ -3304,7 +3313,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#B45309"></span>暹罗</h2>
     <span class="zn">10处 · 26, 27, 28, 29, 41, 48, 55, 59, 61, 62</span>
   </div>
-  <div class="zmap" id="z95962" data-zone="暹罗"></div>
+  <div class="zmap" id="z35289" data-zone="暹罗"></div>
   
 <article class="place" id="p-platinum" data-slot="after" data-zone="暹罗" data-grade="시간 남으면" data-new="">
   <div class="ph">
@@ -3804,7 +3813,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#6D28D9"></span>北榄</h2>
     <span class="zn">1处 · 50</span>
   </div>
-  <div class="zmap" id="z74688" data-zone="北榄"></div>
+  <div class="zmap" id="z85951" data-zone="北榄"></div>
   
 <article class="place" id="p-erawan-museum" data-slot="after" data-zone="北榄" data-grade="취향 탐" data-new="">
   <div class="ph">
@@ -3863,7 +3872,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#2C7A67"></span>暖武里</h2>
     <span class="zn">1处 · 64</span>
   </div>
-  <div class="zmap" id="z85754" data-zone="暖武里"></div>
+  <div class="zmap" id="z40537" data-zone="暖武里"></div>
   
 <article class="place isnew" id="p-pantip-ngamwongwan" data-slot="noon" data-zone="暖武里" data-grade="꼭" data-new="1">
   <div class="ph">
