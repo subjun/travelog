@@ -298,6 +298,15 @@ blockquote.qb{border-left-color:var(--brick)}
 
 /* ── 숙소 탭 ─────────────────────────────────────────── */
 .staylede{margin:0 0 14px; font-size:14px; line-height:1.75; color:var(--ink-2)}
+/* 볼거리 탭 머리말 — 오사카는 「가는 곳 + 아카이브」라 성격을 먼저 설명한다.
+   🔴 b 규칙은 직계자식(> b)으로 한정하지 않는다 — 본문 안에서 등급 배지를 인라인으로 쓰기 때문. */
+.lede{margin:0 0 16px; padding:14px 16px; border:1px solid var(--line);
+      border-radius:10px; background:var(--surface)}
+.lede h3{margin:0 0 8px; font-size:14.5px; letter-spacing:-.01em}
+.lede p{margin:0 0 7px; font-size:13.5px; line-height:1.75; color:var(--ink-2)}
+.lede p:last-child{margin-bottom:0}
+.lede .src{font-size:12px; color:var(--ink-3); padding-top:8px; border-top:1px dashed var(--line)}
+.lede .grade{display:inline-block; vertical-align:baseline; margin:0 1px}
 .staybox{margin:14px 0 22px; padding:13px 15px; background:var(--surface); border:1px solid var(--line); border-radius:10px}
 .staybox > b{display:block; margin-bottom:6px; font-size:12px; letter-spacing:.05em; color:var(--ink-3)}
 .staybox p b, .stg .sno b, .scard .sb b{font-weight:650; color:var(--ink)}
@@ -488,7 +497,7 @@ blockquote.qb{border-left-color:var(--brick)}
   <button class="tb" data-tab="food">먹거리<b>40</b></button>
   <button class="tb" data-tab="essays">해설집<b>17</b></button>
   <button class="tb" data-tab="stay">숙소<b>15</b></button>
-  <button class="tb" data-tab="submit">제출</button>
+  <button class="tb submit-only" data-tab="submit">제출</button>
 </nav>
 
 <section class="tabpane" data-tab="plan">
@@ -574,6 +583,8 @@ blockquote.qb{border-left-color:var(--brick)}
   <a class="gmap" href="https://www.google.com/maps/place/Bangkok,+Thailand/@13.7563,100.5018,12z" target="_blank" rel="noopener">구글지도로 방콕 열기 ↗</a>
 </section>
 
+
+
 <div class="filters">
   <div class="frow"><span class="flabel">판정</span><button class="fb fb-gmust" data-f="grade" data-v="꼭">꼭</button><button class="fb fb-gspare" data-f="grade" data-v="시간 남으면">시간 남으면</button><button class="fb fb-gtaste" data-f="grade" data-v="취향 탐">취향 탐</button></div>
   <div class="frow"><span class="flabel">권역</span><button class="fb" data-f="zone" data-v="라따나꼬신">라따나꼬신</button><button class="fb" data-f="zone" data-v="강 건너">강 건너</button><button class="fb" data-f="zone" data-v="야오와랏">야오와랏</button><button class="fb" data-f="zone" data-v="톤부리">톤부리</button><button class="fb" data-f="zone" data-v="실롬·방락">실롬·방락</button><button class="fb" data-f="zone" data-v="북부">북부</button><button class="fb" data-f="zone" data-v="전 권역">전 권역</button><button class="fb" data-f="zone" data-v="근교">근교</button><button class="fb" data-f="zone" data-v="수쿰빗">수쿰빗</button><button class="fb" data-f="zone" data-v="실롬·사톤">실롬·사톤</button><button class="fb" data-f="zone" data-v="시암">시암</button><button class="fb" data-f="zone" data-v="사뭇쁘라깐">사뭇쁘라깐</button><button class="fb" data-f="zone" data-v="논타부리">논타부리</button></div>
@@ -591,7 +602,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#C2410C"></span>라따나꼬신</h2>
     <span class="zn">11곳 · 01, 05, 06, 23, 33, 34, 36, 37, 39, 47, 63</span>
   </div>
-  <div class="zmap" id="z83248" data-zone="라따나꼬신"></div>
+  <div class="zmap" id="z27476" data-zone="라따나꼬신"></div>
   
 <article class="place" id="p-royal-barge" data-slot="after" data-zone="라따나꼬신" data-grade="꼭" data-new="">
   <div class="ph">
@@ -1141,7 +1152,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0F766E"></span>강 건너</h2>
     <span class="zn">2곳 · 02, 25</span>
   </div>
-  <div class="zmap" id="z66390" data-zone="강 건너"></div>
+  <div class="zmap" id="z64886" data-zone="강 건너"></div>
   
 <article class="place" id="p-bang-krachao" data-slot="morning" data-zone="강 건너" data-grade="꼭" data-new="">
   <div class="ph">
@@ -1250,7 +1261,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#B91C1C"></span>야오와랏</h2>
     <span class="zn">6곳 · 03, 09, 15, 16, 35, 38</span>
   </div>
-  <div class="zmap" id="z79666" data-zone="야오와랏"></div>
+  <div class="zmap" id="z44118" data-zone="야오와랏"></div>
   
 <article class="place" id="p-yaowarat" data-slot="morning" data-zone="야오와랏" data-grade="꼭" data-new="">
   <div class="ph">
@@ -1559,7 +1570,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#7C3AED"></span>톤부리</h2>
     <span class="zn">6곳 · 04, 08, 11, 12, 44, 49</span>
   </div>
-  <div class="zmap" id="z6899" data-zone="톤부리"></div>
+  <div class="zmap" id="z52906" data-zone="톤부리"></div>
   
 <article class="place" id="p-khlong-tour" data-slot="morning" data-zone="톤부리" data-grade="꼭" data-new="">
   <div class="ph">
@@ -1868,7 +1879,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0E7490"></span>실롬·방락</h2>
     <span class="zn">3곳 · 07, 20, 45</span>
   </div>
-  <div class="zmap" id="z56092" data-zone="실롬·방락"></div>
+  <div class="zmap" id="z82241" data-zone="실롬·방락"></div>
   
 <article class="place" id="p-bangrak" data-slot="morning" data-zone="실롬·방락" data-grade="꼭" data-new="">
   <div class="ph">
@@ -2027,7 +2038,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#4D7C0F"></span>북부</h2>
     <span class="zn">6곳 · 10, 18, 19, 24, 52, 60</span>
   </div>
-  <div class="zmap" id="z62774" data-zone="북부"></div>
+  <div class="zmap" id="z95518" data-zone="북부"></div>
   
 <article class="place" id="p-chatuchak" data-slot="morning" data-zone="북부" data-grade="꼭" data-new="">
   <div class="ph">
@@ -2327,7 +2338,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#57534E"></span>전 권역</h2>
     <span class="zn">2곳 · 13, 17</span>
   </div>
-  <div class="zmap" id="z90388" data-zone="전 권역"></div>
+  <div class="zmap" id="z10133" data-zone="전 권역"></div>
   
 <article class="place" id="p-thai-massage" data-slot="after" data-zone="전 권역" data-grade="꼭" data-new="">
   <div class="ph">
@@ -2436,7 +2447,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#2C7A67"></span>근교</h2>
     <span class="zn">3곳 · 14, 43, 46</span>
   </div>
-  <div class="zmap" id="z49667" data-zone="근교"></div>
+  <div class="zmap" id="z98309" data-zone="근교"></div>
   
 <article class="place" id="p-ayutthaya" data-slot="dawn" data-zone="근교" data-grade="취향 탐" data-new="">
   <div class="ph">
@@ -2595,7 +2606,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#15803D"></span>수쿰빗</h2>
     <span class="zn">7곳 · 21, 30, 51, 53, 56, 57, 58</span>
   </div>
-  <div class="zmap" id="z8572" data-zone="수쿰빗"></div>
+  <div class="zmap" id="z86918" data-zone="수쿰빗"></div>
   
 <article class="place" id="p-benchakitti" data-slot="eve" data-zone="수쿰빗" data-grade="시간 남으면" data-new="">
   <div class="ph">
@@ -2927,7 +2938,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#0369A1"></span>실롬·사톤</h2>
     <span class="zn">6곳 · 22, 31, 32, 40, 42, 54</span>
   </div>
-  <div class="zmap" id="z57066" data-zone="실롬·사톤"></div>
+  <div class="zmap" id="z32290" data-zone="실롬·사톤"></div>
   
 <article class="place" id="p-lumphini" data-slot="dawn" data-zone="실롬·사톤" data-grade="시간 남으면" data-new="">
   <div class="ph">
@@ -3227,7 +3238,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#B45309"></span>시암</h2>
     <span class="zn">10곳 · 26, 27, 28, 29, 41, 48, 55, 59, 61, 62</span>
   </div>
-  <div class="zmap" id="z93716" data-zone="시암"></div>
+  <div class="zmap" id="z35240" data-zone="시암"></div>
   
 <article class="place" id="p-platinum" data-slot="after" data-zone="시암" data-grade="시간 남으면" data-new="">
   <div class="ph">
@@ -3700,7 +3711,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#6D28D9"></span>사뭇쁘라깐</h2>
     <span class="zn">1곳 · 50</span>
   </div>
-  <div class="zmap" id="z65892" data-zone="사뭇쁘라깐"></div>
+  <div class="zmap" id="z73883" data-zone="사뭇쁘라깐"></div>
   
 <article class="place" id="p-erawan-museum" data-slot="after" data-zone="사뭇쁘라깐" data-grade="취향 탐" data-new="">
   <div class="ph">
@@ -3759,7 +3770,7 @@ blockquote.qb{border-left-color:var(--brick)}
     <h2><span class="zdot" style="background:#2C7A67"></span>논타부리</h2>
     <span class="zn">1곳 · 64</span>
   </div>
-  <div class="zmap" id="z31498" data-zone="논타부리"></div>
+  <div class="zmap" id="z99921" data-zone="논타부리"></div>
   
 <article class="place isnew" id="p-pantip-ngamwongwan" data-slot="noon" data-zone="논타부리" data-grade="꼭" data-new="1">
   <div class="ph">
@@ -6136,7 +6147,7 @@ blockquote.qb{border-left-color:var(--brick)}
 </section>
 </section>
 
-<section class="tabpane hide" data-tab="submit">
+<section class="tabpane hide submit-only" data-tab="submit">
 <section class="fbsec" id="feedback">
   <h2>피드백</h2>
   <div class="sumbox">
@@ -6428,7 +6439,7 @@ blockquote.qb{border-left-color:var(--brick)}
   }
   // ── 계획 5버전 탭 ──
   var VKEY=KEY+'-plan', TKEY=KEY+'-fb';
-  var FB={ver:'가장 마음에 드는 버전',none:'버전을 고르지 않았습니다',empty:'아직 없음',places:'가고 싶은 곳',note:'아쉬운 점 · 수정 요청',foot:'방콕 보드의 「선택 저장」 버튼으로 만들어졌습니다.',food:'먹거리'};
+  var FB={ver:'가장 마음에 드는 버전',none:'버전을 고르지 않았습니다',empty:'아직 없음',places:'가고 싶은 곳',note:'아쉬운 점 · 수정 요청',foot:'여행 보드의 「선택 저장」 버튼으로 만들어졌습니다.',food:'먹거리'};
   function planPicked(){ var r=document.querySelector('input[name=planpick]:checked'); return r? r.value : ''; }
   function syncPlan(){
     var v=planPicked(), lb=document.getElementById('fbver');
@@ -6511,7 +6522,7 @@ blockquote.qb{border-left-color:var(--brick)}
     var now=new Date();
     var stamp=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')
       +' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-    var title='[Bangkok] '+(planPicked()? planPicked().split(' ')[0]+' · ' : '')+FB.places+' '+list.length+' · '+FB.food+' '+pickedFood().length+' — '+stamp;
+    var title='[방콕] '+(planPicked()? planPicked().split(' ')[0]+' · ' : '')+FB.places+' '+list.length+' · '+FB.food+' '+pickedFood().length+' — '+stamp;
     var base='https://github.com/subjun/travelog-private/issues/new?title='
       + encodeURIComponent(title) + '&labels=' + encodeURIComponent('선택');
     var body=bodyText();

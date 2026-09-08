@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>일본이라는 나라 — 인구가 줄어드는 선진국 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">나라</div>
+  <h1>일본이라는 나라 — 인구가 줄어드는 선진국</h1>
+  <p class="sub">인구·정치체제·통화·기후·사회 · 그리고 지금 벌어지고 있는 일</p>
+  <div class="lens"><span>인구</span><span>이민</span><span>정치</span><span>경제</span><span>지리</span><span>기후</span><span>사회</span><span>한국과의 비교</span></div>
+</header>
+<article><blockquote class="note"><p>개별 장소를 보기 전에 바탕이 되는 층입니다. <strong>「이 나라는 지금 어떤 상태인가」</strong>를 먼저 깔아 둡니다. ⚠️ 수치는 조회 시점(2026-09)의 공개 통계에 기반하며, 1차 출처를 대조하지 못한 항목은 표시했습니다.</p></blockquote>
+<h3>한 문단 요약</h3>
+<p>일본은 <strong>인구가 줄고 있는 최초의 대형 선진국</strong>입니다. 2008년 1억 2,808만 명으로 정점을 찍은 뒤 계속 감소해 지금은 1억 2,000만 명대 초반이고, 65세 이상이 인구의 <strong>약 29%</strong>로 세계에서 가장 높습니다. 이 한 줄이 일본에서 보이는 거의 모든 것을 설명합니다 — 빈집, 자동화된 가게, 외국인 노동자의 급증, 엔화 약세, 그리고 여행자에게는 <strong>「싸진 일본」</strong>이라는 결과까지.</p>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/osaka-castle_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/osaka-castle_1.jpg" alt="osaka-castle"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Castle_Nishinomaru_Garden_April_2005.JPG" target="_blank" rel="noopener">작가 미상 · Public domain</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/osaka-castle_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/osaka-castle_2.jpg" alt="osaka-castle"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:At_Osaka_Castle.JPG" target="_blank" rel="noopener">작가 미상 · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/osaka-castle_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/osaka-castle_3.jpg" alt="osaka-castle"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:The_Siege_of_Osaka_Castle.jpg" target="_blank" rel="noopener">anonymous · Public domain</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/osaka-castle_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/osaka-castle_4.jpg" alt="osaka-castle"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Castle_02bs3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/osaka-castle_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/osaka-castle_5.jpg" alt="osaka-castle"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Castle_Keep_Tower_in_201409.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/osaka-castle_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/osaka-castle_6.jpg" alt="osaka-castle"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Castle_Keep_Tower_in_201409_002.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/osaka-castle_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/osaka-castle_7.jpg" alt="osaka-castle"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Castle_Keep_Tower_in_201411_004.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/osaka-castle_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/osaka-castle_8.jpg" alt="osaka-castle"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Castle_Keep_Tower_in_201504_005.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/osaka-castle_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/osaka-castle_9.jpg" alt="osaka-castle"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Castle_Keep_Tower_in_201504_009.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/osaka-castle_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/osaka-castle_10.jpg" alt="osaka-castle"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Castle_Keep_Tower_in_201504_012.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/osaka-castle_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/osaka-castle_11.jpg" alt="osaka-castle"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Castle_Keep_Tower_in_201504_014.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/osaka-castle_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/osaka-castle_12.jpg" alt="osaka-castle"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Castle_Keep_Tower_in_201504_016.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<h3>뼈대</h3>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>인구</td><td>약 1억 2,300만 명 (2008년 정점 1억 2,808만에서 감소 중)</td></tr><tr><td>고령화율</td><td>65세 이상 <strong>약 29%</strong> — 세계 1위</td></tr><tr><td>정치체제</td><td>입헌군주제 + 의원내각제. 천황은 <strong>국가의 상징</strong>이고 정치권력이 없다</td></tr><tr><td>통화</td><td>엔(¥). 2022년 이후 <strong>역사적 약세</strong> — 여행 물가의 근본 원인</td></tr><tr><td>언어</td><td>일본어. 한자·히라가나·가타카나 세 문자를 섞어 쓴다</td></tr><tr><td>종교</td><td>신도와 불교가 <strong>겹쳐서</strong> 존재한다. 「신자」 개념이 한국과 다르다</td></tr><tr><td>행정</td><td>1도(都)·1도(道)·2부(府)·43현. <strong>오사카는 「부」</strong>, 효고(고베)는 「현」</td></tr></tbody></table></div>
+<h3>왜 그렇게 됐나</h3>
+<h4>인구 — 줄어드는 것이 기본값이 된 나라</h4>
+<p>일본의 합계출산율은 1970년대에 이미 2.0 아래로 내려갔고, 2005년 1.26에서 잠깐 회복했다가 다시 최저치를 갱신하고 있습니다. 한국(0.7대)보다는 높지만, <strong>한국은 급락 중이고 일본은 40년째 낮은 상태</strong>라는 차이가 있습니다. 그래서 일본의 인구 문제는 「충격」이 아니라 <strong>「이미 적응이 진행된 구조」</strong>입니다.</p>
+<p>여행자가 보게 되는 결과:</p>
+<ul><li><strong>무인 계산·자동 주문</strong>이 관광지가 아닌 동네 가게에까지 퍼져 있다</li><li><strong>외국인 점원</strong>이 편의점·체인점에 많다 — 2019년 「특정기능」 비자 신설 이후 급증했다</li><li><strong>지방의 빈집(空き家)</strong> — 전국 주택의 13~14%가 빈집이라는 통계가 반복 인용된다 (⚠️ 최신치 미대조)</li></ul>
+<h4>정치 — 천황은 상징, 권력은 총리</h4>
+<p>1947년 헌법에서 천황은 <strong>「일본국의 상징이며 일본 국민 통합의 상징」</strong>으로 규정됐습니다. 실권은 국회 다수당이 지명하는 총리에게 있습니다. 자유민주당(자민당)이 1955년 이후 대부분의 기간을 집권해 왔고, 이 장기 집권 구조가 일본 정책의 연속성과 경직성을 동시에 만들었습니다.</p>
+<p>🔴 <strong>여행자에게 직접 걸리는 지점</strong>: 천황·황실 관련 행사나 상(喪)이 생기면 시설 휴관·행사 취소가 단기 공지로 나옵니다. 우리 일정에 걸리는 건 없지만, 축일 체계 자체가 황실·농경 절기와 얽혀 있다는 건 알아 둘 만합니다.</p>
+<h4>축일 — 우리 여행이 정면으로 걸린 부분</h4>
+<p>🔴 <strong>2026년 9월 19일(토)부터 23일(수)까지가 5연휴, 11년 만의 「실버위크」입니다.</strong></p>
+<div class="tw"><table><thead><tr><th>날</th><th>이름</th><th>성격</th></tr></thead><tbody><tr><td>9/21 월</td><td><strong>敬老の日 (경로의 날)</strong></td><td>9월 셋째 월요일. 「해피 먼데이 제도」로 요일이 고정된 축일</td></tr><tr><td>9/22 화</td><td><strong>国民の休日 (국민의 휴일)</strong></td><td>🔴 축일과 축일 사이에 낀 평일을 자동으로 쉬게 하는 제도</td></tr><tr><td>9/23 수</td><td><strong>秋分の日 (추분의 날)</strong></td><td>천문학적 추분에 맞춰 매년 날짜가 정해진다</td></tr></tbody></table></div>
+<p>🔴 <strong>여기에 함정이 하나 있습니다.</strong> 9/22의 「国民の休日」은 법률상 <strong>「国民の祝日」이 아닙니다.</strong> 국민의 축일에 관한 법률 제3조 3항이 만든 <strong>「휴일」</strong>이지 축일 자체가 아닙니다. 그래서 가게 안내문의 <strong>「祝日は営業」(축일은 영업)</strong> 같은 단서가 9/22에 적용되는지는 표기만으로 판정할 수 없습니다 — 우리 여행에서 아리마 킨노유가 정확히 이 문제에 걸립니다.</p>
+<p>또 하나. 일본 가게는 <strong>「월요일 휴무」인데 그 월요일이 축일이면 영업하고 다음 날 화요일로 대체휴무를 옮기는</strong> 관행이 흔합니다. 9/21이 축일 월요일이라 <strong>9/22 화요일이 조용히 휴무가 될 수 있습니다.</strong></p>
+<h4>경제와 엔화 — 왜 지금 일본이 싼가</h4>
+<p>자세한 것은 [일본 경제는 지금 어떤 상태인가](#japan-economy)에서 다루지만, 한 줄로 말하면 <strong>일본은행이 초저금리를 오래 유지하는 동안 다른 나라가 금리를 올려서 엔화가 상대적으로 약해졌습니다.</strong> 2022년 이후 원화 대비로도 크게 내려가, 한국인에게 일본 여행 물가가 체감상 20~30% 싸졌습니다. 이 여행의 예산이 성립하는 이유이기도 합니다.</p>
+<h4>기후 — 9월 말이라는 시기</h4>
+<p>일본은 남북으로 길어 기후대가 넓지만, 간사이(오사카·고베)는 <strong>여름이 덥고 습하며 태풍이 지나가는</strong> 지역입니다. 9월 하순은 늦더위(残暑)가 남아 있는 시기로, 낮 최고 28~30도에 습도가 높은 날이 섞입니다.</p>
+<p>🔴 <strong>태풍이 실제 변수입니다.</strong> 일본의 태풍 상륙 최다 시기가 8~9월이고, 간사이에 접근하면 JR·사철이 「계획운휴」로 미리 멈춥니다. 우리 일정에서 KIX 출입국과 아리마 왕복 버스가 여기에 직접 노출됩니다.</p>
+<h3>사회 — 여행자가 실제로 부딪히는 것</h3>
+<ul><li><strong>현금.</strong> 캐시리스 결제가 빠르게 늘었지만 <strong>노포와 시장은 여전히 현금 전용</strong>인 곳이 많습니다. 우리 일정에서 우에마치 라멘, 고베 숙소, 中村屋 고로케가 현금입니다.</li><li><strong>줄과 순서.</strong> 예약 문화가 강하지 않은 대신 줄이 길고, 줄 서는 규칙이 엄격합니다.</li><li><strong>소리.</strong> 전철 안 통화 금지 같은 규범이 실제로 지켜집니다.</li><li><strong>문신.</strong> 공중목욕탕·온천에서 입욕을 거절하는 곳이 여전히 많습니다. 아리마 시영 목욕탕도 이 규정 아래 있습니다.</li><li><strong>흡연.</strong> 2020년 개정 건강증진법으로 실내 흡연이 크게 제한됐지만, <strong>개인이 운영하는 소규모 음식점은 예외</strong>가 인정돼 전석 흡연인 곳이 남아 있습니다. 우리 9/25 아침 킷사텐 에리카가 그렇습니다.</li></ul>
+<h3>한국과 견주면</h3>
+<div class="tw"><table><thead><tr><th></th><th>한국</th><th>일본</th></tr></thead><tbody><tr><td>인구 감소</td><td>이제 시작, <strong>급락</strong></td><td>2008년부터, <strong>완만하지만 오래</strong></td></tr><tr><td>고령화율</td><td>약 20% 돌파</td><td><strong>약 29%</strong></td></tr><tr><td>통화</td><td>원</td><td>엔 — <strong>역사적 약세</strong></td></tr><tr><td>결제</td><td>카드가 기본</td><td><strong>현금이 남아 있는 영역이 넓다</strong></td></tr><tr><td>축일</td><td>날짜 고정형이 많다</td><td><strong>요일 고정형(해피 먼데이)</strong> + 천문 기준(춘분·추분) 혼재</td></tr><tr><td>행정 단위</td><td>특별시·광역시</td><td>도(都)·도(道)·부(府)·현 — <strong>오사카는 「부」</strong></td></tr></tbody></table></div>
+<h3>이 여행에서 확인해 볼 것</h3>
+<ul><li>편의점·체인점 점원의 국적 구성 (2019년 이후 외국인 노동 정책의 결과)</li><li>노포의 현금 전용 표시 — 어떤 업종에 남아 있는지</li><li>실버위크 5연휴의 인파 밀도 — 9/23이 마지막 날이다</li><li>자동 주문 단말기가 어디까지 퍼졌는지 (라멘집 券売機)</li></ul>
+<hr>
+<blockquote class="note"><p>⚠️ <strong>미확인</strong>: 최신 인구·출산율·빈집 비율의 1차 출처(총무성 통계국·후생노동성) 원문 대조를 하지 못했습니다. 수치는 자릿수 수준으로만 읽어 주세요.</p></blockquote>
+<h3>지도</h3>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=日本&output=embed" title="日本"></iframe><figcaption>日本 · 구글지도</figcaption></figure></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-osaka-castle">오사카성 천수각 + 도요토미 이시가키관</a><a href="../#p-sumiyoshi">스미요시타이샤</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>

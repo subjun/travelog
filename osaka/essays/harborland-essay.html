@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>하버랜드 — 화물역이 야경 명소가 되기까지 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">도시계획</div>
+  <h1>하버랜드 — 화물역이 야경 명소가 되기까지</h1>
+  <p class="sub">화물역이 야경이 되기까지</p>
+  <div class="lens"><span>도시계획</span><span>경제</span><span>재개발</span></div>
+</header>
+<article><blockquote class="note"><p>9/21 (월·축일) 18:15~ · 모자이크 2층 데크 야경 (무료) → 가벼운 저녁</p></blockquote>
+<h3>한 문단 요약</h3>
+<p>고베 하버랜드는 메리켄파크 서쪽, 옛 국철 화물역과 조선소 부지를 재개발해 1992년 문을 연 복합 상업지구다. 핵심은 운하 쪽으로 열린 쇼핑몰 <strong>umie 모자이크(MOSAIC)</strong> — 그 2층 목재 데크가 포트타워·해양박물관·관람차를 한 프레임에 담는, 고베 야경의 공식 촬영 포인트다. 입장 무료, 우리 일정의 9/21 피날레.</p>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/harborland_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_1.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe.harborland.mosaic.jpg" target="_blank" rel="noopener">작가 미상 · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_2.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe.harborland.mosaic2.JPG" target="_blank" rel="noopener">작가 미상 · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_3.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_takahama03s3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_4.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_takahama01s3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_5.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_takahama05s3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_6.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Mosaic09s3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_7.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic14s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_8.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic15s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_9.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic16n3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_10.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic17s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_11.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic18s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_12.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic19s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<h3>역사적 배경</h3>
+<p>이 땅은 1985년까지 <strong>국철 미나토가와 화물역</strong>이었다. 항구로 드나드는 화물이 철도로 갈아타는 결절점 — 즉 고베 물류 전성기의 심장부. 국철 민영화(1987)로 대규모 유휴지가 생기자, 거품경제 절정기에 "미나토미라이(요코하마)와 나란한 워터프론트 재개발"로 기획된 것이 하버랜드다. 1992년 개업 — 공교롭게 버블 붕괴 직후였고, 3년 뒤 대지진까지 맞았다. 초기 입주한 백화점(한큐·세이부)이 차례로 철수하는 등 고전하다가, 2013년 이온계가 전체를 "umie"로 리뉴얼하면서 자리를 잡았다. <strong>버블 기획 → 재난 → 소유·운영 교체 → 안정</strong>이라는, 일본 상업시설 30년사의 압축판.</p>
+<p>모자이크 옆 <strong>한신·아와지 대지진 당시엔</strong> 이 일대도 정전과 액상화를 겪었지만, 복구 후 "빛의 도시"를 내걸고 야간 경관에 집중 투자했다 — 지금 보는 야경 조명 체계(포트타워·해양박물관·관람차·크레인 라이트업)는 그 결과물이다.</p>
+<h3>현대적 의미</h3>
+<p>메리켄파크가 "기억의 수변"이라면 하버랜드는 "소비의 수변"이다. 둘이 운하 하나를 사이에 두고 마주 보는 구조 자체가 고베 워터프론트 재생의 설계도다. 모자이크 데크에서 보는 야경의 구성 요소를 뜯어보면 — 빨간 포트타워(1963, 관광), 하얀 해양박물관(1987, 기념), 관람차(1992, 소비), 가와사키 조선소 크레인(현역, 산업) — <strong>한 도시의 100년 경제사가 조명 켜진 채 늘어서 있는 셈</strong>이다.</p>
+<h3>경제·부동산 관점</h3>
+<ul><li><strong>철도 유휴지 재개발의 원형</strong>: 국철 민영화가 뱉어낸 대형 부지(시나가와, 우메키타, 하버랜드)는 이후 30년 일본 대형 개발의 주요 공급원이었다. 하버랜드는 그 1세대 — 우메키타(2024 그랑 그린 오사카)와 비교하면 1990년대와 2020년대 재개발 문법 차이가 보인다.</li><li><strong>상업시설의 생존 공식</strong>: 백화점 2곳이 연달아 철수한 자리를 "몰 + 무료 데크 + 야경"이 살렸다. 물건이 아니라 풍경을 파는 모델 — 데크가 무료인 이유는 그 풍경이 집객 엔진이기 때문이다.</li></ul>
+<h3>가서 볼 것 / 놓치기 쉬운 것</h3>
+<ol><li><strong>모자이크 2층 데크의 정면 구도</strong> — 포트타워+해양박물관+바다. 일몰 후 30분(18:30~19:00)이 하늘에 파랑이 남는 매직아워, 우리 도착 시각과 정확히 맞는다.</li><li><strong>대관람차</strong> — 탈 필요까지는 없지만, LED 연출이 10분 단위로 바뀌는 걸 데크에서 보는 것.</li><li><strong>가스등 거리(ガス燈通り)</strong> — 하버랜드 북쪽 진입로의 가스등 조명. 1992년 개업 때 "서양 항구도시" 컨셉으로 심은 것.</li><li>놓치기 쉬운 것: 모자이크 안 <strong>앙팡만(호빵맨) 뮤지엄 앞 광장</strong>을 지나 서쪽 끝까지 가면 조선소 크레인이 가장 가깝게 보인다 — 관광지 조명 너머의 현역 중공업.</li><li>저녁 옵션: 모자이크 내 푸드홀 또는 산노미야 복귀 후 — 20:00 이시다야 예약이 본편이므로 여기선 가볍게.</li></ol>
+<h3>참고 미디어</h3>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/DBuHA1U5MMc" title="Kobe Port Tower &amp; Harborland umie Night Walk — 4K" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>Kobe Port Tower &amp; Harborland umie Night Walk — 4K · YouTube</figcaption></figure>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/9AtbYFa2pj8" title="神戸散歩 メリケンパーク〜ハーバーランド umieモザイク — 4K HDR" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>神戸散歩 メリケンパーク〜ハーバーランド umieモザイク — 4K HDR · YouTube</figcaption></figure>
+<ul><li>📺 <a href="https://www.youtube.com/watch?v=DBuHA1U5MMc" target="_blank" rel="noopener">Kobe Port Tower &amp; Harborland umie Night Walk — 4K</a> — 야경 워킹</li><li>📺 <a href="https://www.youtube.com/watch?v=9AtbYFa2pj8" target="_blank" rel="noopener">神戸散歩 メリケンパーク〜ハーバーランド umieモザイク — 4K HDR</a> — 일본어</li><li>📷 <a href="https://commons.wikimedia.org/wiki/File:MOSAIC,_Kobe_Harborland_-_panoramio.jpg" target="_blank" rel="noopener">모자이크 전경</a> — DVMG, CC BY 3.0</li></ul>
+<h3>지도</h3>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=神戸ハーバーランド+モザイク&output=embed" title="神戸ハーバーランド モザイク"></iframe><figcaption>神戸ハーバーランド モザイク · 구글지도</figcaption></figure></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-harborland">하버랜드 모자이크 야경</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>

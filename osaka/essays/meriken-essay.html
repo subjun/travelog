@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>메리켄파크 — 아메리카가 「메리켄」이 된 부두, 그리고 지진의 기록 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">재난</div>
+  <h1>메리켄파크 — 아메리카가 「메리켄」이 된 부두, 그리고 지진의 기록</h1>
+  <p class="sub">복구하지 않고 남긴 60m</p>
+  <div class="lens"><span>재난</span><span>도시계획</span><span>역사</span></div>
+</header>
+<article><blockquote class="note"><p>9/21 (월·축일) 17:40~ · 일몰 18:05 직전 도착 동선</p></blockquote>
+<h3>한 문단 요약</h3>
+<p>메리켄파크는 고베항의 옛 부두 두 개(메리켄 파지·나카톳테이) 사이를 메워 1987년 개항 120주년 기념으로 만든 항만 공원이다. 빨간 고베 포트타워, 하얀 해양박물관 지붕, "BE KOBE" 조형물이 고베 바다 풍경의 표준 구도를 만든다. 공원 동쪽 끝에는 1995년 대지진 때 무너진 부두를 그대로 보존한 <strong>지진 메모리얼파크</strong>가 있다 — 이 공원의 진짜 본론이다.</p>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/meriken-park_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_1.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park01bs3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_2.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_001.JPG" target="_blank" rel="noopener">Pastern · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_3.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_atrium_lobby_20120106-001.jpg" target="_blank" rel="noopener">J o · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_4.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_20120825-001.jpg" target="_blank" rel="noopener">J o · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_5.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_20120825-002.jpg" target="_blank" rel="noopener">J o · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_6.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken-Park_Oriental_Hotel_in_2012.JPG" target="_blank" rel="noopener">Mti · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_7.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_Kobe_Japan01-r.jpg" target="_blank" rel="noopener">Oilstreet · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_8.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_Kobe_Japan02-r.jpg" target="_blank" rel="noopener">Oilstreet · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_9.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken-Park_Oriental_Hotel.JPG" target="_blank" rel="noopener">Tokumeigakarinoaoshima · CC0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_10.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_-_panoramio.jpg" target="_blank" rel="noopener">DVMG · CC BY 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_11.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_-_panoramio_(1).jpg" target="_blank" rel="noopener">Bohao Zhao · CC BY 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_12.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_and_Cruise_ship_%22Concerto%22_at_Kobe_Port_at_night.jpg" target="_blank" rel="noopener">そらみみ · CC BY-SA 4.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<h3>역사적 배경</h3>
+<p>이름부터 역사다. 1868년 개항 직후 이 자리에 생긴 부두 옆에 미국 영사관이 있어서 "아메리칸"이 당시 일본인 귀에 <strong>"메리켄(メリケン)"</strong>으로 들린 대로 굳었다(밀가루를 메리켄분이라 부르던 그 메리켄이다). 메리켄 파지는 이후 100년간 고베항의 얼굴로, 이민선·화객선이 떠나는 부두였다 — 브라질 이민선이 여기서 출항했다(고베는 일본 해외이민의 최대 송출항. 근처에 이민 사료관이 있다).</p>
+<ul><li><strong>고베 포트타워 (1963)</strong>: 세계 최초의 파이프 구조 관광탑. 장구(鼓) 모양의 빨간 하이퍼볼로이드 — "철탑의 미녀"라는 별명. 2024년 리뉴얼로 옥상 데크가 생겼다.</li><li><strong>가와사키·미쓰비시 조선소</strong>: 공원에서 서쪽 바다 건너로 보이는 크레인들. 고베항이 "군함과 상선의 항구"였던 시절의 현역 유산.</li></ul>
+<p><strong>1995년 1월 17일</strong>, 한신·아와지 대지진이 항구를 부쉈다. 액상화로 안벽이 바다 쪽으로 밀려나고 부두가 내려앉았다. 시는 메리켄 파지 60m 구간을 <strong>일부러 복구하지 않고</strong> 기울어진 가로등, 갈라진 바닥째 보존했다 — 그것이 지진 메모리얼파크다.</p>
+<h3>현대적 의미</h3>
+<p>고베항은 지진 전 세계 컨테이너 물동량 1~2위를 다투던 항구였지만, 복구 2년 사이 이탈한 화물은 부산·가오슝에서 돌아오지 않았다. 지금 순위는 세계 70위권. 메리켄파크는 그 상실을 딛고 항구의 용도를 "물류"에서 "시민의 바다"로 바꾼 전환점이다 — 물동량은 잃었지만 수변 공간은 얻었다. 2017년 리뉴얼로 잔디광장과 "BE KOBE"(지진 20년을 계기로 만든 시민 자긍심 슬로건)가 들어섰고, 지금은 고베 인스타그램의 성지다.</p>
+<h3>경제·부동산 관점</h3>
+<ul><li><strong>워터프론트 전환의 교과서</strong>: 항만 기능이 빠진 도심 수변을 관광·문화로 되살리는 세계적 패턴(볼티모어 이너하버, 시드니 달링하버)의 일본 대표 사례. 포트타워~하버랜드 일대는 고베시가 "수변 재생"에 베팅한 구간으로, 2021년 개장한 수족관 아토아, 2024년 재개장 포트타워, 페리부두 재편이 이어지고 있다.</li><li><strong>재해와 부동산</strong>: 지진 후 고베 지가는 장기 침체를 겪었다. 내진 기준 강화(1981/2000년 기준)가 일본 부동산 가격을 가르는 상수가 된 계기 중 하나가 이 지진이다. "1995년 이전 건물인가"를 보는 눈이 생기면 고베 시내가 다르게 보인다.</li></ul>
+<h3>가서 볼 것 / 놓치기 쉬운 것</h3>
+<ol><li><strong>지진 메모리얼파크</strong> (공원 동쪽 끝) — 기울어진 가로등과 갈라진 안벽 60m. 일몰 직전 여기부터 보고 서쪽으로 이동하는 게 우리 동선과 맞는다. 설명판의 피해 사진과 눈앞 실물을 대조할 것.</li><li><strong>BE KOBE 조형물</strong> — 줄 서서 찍는 곳. 저녁엔 줄이 짧다.</li><li><strong>포트타워의 파이프 구조</strong> — 아래에서 올려다보면 32개의 붉은 파이프가 비틀리며 올라가는 게 보인다. 용접이 아니라 조립.</li><li>해양박물관의 <strong>하얀 스페이스 프레임 지붕</strong> — 파도와 돛을 형상화. 야간 라이트업이 포트타워의 빨강과 대비.</li><li>놓치기 쉬운 것: 잔디광장 구석의 <strong>이민선 승선 기념비</strong>("希望の船出") — 브라질로 떠난 사람들의 출발점.</li></ol>
+<h3>참고 미디어</h3>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Dq_sb-VsKRs" title="Kobe Meriken Park &amp; Harborland Walking Tour — 4K/Binaural" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>Kobe Meriken Park &amp; Harborland Walking Tour — 4K/Binaural · YouTube</figcaption></figure>
+<ul><li>📺 <a href="https://www.youtube.com/watch?v=Dq_sb-VsKRs" target="_blank" rel="noopener">Kobe Meriken Park &amp; Harborland Walking Tour — 4K/Binaural</a> — 하버랜드까지 이어지는 우리 동선 그대로</li><li>📷 <a href="https://commons.wikimedia.org/wiki/File:Kobe_Kobe_Port_Tower_Blick_auf_das_Kobe_Meriken_Park_Oriental_Hotel_1.jpg" target="_blank" rel="noopener">포트타워와 메리켄파크</a> — Zairon, CC BY-SA 4.0</li></ul>
+<h3>지도</h3>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=メリケンパーク+神戸&output=embed" title="メリケンパーク 神戸"></iframe><figcaption>メリケンパーク 神戸 · 구글지도</figcaption></figure></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-meriken-park">메리켄파크 — 지진 메모리얼파크</a><a href="../#p-disaster-museum">인간과 방재 미래센터 (한신·아와지 대지진 기념관)</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>

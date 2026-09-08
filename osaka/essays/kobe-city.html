@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>고베 — 개항이 만들고, 지진이 시험한 도시 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">도시</div>
+  <h1>고베 — 개항이 만들고, 지진이 시험한 도시</h1>
+  <p class="sub">개항장 · 대지진 · 그 뒤의 인구</p>
+  <div class="lens"><span>역사</span><span>경제</span><span>도시계획</span><span>재난</span><span>한국과의 비교</span></div>
+</header>
+<article><blockquote class="note"><p>9/21~22 이틀의 무대. 기타노 이진칸·메리켄파크·하버랜드·아리마온천 편이 전부 이 이야기에 연결된다.</p></blockquote>
+<h3>한 문단 요약</h3>
+<p>고베는 인구 약 150만의 항구도시로, 1868년 개항과 함께 "일본이 서양을 처음 받아들인 현관" 역할을 했다. 재즈·양과자·영화·골프·소고기 브랜드까지, "일본 최초"가 유난히 많은 도시. 배후의 롯코산이 바다까지 바짝 붙어 있어 도시가 동서로 긴 띠 모양이고, 산 너머에 아리마온천이 있다. 한때 세계 1위를 다투던 컨테이너 항구는 1995년 한신·아와지 대지진(사망 6,434명)으로 결정타를 맞았고, 이후 부산 등에 추월당했다. 지금은 인구 감소로 대도시 순위가 밀리는 중이지만, 산노미야역 앞 대재개발과 의료산업도시 육성으로 반전을 시도하고 있다. <strong>"번영 → 재난 → 부흥 → 구조적 쇠퇴 → 재설계"라는 일본 지방 대도시의 교과서 같은 궤적</strong>을 하루 만에 걸어서 볼 수 있는 도시다.</p>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/harborland_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_1.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe.harborland.mosaic.jpg" target="_blank" rel="noopener">작가 미상 · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_2.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe.harborland.mosaic2.JPG" target="_blank" rel="noopener">작가 미상 · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_3.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_takahama03s3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_4.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_takahama01s3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_5.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_takahama05s3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_6.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Mosaic09s3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_7.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic14s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_8.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic15s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_9.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic16n3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_10.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic17s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_11.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic18s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_12.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic19s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<h3>역사</h3>
+<p><strong>① 개항 이전 — 효고항과 아리마.</strong> 고베가 신도시라고 생각하기 쉽지만, 서쪽의 효고항(兵庫津)은 나라 시대부터 세토내해 항로의 요지였다. 12세기 다이라노 기요모리가 이곳으로 수도를 옮기려 했을 정도(후쿠하라쿄, 1180년 — 반년 만에 실패). 산 너머 아리마온천은 그보다 오래된, 일본서기에 나오는 최고(最古)급 온천이다. 즉 "고베 = 어리고, 그 주변 = 아주 오래됨"의 대비.</p>
+<p><strong>② 1868 개항 — 도시의 탄생.</strong> 미일수호통상조약에 따라 1868년 1월 1일 고베항 개항. 막부는 기존 효고 마을과 거리를 두려고 동쪽의 한적한 어촌 "고베(神戸)"촌 앞바다를 열었고, 외국인 거류지가 계획도시로 건설됐다(지금의 구거류지 — 메리켄파크 북쪽). 거류지가 좁아지자 외국인들이 산 중턱에 집을 지은 것이 <strong>기타노 이진칸</strong>이다. 이 시기 고베를 통해 들어온 것들: 재즈(일본 최초의 재즈밴드 1923), 양과자·빵(모로조프·유하임 본사가 지금도 고베), 영화 상영, 골프장(1903 롯코산, 일본 최초), 소 목축의 브랜드화(고베비프). "일본의 서양 문화 수입 항구"라는 정체성이 여기서 생겼다.</p>
+<p><strong>③ 전쟁과 항만 전성기.</strong> 전전 고베는 미쓰비시·가와사키 조선소의 군항 겸 일본 최대 무역항. 전후 고도성장기에는 컨테이너화에 가장 빨리 올라타 <strong>1970년대 컨테이너 취급량 세계 1~2위</strong>를 다퉜다. 산을 깎아 바다를 메우는 "산, 바다로 가다(山、海へ行く)" 방식으로 포트아일랜드·롯코아일랜드 인공섬을 만든 것도 이 시대 — 세계 도시계획 교과서에 실린 고베시의 "주식회사 고베" 경영이다.</p>
+<p><strong>④ 1995년 1월 17일 오전 5시 46분 — 한신·아와지 대지진.</strong> 진도 7, 사망 6,434명, 주택 전소·전괴 약 25만 채. 고가 고속도로가 옆으로 쓰러진 사진의 그 지진이다. 항만 안벽이 거의 전부 파괴됐고, 복구 2년 사이 화물이 부산·가오슝으로 옮겨간 뒤 <strong>돌아오지 않았다</strong>. 고베 경제의 장기 침체가 여기서 시작됐다는 게 정설. 메리켄파크에는 당시 부서진 안벽을 그대로 보존한 메모리얼파크가 있다 — 9/21 저녁에 직접 본다. 한편 이 지진은 일본 자원봉사 문화의 원년("볼런티어 원년")으로도 불린다.</p>
+<p><strong>⑤ 현재 — 조용한 위기와 재설계.</strong> 고베 인구는 2011년경 154만을 정점으로 감소세로 돌아서 가와사키·후쿠오카에 추월당했고, 150만 선도 무너졌다. 젊은 층이 오사카·도쿄로 빠져나가는 구조. 시는 산노미야역 앞을 통째로 다시 짓는 재개발(버스터미널 일체형 초고층, 시청사 재건축 등)과 포트아일랜드의 의료산업도시(이화학연구소·슈퍼컴퓨터 후가쿠, 병원·바이오 기업 370여 개)로 대응 중이다. 2025년에는 고베공항 국제선도 되살렸다.</p>
+<h3>최신 이슈 (2025~2026, 출처 확인 기준)</h3>
+<ul><li><strong>「150만 도시」 붕괴</strong>: 2025년 국세조사 속보 1,497,630명(-1.8%). 가와사키·후쿠오카에 추월당한 데 이어 심리적 마지노선까지 깨졌다. 도심(주오구)은 늘고 교외 뉴타운이 감소를 주도 — 산 위를 올려다보며 확인할 수 있는 통계다.</li><li><strong>산노미야 대재개발 진행 중</strong>: 쿠모이도리의 32층 트윈게이트(신버스터미널+도서관+호텔, 총사업비 870억 엔)가 2027년경 완성 목표로 골조 공사 중, JR 산노미야 신역빌딩(32층)은 2029년 개업 예정. <strong>여행 시점의 산노미야역 앞은 크레인 숲</strong> — 그 자체가 볼거리다.</li><li><strong>고베공항 국제선 부활</strong>: 2025-04 제2터미널과 함께 국제 차터편 취항(서울 인천 포함 3개국 5도시, 주 40왕복). 2030년경 정기편 전환 구상.</li><li><strong>항만은 계속 어렵다</strong>: 2025년 컨테이너 취급 271만 TEU로 감소세 지속. 대신 의료산업도시(진출 기업 334개, 고용 1.27만 명)가 성장축.</li></ul>
+<h3>경제 — 무엇으로 먹고사는 도시인가</h3>
+<ul><li><strong>항만·중공업의 유산</strong>: 가와사키중공업·미쓰비시중공업 조선소가 여전히 하버랜드 서쪽에 현역(잠수함 진수식이 보이는 날도 있다). 신칸센 차량도 고베에서 만든다.</li><li><strong>식품·패션</strong>: 양과자(모로조프·고디바재팬), 제빵, 나다고고(灘五郷) — 일본 최대 사케 산지가 고베 동부 해안. UCC커피 본사도 고베.</li><li><strong>의료산업도시</strong>: 지진 부흥책으로 시작해 지금은 일본 최대 바이오 클러스터. 슈퍼컴퓨터 후가쿠가 여기 있다.</li><li><strong>구조 문제</strong>: "본사 없는 도시화"(스미토모고무·아식스 정도가 대형), 야간인구 대비 낮은 임금 성장, 그리고 인구 유출.</li></ul>
+<h3>부동산 관점 — 걸으면서 볼 것</h3>
+<ul><li><strong>띠 모양 도시의 숙명</strong>: 산과 바다 사이 폭 2~4km에 도시 기능이 압축돼 있다. 지가는 산노미야를 정점으로 동서로 완만히 떨어지고, <strong>산 위(뉴타운)와 인공섬이 약한 고리</strong> — 고도성장기에 뉴타운으로 올라간 세대가 고령화하면서 빈집 문제가 먼저 온 도시다.</li><li><strong>타워맨션 규제라는 역발상</strong>: 고베시는 2020년부터 산노미야 도심 일대에 <strong>타워맨션 신축을 사실상 금지</strong>했다(주거 규제 구역). "도심은 일자리와 상업에, 주거는 주변부에"라는 논리인데, 인구 감소기에 공급을 묶는 게 맞느냐는 논쟁이 지금도 뜨겁다. 오사카(공급 자유)와 정반대 정책 실험 — 신사이바시의 타워맨션 숲과 비교해 볼 것.</li><li><strong>이진칸의 부동산학</strong>: 기타노 이진칸은 "외국인 전용 주거지 제한 → 언덕 위 고급 주택지 형성 → 관광자원화"라는 입지 프리미엄의 100년 스토리다. 상세는 기타노 편에서.</li></ul>
+<h3>문화 — 이 도시를 읽는 키워드</h3>
+<ul><li><strong>하이칼라(ハイカラ)</strong>: "서양풍 멋쟁이"를 뜻하는 이 말의 본고장. 고베 사람의 자부심은 "오사카와 다르다, 우리는 세련됐다"에 있다.</li><li><strong>고베비프</strong>: 다지마소(但馬牛) 중 엄격한 기준을 통과한 개체만 붙는 이름. 9/21 이시다야, 9/22 스테이크랜드에서 이틀 연속 검증한다.</li><li><strong>빵과 케이크의 도시</strong>: 인구당 빵집·양과자점 밀도 일본 최상위. 아침 빵 문화가 진짜 일상이다.</li><li><strong>루미나리에</strong>: 지진 희생자 진혼 행사로 시작된 겨울 일루미네이션 — 도시가 재난의 기억을 문화로 바꾼 사례.</li></ul>
+<h3>가서 볼 것 (도시 스케일)</h3>
+<ol><li><strong>산과 바다의 거리감</strong> — 산노미야에서 북쪽을 보면 산이 바로 거기 있다. 이 압축감이 고베의 모든 것(지가·경관·야경)을 설명한다.</li><li><strong>구거류지의 근대 건축</strong> — 다이마루 백화점 일대 석조 오피스들. 개항 도시의 원형.</li><li><strong>야경의 정체</strong> — "1,000만 불의 야경"은 롯코산에서 내려다보는 쪽이 유명하지만, 이번엔 반대로 항구에서 산쪽 시가지를 본다(하버랜드).</li><li><strong>지진의 흔적 찾기</strong> — 메모리얼파크 외에도, 시내 곳곳 건물 연식이 "1995년 이전/이후"로 갈리는 게 보인다.</li></ol>
+<h3>참고 미디어</h3>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Vj94ZXnQQ98" title="오사카 안 가고 고베&quot;만&quot; 3박4일 여행 브이로그" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>오사카 안 가고 고베&quot;만&quot; 3박4일 여행 브이로그 · YouTube</figcaption></figure>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/tPAd940yZIY" title="간사이 여행 브이로그 — 고베 + 안도 타다오 작품" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>간사이 여행 브이로그 — 고베 + 안도 타다오 작품 · YouTube</figcaption></figure>
+<ul><li>📺 <a href="https://www.youtube.com/watch?v=Vj94ZXnQQ98" target="_blank" rel="noopener">오사카 안 가고 고베"만" 3박4일 여행 브이로그</a> — 한국어</li><li>📺 <a href="https://www.youtube.com/watch?v=tPAd940yZIY" target="_blank" rel="noopener">간사이 여행 브이로그 — 고베 + 안도 타다오 작품</a> — 한국어</li><li>📷 <a href="https://commons.wikimedia.org/wiki/File:Kobe_City_view_from_Po-ai_Shiosai_Park01s3.jpg" target="_blank" rel="noopener">포아이시오사이 공원에서 본 고베 시가지</a> — 663highland, CC BY 2.5</li></ul>
+<h3>지도</h3>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=神戸市&output=embed" title="神戸市"></iframe><figcaption>神戸市 · 구글지도</figcaption></figure></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-kitano-ijinkan">기타노 이진칸 — 풍향계의 집 · 우로코노이에</a><a href="../#p-meriken-park">메리켄파크 — 지진 메모리얼파크</a><a href="../#p-harborland">하버랜드 모자이크 야경</a><a href="../#p-arima-onsen">아리마 온천 — 킨노유(금탕) · 긴노유(은탕)</a><a href="../#p-nada-sake">나다 사케 양조장 — 하쿠츠루 · 기쿠마사무네</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>

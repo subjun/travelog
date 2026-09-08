@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>기타노 이진칸 — 언덕 위의 서양, 부동산으로 읽는 개항사 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">동네</div>
+  <h1>기타노 이진칸 — 언덕 위의 서양, 부동산으로 읽는 개항사</h1>
+  <p class="sub">개항이 언덕 위에 남긴 것</p>
+  <div class="lens"><span>역사</span><span>건축</span><span>이민</span><span>관광경제</span></div>
+</header>
+<article><blockquote class="note"><p>9/21 (월·축일) 15:50~17:20 · 풍향계의 집 → 우로코노이에 · 자전거로 언덕 아래까지, 위쪽은 도보</p></blockquote>
+<h3>한 문단 요약</h3>
+<p>기타노 이진칸(北野異人館)은 산노미야 북쪽 언덕에 남은 메이지~다이쇼기 외국인 주택군이다. "이진(異人)"은 당시 일본인이 서양인을 부르던 말. 전성기 200채가 넘던 서양관 중 지금 30여 채가 남았고 십수 채가 공개돼 있다. 우리는 그중 투톱인 <strong>풍향계의 집(風見鶏の館)</strong>과 <strong>우로코노이에(うろこの家)</strong>를 본다.</p>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/kitano-ijinkan_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/kitano-ijinkan_1.jpg" alt="kitano-ijinkan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Weathercock_House_Kobe_Kitano_Ijinkan_%E9%A2%A8%E8%A6%8B%E9%B6%8F%E3%81%AE%E9%A4%A8%EF%BC%88%E6%97%A7%E3%83%88%E3%83%BC%E3%83%9E%E3%82%B9%E4%BD%8F%E5%AE%85%EF%BC%89.jpg" target="_blank" rel="noopener">Manish Prabhune · CC BY 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/kitano-ijinkan_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/kitano-ijinkan_2.jpg" alt="kitano-ijinkan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_kitano_thomas_house05_2816.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/kitano-ijinkan_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/kitano-ijinkan_3.jpg" alt="kitano-ijinkan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_kitano_thomas_house07_2816.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/kitano-ijinkan_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/kitano-ijinkan_4.jpg" alt="kitano-ijinkan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_kitano_thomas_house08_2816.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/kitano-ijinkan_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/kitano-ijinkan_5.jpg" alt="kitano-ijinkan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Franklin_Thomas_House_1.JPG" target="_blank" rel="noopener">Einbierbitte · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/kitano-ijinkan_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/kitano-ijinkan_6.jpg" alt="kitano-ijinkan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Thomas_House,_Thomas_Street.JPG" target="_blank" rel="noopener">MikeBarry1989 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/kitano-ijinkan_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/kitano-ijinkan_7.jpg" alt="kitano-ijinkan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:View_of_Thomas_House_from_Kitano_Temman_Shrine_in_Kitano-cho,_Kobe.JPG" target="_blank" rel="noopener">そらみみ (Soramimi) · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/kitano-ijinkan_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/kitano-ijinkan_8.jpg" alt="kitano-ijinkan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:View_of_Thomas_House_from_Kitano_Temman_Shrine_in_Kitano-cho,_Kobe_2.JPG" target="_blank" rel="noopener">そらみみ (Soramimi) · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/kitano-ijinkan_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/kitano-ijinkan_9.jpg" alt="kitano-ijinkan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Former_Tohmas_House_20130427-01.jpg" target="_blank" rel="noopener">Haruhiko Okumura · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/kitano-ijinkan_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/kitano-ijinkan_10.jpg" alt="kitano-ijinkan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Former_Tohmas_House_20130427-02.jpg" target="_blank" rel="noopener">Haruhiko Okumura · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/kitano-ijinkan_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/kitano-ijinkan_11.jpg" alt="kitano-ijinkan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Former_Tohmas_House_20130427-03.jpg" target="_blank" rel="noopener">Haruhiko Okumura · CC BY 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/kitano-ijinkan_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/kitano-ijinkan_12.jpg" alt="kitano-ijinkan"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Former_Tohmas_House_20130427-04.jpg" target="_blank" rel="noopener">Haruhiko Okumura · CC BY 2.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<h3>역사적 배경</h3>
+<p>1868년 고베 개항 때 외국인은 해안가 거류지(지금의 구거류지)에만 살 수 있었는데, 무역이 커지며 금방 포화됐다. 1880년대부터 외국인의 잡거(雑居)가 허용된 기타노 언덕에 무역상들이 앞다퉈 저택을 지었다 — <strong>바다(자기 회사 배)가 내려다보이고, 습한 저지대보다 시원한 남향 경사지</strong>. 세계 어느 항구도시든 외국인 상인 주택지는 언덕 위다(홍콩 미드레벨, 요코하마 야마테). 기타노는 그 공식의 일본판이다.</p>
+<ul><li><strong>풍향계의 집 (1909)</strong>: 독일인 무역상 고트프리트 토마스의 저택. 독일인 건축가 게오르그 데 라란데 설계. 뾰족지붕 위 수탉 풍향계가 기타노 전체의 상징이 됐다. 벽돌 구조가 이진칸 중 드물고, 실내는 아르누보 기운이 도는 독일 전통 양식. 토마스 일가는 1차대전 때 일시 귀국했다가 일본에 못 돌아왔고(적국인이 됨), 딸이 수십 년 뒤 노인이 되어 방문한 이야기가 관내에 전시돼 있다.</li><li><strong>우로코노이에 (1905경)</strong>: 외벽을 덮은 천연석 슬레이트 3,000장이 물고기 비늘(우로코)처럼 보여서 붙은 이름. 원래 거류지의 외국인용 고급 임대주택으로 지어졌다. 내부는 마이센 도자기·앤티크 가구 컬렉션, 2층 전망은 기타노에서 손꼽힌다.</li></ul>
+<p>이진칸이 살아남은 건 우연에 가깝다. 2차대전 공습과 전후 개발로 대부분 헐렸지만, 1977년 NHK 아침드라마 「風見鶏」가 기타노를 무대로 히트하면서 보존 여론이 폭발 — <strong>드라마 한 편이 동네의 운명을 바꾼 사례</strong>다. 1980년 국가 중요 전통적 건조물군 보존지구 지정.</p>
+<h3>현대적 의미</h3>
+<p>일본에서 "서양관 거리"는 여러 곳 있지만 기타노가 특별한 건 <strong>아직 사람 사는 동네 속에 섞여 있다</strong>는 점이다. 관광시설 사이에 현역 주택·교회·모스크(일본 최초의 모스크인 고베 무슬림 모스크, 1935)가 있다. 개항 도시의 다문화가 박제가 아니라 연속돼 있는 것. 한신·아와지 대지진(1995) 때 이진칸도 다수 손상됐다가 복원됐고, 풍향계의 집은 2023~25년 내진 보강 공사로 휴관한 뒤 <strong>2025년 7월 재개관</strong>했다 — 우리가 보는 건 갓 수리를 마친 상태다.</p>
+<h3>경제·부동산 관점</h3>
+<ul><li><strong>입지 프리미엄의 100년 스토리</strong>: 거류지 제한(규제) → 잡거지 허용(규제 완화) → 고급 주택지 형성 → 드라마발 관광지화 → 보존지구 지정(다시 규제). 규제가 만들고 규제가 지킨 동네다. 보존지구는 개발이 묶이는 대신 관광 수익이 지가를 받친다.</li><li><strong>민관 이원 운영</strong>: 풍향계의 집·모에기의 집은 고베시 소유(입장료 500엔), 우로코노이에 등 다수는 민간 우로코 그룹 운영(1,100엔, 7관 패스 3,300엔). 같은 거리의 문화재가 "공공 박물관 가격"과 "민간 테마파크 가격"으로 갈리는 것 자체가 관찰 포인트.</li><li><strong>언덕의 경제학</strong>: 기타노 아래(산노미야)는 재개발 크레인 숲, 위는 보존지구 — 100m 걸어 올라가는 동안 지가 논리가 "용적률"에서 "희소성"으로 바뀐다.</li></ul>
+<h3>가서 볼 것 / 놓치기 쉬운 것</h3>
+<ol><li><strong>풍향계 수탉</strong> — 언덕 아래 기타노마치 광장에서 올려다보는 구도가 정석.</li><li>풍향계의 집 내부 <strong>어린이방의 다락 계단</strong>과 식당의 데 라란데 설계 디테일.</li><li>우로코노이에 <strong>2층 창가에서 항구 방향 조망</strong> — "무역상이 자기 배를 보던 시선"을 재연해 볼 것.</li><li>우로코노이에 앞마당의 <strong>멧돼지상(포르첼리노)</strong> — 코를 만지면 행운. 코만 반질반질하다.</li><li>놓치기 쉬운 것: 광장 옆 <strong>기타노텐만 신사</strong> 계단 위에서 풍향계의 집과 시가지·항구가 한 프레임에 잡힌다. 무료 최고 뷰포인트.</li><li>시간 남으면 스타벅스 기타노 이진칸점(등록유형문화재 건물) 외관만이라도.</li></ol>
+<h3>실무 (2026-08-12 공식 확인)</h3>
+<div class="tw"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>풍향계의 집</td><td>500엔 · 9:00~17:00 (입관 16:45까지) · 제3화요일 휴관 → <strong>9/21 개관</strong> ✅</td></tr><tr><td>우로코노이에</td><td>1,100엔 (우로코 그룹, 시 운영관과 티켓 별개·통합권 없음)</td></tr><tr><td>합계</td><td>1,600엔 (예산 반영 완료)</td></tr></tbody></table></div>
+<h3>참고 미디어</h3>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/GRxes8-wBGQ" title="Kobe Kitano Walking Tour — 4K/Binaural" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>Kobe Kitano Walking Tour — 4K/Binaural · YouTube</figcaption></figure>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/V_hJazsW2G4" title="4K Japan Kobe Walk in Kitano Ijinkan District" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>4K Japan Kobe Walk in Kitano Ijinkan District · YouTube</figcaption></figure>
+<ul><li>📺 <a href="https://www.youtube.com/watch?v=GRxes8-wBGQ" target="_blank" rel="noopener">Kobe Kitano Walking Tour — 4K/Binaural</a> — 워킹투어</li><li>📺 <a href="https://www.youtube.com/watch?v=V_hJazsW2G4" target="_blank" rel="noopener">4K Japan Kobe Walk in Kitano Ijinkan District</a></li><li>📷 <a href="https://commons.wikimedia.org/wiki/File:Kobe_kitano_thomas_house07_2816.jpg" target="_blank" rel="noopener">풍향계의 집</a> — 663highland, CC BY 2.5</li><li>📷 <a href="https://commons.wikimedia.org/wiki/File:Thomas_House_20150920.jpg" target="_blank" rel="noopener">풍향계의 집 (2015)</a> — Soramimi, CC BY-SA 4.0</li></ul>
+<h3>지도</h3>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=神戸+北野異人館+風見鶏の館&output=embed" title="神戸 北野異人館 風見鶏の館"></iframe><figcaption>神戸 北野異人館 風見鶏の館 · 구글지도</figcaption></figure></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-kitano-ijinkan">기타노 이진칸 — 풍향계의 집 · 우로코노이에</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>

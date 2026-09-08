@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>나카노시마 도서관 — 스미토모가 지어 시민에게 준 지식의 신전 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">건축</div>
+  <h1>나카노시마 도서관 — 스미토모가 지어 시민에게 준 지식의 신전</h1>
+  <p class="sub">스미토모가 지어 기증한 석조 도서관</p>
+  <div class="lens"><span>건축</span><span>역사</span><span>경제</span></div>
+</header>
+<article><blockquote class="note"><p>9/25 (금·평일) 오전 — <strong>일요일·축일 휴관이라 출국일 오전이 유일 창구</strong> (9:00~20:00 개관 확인 완료) · 입장 무료 9/24·25 아침 러닝 코스가 이 섬이다</p></blockquote>
+<h3>한 문단 요약</h3>
+<p>오사카부립 나카노시마 도서관(1904)은 스미토모 가문이 건물과 장서 기금 전액을 기부해 세운 공공도서관이다. 그리스 신전풍 정면과 교회 돔을 얹은 중앙홀 — 네오바로크의 정수로 <strong>본관·좌우 날개 모두 국가 중요문화재</strong>이면서, 지금도 현역 도서관으로 운영된다. 도서관이 선 나카노시마(中之島)는 도지마강과 토사보리강 사이 길이 3km의 하중도로, 에도시대 "천하의 부엌"의 금융 중심이자 다이오사카 시대의 관청·문화 축 — <strong>오사카의 나카노시마 = 파리의 시테섬</strong>이라 보면 된다.</p>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/nakanoshima_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_1.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Nakanosima_Library.jpg" target="_blank" rel="noopener">작가 미상 · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_2.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Nakanoshima_Library.jpg" target="_blank" rel="noopener">작가 미상 · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_3.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_prefectural_nakanoshima_library01_1920.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_4.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_prefectural_nakanoshima_library02_1920.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_5.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_prefectural_nakanoshima_library03_1920.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_6.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_prefectural_nakanoshima_library04s3872.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_7.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_prefectural_nakanoshima_library05s3872.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_8.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Nakanoshima_1930.jpg" target="_blank" rel="noopener">Unknown authorUnknown author · Public domain</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_9.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Prefectural_Nakanoshima_Library_in_201504_001.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_10.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Prefectural_Nakanoshima_Library_in_201504_002.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_11.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Prefectural_Nakanoshima_Library_in_201504_004.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_12.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Prefectural_Nakanoshima_Library_in_201504_003.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<h3>역사적 배경</h3>
+<ul><li><strong>구라야시키의 섬</strong>: 에도시대 나카노시마와 그 주변 강변에는 전국 다이묘의 창고저택(蔵屋敷) 135개가 늘어서 각 번의 쌀·특산물이 모였다. 섬 동쪽 끝 근처의 도지마 쌀시장이 그 결제소 — 세계 최초의 선물시장(1730 공인)이다. 즉 이 섬은 <strong>18세기 세계 금융사의 현장</strong>이다.</li><li><strong>스미토모의 기부 (1904)</strong>: 스미토모 15대 당주 기치자에몬이 "상업 도시에 지식의 전당을"이라며 건물+기금을 통째로 기부했다. 설계는 스미토모 임시건축부의 노구치 마고이치. 정면 코린트식 기둥 4개와 페디먼트는 그리스 신전, 들어서면 나오는 중앙 계단홀의 돔은 교회 — "지식의 신전"이라는 컨셉을 문자 그대로 지었다. 상인이 도시 인프라를 만드는 오사카 문법(다리·회덕당·오사카성 천수각 모금)의 대표작.</li><li><strong>다이오사카의 진열장</strong>: 옆의 오사카시 중앙공회당(1918, 붉은 벽돌 네오르네상스)도 주식중매인 이와모토 에이노스케 <strong>개인의 기부</strong>로 지어졌다(그는 완공 전 파산해 자결했고, 공회당은 그의 유산이 됐다). 도서관-공회당-일본은행 오사카지점이 늘어선 미오츠쿠시 프롬나드는 다이오사카 시대 시빅 디자인의 절정이다.</li></ul>
+<h3>현대적 의미</h3>
+<p>나카노시마는 지금 오사카의 "문화 컬렉션 벨트"로 재편성 중이다 — 국립국제미술관(완전 지하 미술관), 오사카중지도미술관(2022), 어린이책 숲(안도 타다오 설계·기부, 2020), 그리고 미래의료국제거점(2024~). 스미토모·이와모토의 기부 문법이 안도 타다오의 기부로 100년 만에 반복되고 있는 것. 도서관 자체는 2010년대 존폐 논쟁(부립 도서관 통폐합안)을 시민 반대로 넘기고, 지금은 오사카 관련 자료·비즈니스 지원 특화관으로 살아남았다. <strong>관광지가 아니라 "일하는 문화재"</strong> — 열람석에서 공부하는 시민들 사이를 조용히 걷는 것이 관람법이다.</p>
+<h3>경제·부동산 관점</h3>
+<ul><li><strong>수변 오피스의 귀환</strong>: 나카노시마는 지금도 아사히신문·다이빌(미쓰비시계)·간사이전력 본사가 늘어선 오사카 최상급 오피스지구다. 최근 페스티벌타워 쌍둥이(2012·2017) 재건축으로 "구층 빌딩의 수직 갱신" 모델을 보여줬다 — 100년 전 구라야시키가 오피스로 바뀐 흐름의 현대판.</li><li><strong>기부 인프라의 자산 가치</strong>: 도서관·공회당·어린이책 숲 — 시장가로 환산 불가능한 "기부 스톡"이 섬의 격을 만들고, 그 격이 주변 오피스 임대료를 받친다. 부동산 가치가 문화 자본에서 나오는 순환의 실물.</li><li><strong>러닝하며 볼 것</strong>: 9/24·25 아침 러닝이 이 섬이다 — 강변 프롬나드에서 구라야시키 터 표석(각 번 이름이 새겨져 있다)을 지나게 된다. 도지마 쌀시장 기념비(엔 표시 조형물)가 도지마강 북안에 있다.</li></ul>
+<h3>가서 볼 것 / 놓치기 쉬운 것</h3>
+<ol><li><strong>정면 파사드</strong> — 코린트식 기둥과 "大阪図書館" 현판(개관 당시 명칭). 계단 아래에서 올려다보는 구도.</li><li><strong>중앙홀 돔과 나선 대계단</strong> — 내부 촬영은 홀 한정 가능(열람실은 불가). 스테인드글라스와 돔 천창.</li><li><strong>3층 기념실</strong> — 창건 당시 자료. 스미토모 기부 경위 전시.</li><li><strong>북카페 스모브렌(1층)</strong> — 문화재 안에서 커피. 출국일 오전의 마지막 작업 블록 후보지로도 좋다.</li><li><strong>옆 건물 대조</strong>: 중앙공회당(붉은 벽돌)과 도서관(회색 석조)을 나란히 — 같은 시대, 기부자 둘, 양식 둘.</li><li>놓치기 쉬운 것: 도서관 앞 미오츠쿠시 프롬나드의 <strong>오사카시 문장(澪標, 미오츠쿠시)</strong> — 물길 표지 모양 문장은 "물의 도시" 정체성 그 자체다.</li></ol>
+<h3>실무 (2026-08-12 공식 원문 대조)</h3>
+<blockquote class="note"><p>원문: 「月曜日～金曜日：午前９時～午後８時／土曜日：午前９時～午後５時」 휴관 「日曜日、国民の祝日・休日、…」</p></blockquote>
+<ul><li><strong>9/21(월)·9/22(화)·9/23(수)은 축일·휴일이라 전부 휴관 → 9/25(금) 오전이 유일 창구라는 판단, 공식 원문으로 재확정</strong> ✅ (9/24 목도 가능하나 스시·천진바시스지 배치됨)</li><li>입장 무료 · 열람실은 정숙 · 대형 배낭은 코인로커</li></ul>
+<h3>참고 미디어</h3>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/ZEOrOtBCiFw" title="NAKANOSHIMA OSAKA Nonstop Walking Tour — 4K" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>NAKANOSHIMA OSAKA Nonstop Walking Tour — 4K · YouTube</figcaption></figure>
+<ul><li>📺 <a href="https://www.youtube.com/watch?v=ZEOrOtBCiFw" target="_blank" rel="noopener">NAKANOSHIMA OSAKA Nonstop Walking Tour — 4K</a> — 공회당·프롬나드 포함</li><li>📷 <a href="https://commons.wikimedia.org/wiki/File:Osaka_City_Central_Public_Hall_main_facade_2026_dllu.jpg" target="_blank" rel="noopener">오사카시 중앙공회당 정면</a> — Daniel Lu, CC BY-SA 4.0</li><li>📷 <a href="https://commons.wikimedia.org/wiki/File:Osaka_Nakanoshima_Public_Hall.jpg" target="_blank" rel="noopener">나카노시마 공회당</a> — Sakai Yayoi, CC0</li></ul>
+<h3>지도</h3>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=大阪府立中之島図書館&output=embed" title="大阪府立中之島図書館"></iframe><figcaption>大阪府立中之島図書館 · 구글지도</figcaption></figure></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-nakanoshima">오사카부립 나카노시마 도서관</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>

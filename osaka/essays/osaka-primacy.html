@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>오사카는 일본의 무엇인가 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="back" href="../">← 방콕 보드로</a>
+  <div class="ecat big">도시</div>
+  <h1>오사카는 일본의 무엇인가</h1>
+  <p class="sub">한때 일본 최대 도시였다 · 「천하의 부엌」과 「다이오사카」 · 그리고 도쿄에 밀린 뒤</p>
+  <div class="lens"><span>도시계획</span><span>경제</span><span>역사</span><span>언어</span><span>문화</span><span>한국과의 비교</span></div>
+</header>
+<article><blockquote class="note"><p>그 나라 안에서 이 도시가 어떤 자리를 차지하는가 — 상설 꼭지입니다. 개별 장소 해설을 읽기 전에 <strong>도시의 좌표</strong>를 먼저 잡아 둡니다.</p></blockquote>
+<h3>한 문단 요약</h3>
+<p>오사카는 <strong>한때 일본에서 가장 큰 도시였습니다.</strong> 1925년 인구 211만으로 도쿄를 제치고 1위가 됐고, 그 시절을 「<strong>다이오사카(大大阪)</strong>」라고 부릅니다. 그 전 에도 시대에는 전국의 물산이 모이는 「<strong>천하의 부엌</strong>」이었고, 상인이 도시의 주인이었습니다. 지금은 도쿄 일극집중에 밀려 본사와 인재가 빠져나갔지만, <strong>상업 도시의 성격·독자적인 말씨·음식 문화</strong>는 그대로 남아 있습니다. 도쿄가 「관(官)의 도시」라면 오사카는 <strong>「상(商)의 도시」</strong>입니다.</p>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/nakanoshima_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_1.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Nakanosima_Library.jpg" target="_blank" rel="noopener">작가 미상 · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_2.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Nakanoshima_Library.jpg" target="_blank" rel="noopener">작가 미상 · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_3.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_prefectural_nakanoshima_library01_1920.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_4.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_prefectural_nakanoshima_library02_1920.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_5.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_prefectural_nakanoshima_library03_1920.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_6.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_prefectural_nakanoshima_library04s3872.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_7.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_prefectural_nakanoshima_library05s3872.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_8.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Nakanoshima_1930.jpg" target="_blank" rel="noopener">Unknown authorUnknown author · Public domain</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_9.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Prefectural_Nakanoshima_Library_in_201504_001.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_10.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Prefectural_Nakanoshima_Library_in_201504_002.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_11.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Prefectural_Nakanoshima_Library_in_201504_004.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nakanoshima_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nakanoshima_12.jpg" alt="nakanoshima"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Osaka_Prefectural_Nakanoshima_Library_in_201504_003.JPG" target="_blank" rel="noopener">Mc681 · CC BY-SA 4.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<h3>왜 그렇게 됐나</h3>
+<h4>① 물길 — 도시가 생긴 이유</h4>
+<p>오사카는 요도가와가 바다와 만나는 삼각주 위에 있습니다. 우에마치 대지라는 남북으로 긴 언덕이 유일한 고지대인데, 그 북단이 지금 오사카성 자리입니다. 이 지형이 도시의 뼈대를 정했습니다.</p>
+<ul><li><strong>수운의 결절점</strong> — 세토내해에서 온 배가 여기서 강을 거슬러 교토·나라로 갔다</li><li><strong>8세기 나니와쿄</strong> — 짧게나마 수도였던 적이 있다</li><li><strong>1583년 히데요시</strong> — 오사카성을 쌓고 상인을 불러 모아 도시를 설계했다</li></ul>
+<h4>② 「천하의 부엌」 — 상인이 주인이던 도시</h4>
+<p>에도 시대 오사카는 전국 다이묘들이 쌀을 모아 팔던 곳입니다. 각 번의 창고(쿠라야시키)가 늘어섰고, <strong>도지마 쌀 시장</strong>에서는 세계 최초 수준의 <strong>선물거래</strong>가 이루어졌습니다. 상인이 자본과 정보를 쥐었고, 무사가 아니라 상인이 도시 문화의 주체였습니다.</p>
+<p>이게 지금까지 이어지는 오사카의 성격을 만들었습니다:</p>
+<ul><li><strong>실용주의</strong> — 겉치레보다 값과 실속</li><li><strong>흥정과 말</strong> — 상인의 화술이 지역 문화(만자이·오사카 사투리)로 굳었다</li><li><strong>음식</strong> — 빠르고 싸고 배부른 것 → <strong>코나몬(가루음식)</strong></li></ul>
+<p>🔴 <strong>천진바시스지가 400년 된 상점가라는 게 이 계보입니다.</strong> 그리고 우리가 구로몬 시장(관광객 가격)을 버리고 천진바시스지(현지 가격)를 고른 것도 <strong>어느 쪽이 「상인의 도시」의 본류인가</strong>라는 판단이었습니다.</p>
+<h4>③ 다이오사카 — 도쿄를 제쳤던 15년</h4>
+<p>메이지 이후 오사카는 방적업을 중심으로 공업화해 <strong>「동양의 맨체스터」</strong>로 불렸습니다. 1923년 관동대지진으로 도쿄가 파괴되자 자본과 사람이 오사카로 몰렸고, 1925년 주변 정촌을 합병하면서 <strong>인구 211만으로 일본 최대 도시</strong>가 됐습니다.</p>
+<p>이 시기(1920~30년대)에 지어진 것들이 지금도 나카노시마에 남아 있습니다 — <strong>나카노시마 도서관</strong>(1904, 스미토모 기증), 중앙공회당, 그리고 <strong>1931년 시민 모금으로 지은 오사카성 천수각</strong>입니다.</p>
+<p>🔴 <strong>우리 일정의 두 장소가 같은 시대의 산물입니다.</strong> 오사카성 천수각과 나카노시마 도서관은 「오사카가 가장 부유하고 자신만만했던 시기」의 증거물입니다.</p>
+<h4>④ 도쿄 일극집중 — 그리고 그 뒤</h4>
+<p>전후 일본은 도쿄로 모든 것을 모았습니다. 중앙 부처, 대기업 본사, 금융, 미디어, 대학이 도쿄로 갔고 오사카는 <strong>본사 이전</strong>이 이어졌습니다. 스미토모·다이와·이토추 같은 오사카 태생 기업들의 중심이 도쿄로 옮겨갔습니다.</p>
+<p>지금 오사카의 좌표:</p>
+<ul><li>인구 약 275만(오사카시) · 오사카부 약 880만 — 도쿄도(약 1,400만)에 크게 못 미친다</li><li><strong>간사이권 전체</strong>(오사카·교토·고베)로 보면 약 2,000만 — 여전히 거대 경제권</li><li>중소기업 밀도가 높고 <strong>제조업 하청 네트워크</strong>가 강하다</li><li>🔴 <strong>2025 오사카·간사이 엑스포</strong> 직후이고, <strong>IR(카지노 포함 통합리조트)</strong> 개발이 최대 이슈다</li></ul>
+<h4>⑤ 오사카 안의 남북 — 「기타」와 「미나미」</h4>
+<p>오사카를 이해하는 두 번째 축은 남북입니다.</p>
+<div class="tw"><table><thead><tr><th></th><th>기타(北)</th><th>미나미(南)</th></tr></thead><tbody><tr><td>중심</td><td>우메다 · 나카노시마</td><td>난바 · 신사이바시 · 도톤보리</td></tr><tr><td>성격</td><td>오피스·백화점·금융</td><td>유흥·먹거리·관광</td></tr><tr><td>분위기</td><td>정돈됨</td><td>밀도 높고 어수선함</td></tr><tr><td>우리 일정</td><td>나카노시마 도서관(9/25) · 천진바시스지(9/24)</td><td>숙소·도톤보리·난바·신세카이</td></tr></tbody></table></div>
+<p>🔴 <strong>우리는 숙소가 신사이바시라 「미나미」에 살면서 「기타」로 통근하는 구조입니다.</strong> 9/24 오후 동선이 남(도톤보리) → 북(천진바시스지) → 남(우라난바)으로 왕복하는 것도 이 때문입니다.</p>
+<p>그리고 더 남쪽에 <strong>신세카이·니시나리</strong>가 있습니다. 1912년 박람회 자리에 만든 신도시가 전후에 가장 가난한 동네로 기울었다가, 지금은 그 시절의 음식(쿠시카츠)과 간판으로 관광지가 됐습니다.</p>
+<h3>고베는 무엇인가 — 옆 도시와의 관계</h3>
+<p>오사카·교토·고베를 묶어 <strong>한신칸(阪神間)</strong>이라 부릅니다. 세 도시가 전철로 30분 안에 이어져 사실상 하나의 생활권입니다.</p>
+<div class="tw"><table><thead><tr><th></th><th>성격</th></tr></thead><tbody><tr><td><strong>오사카</strong></td><td>상업·제조. 「상(商)」</td></tr><tr><td><strong>교토</strong></td><td>1,000년 수도. 전통·대학·정밀부품</td></tr><tr><td><strong>고베</strong></td><td>1868년 개항. <strong>국제항</strong> — 서양 문물의 입구</td></tr></tbody></table></div>
+<p>🔴 고베는 <strong>일본이 아니었던 적이 있는 도시</strong>입니다. 개항 후 외국인 거류지가 생겼고, 그 언덕 위 주택군이 기타노 이진칸입니다. 소고기·커피·양복·재즈가 일본에 들어온 입구가 고베였습니다. 우리가 9/21에 고베에서 소고기를 먹는 것은 그 역사의 끝자락을 먹는 셈입니다.</p>
+<p>다만 <strong>1995년 한신·아와지 대지진</strong> 이후 고베는 회복하지 못한 부분이 있습니다. 항만 물동량 순위가 내려갔고, 인구도 2010년대 이후 줄어 후쿠오카에 순위를 내줬습니다. 메리켄파크의 <strong>지진 메모리얼파크</strong>가 그 사건을 물리적으로 남겨 둔 자리입니다.</p>
+<h3>한국과 견주면</h3>
+<div class="tw"><table><thead><tr><th></th><th>서울-부산</th><th>도쿄-오사카</th></tr></thead><tbody><tr><td>한때 역전</td><td>없음</td><td><strong>1925~1940년 오사카가 1위</strong></td></tr><tr><td>말씨</td><td>부산 사투리가 뚜렷</td><td><strong>오사카벤이 뚜렷</strong> — 방송에서 「웃기는 말」로 소비되는 것까지 닮았다</td></tr><tr><td>성격</td><td>항구·실용</td><td>상업·실용</td></tr><tr><td>수도 집중</td><td>수도권 일극</td><td><strong>도쿄 일극</strong></td></tr><tr><td>제2도시 자존심</td><td>강함</td><td><strong>매우 강함</strong></td></tr></tbody></table></div>
+<p>🔴 <strong>오사카 사람들이 도쿄에 갖는 감정은 부산이 서울에 갖는 것과 결이 비슷합니다.</strong> 다만 오사카는 <strong>실제로 1위였던 기억</strong>이 있다는 점이 다릅니다.</p>
+<h3>이 여행에서 확인해 볼 것</h3>
+<ul><li><strong>나카노시마의 근대 건축군</strong> — 다이오사카 시대의 자본이 남긴 것</li><li><strong>오사카성 천수각이 1931년 시민 모금으로 지어졌다는 사실</strong> — 시민이 성을 다시 세운 도시</li><li>「기타」와 「미나미」의 분위기 차이 — 우메다·나카노시마 vs 난바·도톤보리</li><li><strong>오사카벤</strong> — 상점가와 노포에서 들리는 말씨</li><li>신세카이에서 보이는 <strong>도시의 층</strong> — 1912년 박람회 → 전후 빈민가 → 지금의 관광지</li></ul>
+<hr>
+<blockquote class="note"><p>⚠️ <strong>미확인</strong>: 인구 수치와 항만 순위의 최신 1차 출처를 대조하지 못했습니다.</p></blockquote>
+<h3>지도</h3>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=大阪+中之島&output=embed" title="大阪 中之島"></iframe><figcaption>大阪 中之島 · 구글지도</figcaption></figure></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-osaka-castle">오사카성 천수각 + 도요토미 이시가키관</a><a href="../#p-tenjinbashisuji">천진바시스지 상점가 — 남→북 2.6km 종주</a><a href="../#p-nakanoshima">오사카부립 나카노시마 도서관</a><a href="../#p-shinsekai">신세카이 · 츠텐카쿠 · 잔잔요코초</a><a href="../#p-dotonbori">도톤보리 · 우라난바</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>
