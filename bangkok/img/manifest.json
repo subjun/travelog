@@ -5951,5 +5951,87 @@
    "src": "commons"
   }
  ],
- "pantip-ngamwongwan": []
+ "pantip-ngamwongwan": [],
+ "samae-san": [
+  {
+   "file": "samae-san_1.jpg",
+   "kb": 794,
+   "lic": "CC BY 4.0",
+   "artist": "Laksaniya",
+   "page": "https://commons.wikimedia.org/wiki/File:Samae_San_Island_Nature_Reserve%E2%81%A0.jpg",
+   "src": "commons"
+  },
+  {
+   "file": "samae-san_2.jpg",
+   "kb": 493,
+   "lic": "CC BY 4.0",
+   "artist": "Laksaniya",
+   "page": "https://commons.wikimedia.org/wiki/File:Samae_San_Island.jpg",
+   "src": "commons"
+  },
+  {
+   "file": "samae-san_3.jpg",
+   "kb": 474,
+   "lic": "CC0",
+   "artist": "Ryland.cairns",
+   "page": "https://commons.wikimedia.org/wiki/File:Koh_Rong_Nang_Technical_Dive_Site_Samaesan.jpg",
+   "src": "commons"
+  },
+  {
+   "file": "samae-san_4.jpg",
+   "kb": 340,
+   "lic": "CC0",
+   "artist": "Ryland.cairns",
+   "page": "https://commons.wikimedia.org/wiki/File:Koh_Rong_Nang_Technical_Dive_Samaesan.jpg",
+   "src": "commons"
+  },
+  {
+   "file": "samae-san_5.jpg",
+   "kb": 429,
+   "lic": "CC BY-SA 3.0",
+   "artist": "carbon60",
+   "page": "https://commons.wikimedia.org/wiki/File:Off_the_coast_@_Samaesan_-_panoramio.jpg",
+   "src": "commons"
+  },
+  {
+   "file": "samae-san_6.jpg",
+   "kb": 424,
+   "lic": "CC BY-SA 3.0",
+   "artist": "carbon60",
+   "page": "https://commons.wikimedia.org/wiki/File:Off_the_coast_@_Samaesan_-_panoramio_-_carbon60.jpg",
+   "src": "commons"
+  },
+  {
+   "file": "samae-san_7.jpg",
+   "kb": 422,
+   "lic": "CC BY-SA 3.0",
+   "artist": "carbon60",
+   "page": "https://commons.wikimedia.org/wiki/File:Off_the_coast_@_Samaesan_-_panoramio_-_carbon60_(1).jpg",
+   "src": "commons"
+  },
+  {
+   "file": "samae-san_8.jpg",
+   "kb": 427,
+   "lic": "CC BY-SA 3.0",
+   "artist": "carbon60",
+   "page": "https://commons.wikimedia.org/wiki/File:Off_the_coast_@_Samaesan_-_panoramio_-_carbon60_(2).jpg",
+   "src": "commons"
+  },
+  {
+   "file": "samae-san_9.jpg",
+   "kb": 491,
+   "lic": "CC BY-SA 3.0",
+   "artist": "carbon60",
+   "page": "https://commons.wikimedia.org/wiki/File:Street_at_Samaesan_Pier_-_panoramio.jpg",
+   "src": "commons"
+  },
+  {
+   "file": "samae-san_10.jpg",
+   "kb": 547,
+   "lic": "CC BY-SA 3.0",
+   "artist": "carbon60",
+   "page": "https://commons.wikimedia.org/wiki/File:Temple_at_Samaesan_Pier_-_panoramio.jpg",
+   "src": "commons"
+  }
+ ]
 }
