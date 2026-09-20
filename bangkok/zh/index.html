@@ -57,7 +57,13 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
 .howto{margin-top:20px; padding:14px 16px; background:var(--surface); border:1px solid var(--line); border-radius:10px; font-size:13px; color:var(--ink-2); line-height:1.65}
 .howto b{color:var(--ink)}
 
-.filters{position:sticky; top:0; z-index:9; background:var(--ground); padding:14px 0 12px; border-bottom:1px solid var(--line); margin-bottom:8px}
+/* 🔴 지도가 고정 헤더(.tabs z-index:12 / .filters z-index:9) 위로 올라와 화면이 깨졌다
+   (2026-09-20 폰 실측: 볼거리 탭에서 스크롤하면 지도가 필터 칩을 덮었다).
+   Leaflet 내부 pane 들은 z-index 400~700 이라, 지도 칸마다 «자기 쌓임맥락» 을 만들어
+   바깥 z-index 경쟁에서 빠지게 한다. isolation 은 구형 대비 position/z-index 와 함께 건다. */
+.omap, .zmap, .daymap, #staymap, #omap, .leaflet-container{
+  position:relative; z-index:0; isolation:isolate}
+.filters{position:sticky; top:0; z-index:30; background:var(--ground); padding:14px 0 12px; border-bottom:1px solid var(--line); margin-bottom:8px}
 .frow{display:flex; gap:6px; flex-wrap:wrap; align-items:center}
 .frow + .frow{margin-top:8px}
 .flabel{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); margin-right:4px}
@@ -129,7 +135,7 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
   border-radius:6px; padding:5px 10px}
 .links a:hover{border-color:var(--jade); background:var(--jade-soft)}
 
-.bar{position:fixed; left:0; right:0; bottom:0; z-index:20; background:var(--surface);
+.bar{position:fixed; left:0; right:0; bottom:0; z-index:50; background:var(--surface);
   border-top:1px solid var(--jade); padding:12px 18px; display:flex; gap:14px; align-items:center;
   flex-wrap:wrap; box-shadow:0 -2px 14px rgba(0,0,0,.08)}
 .bar .inner{max-width:940px; margin:0 auto; width:100%; display:flex; gap:14px; align-items:center; flex-wrap:wrap}
@@ -544,7 +550,7 @@ blockquote.qb{border-left-color:var(--brick)}
 .photonote{padding:8px 14px; font-size:11.5px; color:var(--amber); background:var(--amber-soft); line-height:1.55}
 
 /* ── 상단 탭 ─────────────────────────────────────────────── */
-.tabs{position:sticky; top:0; z-index:12; display:flex; gap:4px; flex-wrap:wrap;
+.tabs{position:sticky; top:0; z-index:40; display:flex; gap:4px; flex-wrap:wrap;
   background:var(--ground); padding:12px 0 10px; border-bottom:2px solid var(--line-2); margin-bottom:6px}
 .tb{font-family:inherit; font-size:14px; font-weight:500; color:var(--ink-2); background:var(--surface);
   border:1px solid var(--line-2); border-radius:9px 9px 0 0; padding:9px 15px; cursor:pointer;
@@ -6077,7 +6083,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>仿货市场完全相反。</b>帕蓬夜市多在开价的 <b>1/3~1/2</b> 成交(Prada 包 2,500→<b>800 泰铢，降 68%</b>)。摊主自己承认——「进货价 600~700 泰铢，本来要卖 1800，可以砍到 900」</div></div>
   <div class="sfield stip"><b>实战提示</b><div>🔴 <b>如果摊主一口答应，就代表还能再砍。</b>失败案例——「他 180 就答应了，说明本来能砍到 150，差 30 好可惜」</div></div>
   
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=3QjQd3rVmzI" target="_blank" rel="noopener">▶ 노세요 — 짜뚜짝 쇼핑좌표 2026</a><a href="https://www.youtube.com/watch?v=aI1y1PaQ368" target="_blank" rel="noopener">▶ 아룬 — 짜뚜짝 저렴한 쇼핑</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 2</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/3QjQd3rVmzI"
+    title="노세요 — 짜뚜짝 쇼핑좌표 2026" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>노세요 — 짜뚜짝 쇼핑좌표 2026</b><span>YouTube</span></div>
+  <div class="vlist"><button type="button" class="vitem on" data-v="3QjQd3rVmzI" data-t="노세요 — 짜뚜짝 쇼핑좌표 2026" data-a=""><span class="vn">1</span>노세요 — 짜뚜짝 쇼핑좌표 2026</button><button type="button" class="vitem" data-v="aI1y1PaQ368" data-t="아룬 — 짜뚜짝 저렴한 쇼핑" data-a=""><span class="vn">2</span>아룬 — 짜뚜짝 저렴한 쇼핑</button></div>
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6129,7 +6144,7 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>乍都乍、二手市场、白金的摊位根本不能退税。</b>个别摊位不是 VAT 登记业者，开不出 P.P.10 单据。<b>在这些地方花再多也是 0 元。</b><br>⚠️ 常见的「精品 10,000 泰铢」门槛是 <b>2016 年旧版</b>。现行是 <b>40,000 泰铢</b>。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>只有在百货公司(Siam Paragon、CentralWorld、ICONSIAM)<b>单笔 5,000 泰铢以上</b>时才值得办。机场在素万那普 <b>4 楼 Concourse D，24 小时</b> · 海关盖章<b>只限出境当天</b>。</div></div>
   
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://vrtweb.rd.go.th/81.html" target="_blank" rel="noopener">▶ 태국 국세청 VRT 공식</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://vrtweb.rd.go.th/81.html" target="_blank" rel="noopener">🔗 태국 국세청 VRT 공식</a></div></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6173,7 +6188,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>同样的图案，做工差很多</b> ——「旁边那件的细节跟 100 泰铢的不一样…图案印得差不多，但收边就是差一点」<br>🔴 <b>尺寸整体偏小。</b></div></div>
   <div class="sfield stip"><b>实战提示</b><div>YouTuber 的结论一致——「没时间的话，<b>就只逛第 2 区。第 2、3、4 区。</b>」</div></div>
   <div class="sfield "><b>在哪买</b><div>第 2·3·4 区</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=3QjQd3rVmzI" target="_blank" rel="noopener">▶ 노세요 — 짜뚜짝 쇼핑좌표 2026</a><a href="https://www.youtube.com/watch?v=pIDqfbKWocY" target="_blank" rel="noopener">▶ 노세요 — 짜뚜짝 필수 가이드</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 2</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/3QjQd3rVmzI"
+    title="노세요 — 짜뚜짝 쇼핑좌표 2026" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>노세요 — 짜뚜짝 쇼핑좌표 2026</b><span>YouTube</span></div>
+  <div class="vlist"><button type="button" class="vitem on" data-v="3QjQd3rVmzI" data-t="노세요 — 짜뚜짝 쇼핑좌표 2026" data-a=""><span class="vn">1</span>노세요 — 짜뚜짝 쇼핑좌표 2026</button><button type="button" class="vitem" data-v="pIDqfbKWocY" data-t="노세요 — 짜뚜짝 필수 가이드" data-a=""><span class="vn">2</span>노세요 — 짜뚜짝 필수 가이드</button></div>
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6186,7 +6210,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 「除了正版包之外，<b>仿的也这么多</b>」。Freitag 风格的肥料袋包做工落差很大。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>第 3 区 (3-12)</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=pIDqfbKWocY" target="_blank" rel="noopener">▶ 노세요 — 짜뚜짝 필수 가이드</a><a href="https://www.youtube.com/watch?v=sG0D9phe0f8" target="_blank" rel="noopener">▶ 규텐탁 — 짜뚜짝</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 2</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/pIDqfbKWocY"
+    title="노세요 — 짜뚜짝 필수 가이드" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>노세요 — 짜뚜짝 필수 가이드</b><span>YouTube</span></div>
+  <div class="vlist"><button type="button" class="vitem on" data-v="pIDqfbKWocY" data-t="노세요 — 짜뚜짝 필수 가이드" data-a=""><span class="vn">1</span>노세요 — 짜뚜짝 필수 가이드</button><button type="button" class="vitem" data-v="sG0D9phe0f8" data-t="규텐탁 — 짜뚜짝" data-a=""><span class="vn">2</span>규텐탁 — 짜뚜짝</button></div>
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6199,7 +6232,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>品质看运气。🔴 上色的木筷类被明确点名不推——「有颜色的那些<b>会掉色。不推。</b>」</div></div>
   
   
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=aI1y1PaQ368" target="_blank" rel="noopener">▶ 아룬 — 짜뚜짝 저렴한 쇼핑</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/aI1y1PaQ368"
+    title="아룬 — 짜뚜짝 저렴한 쇼핑" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>아룬 — 짜뚜짝 저렴한 쇼핑</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6212,7 +6254,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>预备役帽、军用复刻混在一起。🔴 <b>有正品 logo 的帽子几乎都是仿的。</b></div></div>
   <div class="sfield stip"><b>实战提示</b><div>🌧 10 月也能拿来挡雨。</div></div>
   <div class="sfield "><b>在哪买</b><div>10-33 · 乍都乍对面商场 2 楼</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=sG0D9phe0f8" target="_blank" rel="noopener">▶ 규텐탁 — 짜뚜짝</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/sG0D9phe0f8"
+    title="규텐탁 — 짜뚜짝" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>규텐탁 — 짜뚜짝</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6225,7 +6276,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>价格是印花 T 恤的 2~3 倍，而且<b>偏固定价，几乎不能还价。</b></div></div>
   
   <div class="sfield "><b>在哪买</b><div>4-27 · 4-04-1</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=pIDqfbKWocY" target="_blank" rel="noopener">▶ 노세요 — 짜뚜짝 필수 가이드</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/pIDqfbKWocY"
+    title="노세요 — 짜뚜짝 필수 가이드" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>노세요 — 짜뚜짝 필수 가이드</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6264,7 +6324,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>「市场卖 100 泰铢的里面，很多是廉价中国进口货」</b><br>辨别法 ①「真正泰国产的…<b>每只大象都正向站好</b>。廉价中国货的大象<b>常常横躺或整只倒过来</b>」<br>辨别法 ②「内侧接缝是<b>双线车缝</b>扎实缝好…中国货只车一条线，旅行第一天蹲下去<b>裤裆可能就裂了</b>」</div></div>
   <div class="sfield stip"><b>实战提示</b><div>当地穿很好，但<b>回韩国不会穿。</b>一两件就够。</div></div>
   
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=5enYd4s-nt8" target="_blank" rel="noopener">▶ 몽키트래블 — 쇼핑리스트 Best 45</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/5enYd4s-nt8"
+    title="몽키트래블 — 쇼핑리스트 Best 45" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>몽키트래블 — 쇼핑리스트 Best 45</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6277,7 +6346,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 「我看了好几家，<b>同一双鞋一家开 1600，另一家开 1200</b>」<br>🔴 「鞋子就是<b>抓到一个冤大头就像中乐透</b>的感觉」<br>🔴 「<b>鞋子千万不要买。</b>」<br>大部分是二手，而且<b>几乎没有 300mm 的库存。</b></div></div>
   <div class="sfield stip"><b>实战提示</b><div>鞋子请去 <b>Supersports、Decathlon、Nike 品牌店</b>(见 👟 鞋类分类)。</div></div>
   <div class="sfield "><b>在哪买</b><div>第 5·6 区</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=aI1y1PaQ368" target="_blank" rel="noopener">▶ 아룬 — 짜뚜짝 저렴한 쇼핑</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/aI1y1PaQ368"
+    title="아룬 — 짜뚜짝 저렴한 쇼핑" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>아룬 — 짜뚜짝 저렴한 쇼핑</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6290,7 +6368,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>实际使用的评价是负面的</b> ——「只要撞到或掉下来<b>这里就会受损。</b>然后里面就会<b>生锈</b>…我自己从那之后就<b>不太用了</b>」。本人也说锅只是「摆着看」。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>第 15 · 19 区</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=s5pqyQOWGII" target="_blank" rel="noopener">▶ 러핀 — 방콕 쇼핑 하울</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/s5pqyQOWGII"
+    title="러핀 — 방콕 쇼핑 하울" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>러핀 — 방콕 쇼핑 하울</b><span>YouTube</span></div>
+  
+</details></div>
 </article></div>
 </section>
 <section class="shopsec">
@@ -6461,7 +6548,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>橘色包装比红色<b>温和，红色更辣。</b>🔴 <b>韩国泡面在泰国要 45~48 泰铢</b>，绝对不要买。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>🔴 <b>含肉类汤包的产品禁止带回韩国。</b>请看成分标示。</div></div>
   <div class="sfield "><b>在哪买</b><div>Big C · Lotus&#x27;s · 7-11</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=yOAr1ULvTiw" target="_blank" rel="noopener">▶ 데니트립 — 태국 편의점 쇼핑리스트</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/yOAr1ULvTiw"
+    title="데니트립 — 태국 편의점 쇼핑리스트" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>데니트립 — 태국 편의점 쇼핑리스트</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6474,7 +6570,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>店面越大反而越没有粉红虾烧卖。</b>没有的话就买猪肉烧卖。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>7-11</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=yOAr1ULvTiw" target="_blank" rel="noopener">▶ 데니트립 — 태국 편의점 쇼핑리스트</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/yOAr1ULvTiw"
+    title="데니트립 — 태국 편의점 쇼핑리스트" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>데니트립 — 태국 편의점 쇼핑리스트</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6487,7 +6592,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>要看「芒果果肉 18%」这类果肉含量标示再挑。</b>购物中心「买 5 送 3」的组合，<b>常常是含量低的低价品</b>。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>🔴 <b>含籽的果干部分禁止携带。</b>无籽芒果干可以。</div></div>
   <div class="sfield "><b>在哪买</b><div>Big C · Lotus&#x27;s</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=m-PSfW_juoU" target="_blank" rel="noopener">▶ 데니트립 — 태국 마트 2026 최신판</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/m-PSfW_juoU"
+    title="데니트립 — 태국 마트 2026 최신판" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>데니트립 — 태국 마트 2026 최신판</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6500,7 +6614,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>不要买散装粉末</b> ——「保存好像不太好」/「粉末袋装<b>吃没几次就不吃了</b>」。<b>条状独立包装</b>才是正解。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>Big C · Lotus&#x27;s</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=qHzwvveBCVM" target="_blank" rel="noopener">▶ 뺄래기똥 — 태국 쇼핑 종결편</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/qHzwvveBCVM"
+    title="뺄래기똥 — 태국 쇼핑 종결편" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>뺄래기똥 — 태국 쇼핑 종결편</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6513,7 +6636,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>美乃滋容量偏小。🔴 <b>液体、酱料类要放托运行李。</b></div></div>
   
   <div class="sfield "><b>在哪买</b><div>Big C · Lotus&#x27;s</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=m-PSfW_juoU" target="_blank" rel="noopener">▶ 데니트립 — 태국 마트 2026 최신판</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/m-PSfW_juoU"
+    title="데니트립 — 태국 마트 2026 최신판" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>데니트립 — 태국 마트 2026 최신판</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6596,7 +6728,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>社区药局<b>很多只收现金。</b></div></div>
   <div class="sfield stip"><b>实战提示</b><div>🔴 <b>入境韩国时，药品自用总量只免税到 6 瓶。</b>保健食品也是 6 瓶。</div></div>
   <div class="sfield "><b>在哪买</b><div>Singha 药局等社区药局</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=qHzwvveBCVM" target="_blank" rel="noopener">▶ 뺄래기똥 — 태국 쇼핑 종결편</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/qHzwvveBCVM"
+    title="뺄래기똥 — 태국 쇼핑 종결편" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>뺄래기똥 — 태국 쇼핑 종결편</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6609,7 +6750,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>喝酒后禁止服用(伤肝)</b> · <b>一天不可超过 8 锭。</b></div></div>
   <div class="sfield stip"><b>实战提示</b><div>🔴 会算进药品 6 瓶的额度里。</div></div>
   <div class="sfield "><b>在哪买</b><div>社区药局</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=OW8Hw2nqOmQ" target="_blank" rel="noopener">▶ 월간몽키픽 — 태국 가면 약국부터</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/OW8Hw2nqOmQ"
+    title="월간몽키픽 — 태국 가면 약국부터" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>월간몽키픽 — 태국 가면 약국부터</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6705,7 +6855,16 @@ blockquote.qb{border-left-color:var(--brick)}
   
   <div class="sfield stip"><b>实战提示</b><div>🟢 <b>密封加工品，带上飞机和入境韩国都没问题。</b></div></div>
   <div class="sfield "><b>在哪买</b><div>7-11</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=DMekOCmXPmg" target="_blank" rel="noopener">▶ 몽키트래블 — 세븐일레븐 꿀템</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/DMekOCmXPmg"
+    title="몽키트래블 — 세븐일레븐 꿀템" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>몽키트래블 — 세븐일레븐 꿀템</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6718,7 +6877,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>⚠️ 2025~2026 年的韩文影片中<b>找不到榴莲加工品的负评</b>(负评全是 2018~2019 年的旧资料)。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>保存期限约 12 个月。未开封的充氮包装不会有味道。开封后请<b>用夹链袋双层包装</b>。</div></div>
   <div class="sfield "><b>在哪买</b><div>Big C · Lotus&#x27;s</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=esrktJrtbYM" target="_blank" rel="noopener">▶ 먹시미 — 방콕 마트 싹 털어왔습니다</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/esrktJrtbYM"
+    title="먹시미 — 방콕 마트 싹 털어왔습니다" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>먹시미 — 방콕 마트 싹 털어왔습니다</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6775,7 +6943,7 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>US 13 以上就真的没有</b> ——「I&#x27;m a size 14… Been here 23 years, <b>never once found a shoe here that fits me</b>」<br>🔴 <b>拖鞋类(Nanyang、Kito、ADDA、Havaianas)的 300mm 几乎不可能。</b></div></div>
   <div class="sfield stip"><b>实战提示</b><div>🔴 <b>架上的不等于库存</b> ——「Ask the staff as <b>what&#x27;s on the display isn&#x27;t what&#x27;s in the stockroom</b>」</div></div>
   <div class="sfield "><b>在哪买</b><div>Supersports CentralWorld 3F</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.reddit.com/r/Bangkok/comments/181u15q/guys_wearing_shoe_size_46_or_larger_where_do_you/" target="_blank" rel="noopener">▶ r/Bangkok — 46 이상 신발 어디서 사나</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.reddit.com/r/Bangkok/comments/181u15q/guys_wearing_shoe_size_46_or_larger_where_do_you/" target="_blank" rel="noopener">🔗 r/Bangkok — 46 이상 신발 어디서 사나</a></div></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6788,7 +6956,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>注意 · 反对意见</b><div><b>没有品牌感，设计平凡。</b>泰国官网的尺寸选择器会跳转，<b>无法确认</b> → 必须亲自到店。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>🌧 可以顺便在这里买一双<b>可以泡水的鞋</b>，应付 10 月积水。</div></div>
   <div class="sfield "><b>在哪买</b><div>Decathlon Rama 4 店</div></div>
-  <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=EOpEsUKxTAM" target="_blank" rel="noopener">▶ 쿤호 KNOKNO — 태국 아식스 노바블라스트5</a></div></div>
+  <div class="sfield slinks"><b>来源影片</b>
+<details class="vidbox">
+  <summary>看视频 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/EOpEsUKxTAM"
+    title="쿤호 KNOKNO — 태국 아식스 노바블라스트5" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>쿤호 KNOKNO — 태국 아식스 노바블라스트5</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">

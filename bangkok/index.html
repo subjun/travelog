@@ -57,7 +57,13 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
 .howto{margin-top:20px; padding:14px 16px; background:var(--surface); border:1px solid var(--line); border-radius:10px; font-size:13px; color:var(--ink-2); line-height:1.65}
 .howto b{color:var(--ink)}
 
-.filters{position:sticky; top:0; z-index:9; background:var(--ground); padding:14px 0 12px; border-bottom:1px solid var(--line); margin-bottom:8px}
+/* 🔴 지도가 고정 헤더(.tabs z-index:12 / .filters z-index:9) 위로 올라와 화면이 깨졌다
+   (2026-09-20 폰 실측: 볼거리 탭에서 스크롤하면 지도가 필터 칩을 덮었다).
+   Leaflet 내부 pane 들은 z-index 400~700 이라, 지도 칸마다 «자기 쌓임맥락» 을 만들어
+   바깥 z-index 경쟁에서 빠지게 한다. isolation 은 구형 대비 position/z-index 와 함께 건다. */
+.omap, .zmap, .daymap, #staymap, #omap, .leaflet-container{
+  position:relative; z-index:0; isolation:isolate}
+.filters{position:sticky; top:0; z-index:30; background:var(--ground); padding:14px 0 12px; border-bottom:1px solid var(--line); margin-bottom:8px}
 .frow{display:flex; gap:6px; flex-wrap:wrap; align-items:center}
 .frow + .frow{margin-top:8px}
 .flabel{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); margin-right:4px}
@@ -129,7 +135,7 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
   border-radius:6px; padding:5px 10px}
 .links a:hover{border-color:var(--jade); background:var(--jade-soft)}
 
-.bar{position:fixed; left:0; right:0; bottom:0; z-index:20; background:var(--surface);
+.bar{position:fixed; left:0; right:0; bottom:0; z-index:50; background:var(--surface);
   border-top:1px solid var(--jade); padding:12px 18px; display:flex; gap:14px; align-items:center;
   flex-wrap:wrap; box-shadow:0 -2px 14px rgba(0,0,0,.08)}
 .bar .inner{max-width:940px; margin:0 auto; width:100%; display:flex; gap:14px; align-items:center; flex-wrap:wrap}
@@ -544,7 +550,7 @@ blockquote.qb{border-left-color:var(--brick)}
 .photonote{padding:8px 14px; font-size:11.5px; color:var(--amber); background:var(--amber-soft); line-height:1.55}
 
 /* ── 상단 탭 ─────────────────────────────────────────────── */
-.tabs{position:sticky; top:0; z-index:12; display:flex; gap:4px; flex-wrap:wrap;
+.tabs{position:sticky; top:0; z-index:40; display:flex; gap:4px; flex-wrap:wrap;
   background:var(--ground); padding:12px 0 10px; border-bottom:2px solid var(--line-2); margin-bottom:6px}
 .tb{font-family:inherit; font-size:14px; font-weight:500; color:var(--ink-2); background:var(--surface);
   border:1px solid var(--line-2); border-radius:9px 9px 0 0; padding:9px 15px; cursor:pointer;
@@ -6094,7 +6100,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>짝퉁 시장은 정반대다.</b> 팟퐁은 부른 값의 <b>1/3~1/2</b>에서 타결된다 (프라다백 2,500→<b>800바트, 68% 인하</b>). 상인 본인 실토 — 「600~700바트 이걸 사 가지고 온대요 그래서 원래는 1800에 팔아야 되는데」</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 <b>상인이 즉답으로 OK하면 더 깎을 수 있었다는 신호다.</b> 실패담 — 「180에 오케이 했다는 거는 150까지 할 수 있는 건데 아씨 30이면 아깝다」</div></div>
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=3QjQd3rVmzI" target="_blank" rel="noopener">▶ 노세요 — 짜뚜짝 쇼핑좌표 2026</a><a href="https://www.youtube.com/watch?v=aI1y1PaQ368" target="_blank" rel="noopener">▶ 아룬 — 짜뚜짝 저렴한 쇼핑</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 2</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/3QjQd3rVmzI"
+    title="노세요 — 짜뚜짝 쇼핑좌표 2026" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>노세요 — 짜뚜짝 쇼핑좌표 2026</b><span>YouTube</span></div>
+  <div class="vlist"><button type="button" class="vitem on" data-v="3QjQd3rVmzI" data-t="노세요 — 짜뚜짝 쇼핑좌표 2026" data-a=""><span class="vn">1</span>노세요 — 짜뚜짝 쇼핑좌표 2026</button><button type="button" class="vitem" data-v="aI1y1PaQ368" data-t="아룬 — 짜뚜짝 저렴한 쇼핑" data-a=""><span class="vn">2</span>아룬 — 짜뚜짝 저렴한 쇼핑</button></div>
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6146,7 +6161,7 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>짜뚜짝·구제시장·플래티넘 노점은 애초에 환급이 안 된다.</b> 개별 노점은 VAT 등록 사업자가 아니라 P.P.10 서류를 발급할 수 없다. <b>여기서 아무리 써도 0원이다.</b><br>⚠️ 흔히 도는 「사치품 10,000바트」 기준은 <b>2016년 구버전</b>이다. 현행은 <b>40,000바트</b>.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>백화점(시암파라곤·센트럴월드·아이콘시암)에서 <b>한 번에 5,000바트 이상</b> 지를 때만 챙긴다. 공항은 수완나품 <b>4층 Concourse D, 24시간</b> · 세관 도장은 <b>출국 당일만</b>.</div></div>
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://vrtweb.rd.go.th/81.html" target="_blank" rel="noopener">▶ 태국 국세청 VRT 공식</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://vrtweb.rd.go.th/81.html" target="_blank" rel="noopener">🔗 태국 국세청 VRT 공식</a></div></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6190,7 +6205,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>같은 그래픽이라도 마감 차가 크다</b> — 「옆에가 디테일이 100바트 짜리하고 다르네… 그래픽은 비슷한 걸 찍는데 마감이 살짝 틀려」<br>🔴 <b>사이즈가 전반적으로 작다.</b></div></div>
   <div class="sfield stip"><b>실전 팁</b><div>유튜버들의 결론이 일치한다 — 「시간 없다. 그러면 <b>섹션 2만 다니십시오. 섹션 234.</b>」</div></div>
   <div class="sfield "><b>어디서</b><div>섹션 2·3·4</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=3QjQd3rVmzI" target="_blank" rel="noopener">▶ 노세요 — 짜뚜짝 쇼핑좌표 2026</a><a href="https://www.youtube.com/watch?v=pIDqfbKWocY" target="_blank" rel="noopener">▶ 노세요 — 짜뚜짝 필수 가이드</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 2</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/3QjQd3rVmzI"
+    title="노세요 — 짜뚜짝 쇼핑좌표 2026" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>노세요 — 짜뚜짝 쇼핑좌표 2026</b><span>YouTube</span></div>
+  <div class="vlist"><button type="button" class="vitem on" data-v="3QjQd3rVmzI" data-t="노세요 — 짜뚜짝 쇼핑좌표 2026" data-a=""><span class="vn">1</span>노세요 — 짜뚜짝 쇼핑좌표 2026</button><button type="button" class="vitem" data-v="pIDqfbKWocY" data-t="노세요 — 짜뚜짝 필수 가이드" data-a=""><span class="vn">2</span>노세요 — 짜뚜짝 필수 가이드</button></div>
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6203,7 +6227,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 「이거 오리지널 가방 말고 <b>짝퉁도 이렇게 많이 있네요</b>」. 프라이탁 스타일 비료포대백은 마감 편차가 크다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>섹션 3 (3-12)</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=pIDqfbKWocY" target="_blank" rel="noopener">▶ 노세요 — 짜뚜짝 필수 가이드</a><a href="https://www.youtube.com/watch?v=sG0D9phe0f8" target="_blank" rel="noopener">▶ 규텐탁 — 짜뚜짝</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 2</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/pIDqfbKWocY"
+    title="노세요 — 짜뚜짝 필수 가이드" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>노세요 — 짜뚜짝 필수 가이드</b><span>YouTube</span></div>
+  <div class="vlist"><button type="button" class="vitem on" data-v="pIDqfbKWocY" data-t="노세요 — 짜뚜짝 필수 가이드" data-a=""><span class="vn">1</span>노세요 — 짜뚜짝 필수 가이드</button><button type="button" class="vitem" data-v="sG0D9phe0f8" data-t="규텐탁 — 짜뚜짝" data-a=""><span class="vn">2</span>규텐탁 — 짜뚜짝</button></div>
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6216,7 +6249,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>품질이 복불복이다. 🔴 색 입힌 나무 젓가락류는 명시적 비추 — 「색깔이 있는 거 얘네들 <b>물 다 빠져요. 비추.</b>」</div></div>
   
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=aI1y1PaQ368" target="_blank" rel="noopener">▶ 아룬 — 짜뚜짝 저렴한 쇼핑</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/aI1y1PaQ368"
+    title="아룬 — 짜뚜짝 저렴한 쇼핑" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>아룬 — 짜뚜짝 저렴한 쇼핑</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6229,7 +6271,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>예비군 모자·군용 레플리카 등이 섞인 잡탕이다. 🔴 <b>정품 로고 모자는 거의 짝퉁</b>이다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🌧 10월엔 비 가리개로도 쓴다.</div></div>
   <div class="sfield "><b>어디서</b><div>10-33 · 짜뚜짝 맞은편 상가 2층</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=sG0D9phe0f8" target="_blank" rel="noopener">▶ 규텐탁 — 짜뚜짝</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/sG0D9phe0f8"
+    title="규텐탁 — 짜뚜짝" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>규텐탁 — 짜뚜짝</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6242,7 +6293,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>프린트 티의 2~3배 가격이고 <b>정찰제 성향이라 흥정이 거의 안 된다.</b></div></div>
   
   <div class="sfield "><b>어디서</b><div>4-27 · 4-04-1</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=pIDqfbKWocY" target="_blank" rel="noopener">▶ 노세요 — 짜뚜짝 필수 가이드</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/pIDqfbKWocY"
+    title="노세요 — 짜뚜짝 필수 가이드" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>노세요 — 짜뚜짝 필수 가이드</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6281,7 +6341,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>「시장에서 파는 100바트짜리 중에는 싸구려 중국산 수입품이 정말 많습니다」</b><br>판별법 ① 「진짜 태국산은 <b>모든 코끼리가 정방향으로</b> 예쁘게 서 있습니다. 싸구려 중국산은 코끼리가 <b>옆으로 누워있거나 거꾸로 뒤집혀</b> 있는 경우가 허다하죠」<br>판별법 ② 「안쪽 이음새가 <b>두 줄 솔기</b>로 탄탄하게 박음질… 한 줄로 대충 박아놓은 중국산은 여행 첫날 입고 쪼그려 앉았다가 <b>가랑이가 터질 수도</b>」</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>현지에선 좋지만 <b>한국 가면 안 입는다.</b> 1~2장이면 충분하다.</div></div>
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=5enYd4s-nt8" target="_blank" rel="noopener">▶ 몽키트래블 — 쇼핑리스트 Best 45</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/5enYd4s-nt8"
+    title="몽키트래블 — 쇼핑리스트 Best 45" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>몽키트래블 — 쇼핑리스트 Best 45</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6294,7 +6363,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 「제가 여러 군데 봤는데 <b>똑같은 신발을 한 곳에선 1600바트, 한 곳에서는 1200바트</b>」<br>🔴 「신발은 그냥 <b>호구 하나 잡으면 로또 먹는다</b>는 느낌 같아요」<br>🔴 「<b>신발은 절대 사지 마시기 바랍니다.</b>」<br>대부분 중고이고 <b>300mm 재고는 사실상 없다.</b></div></div>
   <div class="sfield stip"><b>실전 팁</b><div>신발은 <b>Supersports·데카트론·나이키 브랜드스토어</b>로 간다 (👟 신발 카테고리 참조).</div></div>
   <div class="sfield "><b>어디서</b><div>5·6구역</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=aI1y1PaQ368" target="_blank" rel="noopener">▶ 아룬 — 짜뚜짝 저렴한 쇼핑</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/aI1y1PaQ368"
+    title="아룬 — 짜뚜짝 저렴한 쇼핑" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>아룬 — 짜뚜짝 저렴한 쇼핑</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6307,7 +6385,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>실사용 후기가 부정적이다</b> — 「탕하고 부딪히거나 떨어뜨리면 <b>여기가 손상이 돼요.</b> 그러면 안에가 <b>녹슬어</b> 버리기 때문에… 저도 이렇게 된 이후로는 <b>잘 사용을 안 하거든요</b>」. 본인도 냄비는 「관상용으로만」 둔다고 했다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>섹션 15 · 19</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=s5pqyQOWGII" target="_blank" rel="noopener">▶ 러핀 — 방콕 쇼핑 하울</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/s5pqyQOWGII"
+    title="러핀 — 방콕 쇼핑 하울" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>러핀 — 방콕 쇼핑 하울</b><span>YouTube</span></div>
+  
+</details></div>
 </article></div>
 </section>
 <section class="shopsec">
@@ -6478,7 +6565,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>주황색보다 <b>빨간색이 더 매콤</b>하다. 🔴 <b>한국 라면은 태국에서 45~48바트</b>라 절대 사지 마라.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 <b>고기 스프가 든 제품은 한국 반입 금지</b>다. 성분 표기를 볼 것.</div></div>
   <div class="sfield "><b>어디서</b><div>빅씨 · 로터스 · 세븐일레븐</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=yOAr1ULvTiw" target="_blank" rel="noopener">▶ 데니트립 — 태국 편의점 쇼핑리스트</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/yOAr1ULvTiw"
+    title="데니트립 — 태국 편의점 쇼핑리스트" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>데니트립 — 태국 편의점 쇼핑리스트</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6491,7 +6587,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>큰 매장일수록 핑크 새우만두가 없다.</b> 없으면 고기 교자만두로 대체.</div></div>
   
   <div class="sfield "><b>어디서</b><div>세븐일레븐</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=yOAr1ULvTiw" target="_blank" rel="noopener">▶ 데니트립 — 태국 편의점 쇼핑리스트</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/yOAr1ULvTiw"
+    title="데니트립 — 태국 편의점 쇼핑리스트" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>데니트립 — 태국 편의점 쇼핑리스트</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6504,7 +6609,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>「망고 과육 18%」 식 과육 함량 표기를 보고 골라야 한다.</b> 쇼핑몰의 「5개 사면 3개 더」 패키지는 <b>함량 낮은 저가품</b>인 경우가 많다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 <b>씨가 든 건조과일은 일부 금지</b>다. 씨 없는 건망고는 통과.</div></div>
   <div class="sfield "><b>어디서</b><div>빅씨 · 로터스</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=m-PSfW_juoU" target="_blank" rel="noopener">▶ 데니트립 — 태국 마트 2026 최신판</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/m-PSfW_juoU"
+    title="데니트립 — 태국 마트 2026 최신판" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>데니트립 — 태국 마트 2026 최신판</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6517,7 +6631,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>벌크 파우더는 사지 마라</b> — 「보관은 조금 안 좋을 거 같다」 / 「가루 봉지형은 <b>몇 번 안 먹게 돼요</b>」. <b>스틱 개별포장</b>이 정답이다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>빅씨 · 로터스</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=qHzwvveBCVM" target="_blank" rel="noopener">▶ 뺄래기똥 — 태국 쇼핑 종결편</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/qHzwvveBCVM"
+    title="뺄래기똥 — 태국 쇼핑 종결편" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>뺄래기똥 — 태국 쇼핑 종결편</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6530,7 +6653,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>마요 용량이 작다. 🔴 <b>액체·소스류는 위탁수하물</b>로 보내야 한다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>빅씨 · 로터스</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=m-PSfW_juoU" target="_blank" rel="noopener">▶ 데니트립 — 태국 마트 2026 최신판</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/m-PSfW_juoU"
+    title="데니트립 — 태국 마트 2026 최신판" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>데니트립 — 태국 마트 2026 최신판</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6613,7 +6745,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>동네 약국은 <b>현금만 받는 곳이 많다.</b></div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 <b>한국 입국 시 의약품은 자가사용 총 6병까지만</b> 면세다. 건강기능식품도 6병.</div></div>
   <div class="sfield "><b>어디서</b><div>싱하 약국 등 동네 약국</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=qHzwvveBCVM" target="_blank" rel="noopener">▶ 뺄래기똥 — 태국 쇼핑 종결편</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/qHzwvveBCVM"
+    title="뺄래기똥 — 태국 쇼핑 종결편" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>뺄래기똥 — 태국 쇼핑 종결편</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6626,7 +6767,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>술 마신 뒤 복용 금지(간 손상)</b> · <b>1일 8정 초과 금지</b>.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 의약품 총 6병 한도에 포함된다.</div></div>
   <div class="sfield "><b>어디서</b><div>동네 약국</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=OW8Hw2nqOmQ" target="_blank" rel="noopener">▶ 월간몽키픽 — 태국 가면 약국부터</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/OW8Hw2nqOmQ"
+    title="월간몽키픽 — 태국 가면 약국부터" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>월간몽키픽 — 태국 가면 약국부터</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6722,7 +6872,16 @@ blockquote.qb{border-left-color:var(--brick)}
   
   <div class="sfield stip"><b>실전 팁</b><div>🟢 <b>밀봉 가공품이라 기내 반입·한국 통관 모두 통과</b>한다.</div></div>
   <div class="sfield "><b>어디서</b><div>세븐일레븐</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=DMekOCmXPmg" target="_blank" rel="noopener">▶ 몽키트래블 — 세븐일레븐 꿀템</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/DMekOCmXPmg"
+    title="몽키트래블 — 세븐일레븐 꿀템" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>몽키트래블 — 세븐일레븐 꿀템</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6735,7 +6894,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>⚠️ 2025~2026 한국어 영상 중 <b>두리안 가공품 부정 후기는 확인 불가</b>였다 (부정 후기는 전부 2018~2019년 자료).</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>유통기한 약 12개월. 미개봉 질소충전 파우치는 냄새가 안 난다. 개봉 후엔 <b>지퍼백 이중포장</b>.</div></div>
   <div class="sfield "><b>어디서</b><div>빅씨 · 로터스</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=esrktJrtbYM" target="_blank" rel="noopener">▶ 먹시미 — 방콕 마트 싹 털어왔습니다</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/esrktJrtbYM"
+    title="먹시미 — 방콕 마트 싹 털어왔습니다" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>먹시미 — 방콕 마트 싹 털어왔습니다</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6792,7 +6960,7 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>US 13부터는 진짜 없다</b> — 「I&#x27;m a size 14… Been here 23 years, <b>never once found a shoe here that fits me</b>」<br>🔴 <b>슬리퍼류(난양·Kito·ADDA·하바이아나스)는 300mm가 사실상 불가</b>하다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 <b>진열대 = 재고가 아니다</b> — 「Ask the staff as <b>what&#x27;s on the display isn&#x27;t what&#x27;s in the stockroom</b>」</div></div>
   <div class="sfield "><b>어디서</b><div>Supersports 센트럴월드 3F</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.reddit.com/r/Bangkok/comments/181u15q/guys_wearing_shoe_size_46_or_larger_where_do_you/" target="_blank" rel="noopener">▶ r/Bangkok — 46 이상 신발 어디서 사나</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.reddit.com/r/Bangkok/comments/181u15q/guys_wearing_shoe_size_46_or_larger_where_do_you/" target="_blank" rel="noopener">🔗 r/Bangkok — 46 이상 신발 어디서 사나</a></div></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -6805,7 +6973,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div><b>브랜드 감성이 없고 디자인이 평범</b>하다. 태국몰 사이즈 셀렉터는 리디렉션으로 <b>확인 불가</b> → 매장 방문 필수.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🌧 10월 침수 대비 <b>젖어도 되는 신발</b>을 여기서 같이 사면 된다.</div></div>
   <div class="sfield "><b>어디서</b><div>데카트론 라마4점</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=EOpEsUKxTAM" target="_blank" rel="noopener">▶ 쿤호 KNOKNO — 태국 아식스 노바블라스트5</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/EOpEsUKxTAM"
+    title="쿤호 KNOKNO — 태국 아식스 노바블라스트5" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>쿤호 KNOKNO — 태국 아식스 노바블라스트5</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
