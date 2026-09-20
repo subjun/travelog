@@ -158,22 +158,107 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
 .sec-head h2{font-size:24px; font-weight:700}
 .sec-note{font-size:12px; color:var(--ink-3)}
 .planlede{font-size:14px; color:var(--ink-2); margin:8px 0 20px; max-width:64ch; line-height:1.7}
-.days{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:12px}
-.day{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 18px 18px}
-.dh{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; padding-bottom:9px; border-bottom:1px solid var(--line)}
-.ddate{font-family:"IBM Plex Mono",monospace; font-size:17px; font-weight:500; letter-spacing:-.02em}
-.ddow{font-size:11.5px; color:var(--ink-3); margin-left:5px}
-.dtheme{font-family:"Gowun Batang",serif; font-size:15px; font-weight:700; color:var(--jade-ink)}
-.dnote{margin:10px 0 0; font-size:12.5px; color:var(--ink-3); line-height:1.6}
-.irows{display:flex; flex-direction:column; margin-top:10px}
-.irow{display:grid; grid-template-columns:52px 1fr; gap:10px; padding:7px 0; border-bottom:1px solid var(--line);
-  align-items:baseline}
-.irow:last-child{border-bottom:none}
-.irow[data-run="1"]{opacity:.72}
-.itime{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-3); white-space:nowrap}
-.iname{font-size:13.5px; color:var(--ink); line-height:1.55}
+
+/* ── 🛍️ 쇼핑 탭 (2026-09-20 신설) ───────────────────────────── */
+.shopsec{margin:0 0 34px}
+.ssh{position:relative; padding-bottom:10px; border-bottom:1px solid var(--line); margin-bottom:16px}
+.ssh h3{margin:0; font-family:"Gowun Batang",serif; font-size:20px; color:var(--jade-ink)}
+.ssh p{margin:6px 0 0; font-size:13px; color:var(--ink-3); line-height:1.6; max-width:62ch}
+.scount{position:absolute; right:0; top:2px; font:600 12px/1 "IBM Plex Mono",monospace;
+  color:var(--ink-3); background:var(--surface-2); padding:5px 9px; border-radius:6px}
+.shopgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr)); gap:14px}
+.shopcard{background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:16px 17px 17px}
+.sh{margin-bottom:12px}
+.sh h4{margin:7px 0 0; font-size:15.5px; line-height:1.45; color:var(--ink)}
+.sja{display:block; margin-top:3px; font-size:12px; color:var(--ink-3)}
+.sprice{display:inline-block; margin-top:7px; font:500 12px/1 "IBM Plex Mono",monospace;
+  color:var(--ink-2); background:var(--surface-2); padding:5px 8px; border-radius:5px}
+.sgrade{display:inline-block; font-size:11px; font-weight:700; padding:4px 9px; border-radius:20px; color:#fff}
+.g-best{background:#0f766e} .g-good{background:#2C7A67} .g-mid{background:#B45309}
+.g-bad{background:#9F1239} .g-ban{background:#111}
+.sfield{margin-top:11px; padding-top:10px; border-top:1px dashed var(--line)}
+.sfield:first-of-type{border-top:none; padding-top:0}
+.sfield > b{display:block; font-size:10.5px; font-weight:700; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--ink-3); margin-bottom:5px}
+.sfield > div{font-size:13px; line-height:1.68; color:var(--ink-2); white-space:pre-line}
+.sgood > div{color:var(--ink); border-left:2px solid var(--jade); padding-left:10px}
+.sbad > div{color:var(--ink-2); border-left:2px solid #9F1239; padding-left:10px}
+.stip > div{background:var(--surface-2); padding:9px 11px; border-radius:8px}
+.slinkrow{display:flex; flex-direction:column; gap:5px}
+.slinkrow a{font-size:12px; color:var(--jade-ink); text-decoration:none; line-height:1.5}
+.slinkrow a:hover{text-decoration:underline}
+@media(max-width:560px){ .shopgrid{grid-template-columns:1fr} .shopcard{padding:14px 13px 15px} }
+
+/* ── 날짜 페이저 (2026-09-20 신설) ─────────────────────────────
+   내용이 많아져 5일치를 한 화면에 쌓으면 읽히지 않는다.
+   Day 1..N 을 «한 번에 하나»만 보여주고 위에서 고른다. */
+.daynav{display:flex; gap:8px; overflow-x:auto; padding:2px 2px 12px; margin-bottom:4px;
+  scrollbar-width:none; -webkit-overflow-scrolling:touch}
+.daynav::-webkit-scrollbar{display:none}
+.dnb{flex:0 0 auto; display:flex; flex-direction:column; align-items:flex-start; gap:3px;
+  padding:9px 14px; border-radius:11px; border:1px solid var(--line); background:var(--surface);
+  cursor:pointer; transition:all .15s; min-width:82px; text-align:left}
+.dnb b{font:600 12.5px/1 "IBM Plex Mono",monospace; color:var(--ink-3); letter-spacing:.01em}
+.dnb span{font-size:13px; font-weight:600; color:var(--ink); display:flex; align-items:baseline; gap:4px}
+.dnb i{font-style:normal; font-size:11px; color:var(--ink-3); font-weight:400}
+.dnb:hover{border-color:var(--jade); background:var(--surface-2)}
+.dnb.on{background:var(--jade-ink); border-color:var(--jade-ink)}
+.dnb.on b{color:rgba(255,255,255,.72)}
+.dnb.on span{color:#fff}
+.dnb.on i{color:rgba(255,255,255,.66)}
+
+.days{display:block}
+.day{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px 22px 22px}
+.day.dhide{display:none}
+@media(max-width:560px){ .day{padding:16px 14px 18px; border-radius:12px} }
+
+.dh{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; padding-bottom:12px;
+  border-bottom:2px solid var(--jade); margin-bottom:2px}
+.dnum{font:700 11px/1 "IBM Plex Mono",monospace; letter-spacing:.08em; text-transform:uppercase;
+  color:#fff; background:var(--jade-ink); padding:5px 9px; border-radius:6px}
+.ddate{font-family:"IBM Plex Mono",monospace; font-size:19px; font-weight:600; letter-spacing:-.02em}
+.ddow{font-size:12px; color:var(--ink-3); margin-left:5px}
+.dtheme{font-family:"Gowun Batang",serif; font-size:16px; font-weight:700; color:var(--jade-ink);
+  flex:1 1 100%; margin-top:2px}
+@media(min-width:720px){ .dtheme{flex:1 1 auto; margin-top:0} }
+.dnote{margin:12px 0 0; font-size:13px; color:var(--ink-2); line-height:1.75;
+  background:var(--surface-2); border-radius:9px; padding:12px 14px}
+
+.daymapwrap{margin:14px 0 2px}
+.daymap{height:320px; border-radius:11px; border:1px solid var(--line); overflow:hidden; background:var(--surface-2)}
+@media(max-width:560px){ .daymap{height:250px} }
+.dmtoggle a{padding:0 9px!important; width:auto!important; font:600 11.5px/28px system-ui!important;
+  height:28px!important; color:var(--ink)!important; white-space:nowrap}
+.dmhint{margin:7px 0 0; font-size:11.5px; color:var(--ink-3); line-height:1.55}
+.dmpop b{display:block; font-size:13.5px; margin-bottom:3px}
+.dmpop .dmt{font:500 11px/1 IBM Plex Mono,monospace; color:var(--ink-3)}
+.dmpop .dma{display:block; margin:5px 0 7px; font-size:11.5px; color:var(--ink-2); line-height:1.5}
+.dmpop .dmgo{display:inline-block; padding:5px 10px; border-radius:6px; background:#1a73e8; color:#fff!important;
+  font-size:12px; font-weight:600; text-decoration:none}
+
+/* ── 타임라인 ── 시각 왼쪽에 선을 긋고 점을 찍는다 */
+.irows{display:flex; flex-direction:column; margin-top:16px; position:relative}
+.irow{display:grid; grid-template-columns:54px 1fr; gap:14px; padding:12px 0 13px;
+  border-bottom:1px solid var(--line); align-items:start; position:relative}
+.irow:last-child{border-bottom:none; padding-bottom:2px}
+.irow[data-run="1"]{opacity:.7}
+.irow::before{content:""; position:absolute; left:60px; top:0; bottom:0; width:1px;
+  background:var(--line)}
+.irow:first-child::before{top:18px}
+.irow:last-child::before{bottom:auto; height:18px}
+.irow::after{content:""; position:absolute; left:56.5px; top:16px; width:8px; height:8px;
+  border-radius:50%; background:var(--jade); border:2px solid var(--surface); box-shadow:0 0 0 1px var(--jade)}
+.itime{font-family:"IBM Plex Mono",monospace; font-size:12.5px; font-weight:500; color:var(--ink-2);
+  white-space:nowrap; padding-top:1px}
+.iname{font-size:14px; color:var(--ink); line-height:1.6; padding-left:14px}
 .iname a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--jade)}
 .iname a:hover{color:var(--jade-ink)}
+@media(max-width:560px){
+  .irow{grid-template-columns:46px 1fr; gap:10px}
+  .irow::before{left:50px}
+  .irow::after{left:46.5px}
+  .iname{padding-left:12px; font-size:13.5px}
+}
 .idesc{display:block; font-size:11.5px; color:var(--ink-3); margin-top:2px; line-height:1.5}
 .held{font-size:10.5px; font-weight:500; color:var(--amber); background:var(--amber-soft);
   padding:2px 6px; border-radius:4px; margin-left:8px; vertical-align:middle; font-family:"IBM Plex Sans KR",sans-serif}
@@ -492,7 +577,7 @@ blockquote.qb{border-left-color:var(--brick)}
 .escard:hover .ecat{background:var(--jade-ink)}
 .escard .ecat:empty{display:none}
 </style>
-<style>.essays-tab{display:none!important}</style></head>
+<style>.essays-tab{display:none!important}</style><style>.shop-tab{display:none!important}</style></head>
 <body>
 <div class="wrap">
 
@@ -517,6 +602,7 @@ blockquote.qb{border-left-color:var(--brick)}
   <button class="tb" data-tab="places">景点<b>65</b></button>
   <button class="tb" data-tab="food">美食<b>40</b></button>
   <button class="tb essays-tab" data-tab="essays">解说集<b>0</b></button>
+  <button class="tb shop-tab" data-tab="shop">购物<b>0</b></button>
   <button class="tb" data-tab="stay">住宿<b>20</b></button>
   <button class="tb submit-only" data-tab="submit">提交</button>
 </nav>
@@ -542,53 +628,66 @@ blockquote.qb{border-left-color:var(--brick)}
   </div>
   <label class="pchoose submit-only"><input type="radio" name="planpick" value="1 最终方案">
     <span>就照这份走</span></label>
+  <div class="daynav" data-plan="1"><button class="dnb on" data-dayn="1"><b>Day 1</b><span>10/6<i>화</i></span></button><button class="dnb" data-dayn="2"><b>Day 2</b><span>10/7<i>수</i></span></button><button class="dnb" data-dayn="3"><b>Day 3</b><span>10/8<i>목</i></span></button><button class="dnb" data-dayn="4"><b>Day 4</b><span>10/9<i>금</i></span></button><button class="dnb" data-dayn="5"><b>Day 5</b><span>10/10<i>토</i></span></button><button class="dnb" data-dayn="6"><b>Day 6</b><span>10/11<i>일</i></span></button></div>
   <div class="days">
-<article class="day">
+<article class="day" data-dayn="1">
   <header class="dh">
+    <span class="dnum">Day 1</span>
     <span class="ddate">10/6<span class="ddow">二</span></span>
     <span class="dtheme">运河的早晨 → 老城 → 🥊 拉查丹能泰拳</span>
   </header>
   <p class="dnote">07:10从通罗出门（平日早高峰，BTS+MRT 55分钟）。早上坐河西的运河船，走完老城，<b>在同一个街区的拉查丹能</b>结束这一天。</p>
+  <div class="daymapwrap"><div class="daymap" id="dm-1-0"></div><p class="dmhint">🔴 编号是<b>当天的移动顺序</b>。点击图钉可看到<b>地址与 Google 地图路线</b>。绿色 = 当天起点，紫色 = 最后一站。</p></div><script>window.DAYPINS=window.DAYPINS||{};window.DAYPINS["1-0"]=[{"n": 1, "t": "08:00", "name": "톤부리 운하 롱테일보트 선착장", "lat": 13.752, "lng": 100.4902, "addr": "〒10200 Bangkok Phra Nakhon District Tha Chang Phra Borom Maha Ratchawang Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.752,100.4902", "label": "톤부리 운하 롱테일보트"}, {"n": 2, "t": "09:00", "name": "클렁 방루앙 · 반실라핀(예술가의 집)", "lat": 13.7443, "lng": 100.4553, "addr": "〒10170 Bangkok Taling Chan District Ying Ying Charoen Community Bang Phrom Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7443,100.4553", "label": "클렁 방루앙 · 반실라핀"}, {"n": 3, "t": "10:45", "name": "왕궁 · 왓 프라깨우", "lat": 13.75, "lng": 100.4913, "addr": "〒10200 Bangkok Phra Nakhon District Tha Tian Phra Borom Maha Ratchawang Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.75,100.4913", "label": "왕궁 + 왓 프라깨우"}, {"n": 4, "t": "12:45", "name": "낭르엉 시장", "lat": 13.759, "lng": 100.5089, "addr": "〒10100 Bangkok Pom Prap Sattru Phai District Supamit Community 2 Wat Sommanat Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.759,100.5089", "label": "낭르엉 시장"}, {"n": 5, "t": "14:15", "name": "K. Panich 망고 찰밥", "lat": 13.7575, "lng": 100.499, "addr": "〒10200 Bangkok Phra Nakhon District Lang Wat Ratchanatda Community Bowon Niwet Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7575,100.499", "label": "K. Panich — 망고 찰밥"}, {"n": 6, "t": "15:00", "name": "왓 포 · 원조 마사지", "lat": 13.7465, "lng": 100.4927, "addr": "〒10200 Bangkok Phra Nakhon District Tha Tien Community Phra Borom Maha Ratchawang Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7465,100.4927", "label": "왓 포 + 원조 마사지"}, {"n": 7, "t": "18:00", "name": "라차담넌 무에타이 스타디움", "lat": 13.7595, "lng": 100.5125, "addr": "〒10100 Bangkok Pom Prap Sattru Phai District Nang Loeng Wat Sommanat Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7595,100.5125", "label": "🥊 라차담넌 스타디움 — 입장"}];</script>
   <div class="irows"><div class="irow"><span class="itime">08:00</span><span class="iname"><a href="#p-khlong-tour">吞武里运河长尾船</a><span class="idesc">🔴 08:00~11:00 · 包船 ฿1,500~2,500 是一条船的价 · Tha Tien 上船 · 通罗07:10出发</span></span></div><div class="irow"><span class="itime">09:00</span><span class="iname"><a href="#p-khlong-tour">空邦峦 · 艺术家之家</a><span class="idesc">木屋画廊 · 免费 · 喂鲶鱼 ฿10~20 · 木偶戏碰上了算赚到</span></span></div><div class="irow"><span class="itime">10:45</span><span class="iname"><a href="#p-grand-palace">大皇宫 + 玉佛寺</a><span class="idesc">🔴 着装规定严格 ·「今天关门」100%是骗局</span></span></div><div class="irow"><span class="itime">12:45</span><span class="iname"><a href="#p-nang-loeng">Nang Loeng 市场</a><span class="idesc">🔴 08:00~15:00 · 周日休市，错过今天就没了</span></span></div><div class="irow"><span class="itime">14:15</span><span class="iname"><a href="#p-f-kpanich">K. Panich 芒果糯米饭</a><span class="idesc">1932年 · 🔴 10月周日可能休息</span></span></div><div class="irow"><span class="itime">15:00</span><span class="iname"><a href="#p-wat-pho">卧佛寺 + 原版按摩</a><span class="idesc">46米卧佛 · 🟢 在寺内按摩学校做 = 今天的按摩</span></span></div><div class="irow"><span class="itime">17:15</span><span class="iname">早点吃晚饭 — 去拳场的路上<span class="idesc">🔴 拳场禁止带外食 · 里面卖的很贵</span></span></div><div class="irow"><span class="itime">18:00</span><span class="iname"><a href="#p-rajadamnern">🥊 拉查丹能拳场 — 入场</a><span class="idesc">🔴 Leo区（10区）是自由座 — 18:00进场自己挑并排的一排 · 带长袖（冷气强）</span></span></div><div class="irow"><span class="itime">20:10</span><span class="iname"><a href="#p-rajadamnern">主秀 · 击倒赛7场</a><span class="idesc">✅ 周二 = 击倒赛7场·3回合 · 19:00第一场 · 结束后 Grab 回通罗30~40分钟</span></span></div></div>
 </article>
-<article class="day">
+<article class="day dhide" data-dayn="2">
   <header class="dh">
+    <span class="dnum">Day 2</span>
     <span class="ddate">10/7<span class="ddow">三</span></span>
     <span class="dtheme">🤿 沙美山岛 — 大海的一天</span>
   </header>
   <p class="dnote">这趟旅行唯一的海。选平日是因为上岛每天限600人，周末会满。🔴 天气原因开不了船时，车出发前全额退，出发后只退团费。</p>
+  <div class="daymapwrap"><div class="daymap" id="dm-1-1"></div><p class="dmhint">🔴 编号是<b>当天的移动顺序</b>。点击图钉可看到<b>地址与 Google 地图路线</b>。绿色 = 当天起点，紫色 = 最后一站。</p></div><script>window.DAYPINS=window.DAYPINS||{};window.DAYPINS["1-1"]=[{"n": 1, "t": "07:30", "name": "LA49 호텔 (숙소)", "lat": 13.7215, "lng": 100.5745, "addr": "〒10110 Bangkok Khlong Toei District ชุมชนทรัพย์มโนทัย Khlong Tan Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7215,100.5745", "label": "호텔 픽업 — LA49 로비"}, {"n": 2, "t": "10:30", "name": "꼬사메산 선착장", "lat": 12.6122, "lng": 100.9139, "addr": "〒20180 Chon Buri Province Sattahip District", "dir": "https://www.google.com/maps/dir/?api=1&destination=12.6122,100.9139", "label": "사메산 선착장 → 섬"}, {"n": 3, "t": "19:30", "name": "at ease 마사지 — 프롬퐁", "lat": 13.7305, "lng": 100.5695, "addr": "〒10110 Bangkok Khlong Toei District Khlong Tan Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7305,100.5695", "label": "at ease 마사지 — 프롬퐁"}];</script>
   <div class="irows"><div class="irow"><span class="itime">07:30</span><span class="iname"><a href="#p-samae-san">酒店接人 — LA49 大堂</a><span class="idesc">专车 · 司机陪同上岛（海军规定外国人需泰国人陪同）</span></span></div><div class="irow"><span class="itime">10:30</span><span class="iname"><a href="#p-samae-san">沙美山码头 → 上岛</a><span class="idesc">船程10~15分钟 · 岛上坐军方接驳车到海滩</span></span></div><div class="irow"><span class="itime">11:30</span><span class="iname"><a href="#p-samae-san">浮潜 · 皮划艇 · 海滩</a><span class="idesc">海军向导船带去小丑鱼点 · 含皮划艇1小时 · 午饭在岛上食堂 ฿60~100</span></span></div><div class="irow"><span class="itime">16:00</span><span class="iname"><a href="#p-samae-san">离岛 → 曼谷</a><span class="idesc">🟡 很多评论说回程堵车要3小时 · 周末晚30分钟出岛</span></span></div><div class="irow"><span class="itime">19:30</span><span class="iname"><a href="#p-massage-phrompong">at ease 按摩 — 澎蓬</a><span class="idesc">🟡 住处附近 · 打烊时间未确认 · 太晚就去通罗巷子里的本地店</span></span></div></div>
 </article>
-<article class="day">
+<article class="day dhide" data-dayn="3">
   <header class="dh">
+    <span class="dnum">Day 3</span>
     <span class="ddate">10/8<span class="ddow">四</span></span>
     <span class="dtheme">🔴 耀华力的早晨 → 皇家驳船 → 耀华力·空讪的夜</span>
   </header>
   <p class="dnote">这一天是整趟行程的轴。吃要在10/9之前（10/10起斋节，肉类大面积停供），而驳船只有这一天。从通罗坐BTS+MRT要45~50分钟，07:40出门。晚上把被浮潜挤掉的 <b>Somsak 蟹肉粉丝煲</b>过桥接上。</p>
+  <div class="daymapwrap"><div class="daymap" id="dm-1-2"></div><p class="dmhint">🔴 编号是<b>当天的移动顺序</b>。点击图钉可看到<b>地址与 Google 地图路线</b>。绿色 = 当天起点，紫色 = 最后一站。</p></div><script>window.DAYPINS=window.DAYPINS||{};window.DAYPINS["1-2"]=[{"n": 1, "t": "08:30", "name": "오디언 — 게살 계란면", "lat": 13.7385, "lng": 100.513, "addr": "〒10100 Bangkok Samphanthawong District Sieng Kong Talat Noi Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7385,100.513", "label": "오디언 — 게살 계란면"}, {"n": 2, "t": "09:30", "name": "야오와랏 (차이나타운)", "lat": 13.7405, "lng": 100.5095, "addr": "〒10100 Bangkok Samphanthawong District Yaowarat Samphanthawong Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7405,100.5095", "label": "야오와랏 — 낮의 노포"}, {"n": 3, "t": "13:00", "name": "왕실 바지선 리허설 관람 강변", "lat": 13.757, "lng": 100.4905, "addr": "〒10200 Bangkok Phra Nakhon District Tha Pra Chan Phra Borom Maha Ratchawang Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.757,100.4905", "label": "🔴 왕실 바지선 리허설 — 자리 잡기"}, {"n": 4, "t": "17:30", "name": "젝뿌이 카오깽", "lat": 13.7412, "lng": 100.5083, "addr": "〒10100 Bangkok Samphanthawong District Yaowarat Samphanthawong Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7412,100.5083", "label": "젝뿌이 카오깽"}, {"n": 5, "t": "18:30", "name": "송왓로드", "lat": 13.7377, "lng": 100.5083, "addr": "〒10100 Bangkok Samphanthawong District Odeon Samphanthawong Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7377,100.5083", "label": "송왓로드"}, {"n": 6, "t": "19:45", "name": "쏨싹 뿌옵 — 게 당면", "lat": 13.7215, "lng": 100.4903, "addr": "〒10600 Bangkok Thon Buri District ชุมชนตากสินสัมพันธ์ Bang Yi Ruea Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7215,100.4903", "label": "쏨싹 뿌옵 — 게 당면 클레이팟"}];</script>
   <div class="irows"><div class="irow"><span class="itime">08:30</span><span class="iname"><a href="#p-f-odeon">Odeon 蟹肉蛋面</a><span class="idesc">✅ 每天 08:30~19:30 · 全年无休（2026-09-07确认）</span></span></div><div class="irow"><span class="itime">09:30</span><span class="iname"><a href="#p-yaowarat">耀华力 — 白天的老店</a><span class="mealtag ev">🍽 正餐</span><span class="idesc">See Morakot（09:00~16:00）· Nai Ek · 金铺巷</span></span></div><div class="irow"><span class="itime">12:00</span><span class="iname"><a href="#p-royal-barge">🔴 移动到河边</a><span class="idesc">🔴 12:30起全面禁航 —— 必须在那之前站到要看的那一岸</span></span></div><div class="irow"><span class="itime">13:00</span><span class="iname"><a href="#p-royal-barge">🔴 皇家驳船彩排 — 占位</a><span class="idesc">14:30集合 · 15:00开始移动 · 无票 · 厕所很少</span></span></div><div class="irow"><span class="itime">17:30</span><span class="iname"><a href="#p-f-jek-pui">Jek Pui 咖喱</a><span class="idesc">🔴 15:00~19:30 · 没有桌子的「抢椅子咖喱」· 两人分一盘，给 Somsak 留肚子</span></span></div><div class="irow"><span class="itime">18:30</span><span class="iname"><a href="#p-song-wat">Song Wat 路</a><span class="idesc">🔴 要平日下午这条街才有那个味道 · 912号15点才开、没有冷气</span></span></div><div class="irow"><span class="itime">19:45</span><span class="iname"><a href="#p-f-somsak">Somsak 蟹肉粉丝煲</a><span class="idesc">🔴 周二~日 16:00~21:30 · 过桥打车10~15分钟 · 排太久就放弃 · 坐BTS翁维安亚回去</span></span></div></div>
 </article>
-<article class="day">
+<article class="day dhide" data-dayn="4">
   <header class="dh">
+    <span class="dnum">Day 4</span>
     <span class="ddate">10/9<span class="ddow">五</span></span>
     <span class="dtheme">🥭 榴莲的早晨 → 二手市集 → 暹罗的夜</span>
   </header>
   <p class="dnote">从 Or Tor Kor 到 Pantip 一条地铁线就到。从通罗坐 BTS 澎蓬→莫奇不用换乘25分钟，06:15出门。今天先试榴莲，好吃的话明天去乍都乍时就在对面再买。</p>
+  <div class="daymapwrap"><div class="daymap" id="dm-1-3"></div><p class="dmhint">🔴 编号是<b>当天的移动顺序</b>。点击图钉可看到<b>地址与 Google 地图路线</b>。绿色 = 当天起点，紫色 = 最后一站。</p></div><script>window.DAYPINS=window.DAYPINS||{};window.DAYPINS["1-3"]=[{"n": 1, "t": "07:00", "name": "오또꼬 시장", "lat": 13.8038, "lng": 100.5497, "addr": "〒10900 Bangkok Chatuchak District Chatuchak Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.8038,100.5497", "label": "🥭 오또꼬 시장 — 두리안"}, {"n": 2, "t": "11:00", "name": "팬팁 응암웡완 구제시장", "lat": 13.8452, "lng": 100.533, "addr": "〒11000 Nonthaburi Province Nonthaburi City Municipality Mueang Nonthaburi District Bang Khen Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.8452,100.533", "label": "팬팁 응암웡완 — 냉방 구제시장"}, {"n": 3, "t": "18:30", "name": "플래티넘 패션몰", "lat": 13.75, "lng": 100.5395, "addr": "〒10400 Bangkok Ratchathewi District Thanon Phetchaburi Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.75,100.5395", "label": "플래티넘 패션몰"}, {"n": 4, "t": "19:30", "name": "반탓통 무까타", "lat": 13.7385, "lng": 100.525, "addr": "〒10330 Bangkok Pathum Wan District Chula Wang Mai Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7385,100.525", "label": "반탓통 — 무까타"}, {"n": 5, "t": "21:30", "name": "Arunda 마사지 — 쁘라뚜남", "lat": 13.7513, "lng": 100.5405, "addr": "〒10400 Bangkok Ratchathewi District Thanon Phetchaburi Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7513,100.5405", "label": "Arunda 마사지 — 쁘라뚜남"}];</script>
   <div class="irows"><div class="irow"><span class="itime">07:00</span><span class="iname"><a href="#p-or-tor-kor">🥭 Or Tor Kor 市场 — 榴莲</a><span class="idesc">✅ 每天 06:00~18:00 · 🔴 问价要问「整颗、按公斤、还是这一盒」</span></span></div><div class="irow"><span class="itime">09:30</span><span class="iname"><a href="#p-pantip-ngamwongwan">移动 — Kamphaeng Phet → Tao Poon → 紫线</a><span class="idesc">🟡 单程60~75分钟 · 最后2公里坐摩的 ฿30~50</span></span></div><div class="irow"><span class="itime">11:00</span><span class="iname"><a href="#p-pantip-ngamwongwan">Pantip 岸汪湾 — 有冷气的二手市集</a><span class="idesc">🔴 8楼只有周五六日 · 实际18:00就开始收摊</span></span></div><div class="irow"><span class="itime">18:30</span><span class="iname"><a href="#p-platinum">Platinum 时尚广场</a><span class="idesc">🟡 备用 —— Pantip 拖晚了就放弃 · 买两件以上给批发价</span></span></div><div class="irow"><span class="itime">19:30</span><span class="iname"><a href="#p-f-mookata">Banthat Thong — Mookata</a><span class="idesc">朱拉大学前的小吃街 · Chuan Kin 3楼冷气自助 ฿398 net · 深夜才是正片</span></span></div><div class="irow"><span class="itime">21:30</span><span class="iname"><a href="#p-massage-pratunam">Arunda 按摩 — 水门</a><span class="idesc">🟡 ฿250/小时 · 开到02:00 · 唯一能扛住晚点的按摩 · 结束后打车回通罗11分钟</span></span></div></div>
 </article>
-<article class="day">
+<article class="day dhide" data-dayn="5">
   <header class="dh">
+    <span class="dnum">Day 5</span>
     <span class="ddate">10/10<span class="ddow">六</span></span>
     <span class="dtheme">乍都乍上午 → 🏊 住处泳池 → 🔴 斋节开幕</span>
   </header>
   <p class="dnote">换住处的一天。LA49 08:00退房寄存行李，坐BTS直达乍都乍。取了行李搬到 Grande Centre Point，<b>泳池在入住后马上用</b>（退房是12点，明天下午用不了）。</p>
+  <div class="daymapwrap"><div class="daymap" id="dm-1-4"></div><p class="dmhint">🔴 编号是<b>当天的移动顺序</b>。点击图钉可看到<b>地址与 Google 地图路线</b>。绿色 = 当天起点，紫色 = 最后一站。</p></div><script>window.DAYPINS=window.DAYPINS||{};window.DAYPINS["1-4"]=[{"n": 1, "t": "08:00", "name": "LA49 호텔 (숙소)", "lat": 13.7215, "lng": 100.5745, "addr": "〒10110 Bangkok Khlong Toei District ชุมชนทรัพย์มโนทัย Khlong Tan Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7215,100.5745", "label": "LA49 체크아웃 · 짐 맡기기"}, {"n": 2, "t": "09:00", "name": "짜뚜짝 주말시장", "lat": 13.7999, "lng": 100.5505, "addr": "〒10900 Bangkok Chatuchak District Chatuchak Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7999,100.5505", "label": "짜뚜짝 주말시장"}, {"n": 3, "t": "12:00", "name": "오또꼬 시장", "lat": 13.8038, "lng": 100.5497, "addr": "〒10900 Bangkok Chatuchak District Chatuchak Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.8038,100.5497", "label": "🥭 오또꼬 재방문"}, {"n": 4, "t": "14:30", "name": "그란데 센터 포인트 룸피니 (숙소)", "lat": 13.7268, "lng": 100.5455, "addr": "〒10330 Bangkok Pathum Wan District Lumphini Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7268,100.5455", "label": "🏊 27층 인피니티풀"}, {"n": 5, "t": "18:00", "name": "왓망꼰 · 채식축제", "lat": 13.7437, "lng": 100.51, "addr": "〒10100 Bangkok Pom Prap Sattru Phai District Pom Prap Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7437,100.51", "label": "🔴 채식축제 개막"}];</script>
   <div class="irows"><div class="irow"><span class="itime">08:00</span><span class="iname">LA49 退房 · 寄存行李<span class="idesc">🟡 能否寄存行李要提前问</span></span></div><div class="irow"><span class="itime">09:00</span><span class="iname"><a href="#p-chatuchak">乍都乍周末市场</a><span class="idesc">🔴 只有周六日 · 15,000个摊 · 2~4区古着 · 7区手工 · 26区陶瓷</span></span></div><div class="irow"><span class="itime">12:00</span><span class="iname"><a href="#p-or-tor-kor">🥭 再去一次 Or Tor Kor</a><span class="idesc">就在对面 · 有冷气 · 昨天榴莲好吃的话今天再买</span></span></div><div class="irow"><span class="itime">13:30</span><span class="iname">回 LA49 取行李搬家<span class="idesc">打车25~35分钟 · Grande Centre Point 伦披尼 14:00入住</span></span></div><div class="irow"><span class="itime">14:30</span><span class="iname">🏊 27楼无边泳池<span class="idesc">✅ 06:00~22:00 · 50米 · 🟡 周末下午家庭客多</span></span></div><div class="irow"><span class="itime">17:30</span><span class="iname">MRT 伦披尼 → 龙莲寺<span class="idesc">4站 · 20分钟</span></span></div><div class="irow"><span class="itime">18:00</span><span class="iname"><a href="#p-vegetarian-festival">🔴 斋节开幕</a><span class="idesc">开幕日最热闹 · 黄旗 · 摊子上的食物全部换成素的</span></span></div><div class="irow"><span class="itime">20:00</span><span class="iname"><a href="#p-f-veg-street">斋节街边摊</a><span class="mealtag ev">🍽 正餐</span><span class="idesc">10/10~18 · 晚上才是正片</span></span></div></div>
 </article>
-<article class="day">
+<article class="day dhide" data-dayn="6">
   <header class="dh">
+    <span class="dnum">Day 6</span>
     <span class="ddate">10/11<span class="ddow">日</span></span>
     <span class="dtheme">挽格贞上午 → Ann Thadindaeng → 温泉 → 深夜出发</span>
   </header>
   <p class="dnote">最后一天。07:30退房寄存行李后去挽格贞。回来后在<b>酒店里的温泉·按摩</b>洗澡休息，21:00去机场。</p>
+  <div class="daymapwrap"><div class="daymap" id="dm-1-5"></div><p class="dmhint">🔴 编号是<b>当天的移动顺序</b>。点击图钉可看到<b>地址与 Google 地图路线</b>。绿色 = 当天起点，紫色 = 最后一站。</p></div><script>window.DAYPINS=window.DAYPINS||{};window.DAYPINS["1-5"]=[{"n": 1, "t": "08:00", "name": "방까차오 자전거", "lat": 13.69, "lng": 100.557, "addr": "〒10120 Samut Prakan Province Bang Kachao Subdistrict Bang Kachao Subdistrict Administrative Organization", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.69,100.557", "label": "방까차오 자전거"}, {"n": 2, "t": "09:30", "name": "방남픙 수상시장", "lat": 13.6845, "lng": 100.5665, "addr": "〒10130 Samut Prakan Province Bang Ko Bua Subdistrict Bang Ko Bua Subdistrict Administrative Organization", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.6845,100.5665", "label": "방남픙 수상시장"}, {"n": 3, "t": "12:30", "name": "안 타딘댕 — 소금구이 민물새우", "lat": 13.696, "lng": 100.596, "addr": "〒10260 Bangkok Phra Khanong District Phra Khanong Tai Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.696,100.596", "label": "안 타딘댕 — 소금구이 민물새우"}, {"n": 4, "t": "14:00", "name": "렛츠릴렉스 온천 (그란데 내)", "lat": 13.7268, "lng": 100.5455, "addr": "〒10330 Bangkok Pathum Wan District Lumphini Subdistrict", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.7268,100.5455", "label": "렛츠릴렉스 온천 · 마사지 (호텔 안)"}, {"n": 5, "t": "21:00", "name": "수완나품 공항", "lat": 13.69, "lng": 100.7501, "addr": "〒10570 Samut Prakan Province Nong Prue Subdistrict Nong Prue Subdistrict Administrative Organization", "dir": "https://www.google.com/maps/dir/?api=1&destination=13.69,100.7501", "label": "공항 이동"}];</script>
   <div class="irows"><div class="irow"><span class="itime">07:30</span><span class="iname">退房 · 寄存行李 → 邦那<span class="idesc">打车15~20分钟 · BTS 邦那</span></span></div><div class="irow"><span class="itime">08:00</span><span class="iname"><a href="#p-bang-krachao">挽格贞骑单车</a><span class="idesc">🔴 周六日上午 · 09:00出发是标准 · 租车点18:00收</span></span></div><div class="irow"><span class="itime">09:30</span><span class="iname"><a href="#p-f-bang-nam-phueng">Bang Nam Phueng 水上市场</a><span class="idesc">🔴 周六日 08:00~16:00 · 平日根本没有</span></span></div><div class="irow"><span class="itime">12:30</span><span class="iname"><a href="#p-f-ann-thadindaeng">Ann Thadindaeng 盐烤大河虾</a><span class="idesc">🔴 周三~日 11:00~20:00 · 周日营业 · 从邦那打车30~40分钟 · 只收现金</span></span></div><div class="irow"><span class="itime">14:00</span><span class="iname"><a href="#p-thai-massage">Let&#x27;s Relax 温泉 · 按摩（酒店内）</a><span class="idesc">✅ 10:00~24:00 · 温泉一日票 ฿750（官方）· 洗好澡准备上飞机</span></span></div><div class="irow"><span class="itime">18:30</span><span class="iname">晚饭 — 住处附近<span class="idesc">轻松吃一点</span></span></div><div class="irow"><span class="itime">21:00</span><span class="iname">前往机场<span class="idesc">✅ LJ002 10/12 00:45 · Grab 或酒店用车 ฿1,300 · 周日晚上也会堵</span></span></div></div>
 </article></div>
 </section>
@@ -5959,6 +6058,10 @@ blockquote.qb{border-left-color:var(--brick)}
 
 </section>
 
+<section class="tabpane hide shop-tab" data-tab="shop">
+
+</section>
+
 <section class="tabpane hide" data-tab="stay">
 
 <section class="stay" id="stay">
@@ -6371,7 +6474,117 @@ blockquote.qb{border-left-color:var(--brick)}
     window.__travelogMaps.push(m);
   };
 
+  // ── 일자별 동선 지도 (2026-09-20 신설) ──────────────────────────
+  //    핀을 시각 순서로 잇고, 핀을 누르면 주소 + 구글지도 길찾기가 뜬다.
+  //    🔴 숨은 탭(계획)에서 초기화되므로 반드시 __refit 을 등록한다.
+  function esc(x){ return String(x==null?"":x).replace(/[&<>"]/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+  function dayMarker(p, last){
+    var col = p.n===1 ? "#0f766e" : (p.n===last ? "#9D174D" : "#2C7A67");
+    var ic = L.divIcon({ className:"",
+      html:'<div style="background:'+col+';color:#fff;width:26px;height:26px;border-radius:50%;'
+         + 'display:flex;align-items:center;justify-content:center;font:600 12px/1 IBM Plex Mono,monospace;'
+         + 'box-shadow:0 1px 4px rgba(0,0,0,.45);border:2px solid #fff">'+p.n+'</div>',
+      iconSize:[26,26], iconAnchor:[13,13], popupAnchor:[0,-14] });
+    var html = '<div class="dmpop"><span class="dmt">'+esc(p.t)+'</span>'
+             + '<b>'+esc(p.label)+'</b>'
+             + '<span style="font-size:12px;color:var(--ink-2)">'+esc(p.name)+'</span>'
+             + (p.addr ? '<span class="dma">'+esc(p.addr)+'</span>' : '<span class="dma"></span>')
+             + '<a class="dmgo" href="'+esc(p.dir)+'" target="_blank" rel="noopener">구글지도 길찾기 ↗</a></div>';
+    return L.marker([p.lat,p.lng],{icon:ic, title:p.label}).bindPopup(html, {maxWidth:260});
+  }
+
+  function drawDay(el, pins){
+    if(!el || !pins || pins.length < 2 || el.dataset.done) return;
+    el.dataset.done = "1";
+    var map = L.map(el, {scrollWheelZoom:false, zoomControl:true});
+    L.tileLayer(TILE, {attribution:ATTR, maxZoom:19}).addTo(map);
+    var last = pins.length;
+    var line = L.polyline(pins.map(function(p){ return [p.lat,p.lng]; }),
+      {color:"#2C7A67", weight:3, opacity:.55, dashArray:"6 6"}).addTo(map);
+    var group = L.featureGroup(pins.map(function(p){ return dayMarker(p,last); })).addTo(map);
+    var all = L.featureGroup([line, group]);
+
+    // 🔴 공항처럼 «멀리 떨어진 한 점» 이 하루 지도를 지배해 시내가 안 읽힌다
+    //    (9/21 KIX→고베는 바다만 보였다). 먼 점을 뺀 «도심» 범위를 기본으로 잡고,
+    //    「전체 보기」 로 언제든 되돌릴 수 있게 한다.
+    function km(a,b){
+      var R=6371, dLat=(b.lat-a.lat)*Math.PI/180, dLng=(b.lng-a.lng)*Math.PI/180;
+      var la1=a.lat*Math.PI/180, la2=b.lat*Math.PI/180;
+      var h=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.sin(dLng/2)*Math.sin(dLng/2)*Math.cos(la1)*Math.cos(la2);
+      return 2*R*Math.asin(Math.sqrt(h));
+    }
+    var mid = pins.slice().sort(function(a,b){ return a.lat-b.lat; })[Math.floor(pins.length/2)];
+    var core = pins.filter(function(p){ return km(p, mid) <= 20; });
+    var hasOutlier = core.length >= 2 && core.length < pins.length;
+
+    var mode = hasOutlier ? "core" : "all";
+    var fit = function(){
+      var b = (mode === "core")
+        ? L.latLngBounds(core.map(function(p){ return [p.lat,p.lng]; }))
+        : all.getBounds();
+      map.fitBounds(b, {padding:[30,30], maxZoom:15});
+    };
+
+    if (hasOutlier) {
+      var Btn = L.Control.extend({
+        options:{position:"topright"},
+        onAdd:function(){
+          var d = L.DomUtil.create("div","leaflet-bar dmtoggle");
+          d.innerHTML = '<a href="#" title="지도 범위 전환">전체 보기</a>';
+          L.DomEvent.on(d, "click", function(e){
+            L.DomEvent.stop(e);
+            mode = (mode === "core") ? "all" : "core";
+            d.querySelector("a").textContent = (mode === "core") ? "전체 보기" : "도심만";
+            fit();
+          });
+          return d;
+        }
+      });
+      map.addControl(new Btn());
+    }
+    fit();
+    setTimeout(function(){ map.invalidateSize(); fit(); }, 70);
+    map.__refit = function(){ map.invalidateSize(); fit(); };
+    window.__travelogMaps.push(map);
+  }
+
+  // 🔴 숨은 탭·숨은 날짜에서 만든 지도는 컨테이너 높이가 0이라 타일이 깨진다
+  //    (2026-09-20 실측: Day 4 로 넘기면 타일 4장만 그려지고 핀이 구석에 몰렸다).
+  //    그래서 «보일 때 그린다» — 이미 그린 지도는 __refit 만 한다.
+  window.__drawDayMaps = function(){
+    if(!window.DAYPINS) return;
+    Object.keys(window.DAYPINS).forEach(function(k){
+      var el = document.getElementById("dm-"+k);
+      if(!el || !el.offsetParent) return;          // 화면에 없으면 건너뛴다
+      drawDay(el, window.DAYPINS[k]);
+    });
+  };
+
   window.__travelogMaps = [];
+  // ── 날짜 페이저 ── Day 버튼으로 하루씩 보여준다
+  document.querySelectorAll(".daynav").forEach(function(nav){
+    var wrap = nav.parentNode;
+    nav.addEventListener("click", function(e){
+      var b = e.target.closest(".dnb"); if(!b) return;
+      var n = b.dataset.dayn;
+      nav.querySelectorAll(".dnb").forEach(function(x){ x.classList.toggle("on", x === b); });
+      wrap.querySelectorAll(".day").forEach(function(d){
+        d.classList.toggle("dhide", d.dataset.dayn !== n);
+      });
+      // 보이게 된 다음에 «그리거나 다시 맞춘다» (순서가 중요하다)
+      setTimeout(function(){
+        try{ window.__drawDayMaps(); }catch(err){}
+        (window.__travelogMaps||[]).forEach(function(m){
+          try{ if(m.__refit) m.__refit(); }catch(err){}
+        });
+      }, 60);
+      wrap.querySelector(".days").scrollIntoView({block:"nearest", behavior:"smooth"});
+    });
+  });
+
+  window.__drawDayMaps();
   var m0 = draw(document.getElementById("omap"), PINS, 34);
   if(m0) window.__travelogMaps.push(m0);
   document.querySelectorAll(".zmap").forEach(function(el){
@@ -6489,6 +6702,7 @@ blockquote.qb{border-left-color:var(--brick)}
     // 🔴 크기만 되찾고 끝내면 숨은 상태에서 잘못 잡힌 줌이 그대로 남는다 → 범위도 다시 맞춘다
     if(window.__travelogMaps) window.__travelogMaps.forEach(function(m){
       setTimeout(function(){ try{ (m.__refit ? m.__refit() : m.invalidateSize()); }catch(e){} }, 60); });
+    setTimeout(function(){ try{ window.__drawDayMaps(); }catch(e){} }, 70);
   }
   document.querySelectorAll('.tb').forEach(function(b){
     b.addEventListener('click', function(){ showTab(b.dataset.tab); });
