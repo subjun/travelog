@@ -63,7 +63,39 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
    바깥 z-index 경쟁에서 빠지게 한다. isolation 은 구형 대비 position/z-index 와 함께 건다. */
 .omap, .zmap, .daymap, #staymap, #omap, .leaflet-container{
   position:relative; z-index:0; isolation:isolate}
-.filters{position:sticky; top:0; z-index:30; background:var(--ground); padding:14px 0 12px; border-bottom:1px solid var(--line); margin-bottom:8px}
+/* ── 필터 접기 (2026-09-20 신설) ───────────────────────────────
+   🔴 폰에서 권역·시간대 칩이 화면의 3/4를 먹어 카드가 거의 안 보였다.
+      좁은 화면에서는 «접힌 채로» 시작하고, 넓은 화면은 그대로 펴 둔다. */
+.fhead{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.ftoggle{display:inline-flex; align-items:center; gap:7px; font-family:inherit; font-size:13px;
+  font-weight:600; color:var(--ink); background:var(--surface); border:1px solid var(--line-2);
+  border-radius:20px; padding:7px 13px; cursor:pointer; flex:0 0 auto}
+.ftoggle:hover{border-color:var(--jade)}
+.ftoggle .fcnt{font:600 11px/1 "IBM Plex Mono",monospace; color:#fff; background:var(--jade);
+  border-radius:10px; padding:3px 7px}
+.ftoggle .fcnt:empty{display:none}
+.ftoggle .fcar{font-size:10px; color:var(--ink-3); transition:transform .15s}
+.filters.open .ftoggle,
+.filters.is-open .ftoggle{background:var(--jade-ink); border-color:var(--jade-ink); color:#fff}
+.filters.open .ftoggle .fcar,
+.filters.is-open .ftoggle .fcar{transform:rotate(180deg); color:rgba(255,255,255,.7)}
+.filters.open .ftoggle .fcnt,
+.filters.is-open .ftoggle .fcnt{background:rgba(255,255,255,.22)}
+.fsum{font-size:12px; color:var(--ink-3); line-height:1.5; flex:1 1 auto; min-width:0;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+/* 🔴 기본 상태는 «CSS가» 정한다. JS 로 정하면 화면 폭이 바뀔 때 어긋난다
+   (2026-09-20 실측: 데스크톱 폭에서 로드된 뒤 폰 폭으로 줄이면 펼친 채로 남았다).
+   JS 는 사용자가 «직접 누른» 경우에만 .open / .closed 를 박는다. */
+.fbody{display:none; margin-top:12px}
+.filters.open .fbody{display:block}
+.filters.open .fsum{display:none}
+@media(min-width:760px){
+  .fbody{display:block}
+  .fsum{display:none}
+  .filters.closed .fbody{display:none}
+  .filters.closed .fsum{display:block}
+}
+.filters{position:sticky; top:var(--tabsh,0px); z-index:30; background:var(--ground); padding:10px 0 10px; border-bottom:1px solid var(--line); margin-bottom:8px}
 .frow{display:flex; gap:6px; flex-wrap:wrap; align-items:center}
 .frow + .frow{margin-top:8px}
 .flabel{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); margin-right:4px}
@@ -561,7 +593,9 @@ blockquote.qb{border-left-color:var(--brick)}
 .tb.on{background:var(--jade); border-color:var(--jade); color:#fff}
 .tb.on b{background:rgba(255,255,255,.24); color:#fff}
 .tabpane.hide{display:none}
-.tabpane .filters{top:56px}
+/* 🔴 탭 높이를 56px 로 못박아 뒀었다 — 폰에서는 탭이 두 줄(102px)이라
+   필터가 탭 «뒤로» 숨었다 (2026-09-20 실측). 실측값(--tabsh)으로 바꾼다. */
+.tabpane .filters{top:var(--tabsh,56px)}
 @media (max-width:560px){ .tb{font-size:13px; padding:8px 11px} }
 
 /* ── 제출 탭 요약 ────────────────────────────────────────── */
@@ -3928,6 +3962,7 @@ blockquote.qb{border-left-color:var(--brick)}
   </div>
 </div>
 
+<script>window.__UIF={t:"필터",act:"개 적용 중",none:"전체 보기"};</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script>
 (function(){
@@ -4100,6 +4135,70 @@ blockquote.qb{border-left-color:var(--brick)}
     });
   });
 
+
+
+  // 🔴 .tabs 와 .filters 가 둘 다 top:0 이라 필터가 탭 «뒤로» 숨었다 (2026-09-20 실측).
+  //    탭 높이를 재서 그만큼 내려 붙인다 — 탭은 줄바꿈이 있어 높이가 화면 폭에 따라 변한다.
+  (function(){
+    var tabs = document.getElementById("tabs");
+    if(!tabs) return;
+    function setH(){
+      document.documentElement.style.setProperty("--tabsh", Math.round(tabs.getBoundingClientRect().height) + "px");
+    }
+    setH();
+    window.addEventListener("resize", setH);
+    if (window.ResizeObserver) new ResizeObserver(setH).observe(tabs);
+  })();
+  // ── 필터 접기 ── 마크업이 두 군데(볼거리·먹거리)라 런타임에 감싼다
+  (function(){
+    var UI = window.__UIF || {t:"필터", act:"개 적용 중", none:"전체 보기"};
+    document.querySelectorAll(".filters").forEach(function(f){
+      if (f.dataset.fold) return;
+      f.dataset.fold = "1";
+      var body = document.createElement("div");
+      body.className = "fbody";
+      while (f.firstChild) body.appendChild(f.firstChild);
+      var head = document.createElement("div");
+      head.className = "fhead";
+      head.innerHTML = '<button type="button" class="ftoggle" aria-expanded="false">'
+        + '<b>' + UI.t + '</b><span class="fcnt"></span><span class="fcar">▾</span></button>'
+        + '<span class="fsum"></span>';
+      f.appendChild(head);
+      f.appendChild(body);
+
+      var btn = head.querySelector(".ftoggle");
+      var cnt = head.querySelector(".fcnt");
+      var sum = head.querySelector(".fsum");
+
+      function sync(){
+        // 🔴 «초기화»·«전체» 류는 상태가 아니라 동작이라 세지 않는다
+        var on = [].slice.call(body.querySelectorAll(".fb.on"))
+          .filter(function(b){ return !/reset/.test(b.dataset.f || ""); });
+        cnt.textContent = on.length ? String(on.length) : "";
+        sum.textContent = on.length
+          ? on.map(function(b){ return b.textContent.trim(); }).join(" · ")
+          : UI.none;
+      }
+      function isOpen(){ return getComputedStyle(body).display !== "none"; }
+      function mark(){
+        var o = isOpen();
+        f.classList.toggle("is-open", o);
+        btn.setAttribute("aria-expanded", o ? "true" : "false");
+      }
+      btn.addEventListener("click", function(){
+        var o = isOpen();
+        f.classList.toggle("open", !o);
+        f.classList.toggle("closed", o);
+        mark();
+      });
+      // 화면 폭이 바뀌면 «직접 누르기 전» 상태로 되돌린다
+      window.addEventListener("resize", mark);
+      mark();
+      body.addEventListener("click", function(){ setTimeout(sync, 0); });
+      f.__fsync = sync;
+      sync();
+    });
+  })();
   window.__drawDayMaps();
   var m0 = draw(document.getElementById("omap"), PINS, 34);
   if(m0) window.__travelogMaps.push(m0);
