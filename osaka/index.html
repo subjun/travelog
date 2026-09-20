@@ -57,7 +57,13 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
 .howto{margin-top:20px; padding:14px 16px; background:var(--surface); border:1px solid var(--line); border-radius:10px; font-size:13px; color:var(--ink-2); line-height:1.65}
 .howto b{color:var(--ink)}
 
-.filters{position:sticky; top:0; z-index:9; background:var(--ground); padding:14px 0 12px; border-bottom:1px solid var(--line); margin-bottom:8px}
+/* 🔴 지도가 고정 헤더(.tabs z-index:12 / .filters z-index:9) 위로 올라와 화면이 깨졌다
+   (2026-09-20 폰 실측: 볼거리 탭에서 스크롤하면 지도가 필터 칩을 덮었다).
+   Leaflet 내부 pane 들은 z-index 400~700 이라, 지도 칸마다 «자기 쌓임맥락» 을 만들어
+   바깥 z-index 경쟁에서 빠지게 한다. isolation 은 구형 대비 position/z-index 와 함께 건다. */
+.omap, .zmap, .daymap, #staymap, #omap, .leaflet-container{
+  position:relative; z-index:0; isolation:isolate}
+.filters{position:sticky; top:0; z-index:30; background:var(--ground); padding:14px 0 12px; border-bottom:1px solid var(--line); margin-bottom:8px}
 .frow{display:flex; gap:6px; flex-wrap:wrap; align-items:center}
 .frow + .frow{margin-top:8px}
 .flabel{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); margin-right:4px}
@@ -129,7 +135,7 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
   border-radius:6px; padding:5px 10px}
 .links a:hover{border-color:var(--jade); background:var(--jade-soft)}
 
-.bar{position:fixed; left:0; right:0; bottom:0; z-index:20; background:var(--surface);
+.bar{position:fixed; left:0; right:0; bottom:0; z-index:50; background:var(--surface);
   border-top:1px solid var(--jade); padding:12px 18px; display:flex; gap:14px; align-items:center;
   flex-wrap:wrap; box-shadow:0 -2px 14px rgba(0,0,0,.08)}
 .bar .inner{max-width:940px; margin:0 auto; width:100%; display:flex; gap:14px; align-items:center; flex-wrap:wrap}
@@ -544,7 +550,7 @@ blockquote.qb{border-left-color:var(--brick)}
 .photonote{padding:8px 14px; font-size:11.5px; color:var(--amber); background:var(--amber-soft); line-height:1.55}
 
 /* ── 상단 탭 ─────────────────────────────────────────────── */
-.tabs{position:sticky; top:0; z-index:12; display:flex; gap:4px; flex-wrap:wrap;
+.tabs{position:sticky; top:0; z-index:40; display:flex; gap:4px; flex-wrap:wrap;
   background:var(--ground); padding:12px 0 10px; border-bottom:2px solid var(--line-2); margin-bottom:6px}
 .tb{font-family:inherit; font-size:14px; font-weight:500; color:var(--ink-2); background:var(--surface);
   border:1px solid var(--line-2); border-radius:9px 9px 0 0; padding:9px 15px; cursor:pointer;
@@ -3078,7 +3084,7 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>뒤꿈치가 약간 뜬다는 평. 🔴 <b>996은 D폭만 나와 같은 30.0cm여도 낀다</b> — 996을 고르지 마라.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>NB는 <b>전 모델 깔창이 빠진다.</b> 빼서 그 위에 서보면 실측이 확실하다. 30.0cm = US 12.</div></div>
   <div class="sfield "><b>어디서</b><div>ニューバランス心斎橋 (心斎橋筋1-4-18)</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://shop.newbalance.jp/guide-sizechart.html" target="_blank" rel="noopener">▶ 뉴발란스 JP 공식 사이즈차트</a><a href="https://newbalance-love.com/newbalance-574-996/" target="_blank" rel="noopener">▶ 574 vs 996 목형 비교</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://shop.newbalance.jp/guide-sizechart.html" target="_blank" rel="noopener">🔗 뉴발란스 JP 공식 사이즈차트</a><a href="https://newbalance-love.com/newbalance-574-996/" target="_blank" rel="noopener">🔗 574 vs 996 목형 비교</a></div></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3148,7 +3154,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>일본판은 카메라 무음이 안 된다</b> — 해외판을 골라야 한다.<br>🔴 <b>중고는 환불 불가</b>다. 직접 꺼내 테스트하고 결정해야 한다.<br>🔴 등급(A/C) 표기가 왜 그런지 반드시 물어볼 것.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>중고 전자 매장도 대부분 5,000엔 이상이면 면세가 된다.</div></div>
   <div class="sfield "><b>어디서</b><div>덴덴타운(니혼바시) · 아키하바라</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=4eGm1NYnffw" target="_blank" rel="noopener">▶ 고독한잡동사니 — 아키하바라 중고 아이폰</a><a href="https://www.youtube.com/watch?v=dhf7nPBLFrw" target="_blank" rel="noopener">▶ 오사카 아이폰 싼 곳</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 2</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/4eGm1NYnffw"
+    title="고독한잡동사니 — 아키하바라 중고 아이폰" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>고독한잡동사니 — 아키하바라 중고 아이폰</b><span>YouTube</span></div>
+  <div class="vlist"><button type="button" class="vitem on" data-v="4eGm1NYnffw" data-t="고독한잡동사니 — 아키하바라 중고 아이폰" data-a=""><span class="vn">1</span>고독한잡동사니 — 아키하바라 중고 아이폰</button><button type="button" class="vitem" data-v="dhf7nPBLFrw" data-t="오사카 아이폰 싼 곳" data-a=""><span class="vn">2</span>오사카 아이폰 싼 곳</button></div>
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3174,7 +3189,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「역시 일본 중고 시세는 저렴하지 않은 상황」</div></div>
   
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=8CNFWUW3FUs" target="_blank" rel="noopener">▶ 시나쓰 — 아키하바라 중고</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/8CNFWUW3FUs"
+    title="시나쓰 — 아키하바라 중고" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>시나쓰 — 아키하바라 중고</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3205,7 +3229,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>콜라보는 시즌마다 바뀐다.</b> 9월에 이 라인이 있으리란 보장이 없다 — 가서 봐야 안다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🎯 유니클로 페이백은 <b>단독 매장만</b> 대상이다. <b>GU는 유니클로 혜택에 안 들어간다.</b></div></div>
   <div class="sfield "><b>어디서</b><div>GU 신사이바시·난바</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=61ZEWbHrm_4" target="_blank" rel="noopener">▶ 직접 써보고 추천하는 일본 쇼핑리스트 BEST14</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/61ZEWbHrm_4"
+    title="직접 써보고 추천하는 일본 쇼핑리스트 BEST14" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>직접 써보고 추천하는 일본 쇼핑리스트 BEST14</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3218,7 +3251,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>벨트가 작게 나온다 — 「골반에 하기엔 조금 빡빡하다. 제일 크게 뚫어도」</div></div>
   
   <div class="sfield "><b>어디서</b><div>GU 신사이바시</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=z_lc1eDIKxg" target="_blank" rel="noopener">▶ 유니클로 GU 쇼핑 하울</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/z_lc1eDIKxg"
+    title="유니클로 GU 쇼핑 하울" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>유니클로 GU 쇼핑 하울</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3231,7 +3273,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>대안 지적 — 「최근 일본에서는 유니클로보다 품질이 좋다고 알아주는 제품으로 몽벨 쿨 파카를 많이들 찾는다」(몽벨 7,000~8,000엔, 약 2배)</div></div>
   
   <div class="sfield "><b>어디서</b><div>유니클로 신사이바시</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=yIfiwi4BtSg" target="_blank" rel="noopener">▶ 믿고보는 일본쇼핑 2026 상반기 어워드</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/yIfiwi4BtSg"
+    title="믿고보는 일본쇼핑 2026 상반기 어워드" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>믿고보는 일본쇼핑 2026 상반기 어워드</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3244,7 +3295,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>재고가 거의 없다 — 「이 컬러랑 이 컬러가 딱 두 개 남아 있어 가지고」. 🔴 <b>한국에도 파는 모델이면 메리트가 없다.</b></div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🎯 <b>바람막이 5만원 이상이면 페이백 2만원(40%).</b> 원화 환산 기준이라 <b>조금 넘겨서</b> 살 것.</div></div>
   <div class="sfield "><b>어디서</b><div>유니클로 신사이바시 (心斎橋筋)</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=_d__TvPpzVY" target="_blank" rel="noopener">▶ 지금 사야할 일본 쇼핑리스트</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/_d__TvPpzVY"
+    title="지금 사야할 일본 쇼핑리스트" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>지금 사야할 일본 쇼핑리스트</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3257,7 +3317,16 @@ blockquote.qb{border-left-color:var(--brick)}
   
   <div class="sfield stip"><b>실전 팁</b><div>매장 공략법 — 「일단 여기는 <b>세일하는 거 위주로</b> 한번 돌아야 합니다」. 면세는 <b>5,500엔 이상</b>부터.</div></div>
   <div class="sfield "><b>어디서</b><div>GU 신사이바시</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=UIhm1-d7n5k" target="_blank" rel="noopener">▶ 일본 가성비 의류 쇼핑리스트 10곳</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/UIhm1-d7n5k"
+    title="일본 가성비 의류 쇼핑리스트 10곳" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>일본 가성비 의류 쇼핑리스트 10곳</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3314,7 +3383,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「메쉬 타입이다 보니까 충격 보호에는 조금 약하긴 한데」 → 카메라·충전기엔 별도 완충이 필요하다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>난바 스카이오 5F 무지는 <b>계산대 바로 옆에 택스리펀 창구</b>가 있다.</div></div>
   <div class="sfield "><b>어디서</b><div>난바 스카이오 5F · 신사이바시</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=LwSESmT-68Y" target="_blank" rel="noopener">▶ 15년차 무인양품 덕후의 추천템 &amp; 비추템</a><a href="https://www.youtube.com/watch?v=_VOHYg4TrZ8" target="_blank" rel="noopener">▶ MUJI 덕후의 오사카 하울</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 2</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/LwSESmT-68Y"
+    title="15년차 무인양품 덕후의 추천템 &amp; 비추템" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>15년차 무인양품 덕후의 추천템 &amp; 비추템</b><span>YouTube</span></div>
+  <div class="vlist"><button type="button" class="vitem on" data-v="LwSESmT-68Y" data-t="15년차 무인양품 덕후의 추천템 &amp; 비추템" data-a=""><span class="vn">1</span>15년차 무인양품 덕후의 추천템 &amp; 비추템</button><button type="button" class="vitem" data-v="_VOHYg4TrZ8" data-t="MUJI 덕후의 오사카 하울" data-a=""><span class="vn">2</span>MUJI 덕후의 오사카 하울</button></div>
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3327,7 +3405,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>혹평도 있다 — 「건더기가 거의 들어 있지 않아서」. 레토르트는 무게가 나가니 <b>2~3개만</b>.</div></div>
   
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=ryaL7GYsXGE" target="_blank" rel="noopener">▶ 4대 쇼핑 성지 리스트 총정리</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/ryaL7GYsXGE"
+    title="4대 쇼핑 성지 리스트 총정리" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>4대 쇼핑 성지 리스트 총정리</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3340,7 +3427,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>9월 오사카는 아직 더워 녹을 수 있다.</b> 귀국 직전에 사는 게 낫다.</div></div>
   
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=ryaL7GYsXGE" target="_blank" rel="noopener">▶ 4대 쇼핑 성지 리스트 총정리</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/ryaL7GYsXGE"
+    title="4대 쇼핑 성지 리스트 총정리" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>4대 쇼핑 성지 리스트 총정리</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3353,7 +3449,16 @@ blockquote.qb{border-left-color:var(--brick)}
   
   <div class="sfield stip"><b>실전 팁</b><div>손잡이가 달려 있어 신발 주머니로도 쓴다.</div></div>
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=-ZbGher8POM" target="_blank" rel="noopener">▶ 모르면 손해 일본 쇼핑리스트</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/-ZbGher8POM"
+    title="모르면 손해 일본 쇼핑리스트" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>모르면 손해 일본 쇼핑리스트</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3366,7 +3471,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>단종·품절이 진행 중</b>이다 — 「0.38도 없어진 것 같고 캡식도 없어진 것 같아요」. 보이면 그 자리에서 확보할 것.</div></div>
   
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=LwSESmT-68Y" target="_blank" rel="noopener">▶ 무인양품 덕후의 추천템</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/LwSESmT-68Y"
+    title="무인양품 덕후의 추천템" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>무인양품 덕후의 추천템</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3379,7 +3493,16 @@ blockquote.qb{border-left-color:var(--brick)}
   
   
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=-ZbGher8POM" target="_blank" rel="noopener">▶ 모르면 손해 일본 쇼핑리스트</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/-ZbGher8POM"
+    title="모르면 손해 일본 쇼핑리스트" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>모르면 손해 일본 쇼핑리스트</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3405,7 +3528,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>리뷰어 본인이 선을 그었다</b> — 「물론 일본까지 가서 사올 만한 그런 제품은 아닙니다. 국내에서도 이 정도 가격대는 괜찮은 포터블 스피커가 많거든요」. 헤드폰은 「착용감 별로 안 좋아요」, <b>커널형 M1은 명시적 비추</b>.</div></div>
   
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=xTTk3oiWd0Y" target="_blank" rel="noopener">▶ 단돈 2만원에 출시한 무인양품 음향기기</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/xTTk3oiWd0Y"
+    title="단돈 2만원에 출시한 무인양품 음향기기" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>단돈 2만원에 출시한 무인양품 음향기기</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3418,7 +3550,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>케이블 케이스 — 「안 사셨으면 좋겠어요. 진짜 2,900원의 가치를 하지 못한다」<br>스티키 노트 — 「접착력이 매우 좋지 않다. 어디 붙여도 떨어져요. <b>포스트잇은 3M이다</b>」<br>가방걸이 — 「국내엔 없고 일본에만 있는 걸로 아는데 <b>이거 비추 비추</b>」<br>꺼내기 쉬운 파우치 — 「꺼내기는 쉽지만 <b>닫기는 힘든</b> 그런 파우치」</div></div>
   
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=LwSESmT-68Y" target="_blank" rel="noopener">▶ 무인양품 덕후의 비추템</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/LwSESmT-68Y"
+    title="무인양품 덕후의 비추템" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>무인양품 덕후의 비추템</b><span>YouTube</span></div>
+  
+</details></div>
 </article></div>
 </section>
 <section class="shopsec">
@@ -3436,7 +3577,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>가격 인상 지적 — 「2~3년 전 200엔대였는데… 너무 가격이 많이 오르는 거지」</div></div>
   
   <div class="sfield "><b>어디서</b><div>돈키호테 도톤보리점</div></div>
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=rW4u1bfOuro" target="_blank" rel="noopener">▶ 돈키호테에 1000만원은 족히 써본 자의 추천/비추천</a><a href="https://www.youtube.com/watch?v=43iIgI-PIAg" target="_blank" rel="noopener">▶ 돈키호테 살래 말래? | 할명수</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 2</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/rW4u1bfOuro"
+    title="돈키호테에 1000만원은 족히 써본 자의 추천/비추천" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>돈키호테에 1000만원은 족히 써본 자의 추천/비추천</b><span>YouTube</span></div>
+  <div class="vlist"><button type="button" class="vitem on" data-v="rW4u1bfOuro" data-t="돈키호테에 1000만원은 족히 써본 자의 추천/비추천" data-a=""><span class="vn">1</span>돈키호테에 1000만원은 족히 써본 자의 추천/비추천</button><button type="button" class="vitem" data-v="43iIgI-PIAg" data-t="돈키호테 살래 말래? | 할명수" data-a=""><span class="vn">2</span>돈키호테 살래 말래? | 할명수</button></div>
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3449,7 +3599,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>제품별 짠맛 편차가 크다 — 「진짜 먹는 순간 &#x27;너무 짜다!&#x27;」</div></div>
   
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=tVZRvbDNFi4" target="_blank" rel="noopener">▶ 사놓고 후회한 적 없음 돈키호테 필수 제품 10가지</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/tVZRvbDNFi4"
+    title="사놓고 후회한 적 없음 돈키호테 필수 제품 10가지" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>사놓고 후회한 적 없음 돈키호테 필수 제품 10가지</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3462,7 +3621,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>마트엔 잘 없고 돈키 위주다.</div></div>
   
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=FrImbNM9rgU" target="_blank" rel="noopener">▶ 마트/드럭/돈키 추천템 30가지 총정리</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/FrImbNM9rgU"
+    title="마트/드럭/돈키 추천템 30가지 총정리" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>마트/드럭/돈키 추천템 30가지 총정리</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3475,7 +3643,16 @@ blockquote.qb{border-left-color:var(--brick)}
   
   
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=KBNPauhUjJc" target="_blank" rel="noopener">▶ 동키장인의 추천템 VS 비추템</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/KBNPauhUjJc"
+    title="동키장인의 추천템 VS 비추템" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>동키장인의 추천템 VS 비추템</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3514,7 +3691,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「근데 되게 촌스럽잖아요」(드래곤 에디션 디자인)</div></div>
   
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=jMM_CEemdEM" target="_blank" rel="noopener">▶ 돈키호테 1위템? 실패 없는 찐추천템</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/jMM_CEemdEM"
+    title="돈키호테 1위템? 실패 없는 찐추천템" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>돈키호테 1위템? 실패 없는 찐추천템</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
@@ -3597,7 +3783,16 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「작년에 일본 정가 자체를 20% 이상 올리면서 이제 한국보다 더 비싸졌어요. <b>택스리펀 받은 금액보다 한국 크림에서 프리미엄 붙은 가격이 더 싸다</b>」</div></div>
   
   
-  <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.youtube.com/watch?v=X-AHVXe1EX0" target="_blank" rel="noopener">▶ 일본 쇼핑 이제 메리트 없는 것들</a></div></div>
+  <div class="sfield slinks"><b>출처 영상</b>
+<details class="vidbox">
+  <summary>영상으로 보기 · 1</summary>
+  <div class="vwrap"><iframe loading="lazy" data-base="https://www.youtube-nocookie.com/embed/"
+    src="https://www.youtube-nocookie.com/embed/X-AHVXe1EX0"
+    title="일본 쇼핑 이제 메리트 없는 것들" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="vcred"><b>일본 쇼핑 이제 메리트 없는 것들</b><span>YouTube</span></div>
+  
+</details></div>
 </article>
 <article class="shopcard">
   <header class="sh">
