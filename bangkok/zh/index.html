@@ -229,6 +229,44 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
 .slinkrow a:hover{text-decoration:underline}
 @media(max-width:560px){ .shopgrid{grid-template-columns:1fr} .shopcard{padding:14px 13px 15px} }
 
+/* ── 쇼핑 탭 접기·타일·체인 필터 (2026-09-22 개편 — 95항목 스크롤 지옥 해결) ── */
+.stools{display:flex; flex-wrap:wrap; align-items:center; gap:6px 8px; margin:4px 0 10px;
+  font-size:12px; color:var(--ink-3)}
+.stools span{flex:1 1 100%}
+.sexp{font-size:12px; padding:5px 11px; border-radius:7px; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink-2); cursor:pointer}
+.stiles{display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:8px; margin:0 0 24px}
+.stile{display:flex; align-items:center; justify-content:space-between; gap:8px; text-align:left;
+  padding:11px 12px; border-radius:10px; border:1px solid var(--line); background:var(--surface);
+  color:var(--ink); font-size:13px; line-height:1.4; cursor:pointer}
+.stile b{font:600 11.5px/1 "IBM Plex Mono",monospace; color:var(--ink-3); background:var(--surface-2);
+  padding:4px 7px; border-radius:5px; flex:none}
+.stile.on{border-color:var(--jade); background:var(--jade-soft)}
+.stile:hover{border-color:var(--jade)}
+@media(max-width:560px){ .stiles{grid-template-columns:1fr 1fr} .stile{font-size:12.5px; padding:10px} }
+.sbrand{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:0 0 12px}
+.sblab{font-size:12px; font-weight:600; color:var(--ink-2); margin-right:2px}
+.sbchip{font-size:12.5px; padding:6px 12px; border-radius:20px; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink-2); cursor:pointer}
+.sbchip.on{background:var(--jade); border-color:var(--jade); color:#fff}
+details.shopsec{margin:0 0 12px}
+details.shopsec[open]{margin-bottom:30px}
+details.shopsec > summary{list-style:none; cursor:pointer; padding-right:64px}
+details.shopsec > summary::-webkit-details-marker{display:none}
+details.shopsec > summary .scount::after{content:" BE"}
+details.shopsec[open] > summary .scount::after{content:" B4"}
+details.shopsec:not([open]) > summary{margin-bottom:0}
+details.shopcard{padding:0; align-self:start}
+details.shopcard > summary{list-style:none; cursor:pointer; margin:0; padding:13px 40px 13px 15px; position:relative}
+details.shopcard > summary::-webkit-details-marker{display:none}
+details.shopcard > summary::after{content:"BE"; position:absolute; right:15px; top:14px; color:var(--ink-3); font-size:13px}
+details.shopcard[open] > summary::after{content:"B4"}
+details.shopcard[open]{grid-column:1 / -1; border-color:var(--jade)}
+details.shopcard[open] > summary{border-bottom:1px solid var(--line)}
+details.shopcard > summary h4{margin-top:6px}
+.sbody{padding:4px 17px 17px}
+.fhide{display:none!important}
+
 /* ── 날짜 페이저 (2026-09-20 신설) ─────────────────────────────
    내용이 많아져 5일치를 한 화면에 쌓으면 읽히지 않는다.
    Day 1..N 을 «한 번에 하나»만 보여주고 위에서 고른다. */
@@ -6109,17 +6147,18 @@ blockquote.qb{border-left-color:var(--brick)}
 </section>
 
 <section class="tabpane hide shop-tab" data-tab="shop">
-<p class="planlede">只採用<b>实际看过内容的影片</b>作为依据。把「为什么买」分成「韩国买不到」「便宜很多」「日本限定」三种来写，🔴 <b>反对意见与「现在别买」也一并收录</b>——只收集推荐是无法判断的。</p>
-<section class="shopsec">
-  <header class="ssh"><h3>🧭 买之前必须知道的事</h3><p>还价到底管不管用、哪里是陷阱、退税值不值得。</p>
-    <span class="scount">7</span></header>
+<p class="planlede">只採用<b>实际看过内容的影片</b>作为依据。把「为什么买」分成「韩国买不到」「便宜很多」「日本限定」三种来写，🔴 <b>反对意见与「现在别买」也一并收录</b>——只收集推荐是无法判断的。</p><div class="stools"><span>点分区即可展开 · 卡片也可点开</span><button type="button" class="sexp" data-open="1">全部展开</button><button type="button" class="sexp" data-open="0">全部收起</button></div><div class="stiles"><button type="button" class="stile" data-ss="ss-howto"><span>🧭 买之前必须知道的事</span><b>7</b></button><button type="button" class="stile" data-ss="ss-chatuchak"><span>🏬 乍都乍周末市场</span><b>10</b></button><button type="button" class="stile" data-ss="ss-vintage"><span>🧥 二手 · 复古</span><b>6</b></button><button type="button" class="stile" data-ss="ss-platinum"><span>👕 白金时尚购物中心 · 水门</span><b>5</b></button><button type="button" class="stile" data-ss="ss-mart"><span>🛒 超市 · 便利店食品</span><b>10</b></button><button type="button" class="stile" data-ss="ss-pharmacy"><span>💊 药妆店 · 药局</span><b>8</b></button><button type="button" class="stile" data-ss="ss-durian"><span>🥭 榴莲加工品</span><b>5</b></button><button type="button" class="stile" data-ss="ss-shoes"><span>👟 300mm 鞋</span><b>6</b></button><button type="button" class="stile" data-ss="ss-elec"><span>🔌 电子产品</span><b>6</b></button><button type="button" class="stile" data-ss="ss-avoid"><span>🚫 别买 · 禁止携带</span><b>6</b></button></div>
+<details class="shopsec" id="ss-howto">
+  <summary class="ssh"><h3>🧭 买之前必须知道的事</h3><p>还价到底管不管用、哪里是陷阱、退税值不值得。</p>
+    <span class="scount">7</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>🔴 乍都乍早已是固定价 — 请降低期待</h4>
     <span class="sprice">服饰 4~17% · 杂货 10~20 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>在 24 部韩国 YouTube 影片中，乍都乍真正还价成功的画面只有 2 次。</b>随着游客增加，多数摊位已改为固定价。「能砍到一半」是过时的说法。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>实测：衬衫 2 件 540→<b>520 泰铢(4%)</b> · 猫咪包 120→100(17%) · 大象钱包 21 个 420→400(5%)</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>仿货市场完全相反。</b>帕蓬夜市多在开价的 <b>1/3~1/2</b> 成交(Prada 包 2,500→<b>800 泰铢，降 68%</b>)。摊主自己承认——「进货价 600~700 泰铢，本来要卖 1800，可以砍到 900」</div></div>
@@ -6135,96 +6174,110 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>노세요 — 짜뚜짝 쇼핑좌표 2026</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="3QjQd3rVmzI" data-t="노세요 — 짜뚜짝 쇼핑좌표 2026" data-a=""><span class="vn">1</span>노세요 — 짜뚜짝 쇼핑좌표 2026</button><button type="button" class="vitem" data-v="aI1y1PaQ368" data-t="아룬 — 짜뚜짝 저렴한 쇼핑" data-a=""><span class="vn">2</span>아룬 — 짜뚜짝 저렴한 쇼핑</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>实际有效的还价技巧 6 招</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>只收录<b>影片字幕里真的出现过</b>的做法。计算器、泰语话术、开市迷信这类常见说法，在检视的 7 部影片里都找不到依据，因此排除。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div><b>① 让店家互相竞争</b> — 最有效。「在同一家店很难还价…<b>要让店跟店互相竞争</b>」(200→180→<b>150</b>)<br><b>② 转身走开</b> — 「我肚子饿了，先去吃点东西再回来看」(2,500→<b>1,200</b>)<br><b>③ 让店家先报数字</b> — 「最后再给我按一次价钱」<br><b>④ 整组买</b> — T恤 1 件 250 / 2 件 450 / <b>3 件 600</b><br><b>⑤ 拿瑕疵当理由</b> — 「因为有污渍」而砍价的案例<br><b>⑥ 🔴 带着笑容，低声说话</b></div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 第 ⑥ 点在文化上很重要 ——「在泰国，讲话大声、看起来脾气大的人，常被认为是<b>层次低的人</b>。所以<b>本来谈得成的事，大声反而谈不成</b>」</div></div>
   <div class="sfield stip"><b>实战提示</b><div>关键词是 <b>ใจเย็น(jai yen，冷静)</b>。</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>🔴 位置法则 — 巷子里比较便宜</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>两位不同的 YouTuber <b>各自独立讲了同一件事</b>。是可重现的规律，可信度高。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「比起大马路，<b>走进巷子里</b>的店家价格相对便宜」/「里面这一区比外面马路边稍微便宜一些」/二手市场也一样——「入口附近确实比较贵，<b>越往里走越便宜</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>有冷气就贵</b>(三重确认)。MBK 留言——「因为店租，价格开得超级夸张」</div></div>
   <div class="sfield stip"><b>实战提示</b><div>但<b>要买单件就去大马路边</b>——「专攻单卖的店家」。巷内店家以整组销售为主。</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>🔴 陷阱地图 — 宰客与仿货</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>重点是<b>仿货并不便宜</b>。「这里的仿货并不便宜」——MBK 留言更直接：「Emquartier 百货 Nike 特价时，Nike T恤还不到 1000 泰铢」(<b>仿货可能比正品特价还贵</b>)。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div><b>物价测量法</b>：用果汁来量。「便宜的市场这种大概 <b>20 泰铢</b>」，一般 30~40，<b>帕蓬要 60 泰铢 →「这里超贵」</b></div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>帕蓬的手表摊是赔偿诈骗</b> ——「<b>千万不要因为好奇去碰手表。</b>那些表很粗糙，一碰表盖就开、表带就掉，然后要客人赔钱」<br>🔴 <b>乍都乍第 16 区「精品」巷</b> = 仿货集中区<br>🔴 <b>按摩店直接走进去</b> = 定价三倍的结构。Nana 站菜单上 1,200 泰铢的芳疗一小时，用 GoWabi App 订只要 <b>不到 400 泰铢</b><br>🔴 「100% 蚕丝·喀什米尔」的标示完全不可信 — 100 泰铢的东西上也贴着</div></div>
   <div class="sfield stip"><b>实战提示</b><div>住在曼谷的韩国人留言——「<b>我住曼谷，那些市场太贵我都不去</b>哈哈」</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">不推荐</span>
     <h4>💸 7% 退税 — 这趟旅行请直接放弃</h4>
     <span class="sprice">消费 2,000 泰铢 → 实拿 <b>80 泰铢</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>🔴 <b>不是 7%。</b>2,000 泰铢的实际 VAT 是 130.8 泰铢，但只退 80 泰铢(实际 4.0%)。考虑到出示护照、填单、在机场排队，完全不划算。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>值得排队的门槛是<b>同一家店消费 5,000 泰铢(约 21 万韩元)以上</b>。20,000 泰铢退 1,060(5.3%)，200,000 泰铢以上才到 6.1%。</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>乍都乍、二手市场、白金的摊位根本不能退税。</b>个别摊位不是 VAT 登记业者，开不出 P.P.10 单据。<b>在这些地方花再多也是 0 元。</b><br>⚠️ 常见的「精品 10,000 泰铢」门槛是 <b>2016 年旧版</b>。现行是 <b>40,000 泰铢</b>。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>只有在百货公司(Siam Paragon、CentralWorld、ICONSIAM)<b>单笔 5,000 泰铢以上</b>时才值得办。机场在素万那普 <b>4 楼 Concourse D，24 小时</b> · 海关盖章<b>只限出境当天</b>。</div></div>
   
   <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://vrtweb.rd.go.th/81.html" target="_blank" rel="noopener">🔗 태국 국세청 VRT 공식</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>🌧 10 月初并不是「雨季尾声」</h4>
     <span class="sprice">10 月降雨 290mm · <b>降雨日 18 天</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>🔴 <b>10 月是仅次于 9 月的多雨月份</b>，是 11 月(50mm·6 天)的<b>约 6 倍</b>。降雨日 18 天等于<b>两天就有一天下雨</b>。泰国官方定义雨季为「5 月中~10 月中」，10/6~11 正好是雨季结束前夕。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>2025 年 10 月的实际游记——「阵雨大多<b>只下 1~2 小时</b>，之后行程和观光完全没问题」/「10 月是雨季末期，虽然常下雨但<b>暑气明显减弱</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>2025 年 10 月 4 日(正好是去年同一天)暴雨，Ratchathewi 区降雨超过 90mm，市区积水。</b><b>Ratchathewi 就是白金时尚购物中心与水门那一带。</b><br>🔴 <b>需要一双可以泡水的鞋。</b>会淹到脚踝的局部积水真的会发生。<b>只带一双运动鞋的话，可能整天泡汤。</b></div></div>
   <div class="sfield stip"><b>实战提示</b><div>乍都乍有屋顶挡雨，但<b>不通风所以更闷热，走道还会积水。</b>三个避暑处：<b>MIXT Chatuchak</b>(每天 10~20 时，有冷气) · JJ Mall · Red Building。<br>室内冷气很强，记得带<b>一件薄长袖</b>。</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>💰 市场只收现金</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>「市场<b>根本不能刷卡</b>」。2026 年的指南也说，多数摊位仍以现金为主。</div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>市场里的换汇所汇率很差</b> ——「这里的汇率不太好」</div></div>
   <div class="sfield stip"><b>实战提示</b><div><b>请事先换好小额钞票。</b>拿 1,000 泰铢出来，对方会用「没零钱」当理由让你的还价破功。</div></div>
   
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🏬 乍都乍周末市场</h3><p>10/10(六)上午是唯一机会。<b>第 2·3·4 区</b>是核心。</p>
-    <span class="scount">10</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-chatuchak">
+  <summary class="ssh"><h3>🏬 乍都乍周末市场</h3><p>10/10(六)上午是唯一机会。<b>第 2·3·4 区</b>是核心。</p>
+    <span class="scount">10</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>印花 T 恤</h4>
     <span class="sja">เสื้อยืด / graphic tee</span><span class="sprice">基本款 150 泰铢 · 宽版 180 泰铢 · 设计店 250~350 泰铢<br>二手复古款 1 件 250 · <b>2 件 450 · 3 件 600</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>出现频率第一名</b>，以男性来说是最稳的品项。泰文印花、Moo Deng、泰式炒河粉图案在韩国买不到。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「衣服一件才<b>一万韩元左右</b>，不买不行」/「一件 180，真的便宜」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>同样的图案，做工差很多</b> ——「旁边那件的细节跟 100 泰铢的不一样…图案印得差不多，但收边就是差一点」<br>🔴 <b>尺寸整体偏小。</b></div></div>
@@ -6240,13 +6293,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>노세요 — 짜뚜짝 쇼핑좌표 2026</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="3QjQd3rVmzI" data-t="노세요 — 짜뚜짝 쇼핑좌표 2026" data-a=""><span class="vn">1</span>노세요 — 짜뚜짝 쇼핑좌표 2026</button><button type="button" class="vitem" data-v="pIDqfbKWocY" data-t="노세요 — 짜뚜짝 필수 가이드" data-a=""><span class="vn">2</span>노세요 — 짜뚜짝 필수 가이드</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>再生 · 升级改造包 · 环保袋</h4>
     <span class="sja">กระเป๋ารีไซเคิล</span><span class="sprice">米袋包 100 泰铢 · 小包 60~150 · 大包 150 · 环保袋 290<br>Moo Deng 印花大款 1 个 450 · <b>2 个 800</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>泰国限定。</b>IKEA、星巴克的恶搞款，Moo Deng，肥料袋升级改造，只有这里有。对只背一个背包的旅行来说，还能<b>当回程的行李袋</b>。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「大的包一个 450，两个 800」——买两个每个省 50 泰铢。</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 「除了正版包之外，<b>仿的也这么多</b>」。Freitag 风格的肥料袋包做工落差很大。</div></div>
@@ -6262,13 +6317,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>노세요 — 짜뚜짝 필수 가이드</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="pIDqfbKWocY" data-t="노세요 — 짜뚜짝 필수 가이드" data-a=""><span class="vn">1</span>노세요 — 짜뚜짝 필수 가이드</button><button type="button" class="vitem" data-v="sG0D9phe0f8" data-t="규텐탁 — 짜뚜짝" data-a=""><span class="vn">2</span>규텐탁 — 짜뚜짝</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>袜子 · 收纳包 · 饰品整组</h4>
     <span class="sprice">袜子 5 双 100 泰铢 · 收纳包 3 个 100 泰铢 · <b>饰品买 5 送 1</b> · 包 55~80 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>体积与重量趋近于零</b>，和背包旅行最合拍。「买 5 送 1」是乍都乍最常见的折扣方式。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>整组远比单买便宜。要带回公司分送，这一层就是答案。</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>品质看运气。🔴 上色的木筷类被明确点名不推——「有颜色的那些<b>会掉色。不推。</b>」</div></div>
@@ -6284,13 +6341,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>아룬 — 짜뚜짝 저렴한 쇼핑</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>帽子 (棒球帽 · 渔夫帽)</h4>
     <span class="sja">หมวก</span><span class="sprice">复古棒球帽 <b>60 泰铢</b>(实际购入)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>60 泰铢约合 <b>2,600 韩元</b>。失败也不心疼的价格带，可以放心挑。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「帽子天堂」/「60 泰铢，感觉还不错」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>预备役帽、军用复刻混在一起。🔴 <b>有正品 logo 的帽子几乎都是仿的。</b></div></div>
@@ -6306,13 +6365,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>규텐탁 — 짜뚜짝</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>刺绣 T 恤 · 洋装</h4>
     <span class="sja">เสื้อปัก</span><span class="sprice">T 恤·包 420 泰铢 · 长洋装 550 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>不是印花而是<b>机器刺绣</b>。泰国本地设计师的东西，韩国没有。送礼很合适。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「不是印花，全部都是机器刺绣，<b>品质有出来</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>价格是印花 T 恤的 2~3 倍，而且<b>偏固定价，几乎不能还价。</b></div></div>
@@ -6328,39 +6389,45 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>노세요 — 짜뚜짝 필수 가이드</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>磁铁 · 钥匙圈 · 小物</h4>
     <span class="sja">แม่เหล็กติดตู้เย็น</span><span class="sprice">磁铁 1 个 45 · 3 个 100 · <b>10 个 250 泰铢</b> · 钥匙圈 1 个 50 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>要带回公司分送的话，单价最低。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「一个 45 泰铢，但<b>十个 250</b>，三个 100，是这样卖的」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 还价空间几乎没有——「反正<b>还价也只差 20 泰铢</b>」。泰国人留言：「芒果干超贵，<b>7-11 还比较便宜</b>」——食品还是超市划算。</div></div>
   
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>香氛 — 室内喷雾 · 香包 · 蜡烛</h4>
     <span class="sja">น้ำหอม / ธูปหอม</span><span class="sprice">香水 2 个 100 泰铢 · Anona 香包 450 泰铢 · Thann 陶瓷蜡烛 700~800 泰铢起</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>Sabai-arom 在乍都乍有<b>旗舰店</b>。当伴手礼很安全。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「确实便宜」/「蜡烛用完之后还能拿来放戒指耳环，<b>可以永久收藏</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>市场低价品<b>香味偏淡</b> ——「缺点是香味不够强」。香包「照到阳光寿命会变短」。连知名品牌也被说「THANN、HARNN、Karmakamet 这些…<b>反而很难specifically推荐</b>」</div></div>
   
   <div class="sfield "><b>在哪买</b><div>第 4 · 8 区</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">看情况</span>
     <h4>大象裤</h4>
     <span class="sja">กางเกงช้าง</span><span class="sprice">乍都乍 90~100 泰铢 · 水门 <b>3 件 300 泰铢</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>在韩国含运费要 1.5~2 万韩元。当地穿的话价格压倒性便宜。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「不管短裤长裤，总共 300 泰铢」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>「市场卖 100 泰铢的里面，很多是廉价中国进口货」</b><br>辨别法 ①「真正泰国产的…<b>每只大象都正向站好</b>。廉价中国货的大象<b>常常横躺或整只倒过来</b>」<br>辨别法 ②「内侧接缝是<b>双线车缝</b>扎实缝好…中国货只车一条线，旅行第一天蹲下去<b>裤裆可能就裂了</b>」</div></div>
@@ -6376,13 +6443,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>몽키트래블 — 쇼핑리스트 Best 45</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">不推荐</span>
     <h4>🔴 鞋 — 在乍都乍不要买</h4>
     <span class="sja">รองเท้า</span><span class="sprice">拖鞋 79~89 泰铢 · 二手球鞋 1,200~1,600 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>这是本次调查中<b>唯一出现「不要买」这种直接警告</b>的品项。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>只有 79~89 泰铢的夹脚拖当消耗品还行。🌧 拿来当可泡水的鞋很实用。</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 「我看了好几家，<b>同一双鞋一家开 1600，另一家开 1200</b>」<br>🔴 「鞋子就是<b>抓到一个冤大头就像中乐透</b>的感觉」<br>🔴 「<b>鞋子千万不要买。</b>」<br>大部分是二手，而且<b>几乎没有 300mm 的库存。</b></div></div>
@@ -6398,13 +6467,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>아룬 — 짜뚜짝 저렴한 쇼핑</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">不推荐</span>
     <h4>珐琅碗 · 锅 · 便当盒</h4>
     <span class="sja">เครื่องเคลือบ</span><span class="sprice">小型珐琅锅 405 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>复古泰式花纹很好看，但对背包旅行来说是<b>易碎的体积物</b>。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「因为是珐琅，首先<b>很轻</b>…客人来的时候餐具不够，拿出来用也方便」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>实际使用的评价是负面的</b> ——「只要撞到或掉下来<b>这里就会受损。</b>然后里面就会<b>生锈</b>…我自己从那之后就<b>不太用了</b>」。本人也说锅只是「摆着看」。</div></div>
@@ -6420,171 +6491,195 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>러핀 — 방콕 쇼핑 하울</b><span>YouTube</span></div>
   
 </details></div>
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🧥 二手 · 复古</h3><p>10/9(五)已安排 Pantip Ngamwongwan。室内有冷气，雨季也安全。</p>
-    <span class="scount">6</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-vintage">
+  <summary class="ssh"><h3>🧥 二手 · 复古</h3><p>10/9(五)已安排 Pantip Ngamwongwan。室内有冷气，雨季也安全。</p>
+    <span class="scount">6</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>🔴 衣服吃到饱 (定额无限装)</h4>
     <span class="sja">บุฟเฟ่ต์เสื้อ / clothes buffet</span><span class="sprice">定额制 (依活动而定)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>在 <b>Pantip Ngamwongwan 8 楼</b>举办，是泰国二手圈的招牌。10/9(五)已在行程里，而且🌧 <b>是室内冷气</b>，在 10 月雨季最安全。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>付固定金额、能装多少装多少，就算挑失败，单件成本也很低。</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>⚠️ <b>没有韩文心得，只能用泰国当地资料。</b>2026 年 10 月是否举办、收费多少都<b>无法确认</b>。要到现场才知道。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>🔴 <b>二手市场也适用巷子法则</b> ——「入口附近确实比较贵，<b>越往里走越便宜</b>」</div></div>
   <div class="sfield "><b>在哪买</b><div>Pantip Ngamwongwan 8 楼</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>复古丹宁 — Levi&#x27;s · Carhartt · Dickies</h4>
     <span class="sja">Levi&#x27;s / Carhartt / Dickies</span><span class="sprice">依货而定 (必须还价)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>二手的主流。比韩国 vintage 店便宜很多，而且是<b>美版大尺寸</b>，和 300mm 的鞋不同，<b>体型这边没有问题</b>。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>乍都乍第 5·6 区官方就被分类为「二手服饰与鞋类」区——「<b>寻宝的地方！</b>复古服饰爱好者的天堂」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 要小心<b>假复古与中国货卖高价</b> ——「这个 400 泰铢，<b>看起来不像正品</b>」/「这明显是中国货，<b>价格倒是开得很高</b>」</div></div>
   
   <div class="sfield "><b>在哪买</b><div>乍都乍第 5·6 区 · Red Building</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>复古印花 T 恤 (80~90 年代美版)</h4>
     <span class="sprice">依货而定</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>Hard Rock T 恤这类<b>在韩国会有溢价</b>的东西，这里用二手价就能买到。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>喜欢印花 T 恤的话，这边的满足感比乍都乍的新品还高。</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>状态落差大，而且<b>不能退。</b>一定要翻过来看领口和腋下的车缝。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>乍都乍第 5·6 区</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">看情况</span>
     <h4>军用二手 · 军装</h4>
     <span class="sprice">依货而定</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>集中在乍都乍第 6 区内侧(18 号门)。挑得好的话价格差很多。</div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>尺寸和状态不好确认，也有气味问题。很花时间。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>乍都乍第 6 区 (18 号门内侧)</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">看情况</span>
     <h4>Polo · 品牌衬衫 (素人跳蚤市场)</h4>
     <span class="sja">OT Urban Market</span><span class="sprice"><b>Polo 品牌 200~250 泰铢</b> · 二手书 150 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>素人卖家直接出售自己穿过的衣服，所以<b>品牌衬衫不到一万韩元</b>。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「每周二、三会有 OT Urban Market 这个跳蚤市场，素人卖家可以直接卖自己穿过的衣服和二手配件」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>只有周二、三营业</b> → 这趟行程只有 <b>10/7(三)</b> 可能，但那天是沙美岛浮潜。实际上很难安排。<br>地上铺布贩售，很难验货。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>Union Mall (MRT Lat Phrao)</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">不推荐</span>
     <h4>复古手表 · 太阳眼镜 — Red Building</h4>
     <span class="sprice">乍都乍太阳眼镜 39 泰铢 · 一般手表 150 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>39 泰铢的太阳眼镜当消耗品还行，但<b>手表千万别碰。</b></div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>对面商场有冷气，「这边比较舒适，好逛」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>赔偿诈骗警告</b> ——「<b>千万不要因为好奇去碰手表。</b>那些表很粗糙，一碰表盖就开、表带就掉，然后<b>要客人赔钱</b>」</div></div>
   
   <div class="sfield "><b>在哪买</b><div>Red Building 1·2 楼</div></div>
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>👕 白金时尚购物中心 · 水门</h3><p>按批发价买衣服的地方。<b>三件起跳</b>是基本规则。</p>
-    <span class="scount">5</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-platinum">
+  <summary class="ssh"><h3>👕 白金时尚购物中心 · 水门</h3><p>按批发价买衣服的地方。<b>三件起跳</b>是基本规则。</p>
+    <span class="scount">5</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>基本 T 恤 · 内衬胸垫背心</h4>
     <span class="sprice">批发价 (三件起跳)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>因为是批发商场，三件一组比单买便宜非常多。</b>基本款 T 恤失败风险低，最适合整组买。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>同样的东西常常比乍都乍还便宜。</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>有标价的店是固定价，不能还价。</b>🌧 这里属于 <b>10 月容易淹水的 Ratchathewi 区</b>，要看天气预报再去。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>🔴 <b>三件起才是批发价。</b>只买两件会被算零售价。</div></div>
   <div class="sfield "><b>在哪买</b><div>白金时尚购物中心</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>男裤 (户外夜市)</h4>
     <span class="sprice">380 → <b>350 泰铢</b> (实测还价)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>水门的户外夜市比白金商场内<b>更能还价。</b></div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>实测成功降 8%。</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🌧 <b>完全露天，会被阵雨直接打到。</b>10 月的晚上风险高。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>水门夜市</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>开襟衫 · 外套 · 睡衣</h4>
     <span class="sprice">批发价</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>🔴 <b>室内冷气很强，薄外套是真的需要</b> —— 2025 年 10 月心得：「室内冷气很强，带<b>一件薄开襟衫或衬衫</b>真的很有用」。从韩国没带的话，在这里买就好。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>当场就能穿，不占行李空间。</div></div>
   
   
   <div class="sfield "><b>在哪买</b><div>白金时尚购物中心</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>折叠防水购物袋 · 收纳包</h4>
     <span class="sprice">批发价</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>🌧 <b>对 10 月的曼谷来说最实用的东西。</b>下雨时可以保护背包里的电子产品。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>折起来几乎不占体积。</div></div>
   
   
   <div class="sfield "><b>在哪买</b><div>白金时尚购物中心</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">看情况</span>
     <h4>多孔插座 · 充电器 (杂货)</h4>
     <span class="sprice">500 → <b>300 泰铢</b> (实测还价，<b>降 40%</b>)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>这是本次调查中还价降幅最大的品项</b>(40%)。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>泰国大多可以直接插韩国 220V 插头。</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>没有品质保证。</b>结论和电子产品分类一样——充电器类还是韩国买安全。接近「没必要买」，但当地临时用还可以。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>水门杂货区</div></div>
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🛒 超市 · 便利店食品</h3><p>重量与满足感之比最高的一层。Big C 晚间折扣是常态。</p>
-    <span class="scount">10</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-mart">
+  <summary class="ssh"><h3>🛒 超市 · 便利店食品</h3><p>重量与满足感之比最高的一层。Big C 晚间折扣是常态。</p>
+    <span class="scount">10</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>MAMA 冬阴功泡面</h4>
     <span class="sja">มาม่า ต้มยำกุ้ง / MAMA Tom Yum Kung</span><span class="sprice">碗面小 14 泰铢 · 中 20~25 泰铢 · 袋装每包 6~7 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>便宜很多</b>，而且种类比韩国卖的多。重量与满足感之比最高。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「就是冬阴功。餐厅在卖的冬阴功。只是里面<b>多了面</b>这样想就对了」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>橘色包装比红色<b>温和，红色更辣。</b>🔴 <b>韩国泡面在泰国要 45~48 泰铢</b>，绝对不要买。</div></div>
@@ -6600,13 +6695,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>데니트립 — 태국 편의점 쇼핑리스트</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>7-11 粉红虾烧卖 (当地吃)</h4>
     <span class="sja">ขนมจีบกุ้ง / shrimp dim sum</span><span class="sprice">5 颗装 39 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>是当地吃的东西</b>，不能带回国，但在便利店小吃里评价压倒性地高。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「这个粉红虾烧卖一定要吃…一盒才五颗，<b>我光这个就能吃三四十颗</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>店面越大反而越没有粉红虾烧卖。</b>没有的话就买猪肉烧卖。</div></div>
@@ -6622,13 +6719,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>데니트립 — 태국 편의점 쇼핑리스트</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>芒果干 — Doi Kham · Kunna</h4>
     <span class="sja">มะม่วงอบแห้ง</span><span class="sprice">Doi Kham 大 149 泰铢 · Kunna 198 泰铢 · Doi Kham 草莓干 小 30 · 大 155 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>便宜很多。</b>轻、不易坏，是背包旅行的基本款。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「烘得很<b>柔软</b>，很有嚼劲不会硬」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>要看「芒果果肉 18%」这类果肉含量标示再挑。</b>购物中心「买 5 送 3」的组合，<b>常常是含量低的低价品</b>。</div></div>
@@ -6644,13 +6743,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>데니트립 — 태국 마트 2026 최신판</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>手标泰式奶茶</h4>
     <span class="sja">ชาตรามือ / ChaTraMue</span><span class="sprice"><b>条装 5 入 60 泰铢</b> · 粉末 500g 175~200 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>便宜很多。</b>可以在家重现店里喝到的味道。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「像泡冰咖啡那样先用一点水化开，再加满冰块倒下去，<b>味道跟手标一模一样</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>不要买散装粉末</b> ——「保存好像不太好」/「粉末袋装<b>吃没几次就不吃了</b>」。<b>条状独立包装</b>才是正解。</div></div>
@@ -6666,13 +6767,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>뺄래기똥 — 태국 쇼핑 종결편</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>Jabi 松露洋芋片 · Kewpie 松露美乃滋</h4>
     <span class="sja">Jabi Truffle / Kewpie Truffle Mayo</span><span class="sprice">洋芋片 小 30 泰铢 · 松露美乃滋 65 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>泰国限定。</b>美乃滋虽是日本品牌，但这个口味是泰国厂限定生产。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「哇 <b>松露味真的太扯了</b>…我不是在夸张，这个真的好」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>美乃滋容量偏小。🔴 <b>液体、酱料类要放托运行李。</b></div></div>
@@ -6688,83 +6791,95 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>데니트립 — 태국 마트 2026 최신판</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>Bang Bang · Voopy 饼干</h4>
     <span class="sja">Bang Bang / Voopy</span><span class="sprice"><b>Bang Bang 25 入盒装 95 泰铢</b> · Voopy 59 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>要带回公司分送的话 CP 值最高。</b>25 入才约 4,000 韩元。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「一盒装 25 个才 95 泰铢。真的很便宜又好吃。大家买回去<b>分给同事吧</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>Voopy「没有充氮、装得满满的」所以有重量。<b>背包的话 Bang Bang 比较划算。</b></div></div>
   
   <div class="sfield "><b>在哪买</b><div>Big C · Lotus&#x27;s</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>MK 火锅酱</h4>
     <span class="sja">น้ำจิ้มสุกี้ MK</span><span class="sprice">约 60 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>韩国没有一样的味道，而且不到 2,000 韩元。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「价格才 60 泰铢，连 2,000 韩元都不到，很推荐…<b>不会太甜，很清爽</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>一定要选 MK 这个品牌。</b>超市的低价火锅酱香料味重，容易踩雷。液体必须放<b>托运行李</b>。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>Big C · Lotus&#x27;s</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>Testo 咸蛋黄洋芋片</h4>
     <span class="sja">เทสโตะ ไข่เค็ม / Testo Salted Egg</span><span class="sprice">小包约 30 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>韩国没有的口味。</b>在泰国已经压过 Lay&#x27;s 和品客。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「压过 Lay&#x27;s 和品客，是现在最红的洋芋片」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>咸味偏重，有人不爱。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>同系列还有<b>咸蛋黄口味的干拌面</b>(4 入 60 泰铢)。</div></div>
   <div class="sfield "><b>在哪买</b><div>Big C · Lotus&#x27;s</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>Pocky · Pretz 泰国限定口味 (榴莲 · 冬阴功)</h4>
     <span class="sja">Pocky / Pretz Thai edition</span><span class="sprice">约 20~30 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>泰国限定</b> ——「只有泰国买得到。<b>想在别的地方买也买不到</b>」</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>轻、不易碎，很适合背包。</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>评价其实普通——同一部影片说「比起这个，<b>Bang Bang 更好</b>」。算是买个趣味。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>7-11 · Big C</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>Lobo 咖哩 · 泰式炒河粉调理包 (只买袋装)</h4>
     <span class="sja">โลโบ / Lobo</span><span class="sprice">袋装 30~60 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>便宜很多。</b>是在家重现泰国菜最简单的方式。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「附的河粉特别<b>不会糊掉、很有嚼劲</b>，把味道的重心稳稳抓住」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>Roi Thai 的液态包(利乐砖)不要买</b> —— 又重又占体积。只背一个背包的话<b>只买袋装 Lobo</b>。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>Big C · Lotus&#x27;s</div></div>
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>💊 药妆店 · 药局</h3><p>🔴 比 Boots、Watsons、Big C <b>便宜 20~30% 的是社区药局</b>。</p>
-    <span class="scount">8</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-pharmacy">
+  <summary class="ssh"><h3>💊 药妆店 · 药局</h3><p>🔴 比 Boots、Watsons、Big C <b>便宜 20~30% 的是社区药局</b>。</p>
+    <span class="scount">8</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>🔴 社区药局比 Big C、Boots 便宜 20~30%</h4>
     <span class="sprice">Bepanthen — <b>药局 198 泰铢 vs Big C 263 泰铢</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>同一个产品价差就这么大。</b>这是药妆采买最核心的原则。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「这条药膏在这里卖 263…但那边 198。价差就是这么大。所以<b>药妆虽然 Big C 也有，但一定要去药局买</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>社区药局<b>很多只收现金。</b></div></div>
@@ -6780,13 +6895,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>뺄래기똥 — 태국 쇼핑 종결편</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>泰诺 500mg 大包装</h4>
     <span class="sja">ไทลินอล</span><span class="sprice">100 锭约 6,000 韩元 · 50 锭约 4,000 韩元 · 便利店 10 锭 17 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>曼谷有全球工厂，所以用内需价流通。</b>每锭价格是韩国的 <b>1/3 以下</b>。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「在韩国 10 锭大概 3,000 韩元，泰国 50 锭一罐约 4,000 韩元，<b>每锭便宜三倍以上</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>喝酒后禁止服用(伤肝)</b> · <b>一天不可超过 8 锭。</b></div></div>
@@ -6802,96 +6919,110 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>월간몽키픽 — 태국 가면 약국부터</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>Counterpain (药膏型酸痛软膏)</h4>
     <span class="sja">เคาน์เตอร์เพน / Counterpain</span><span class="sprice">大罐装 (价格无法确认)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>韩国没有的剂型。</b>为泰国湿度设计，比贴布好用。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「泰国很潮湿，贴布容易掉，但这个<b>药膏吸收力真的很好</b>，涂上去不黏就吸收了」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>颜色代表用途不同</b> —— 红=温感(慢性) · 蓝=冷感(急性) · <b>黄 Plus=含消炎止痛成分。</b>伤口和眼周禁用，涂完要洗手。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>整天在走的行程，实际上真的会用到。</div></div>
   <div class="sfield "><b>在哪买</b><div>社区药局</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>Strepsils (喉糖型药品)</h4>
     <span class="sja">สเตร็ปซิล / Strepsils</span><span class="sprice">8 锭袋装 ~ 24 锭大包装</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>柳橙维他命 C、Cool、止咳系列韩国没有上市。</b></div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「和韩国的不同，加了维他命 C 的清爽柳橙味，<b>把喉咙和鼻子冲得像开了冷气一样的极强清凉感</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>这不是糖果，是药。</b>请间隔 3~6 小时。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>社区药局 · Boots</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>Tepthai 浓缩草本牙膏</h4>
     <span class="sja">เทพไทย / Tepthai</span><span class="sprice">一条可用约 3 个月</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>泰国限定</b>，而且高浓缩很耐用。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「这一条大概可以用<b>三个月</b>…真的很耐用」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>只能挤黄豆大小。</b>像一般牙膏那样挤的话「嘴里会<b>辣到发麻</b>」</div></div>
   
   <div class="sfield "><b>在哪买</b><div>社区药局 · 超市</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>Ya Dom (吸的) · Ya Mong (涂的)</h4>
     <span class="sja">ยาดม / Poy-Sian</span><span class="sprice">条状 Ya Mong 小 8 泰铢 · 大 26 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>泰国限定</b>且单价低，很适合当伴手礼分送。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「这个是<b>用涂的</b>，叫 Ya Mong…被蚊虫咬了，就到处涂」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>用鼻子吸的 Ya Dom 和用涂的 Ya Mong 是不同东西。</b>很多人搞混买错。<br>反面意见——多到出现「蜂蜜、Ya Dom 够了吧」这类影片，代表<b>太芭乐的伴手礼</b>已让人疲乏。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>7-11 · 超市 · 药局</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>Acnetin-A 软膏 (A 酸)</h4>
     <span class="sja">Acnetin-A</span><span class="sprice">几千韩元</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>在韩国是必须医师处方的成分</b>，泰国不用处方就能买。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「和在韩国皮肤科拿的 Stieva-A 是同样的 tretinoin 成分，在泰国<b>只要几千韩元、不用处方</b>就买得到，CP 值压倒性」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>孕妇、备孕中绝对禁用(有致畸风险)。</b>只能晚上用、米粒大小、隔天一定要擦防晒。新手请从<b>绿色 0.025%</b> 开始。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>社区药局</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>凡士林身体乳 · 防晒</h4>
     <span class="sja">วาสลีน</span><span class="sprice">清凉身体乳 大 329 泰铢 · 小特价 189 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>泰国有凡士林工厂</b>，当地价格便宜。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「泰国有凡士林工厂，所以这些产品价格很漂亮…质地<b>非常清爽</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>大容量对背包是负担。<b>1L 等级不推。</b></div></div>
   
   <div class="sfield "><b>在哪买</b><div>Big C · Watsons</div></div>
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🥭 榴莲加工品</h3><p>同行者喜欢榴莲。<b>鲜果禁止携带，加工品可以。</b></p>
-    <span class="scount">5</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-durian">
+  <summary class="ssh"><h3>🥭 榴莲加工品</h3><p>同行者喜欢榴莲。<b>鲜果禁止携带，加工品可以。</b></p>
+    <span class="scount">5</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>7-11 榴莲糖</h4>
     <span class="sja">Durian Candy</span><span class="sprice"><b>48 泰铢</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>单价最低而且不会有味道。</b>对喜欢榴莲的同行者来说是最没负担的选择。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「虽然写 candy，但<b>其实就是榴莲本身</b>。包装封得很紧，<b>完全不会有味道</b>…像是把榴莲压缩起来的感觉？」</div></div>
   
@@ -6907,13 +7038,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>몽키트래블 — 세븐일레븐 꿀템</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>Fruit King 冻干榴莲</h4>
     <span class="sja">ทุเรียนหมอนทองอบกรอบ</span><span class="sprice">15g 71 泰铢 · <b>50g 225 泰铢</b> · <b>90g 399 泰铢</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>🔴 <b>超市比免税店便宜 20~30%。</b>同样是 Fruit King，Big C 90g 399 泰铢(换算 100g 443 泰铢)，但<b>免税店 100g 要 540 泰铢</b>。免税店只当作「忘了买」的保险。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>连不喜欢榴莲的同行者都被收服——「我明明讨厌榴莲，奇怪。<b>真的好吃。</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>⚠️ 2025~2026 年的韩文影片中<b>找不到榴莲加工品的负评</b>(负评全是 2018~2019 年的旧资料)。</div></div>
@@ -6929,70 +7062,80 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>먹시미 — 방콕 마트 싹 털어왔습니다</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>冻干榴莲糯米饭</h4>
     <span class="sja">ข้าวเหนียวมูนทุเรียนอบกรอบ</span><span class="sprice">90g <b>352 泰铢</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>泰国限定性最高的品项。</b>把榴莲加椰浆糯米饭整个冻干，在韩国买不到。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>送给喜欢榴莲的人，这是最「新鲜」的礼物。</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>单价偏高。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>Big C</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">看情况</span>
     <h4>榴莲果泥 · 榴莲椰奶炼乳</h4>
     <span class="sja">ทุเรียนหมอนทองกวน / Mali</span><span class="sprice">果泥 100g 85 泰铢 · 200g 165 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>在当地吃很好，但<b>带回去有限制。</b></div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>炼乳心得——「意外地<b>几乎没有那股闷臭味</b>，浓郁的椰奶把它柔和地包住，甜香的风味很棒」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>液体、凝胶类受机上 100ml 规定限制 → 要放托运行李。</b><br>🔴 <b>炼乳属于乳制品，有韩国检疫风险</b> —— 检疫本部的立场是「乳制品也可能不能带入」。<b>建议在当地吃掉。</b></div></div>
   
   <div class="sfield "><b>在哪买</b><div>Big C</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-ban">禁止携带</span>
     <h4>🔴 新鲜榴莲 — 机舱与托运都不行</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>航空公司和韩国海关两边都会被挡。</b>虽然有「密封就能托运」的说法，但泰国亚航是<b>明文禁止</b>的。</div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 泰国亚航条款(2026-06-08 更新)：「durian, jackfruit and any other pungent-smelling fruits…are <b>not allowed in either checked or cabin baggage</b>」——<b>托运也不行。</b><br>🔴 <b>带入韩国时鲜果全面禁止</b>，最高罚款 1,000 万韩元。泰国航线是检疫犬集中配置的高风险航线。<br>⚠️ 泰航、大韩航空、真航空的官网<b>没有明列榴莲条款 → 无法确认</b>。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>🟢 <b>要吃新鲜的就在当地吃。</b>行程里 Or Tor Kor 市场安排了两次(10/9 早上 · 10/10 中午)。</div></div>
   
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>👟 300mm 鞋</h3><p>结论：<b>买得到。</b>但要问的不是「EU 46」而是 <b>「US 12」</b>。</p>
-    <span class="scount">6</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-shoes">
+  <summary class="ssh"><h3>👟 300mm 鞋</h3><p>结论：<b>买得到。</b>但要问的不是「EU 46」而是 <b>「US 12」</b>。</p>
+    <span class="scount">6</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>🔴 不要问「EU 46」，要问「US 12」</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>这决定成败。</b>Supersports 的尺寸筛选里 <b>EU 只到 45</b> —— 根本没有 46 以上的选项。300mm <b>只能在 US 标示的商品群里找到。</b></div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>以 Supersports(泰国最大运动连锁)来说，<b>US 12 的商品有 1,581 件</b>，US 13 有 267 件。「I wear 46. Malls in really touristy areas seem to stock 46… <b>Decathlon sell 46 as well</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>US 13 以上就真的没有</b> ——「I&#x27;m a size 14… Been here 23 years, <b>never once found a shoe here that fits me</b>」<br>🔴 <b>拖鞋类(Nanyang、Kito、ADDA、Havaianas)的 300mm 几乎不可能。</b></div></div>
   <div class="sfield stip"><b>实战提示</b><div>🔴 <b>架上的不等于库存</b> ——「Ask the staff as <b>what&#x27;s on the display isn&#x27;t what&#x27;s in the stockroom</b>」</div></div>
   <div class="sfield "><b>在哪买</b><div>Supersports CentralWorld 3F</div></div>
   <div class="sfield slinks"><b>来源影片</b><div class="slinkrow"><a href="https://www.reddit.com/r/Bangkok/comments/181u15q/guys_wearing_shoe_size_46_or_larger_where_do_you/" target="_blank" rel="noopener">🔗 r/Bangkok — 46 이상 신발 어디서 사나</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>Decathlon — 300mm 最稳的地方</h4>
     <span class="sja">Decathlon / เดคาทลอน</span><span class="sprice">跑鞋 500~2,000 泰铢 · 跑步上衣 149 泰铢 · 紧身裤 580 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>根据心得可到 EU 47~48。</b>以 300mm 来说是曼谷最好的选择，而且便宜。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「47/48 here, and <b>Decathlon has them</b>. Just tried on some at the <b>Rama 4 branch</b> a few days ago」/「在韩国买的时候完全不知道 Decathlon 这个牌子。跟 Nike、Adidas、New Balance、Puma 比，<b>便宜非常多</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div><b>没有品牌感，设计平凡。</b>泰国官网的尺寸选择器会跳转，<b>无法确认</b> → 必须亲自到店。</div></div>
@@ -7008,226 +7151,259 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>쿤호 KNOKNO — 태국 아식스 노바블라스트5</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>Nike Factory Store (Outlet)</h4>
     <span class="sja">Nike Factory Store</span><span class="sprice">原价 6,100 泰铢 → <b>3,690 泰铢</b> 的案例</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>有实测说<b>比韩国最低价还便宜</b>。泰国 Nike 官网的尺寸选择器也是 <b>US 6~13 全部可选</b>。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「正式售价是 6100 泰铢，但卖 3690 泰铢，<b>比在韩国搜最低价还便宜</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>Outlet 离市区远</b>(Bang Na、素万那普方向)。热门款式和热门尺寸会被挑走。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>「架上没有也<b>可能在仓库，要问店员</b>」是当地的诀窍。</div></div>
   <div class="sfield "><b>在哪买</b><div>Siam Premium Outlets · 品牌店(CentralWorld 等)</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>Adidas — 到 UK 13</h4>
     <span class="sprice">Outlet 常态最高 70% off</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>泰国官网 Samba OG 的尺寸是 <b>UK 3.5~13 全部可选</b>(US 12 = UK 11.5)。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「因为是 Outlet 所以大概半价。而且<b>买两双的话第二双再打 4~5 折</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>泰国用 UK 标示。</b>不要问「EU 46」，要问 <b>「US 12」</b>。Outlet 的库存看运气——「Adidas Outlet at Central Village <b>sometimes</b> has a 46」</div></div>
   
   <div class="sfield "><b>在哪买</b><div>Outlet · 品牌店</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>Nanyang Chang Dao 橡胶拖鞋</h4>
     <span class="sja">รองเท้าแตะช้างดาว / Nanyang</span><span class="sprice"><b>119 泰铢</b> (官网与 Big C 同价)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>泰国限定。</b>1955 年至今的国民橡胶拖鞋，100% 天然橡胶，韩国没有正式引进。🌧 <b>拿来应付 10 月积水也很实用。</b></div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>「泰国人爱用的拖鞋里，<b>Chang Dao 最有名</b>」</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>最大只到 11 号，而这是 28cm 还是 29~30cm，各卖家标示不一致。</b>eBay 卖家表写 11=28cm，Shopee SG 写 11=29~30cm。<b>300mm 正好在边界，一定要试穿再买。</b><br>仿品也很多(官网有警告仿冒)。</div></div>
   
   <div class="sfield "><b>在哪买</b><div>Big C · Lotus&#x27;s</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">不推荐</span>
     <h4>Crocs · Onitsuka Tiger · Havaianas</h4>
     <span class="sprice">Crocs 经典洞洞鞋 <b>2,190 泰铢(约 91,000 韩元)</b> · Onitsuka Mexico 66 6,200 泰铢(约 258,000 韩元)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>泰国比韩国贵。</b>没有买的理由。</div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 Crocs —— 韩国上市价 59,900 韩元，实际入手 3 万多韩元。心得：「价格居然是 4,570 泰铢。<b>换算韩元 17 万哈哈哈哈。有谁会花 17 万买 Crocs？</b>」<br>🔴 Onitsuka —— 韩国官网价 196,000 韩元 vs 泰国 258,000 韩元。<b>泰国贵 30% 以上。</b><br>🔴 Havaianas —— 巴西品牌会加<b>进口关税</b>，尺寸最大也只到 43/44，300mm 不可能。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>Onitsuka <b>在日本买才对。</b></div></div>
   
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🔌 电子产品</h3><p>🔴 Pantip Plaza <b>已于 2024 年底停业</b>。只有苹果笔电和 AirPods 明显便宜。</p>
-    <span class="scount">6</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-elec">
+  <summary class="ssh"><h3>🔌 电子产品</h3><p>🔴 Pantip Plaza <b>已于 2024 年底停业</b>。只有苹果笔电和 AirPods 明显便宜。</p>
+    <span class="scount">6</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">不推荐</span>
     <h4>🔴 Pantip Plaza 已停业 — 请从行程移除</h4>
     <span class="sja">Pantip Plaza</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>不是「风评变差」的程度，而是<b>已经不存在。</b>2024 年底转型为 <b>PHENIX Pratunam(食品、生活风格复合商场)</b>。</div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 The Nation Thailand：「the name Pantip <b>will be gone</b> 39 years after it came into existence」<br>🔴 2025 年 3 月的造访心得：「Pantip Plaza, <b>no longer exists</b> since late 2024… you will find rather used computer equipment」<br>🔴 <b>水门本质是服饰批发</b>，电子价值是 0。<b>MBK 仿冒配件风险高</b>，请跳过。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>替代方案：<b>Fortune Town(MRT Phra Ram 9 直通)</b> 是目前最大的 IT 商场。其他还有 JIB、Banana、Power Buy、iStudio(CentralWorld、Siam Paragon、Terminal 21)。</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>MacBook Air 13 吋</h4>
     <span class="sja">MacBook Air 13</span><span class="sprice"><b>44,900 泰铢 (约 187 万韩元)</b> vs 韩国 219 万韩元 → <b>-15%</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>苹果产品里价差最大的一项。</b>加上退税，差距约 43 万韩元。</div></div>
   <div class="sfield sgood"><b>好在哪里</b><div>直接比对苹果官方定价(2026-09-20，1 泰铢约 41.6 韩元)。</div></div>
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>远超 USD 800 免税额度 → 入境时必须主动申报。</b><br>🔴 <b>超过 40,000 泰铢，退税时要在出境审查后再接受海关查验</b> → <b>必须手提上机。</b><br>🔴 <b>保固原则上只限泰国境内</b> ——「many electronics sold will have a Thai warranty. <b>Good luck if it breaks abroad</b>」</div></div>
   <div class="sfield stip"><b>实战提示</b><div>只有原本就打算买才有意义。不建议临时起意。</div></div>
   <div class="sfield "><b>在哪买</b><div>iStudio (CentralWorld · Siam Paragon)</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">强烈推荐</span>
     <h4>AirPods Pro 3</h4>
     <span class="sja">AirPods Pro 3</span><span class="sprice"><b>8,490 泰铢</b> vs 韩国 369,000 韩元 → -4% (退税后 -10%)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>体积是 0</b>，对背包旅行毫无负担。加上退税差距会拉开。</div></div>
   
   
   
   <div class="sfield "><b>在哪买</b><div>iStudio</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">推荐</span>
     <h4>iPad 标准版 · AirPods Max</h4>
     <span class="sprice">iPad Wi-Fi 16,900 泰铢(-6%) · AirPods Max 2 18,990 泰铢(-7%)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>确实便宜，但比不上 MacBook。</div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>AirPods Max <b>很占背包空间。</b></div></div>
   
   <div class="sfield "><b>在哪买</b><div>iStudio</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">看情况</span>
     <h4>DJI · Insta360 运动相机</h4>
     <span class="sprice">Insta360 X5 16,900 泰铢(Lazada) ~ 18,900 泰铢(BNN)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>中国品牌是泰国比较便宜的例外类别</b> ——「Chinese brands like DJI, Xiaomi and Insta360 <b>can be cheaper in Thailand</b>… Bought a DJI Action 4 in MBK. With Tax Refund it was around 80 欧元 cheaper」</div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>⚠️ <b>与韩国的价差无法确认</b>(只确认了与欧洲的比较)。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>🔴 <b>出发前请先截图韩国价格。</b>要在现场比对。</div></div>
   <div class="sfield "><b>在哪买</b><div>Fortune Town · JIB · Banana</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">不推荐</span>
     <h4>iPhone · Apple Watch · 行动电源 · 充电器</h4>
     <span class="sprice">iPhone 17 256GB 34,900 泰铢 = 与韩国<b>相同</b> · Apple Watch S12 <b>韩国更便宜</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>价差是 0 或反而更贵。</b>只剩下扛回去的辛苦。</div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 当地长住者的评价 ——「<b>Thailand is simply bad for buying electronics</b>… the prices were higher than Hong Kong, Singapore or the US」/「Imported finished Electronics have a minimum 7% VAT added but can have more, <b>sometimes up to 20%</b>」<br>🔴 Anker 10000 行动电源 899 泰铢，<b>没有买的理由。</b></div></div>
   <div class="sfield stip"><b>实战提示</b><div>🔴 <b>行动电源的机上规定在 2026-04-20 变了</b> —— 每人最多 2 个、<b>托运全面禁止</b>、机上禁止使用与充电、禁止放置在行李架。</div></div>
   
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🚫 别买 · 禁止携带</h3><p>把「浪费钱」和「会被刑事处罚」分开写了。</p>
-    <span class="scount">6</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-avoid">
+  <summary class="ssh"><h3>🚫 别买 · 禁止携带</h3><p>把「浪费钱」和「会被刑事处罚」分开写了。</p>
+    <span class="scount">6</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-ban">禁止携带</span>
     <h4>🔴 肉类加工品 — 最高 1,000 万韩元</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>泰国肉干、猪肉香肠、含肉的泡面汤包与即食品</b>全部适用。泡面汤包常含肉类成分，很容易不小心中招。</div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 未申报被查获<b>最高 1,000 万韩元</b>。与非洲猪瘟相关的猪肉制品第 1 次 500 万 / 第 2 次 750 万 / 第 3 次 1,000 万韩元。<br>🔴 <b>泰国是检疫本部与中国、越南、蒙古并列、集中配置检疫犬的高风险航线。</b></div></div>
   <div class="sfield stip"><b>实战提示</b><div>🟢 <b>就算不知情带了，入境时主动申报或投入自主申报箱就不会罚款</b>(只没收物品)。</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-ban">禁止携带</span>
     <h4>🔴 Kratom · 大麻(CBD/THC)标示食品 — 刑事处罚</h4>
     <span class="sja">ใบกระท่อม / Kratom</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>🔴 <b>陷阱就在于它们在泰国便利店合法贩售。</b>在韩国属于毒品类。</div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>Kratom</b>(叶、饮料、软糖)—— mitragynine 属毒品类。<b>刑事处罚对象。</b><br>🔴 <b>标示大麻的软糖、饼干、饮料、零食</b> —— 泰国合法，但<b>韩国人在国外持有、吸食也会被处罚。</b>韩国食药处在 2026 年 7 月检验 32 件标示「大麻/火麻」的海外直购食品，<b>其中 22 件验出毒品成分。</b></div></div>
   <div class="sfield stip"><b>实战提示</b><div>便利店饮料区贴有绿色叶子图案的产品，不要拿。</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-ban">禁止携带</span>
     <h4>🔴 电子烟 — 在泰国光是持有就违法</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>不是带回韩国的问题，是在泰国入境阶段就会被抓。</b>泰国自 2014 年起<b>持有本身即属违法。</b></div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 进口<b>最高 10 年徒刑</b>，持有<b>最高 5 年</b>。2026 年 6 月警方新设专责取缔中心，并实施<b>检举奖金制度。</b><br>🔴 2026 年 4 月有观光客被征收 <b>40,000 泰铢(约 $1,228)</b> 的案例。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>🔴 <b>请留在韩国。</b></div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-ban">禁止携带</span>
     <h4>🔴 鲜果 · 超过 12cm 的佛像 · 鳄鱼皮 · 仿货</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>各自触犯不同的法律。</div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>所有鲜果</b> —— 新鲜榴莲、芒果、山竹、椰子、红毛丹。<b>一两颗也不行。</b>含籽果干部分也禁止。<br>🔴 <b>超过 12cm 的佛像</b> —— 需泰国艺术厅出口许可。<b>佛像的头、手、脚全面禁止携出。</b><br>🔴 <b>鳄鱼皮钱包、蛇皮、珊瑚、象牙</b> —— CITES。无许可可处 3 年以下徒刑或 2 千万韩元以下罚金。<br>🔴 <b>仿货</b>(水门、MBK)—— 会被扣关没收。过去取缔中曾报导每人平均罚款 140 万韩元。「个人一件会通融」并<b>无明文规定，无法确认。</b></div></div>
   <div class="sfield stip"><b>实战提示</b><div>🟢 <b>安全的东西</b>：密封加工食品(不含肉) · 酱料 · 咖啡茶 · 无籽芒果干 · 服饰杂货 · 电子产品 · 6 瓶以内的药品。</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">不推荐</span>
     <h4>韩国泡面 · 大容量身体用品 · 液态调理包</h4>
     <span class="sprice">韩国泡面在泰国 45~48 泰铢</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div><b>不是浪费钱，就是不适合背包。</b></div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>韩国泡面在泰国要 45~48 泰铢</b>(约 2,000 韩元)，比韩国还贵。<br>🔴 <b>Roi Thai 的液态调理包</b>又重又占体积。改买袋装 Lobo。<br>🔴 <b>1L 等级的身体乳</b>不适合背包旅行。</div></div>
   
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">不推荐</span>
     <h4>药品超过 6 瓶 · 乍都乍的鞋 · 仿冒手表</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>为什么买</b><div>不是超过额度，就是已经出现「不要买」警告的东西。</div></div>
   
   <div class="sfield sbad"><b>注意 · 反对意见</b><div>🔴 <b>药品自用总量只免税到 6 瓶</b>(超过则以 3 个月用量为限)。保健食品也是 6 瓶。<br>🔴 <b>抗生素、安眠药、tramadol、减肥药</b>即使在当地合法购买，<b>依韩国法仍可能被判定为毒品类。</b><br>🔴 <b>乍都乍的鞋</b> ——「鞋子千万不要买」<br>🔴 <b>帕蓬的手表摊</b> —— 碰了就被要求赔偿。</div></div>
   <div class="sfield stip"><b>实战提示</b><div>🟢 Tiffy、Decolgen 感冒药成分上没问题(不含 pseudoephedrine)。6 瓶以内 OK。</div></div>
   
   
-</article></div>
-</section>
+  </div>
+</details></div>
+</details>
 </section>
 
 <section class="tabpane hide" data-tab="stay">
@@ -8219,6 +8395,49 @@ blockquote.qb{border-left-color:var(--brick)}
 
 <script>
 (function(){
+  // ── 쇼핑 탭: 섹션 타일 · 모두 펼치기 · 체인 필터 (2026-09-22) ──
+  var secs = [].slice.call(document.querySelectorAll('details.shopsec'));
+  function tileOf(sec){ return document.querySelector('.stile[data-ss="'+sec.id+'"]'); }
+  function syncTiles(){ secs.forEach(function(sec){ var t=tileOf(sec); if(t) t.classList.toggle('on', sec.open); }); }
+  secs.forEach(function(sec){ sec.addEventListener('toggle', syncTiles); });
+  document.querySelectorAll('.stile').forEach(function(t){
+    t.addEventListener('click', function(){
+      var sec = document.getElementById(t.dataset.ss);
+      if(!sec) return;
+      var was = sec.open;
+      sec.open = !was;
+      if(!was) sec.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+  document.querySelectorAll('.sexp').forEach(function(b){
+    b.addEventListener('click', function(){
+      var o = b.dataset.open === "1";
+      secs.forEach(function(sec){ if(!sec.classList.contains('fhide')) sec.open = o; });
+    });
+  });
+  document.querySelectorAll('.sbchip').forEach(function(c){
+    c.addEventListener('click', function(){
+      document.querySelectorAll('.sbchip').forEach(function(x){ x.classList.toggle('on', x===c); });
+      var sel = c.dataset.brand;
+      secs.forEach(function(sec){
+        var cards = [].slice.call(sec.querySelectorAll('details.shopcard'));
+        var branded = cards.some(function(x){ return x.hasAttribute('data-brands'); });
+        var n = 0;
+        cards.forEach(function(x){
+          var bs = (x.getAttribute('data-brands')||"").split(" ");
+          var show = !sel || (branded && (bs.indexOf(sel)!==-1 || bs.indexOf("_all")!==-1));
+          x.classList.toggle('fhide', !show);
+          if(show) n++;
+        });
+        var t = tileOf(sec);
+        sec.classList.toggle('fhide', n===0);
+        if(t){ t.classList.toggle('fhide', n===0); t.querySelector('b').textContent = n; }
+        var sc = sec.querySelector('.scount'); if(sc) sc.textContent = n;
+        if(sel && n) sec.open = true;
+      });
+    });
+  });
+
   // 영상 목록 — 누르면 같은 iframe 을 바꾼다
   document.querySelectorAll('.vidbox').forEach(function(box){
     var fr=box.querySelector('iframe'), cred=box.querySelector('.vcred');

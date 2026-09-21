@@ -229,6 +229,44 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
 .slinkrow a:hover{text-decoration:underline}
 @media(max-width:560px){ .shopgrid{grid-template-columns:1fr} .shopcard{padding:14px 13px 15px} }
 
+/* ── 쇼핑 탭 접기·타일·체인 필터 (2026-09-22 개편 — 95항목 스크롤 지옥 해결) ── */
+.stools{display:flex; flex-wrap:wrap; align-items:center; gap:6px 8px; margin:4px 0 10px;
+  font-size:12px; color:var(--ink-3)}
+.stools span{flex:1 1 100%}
+.sexp{font-size:12px; padding:5px 11px; border-radius:7px; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink-2); cursor:pointer}
+.stiles{display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:8px; margin:0 0 24px}
+.stile{display:flex; align-items:center; justify-content:space-between; gap:8px; text-align:left;
+  padding:11px 12px; border-radius:10px; border:1px solid var(--line); background:var(--surface);
+  color:var(--ink); font-size:13px; line-height:1.4; cursor:pointer}
+.stile b{font:600 11.5px/1 "IBM Plex Mono",monospace; color:var(--ink-3); background:var(--surface-2);
+  padding:4px 7px; border-radius:5px; flex:none}
+.stile.on{border-color:var(--jade); background:var(--jade-soft)}
+.stile:hover{border-color:var(--jade)}
+@media(max-width:560px){ .stiles{grid-template-columns:1fr 1fr} .stile{font-size:12.5px; padding:10px} }
+.sbrand{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:0 0 12px}
+.sblab{font-size:12px; font-weight:600; color:var(--ink-2); margin-right:2px}
+.sbchip{font-size:12.5px; padding:6px 12px; border-radius:20px; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink-2); cursor:pointer}
+.sbchip.on{background:var(--jade); border-color:var(--jade); color:#fff}
+details.shopsec{margin:0 0 12px}
+details.shopsec[open]{margin-bottom:30px}
+details.shopsec > summary{list-style:none; cursor:pointer; padding-right:64px}
+details.shopsec > summary::-webkit-details-marker{display:none}
+details.shopsec > summary .scount::after{content:" \25BE"}
+details.shopsec[open] > summary .scount::after{content:" \25B4"}
+details.shopsec:not([open]) > summary{margin-bottom:0}
+details.shopcard{padding:0; align-self:start}
+details.shopcard > summary{list-style:none; cursor:pointer; margin:0; padding:13px 40px 13px 15px; position:relative}
+details.shopcard > summary::-webkit-details-marker{display:none}
+details.shopcard > summary::after{content:"\25BE"; position:absolute; right:15px; top:14px; color:var(--ink-3); font-size:13px}
+details.shopcard[open] > summary::after{content:"\25B4"}
+details.shopcard[open]{grid-column:1 / -1; border-color:var(--jade)}
+details.shopcard[open] > summary{border-bottom:1px solid var(--line)}
+details.shopcard > summary h4{margin-top:6px}
+.sbody{padding:4px 17px 17px}
+.fhide{display:none!important}
+
 /* ── 날짜 페이저 (2026-09-20 신설) ─────────────────────────────
    내용이 많아져 5일치를 한 화면에 쌓으면 읽히지 않는다.
    Day 1..N 을 «한 번에 하나»만 보여주고 위에서 고른다. */
@@ -3116,17 +3154,18 @@ blockquote.qb{border-left-color:var(--brick)}
 </section>
 
 <section class="tabpane hide shop-tab" data-tab="shop">
-<p class="planlede"><b>유튜브에서 실제로 내용을 확인한 영상</b>만 근거로 삼았습니다. 「왜 사는가」를 「한국에 없어서」·「훨씬 싸서」·「일본 한정이라」 중 무엇인지로 갈라 적었고, 🔴 <b>반대 의견과 「이젠 사지 마라」도 같이</b> 넣었습니다. 추천만 모으면 판단이 안 됩니다.</p>
-<section class="shopsec">
-  <header class="ssh"><h3>🏪 편의점 ① 핫스낵 · 계산대</h3><p>계산대 옆 온장고·오뎅통은 <b>말로 주문</b>한다. 치킨은 체인마다 간판이 다르니 <b>한 체인에 한 개씩</b> 비교하는 게 제일 재밌다.</p>
-    <span class="scount">6</span></header>
+<p class="planlede"><b>유튜브에서 실제로 내용을 확인한 영상</b>만 근거로 삼았습니다. 「왜 사는가」를 「한국에 없어서」·「훨씬 싸서」·「일본 한정이라」 중 무엇인지로 갈라 적었고, 🔴 <b>반대 의견과 「이젠 사지 마라」도 같이</b> 넣었습니다. 추천만 모으면 판단이 안 됩니다.</p><div class="sbrand"><span class="sblab">편의점 체인</span><button type="button" class="sbchip on" data-brand="">전체</button><button type="button" class="sbchip b-seven" data-brand="seven">🟠 세븐일레븐</button><button type="button" class="sbchip b-lawson" data-brand="lawson">🔵 로손</button><button type="button" class="sbchip b-fami" data-brand="fami">🟢 패밀리마트</button></div><div class="stools"><span>섹션을 누르면 펼쳐집니다 · 카드도 누르면 펼쳐집니다</span><button type="button" class="sexp" data-open="1">모두 펼치기</button><button type="button" class="sexp" data-open="0">모두 접기</button></div><div class="stiles"><button type="button" class="stile" data-ss="ss-kb_hot"><span>🏪 편의점 ① 핫스낵 · 계산대</span><b>6</b></button><button type="button" class="stile" data-ss="ss-kb_meal"><span>🏪 편의점 ② 밥 · 면 · 빵</span><b>8</b></button><button type="button" class="stile" data-ss="ss-kb_sweet"><span>🏪 편의점 ③ 디저트 · 아이스 (2026 가을 한정 포함)</span><b>16</b></button><button type="button" class="stile" data-ss="ss-kb_snack"><span>🏪 편의점 ④ 과자 · 간사이 한정</span><b>3</b></button><button type="button" class="stile" data-ss="ss-kb_drink"><span>🏪 편의점 ⑤ 음료 · 술</span><b>5</b></button><button type="button" class="stile" data-ss="ss-kb_goods"><span>🏪 편의점 ⑥ 비식품 (생활 · 뷰티 · 여행 편의)</span><b>4</b></button><button type="button" class="stile" data-ss="ss-kb_howto"><span>🏪 편의점 ⑦ 공략법</span><b>7</b></button><button type="button" class="stile" data-ss="ss-kb_avoid"><span>🏪 편의점 ⑧ 비추 · 여기서 사지 마라</span><b>4</b></button><button type="button" class="stile" data-ss="ss-shoes"><span>👟 신발 300mm</span><b>5</b></button><button type="button" class="stile" data-ss="ss-elec"><span>🔌 전자제품</span><b>4</b></button><button type="button" class="stile" data-ss="ss-uniqlo"><span>👕 유니클로 · GU</span><b>8</b></button><button type="button" class="stile" data-ss="ss-muji"><span>🏠 무인양품</span><b>9</b></button><button type="button" class="stile" data-ss="ss-donki"><span>🛒 돈키호테</span><b>10</b></button><button type="button" class="stile" data-ss="ss-avoid"><span>🚫 이젠 사지 마라</span><b>6</b></button></div>
+<details class="shopsec" id="ss-kb_hot">
+  <summary class="ssh"><h3>🏪 편의점 ① 핫스낵 · 계산대</h3><p>계산대 옆 온장고·오뎅통은 <b>말로 주문</b>한다. 치킨은 체인마다 간판이 다르니 <b>한 체인에 한 개씩</b> 비교하는 게 제일 재밌다.</p>
+    <span class="scount">6</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard" data-brands="lawson">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>로손 가라아게쿤</h4>
     <span class="sja">からあげクン</span><span class="sprice">¥288 (税込·5개) · 공식 확인<br>신맛 つぶつぶコーン味·サクッと！ ¥298</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>1986년부터 나온 로손의 <b>한입 닭튀김 5알 컵</b>이다. 레귤러·레드(매운맛)·북해도 치즈·레몬이 상시 라인업이고, 9/15에 <b>つぶつぶコーン味(옥수수)</b> 신맛이 나왔다. 🔴 <b>기존에 드린 ¥238은 옛 가격</b>이다 — 지금 공식가는 ¥288.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>영상 3편(호캉스·유소·세오)에서 추천. 유소는 「<b>레드가 훨씬 맛있다</b>, 우리한테 익숙한 핫치킨 맛인데 맵다기보다 혀에 살짝 스치는 정도」. 세오는 치즈맛을 「필수」로 꼽았다. 리유지 채널 시식단 1명은 치즈맛을 2위로 뽑았다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>짠맛이 강한 편이고, 파미치키보다 덜 바삭하다는 평(유소). 식으면 확 떨어진다.</div></div>
@@ -3142,13 +3181,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="fcPAObVPgYo" data-t="일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!" data-a=""><span class="vn">1</span>일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!</button><button type="button" class="vitem" data-v="psMOvd99J60" data-t="일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기" data-a=""><span class="vn">2</span>일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기</button><button type="button" class="vitem" data-v="ElxrHLsaSZ8" data-t="2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]" data-a=""><span class="vn">3</span>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마</button></div>
 </details><div class="slinkrow"><a href="https://www.lawson.co.jp/recommend/original/detail/1390563_1996.html" target="_blank" rel="noopener">🔗 からあげクン レギュラー｜ローソン公式</a><a href="https://www.lawson.co.jp/recommend/original/detail/1532028_1996.html" target="_blank" rel="noopener">🔗 からあげクン つぶつぶコーン味 (9/15)｜ローソン公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="fami">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>패밀리마트 파미치키</h4>
     <span class="sja">ファミチキ</span><span class="sprice">¥248 (税込) · 레드 ¥258 · 공식 확인</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>뼈 없는 닭다리살을 통째로 튀긴 <b>납작한 치킨 패티</b>다. 🔴 <b>기존에 드린 ¥198~220은 틀렸다</b> — 2026-03-10에 ¥240→¥248로 올랐다. 편의점 치킨의 기준점이라 한 번은 먹어볼 만하다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>영상 4편(할명수·세오·유소·와썹맨)에 등장. 세오 「로손·세븐도 치킨을 팔지만 <b>식감이나 완성도 면에서 패밀리마트가 확실히 한 수 위</b>」. 일본 치킨 랭킹 영상(ずんだ, 2024)에서도 1위.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>와썹맨 박준형은 「빵 없는 치킨 샌드위치 같다」며 미지근한 평. 지유롭게는 <b>レッドペッパー 계열을 「너무 짜고 눅눅」</b>하다고 비추.</div></div>
@@ -3164,13 +3205,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="psMOvd99J60" data-t="일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기" data-a=""><span class="vn">1</span>일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기</button><button type="button" class="vitem" data-v="fcPAObVPgYo" data-t="일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!" data-a=""><span class="vn">2</span>일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!</button><button type="button" class="vitem" data-v="VfTLQj9tajk" data-t="(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222" data-a=""><span class="vn">3</span>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</button><button type="button" class="vitem" data-v="d7738G8reVY" data-t="【ガチマニアが選ぶ】本当に美味しいコンビニチキンランキングベスト10【ずんだもん】" data-a=""><span class="vn">4</span>【ガチマニアが選ぶ】本当に美味しいコンビニチキンランキングベスト10【ずんだもん】</button></div>
 </details><div class="slinkrow"><a href="https://www.family.co.jp/goods/friedfoods.html" target="_blank" rel="noopener">🔗 ファミチキ 등 핫스낵 목록｜FamilyMart公式</a><a href="https://convenicheck.com/news/news_famima/113545/" target="_blank" rel="noopener">🔗 ファミチキ 240→248円 値上げ (2026-03-10)｜コンビニチェッカー</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>세븐 아게도리 · 나나치키 (+로손 L치키 비교)</h4>
     <span class="sja">揚げ鶏 / ななチキ</span><span class="sprice">揚げ鶏 ¥250.56 · ななチキ ¥250.56 (税込·近畿 공식)<br>로손 Lチキ ¥248</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>세븐의 <b>揚げ鶏(아게도리)는 뼈 없는 닭다리살 통구이형 튀김</b>으로, 파미치키보다 튀김옷이 얇고 생강·간장 밑간이 있다. ななチキ는 파미치키 대항마인 패티형.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>요리연구가 리유지 채널의 편의점 치킨 블라인드 시식에서 <b>패널 3명 중 2명이 揚げ鶏를 1위</b>로 꼽았다. 여수언니 영상은 세븐 치킨을 「삼계탕 맛 같다」며 호평.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>세오는 「오븐치킨 스타일이라 취향 차이, 개인적으로 파미치키를 더 선호」. 로손 <b>Lチキ는 랭킹 영상에서 8~9위</b>로 3사 중 가장 존재감이 약하다.</div></div>
@@ -3186,13 +3229,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>結局どこのコンビニのチキンが一番うめえの？</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="cYKW6u4oGQo" data-t="結局どこのコンビニのチキンが一番うめえの？" data-a=""><span class="vn">1</span>結局どこのコンビニのチキンが一番うめえの？</button><button type="button" class="vitem" data-v="d7738G8reVY" data-t="【ガチマニアが選ぶ】本当に美味しいコンビニチキンランキングベスト10【ずんだもん】" data-a=""><span class="vn">2</span>【ガチマニアが選ぶ】本当に美味しいコンビニチキンランキングベスト10【ずんだもん】</button><button type="button" class="vitem" data-v="ncMRjIxo9VQ" data-t="SUB)먹방VLOG)일본 3대 편의점 50종 리뷰 먹방🔥추천템 궁금템 또살템/1일 1타마고산도 추천템/대존맛 디저트들 배터지게 먹어도 행복한 편의점 리뷰 못참지 ❤️ MUKBANG" data-a=""><span class="vn">3</span>SUB)먹방VLOG)일본 3대 편의점 50종 리뷰 먹방🔥추천템 궁금템 또살템/1일 1타마고산도 추천템/대</button></div>
 </details><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/item/150089/kinki/" target="_blank" rel="noopener">🔗 揚げ鶏｜セブン‐イレブン 近畿</a><a href="https://www.sej.co.jp/products/a/item/150398/kinki/" target="_blank" rel="noopener">🔗 ななチキ｜セブン‐イレブン 近畿</a><a href="https://www.lawson.co.jp/recommend/original/detail/1390578_1996.html" target="_blank" rel="noopener">🔗 Ｌチキ レギュラー｜ローソン公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson fami">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>편의점 오뎅</h4>
     <span class="sja">おでん</span><span class="sprice">세븐: 大根 ¥130.68 · 味しみたまご ¥150.12 · 牛すじ串 ¥210.60 · お餅の巾着 ¥210.60<br>로손(9/23~): つゆしみ大根 ¥160 · つゆしみたまご ¥160 · 牛すじ ¥198 (전부 税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>어묵·무·달걀·소힘줄·떡주머니(모치킨차쿠)를 <b>다시 국물째 컵에 담아 주는</b> 편의점 겨울 메뉴다. 세븐은 <b>9/15부터 순차 발매</b>, 로손은 <b>9/23에 신 라인업</b>이 나온다 — 이번 여행이 딱 개시 직후다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>할명수 박명수 「<b>작품이다</b>」라며 국물을 극찬(살짝 조미료 맛도 인정). 배블리·쏘이도 오사카·교토에서 먹고 만족. 간사이 편의점은 <b>다시마 베이스 옅은 국물</b>이라 한국 어묵탕과 결이 다르다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>점포마다 취급 여부가 다르다</b> — 「順次発売」라 아직 안 들여놓은 가게도 있다. 9월 오사카는 아직 덥다(낮 27℃ 전후).</div></div>
@@ -3208,26 +3253,30 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="VfTLQj9tajk" data-t="(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222" data-a=""><span class="vn">1</span>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</button><button type="button" class="vitem" data-v="m7DdnbuUC4Q" data-t="일본 3대 편의점 추천 음식 싹 다 먹어봤습니다! 일본 편의점 오뎅 전메뉴, 편의점 꿀조합, 존맛 컵라면 추천, 모찌뿌요, 타마고 산도, 세븐일레븐 과일 스무디 먹방 MUKBANG" data-a=""><span class="vn">2</span>일본 3대 편의점 추천 음식 싹 다 먹어봤습니다! 일본 편의점 오뎅 전메뉴, 편의점 꿀조합, 존맛 컵라면</button><button type="button" class="vitem" data-v="kDJec-aKd80" data-t="🇯🇵 #1 나홀로 오사카 여행 시작! 입국하자마자 일본 편의점 음식 먹방(ft. 로손 모찌빵, 세븐일레븐 오뎅, 토미타 규카츠, 돈키호테 쇼핑)" data-a=""><span class="vn">3</span>🇯🇵 #1 나홀로 오사카 여행 시작! 입국하자마자 일본 편의점 음식 먹방(ft. 로손 모찌빵, 세븐일레븐</button></div>
 </details><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/oden/kinki/" target="_blank" rel="noopener">🔗 おでん 近畿 목록｜セブン‐イレブン</a><a href="https://www.lawson.co.jp/recommend/new/list/1532205_5162.html" target="_blank" rel="noopener">🔗 9月23日発売の新商品(おでん)｜ローソン公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson fami">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>니쿠만 3사 — 로손 특선 부타만(시오)</h4>
     <span class="sja">特撰 豚まん(塩)</span><span class="sprice">로손 特撰豚まん(塩) ¥270 · 세븐 ごろっと肉まん ¥168.48 · 패미마 極旨 黒豚まん ¥250 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>계산대 찜기의 고기찐빵. 로손 <b>特撰 豚まん(塩)은 중부·近畿·서일본 한정</b>이고 동일본은 간장맛이다 — <b>간사이에서만 먹는 소금맛 버전</b>이라는 점이 이번 여행의 명분.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>편의점 니쿠만은 ¥170~270 선으로 551호라이(식당 탭 참조) 대비 <b>1개 단위로 부담 없이</b> 맛볼 수 있다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>특선 부타만 자체의 실시식 후기는 <b>확인 못 함</b>(9/8 발매). 551호라이를 먹을 계획이면 굳이 겹칠 필요는 없다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>「豚まん ひとつ」. 찜기는 계산대 뒤라 직원이 꺼내준다. 겨자 봉지를 달라면 「からしください」.</div></div>
   <div class="sfield "><b>어디서</b><div>로손(近畿) · 세븐 · 패미마 계산대</div></div>
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.lawson.co.jp/recommend/original/chukaman/" target="_blank" rel="noopener">🔗 特撰 豚まん(塩) — 近畿 등 한정｜ローソン中華まん</a><a href="https://www.sej.co.jp/products/a/chukaman/kinki/" target="_blank" rel="noopener">🔗 中華まん 近畿｜セブン‐イレブン</a><a href="https://www.family.co.jp/goods/chukaman.html" target="_blank" rel="noopener">🔗 中華まん｜FamilyMart公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson fami">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>편의점 월견(츠키미) 버거 3사 + 세븐 월견 멘치</h4>
     <span class="sja">月見バーガー</span><span class="sprice">패미마 トリプルチーズ月見 ¥438 · 세븐 月見てりやき ¥378 · 로손 とろ〜り月見つくね ¥497 · 세븐 お月見メンチカツ ¥180.36 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>9월 일본은 <b>달걀 노른자를 보름달에 빗댄 「츠키미(月見)」 한정 상품</b> 시즌이다. 올해는 편의점 3사가 모두 월견 버거를 냈다. 중추의 명월(올해 9/25 ⚠️) 전후로 빠지기 시작하니 <b>이번 여행이 끝물</b>.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>2026 3사 비교 영상(タナカリサブ): 패미마는 「소스·치즈가 진해서」 개인 1위, 세븐은 「폭신+쫄깃 조화, 담백한 화풍」, 로손은 「번의 폭신함이 압도적」(매장 조리 まちかど厨房 제품).</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>셋 다 ¥380~500이라 편의점 간식치고는 비싸다. 명확한 승자 없이 취향 차 — 식당 우선 예산이면 하나만.</div></div>
@@ -3243,18 +3292,20 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>【セブンファミマローソン】コンビニ月見バーガー食べ比べ【2026】</b><span>YouTube</span></div>
   
 </details><div class="slinkrow"><a href="https://www.family.co.jp/goods/sandwich/0920506.html" target="_blank" rel="noopener">🔗 トリプルチーズ月見バーガー｜FamilyMart公式</a><a href="https://www.sej.co.jp/products/a/item/053986/kinki/" target="_blank" rel="noopener">🔗 月見てりやきバーガー｜セブン‐イレブン 近畿</a><a href="https://www.lawson.co.jp/recommend/original/detail/1531474_1996.html" target="_blank" rel="noopener">🔗 とろ〜り月見つくね｜ローソン公式</a><a href="https://www.sej.co.jp/products/a/item/150387/kinki/" target="_blank" rel="noopener">🔗 お月見メンチカツ｜セブン‐イレブン 近畿</a></div></div>
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🏪 편의점 ② 밥 · 면 · 빵</h3><p>식당이 우선이니 여기는 <b>아침·이동 중·야식용</b>. 세븐 샌드위치·오니기리가 기본기, 간사이 한정 메뉴가 이번 여행만의 몫.</p>
-    <span class="scount">8</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-kb_meal">
+  <summary class="ssh"><h3>🏪 편의점 ② 밥 · 면 · 빵</h3><p>식당이 우선이니 여기는 <b>아침·이동 중·야식용</b>. 세븐 샌드위치·오니기리가 기본기, 간사이 한정 메뉴가 이번 여행만의 몫.</p>
+    <span class="scount">8</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard" data-brands="seven">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>세븐 타마고 산도 (계란 샌드위치)</h4>
     <span class="sja">セブン‐イレブンこだわりＴＨＥたまごサンド</span><span class="sprice">¥291.60 (税込·近畿 공식) · 9/22 신상 소형 「たまごサンド」 ¥149.04</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>으깬 삶은 달걀+마요를 식빵에 두툼하게 채운 <b>일본 편의점 샌드위치의 상징</b>. 아침을 호텔 밖에서 해결할 때 가장 무난한 한 끼다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>영상 3편(호캉스·여수언니·지유롭게)이 추천. 지유롭게 「세븐·패미마 비교해보니 <b>세븐이 더 부드럽고 고소</b>」. 여수언니는 첫날 패미마 1위 → 다음날 재시식 후 세븐으로 바꿨다. 호캉스는 「아침 대용 1순위」.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>할명수 박명수는 「한국에도 흔해서 굳이 안 먹어도」라며 중립. 로손 계란 샌드는 「짜다」는 감점 평(여수언니).</div></div>
@@ -3270,13 +3321,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="ElxrHLsaSZ8" data-t="2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]" data-a=""><span class="vn">1</span>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마</button><button type="button" class="vitem" data-v="8tJDPIFF5lg" data-t="일본 편의점 이건 무조건 사드세요! 최애 간식 공개🍘(세븐일레븐,로손,패밀리마트)" data-a=""><span class="vn">2</span>일본 편의점 이건 무조건 사드세요! 최애 간식 공개🍘(세븐일레븐,로손,패밀리마트)</button><button type="button" class="vitem" data-v="ncMRjIxo9VQ" data-t="SUB)먹방VLOG)일본 3대 편의점 50종 리뷰 먹방🔥추천템 궁금템 또살템/1일 1타마고산도 추천템/대존맛 디저트들 배터지게 먹어도 행복한 편의점 리뷰 못참지 ❤️ MUKBANG" data-a=""><span class="vn">3</span>SUB)먹방VLOG)일본 3대 편의점 50종 리뷰 먹방🔥추천템 궁금템 또살템/1일 1타마고산도 추천템/대</button><button type="button" class="vitem" data-v="VfTLQj9tajk" data-t="(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222" data-a=""><span class="vn">4</span>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</button></div>
 </details><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/item/053738/kinki/" target="_blank" rel="noopener">🔗 こだわりＴＨＥたまごサンド｜セブン‐イレブン 近畿</a><a href="https://www.sej.co.jp/products/a/item/304120/kinki/" target="_blank" rel="noopener">🔗 たまごサンド (9/22)｜セブン‐イレブン 近畿</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>오니기리 — 세븐 명란·연어 / 로손 매장조리 오니기리</h4>
     <span class="sja">手巻おにぎり 具たっぷり辛子明太子 / 炭火焼銀しゃけ</span><span class="sprice">세븐 具たっぷり辛子明太子 ¥213.84 · 炭火焼銀しゃけ ¥213.84 (税込·近畿 공식)<br>로손 まちかど厨房 博多辛子明太子 · さけ 각 ¥297</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>삼각김밥은 김을 <b>먹기 직전에 감는 필름식</b>이라 김이 바삭하다. 🔴 <b>기존 목록의 「熟成明太子」는 지금 세븐 近畿 라인업에 없다</b> — 현행 명란 오니기리는 「具たっぷり辛子明太子」다. 로손은 점내 조리 코너에서 <b>갓 지은 대형 오니기리</b>를 판다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>연어 계열이 영상 3편(와썹맨·호캉스·세오)에서 추천. 와썹맨 「<b>밥이 쫄깃하고 안 비리다</b>」(세븐 연어), 로손 연어뱃살(鮭ハラミ)은 「기름지고 큼직, 우리 입맛에 잘 맞는다」(세오).</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>여수언니 「밥 퀄리티는 좋은데 김이 아쉽다」, 유소는 로손 연어알 오니기리가 「간장맛이 짜다」. 계란·연어알·게맛살류가 <b>생각보다 짜다</b>는 지적이 반복.</div></div>
@@ -3292,13 +3345,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="Xuk3VDz7VFU" data-t="일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]" data-a=""><span class="vn">1</span>일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]</button><button type="button" class="vitem" data-v="psMOvd99J60" data-t="일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기" data-a=""><span class="vn">2</span>일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기</button><button type="button" class="vitem" data-v="ElxrHLsaSZ8" data-t="2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]" data-a=""><span class="vn">3</span>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마</button></div>
 </details><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/item/040615/kinki/" target="_blank" rel="noopener">🔗 手巻おにぎり 具たっぷり辛子明太子｜セブン 近畿</a><a href="https://www.sej.co.jp/products/a/item/041249/kinki/" target="_blank" rel="noopener">🔗 手巻おにぎり 炭火焼銀しゃけ｜セブン 近畿</a><a href="https://www.lawson.co.jp/recommend/original/machikadochubo/" target="_blank" rel="noopener">🔗 まちかど厨房 목록｜ローソン公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>반숙 맛계란</h4>
     <span class="sja">７プレミアム味付き半熟とろっとゆでたまご２個</span><span class="sprice">¥270 (2개·税込·近畿 공식, 9/22 신상)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>간장 양념이 밴 <b>반숙 삶은 달걀</b>. 단백질 간식·야식·아침 보충용으로 가장 가볍다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>백현이 편의점 영상에서 「<b>오늘의 1위, 꼭 사서 먹어봐</b>」라고 한 품목(훈제 반숙란). 배블리도 반숙·훈제 계란을 극찬.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>백현 본인도 「꽤 짜 보인다」고 했다. 이번 세븐 신상 자체의 후기는 확인 못 함.</div></div>
@@ -3314,13 +3369,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>백현이의 일본 편의점을 털어라❗️l 백현 (BAEKHYUN)</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="psVAgz77_PM" data-t="백현이의 일본 편의점을 털어라❗️l 백현 (BAEKHYUN)" data-a=""><span class="vn">1</span>백현이의 일본 편의점을 털어라❗️l 백현 (BAEKHYUN)</button><button type="button" class="vitem" data-v="m7DdnbuUC4Q" data-t="일본 3대 편의점 추천 음식 싹 다 먹어봤습니다! 일본 편의점 오뎅 전메뉴, 편의점 꿀조합, 존맛 컵라면 추천, 모찌뿌요, 타마고 산도, 세븐일레븐 과일 스무디 먹방 MUKBANG" data-a=""><span class="vn">2</span>일본 3대 편의점 추천 음식 싹 다 먹어봤습니다! 일본 편의점 오뎅 전메뉴, 편의점 꿀조합, 존맛 컵라면</button></div>
 </details><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/item/103042/kinki/" target="_blank" rel="noopener">🔗 味付き半熟とろっとゆでたまご｜セブン 近畿</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson fami">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>돈베에 키츠네 우동 — 서일본판 (W)</h4>
     <span class="sja">日清のどん兵衛 きつねうどん (W)</span><span class="sprice">⚠️ 변동·미확인 (영상 기준 약 2,200원)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>두툼한 유부 한 장이 올라간 <b>컵 우동</b>. 같은 돈베에도 <b>동일본판 (E)은 가쓰오 진한 간장, 서일본판 (W)은 다시마 옅은 국물</b>이다. 오사카에서 사면 자동으로 (W) — <b>간사이에서만 먹는 맛</b>이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>영상 5편(할명수·호캉스·지유롭게·주둥이방송·배블리)에서 추천 — 이번 조사에서 <b>가장 많이 겹친 컵라면</b>. 할명수 「유부가 짠 국물을 상쇄, <b>1위인 이유가 있다</b>」, 지유롭게 「오사카에서 첫 충격」.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>한국인 입맛엔 국물이 싱겁다고 느낄 수 있다.</div></div>
@@ -3336,13 +3393,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="VfTLQj9tajk" data-t="(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222" data-a=""><span class="vn">1</span>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</button><button type="button" class="vitem" data-v="ElxrHLsaSZ8" data-t="2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]" data-a=""><span class="vn">2</span>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마</button><button type="button" class="vitem" data-v="8tJDPIFF5lg" data-t="일본 편의점 이건 무조건 사드세요! 최애 간식 공개🍘(세븐일레븐,로손,패밀리마트)" data-a=""><span class="vn">3</span>일본 편의점 이건 무조건 사드세요! 최애 간식 공개🍘(세븐일레븐,로손,패밀리마트)</button><button type="button" class="vitem" data-v="_J_nH9YGFJg" data-t="일본 편의점 추천 음식 전부 다 먹기" data-a=""><span class="vn">4</span>일본 편의점 추천 음식 전부 다 먹기</button></div>
 </details><div class="slinkrow"><a href="https://www.donbei.jp/tozaidashi/" target="_blank" rel="noopener">🔗 東西でぜんぶ違う！おいしさの秘密｜日清のどん兵衛</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>몽고탄멘 나카모토 컵라면</h4>
     <span class="sja">日清 蒙古タンメン中本</span><span class="sprice">⚠️ 변동·미확인 (영상 기준 약 2,300원)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>도쿄의 매운 라멘 맛집 「中本」을 재현한 <b>세븐일레븐 대표 매운 컵라면</b>. 한국 라면 입맛에 가장 가깝다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>영상 4편(할명수·유소·배블리·카라미)에서 추천. 할명수 「<b>신라면보다 맵다</b>, 재구매 의사」 — 박명수 최종 톱3. 유소 「한국인 입맛에 딱」이라며 여러 개 쟁였다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>배블리 「생각보다 안 맵다」 — 맵기 평가가 사람마다 엇갈린다.</div></div>
@@ -3358,13 +3417,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="VfTLQj9tajk" data-t="(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222" data-a=""><span class="vn">1</span>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</button><button type="button" class="vitem" data-v="fcPAObVPgYo" data-t="일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!" data-a=""><span class="vn">2</span>일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!</button><button type="button" class="vitem" data-v="m7DdnbuUC4Q" data-t="일본 3대 편의점 추천 음식 싹 다 먹어봤습니다! 일본 편의점 오뎅 전메뉴, 편의점 꿀조합, 존맛 컵라면 추천, 모찌뿌요, 타마고 산도, 세븐일레븐 과일 스무디 먹방 MUKBANG" data-a=""><span class="vn">3</span>일본 3대 편의점 추천 음식 싹 다 먹어봤습니다! 일본 편의점 오뎅 전메뉴, 편의점 꿀조합, 존맛 컵라면</button><button type="button" class="vitem" data-v="2saf5zrI5mA" data-t="일본 1년에 10번 가는 남자의 편의점 추천" data-a=""><span class="vn">4</span>일본 1년에 10번 가는 남자의 편의점 추천</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>세븐 금의 버섯 크림 생파스타 (+로손 포르치니 생파스타)</h4>
     <span class="sja">７ＰＧ 金のきのこ クリーム 生パスタ</span><span class="sprice">세븐 ¥462.24 (税込·近畿 공식, 9/15) · 로손 生パスタ ポルチーニ香るきのこクリーム ¥646</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>냉장 생면 파스타. 전자레인지만 있으면 숙소에서 <b>레스토랑급 크림 파스타</b>가 된다. 가을 신상이 둘 다 버섯 크림이다. 🔴 <b>기존 목록의 「세븐 명란버터 파스타」는 현재 세븐 近畿 파스타 목록에 없다</b> — 확인 못 함.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>세오 「<b>프리미엄 버섯크림파스타는 이탈리안 맛집 수준</b>」 강추(세븐). 주둥이방송은 명란 크림 파스타를 「장난 아니다」라고 했지만 현행 판매 여부 미확인.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>로손 것은 ¥646으로 편의점 한 끼치고 비싸다. 두 제품 모두 이번 가을판 실시식 후기는 확인 못 함.</div></div>
@@ -3380,13 +3441,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="psMOvd99J60" data-t="일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기" data-a=""><span class="vn">1</span>일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기</button><button type="button" class="vitem" data-v="_J_nH9YGFJg" data-t="일본 편의점 추천 음식 전부 다 먹기" data-a=""><span class="vn">2</span>일본 편의점 추천 음식 전부 다 먹기</button></div>
 </details><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/item/410138/kinki/" target="_blank" rel="noopener">🔗 ７ＰＧ 金のきのこ クリーム 生パスタ｜セブン 近畿</a><a href="https://www.lawson.co.jp/recommend/new/list/1531756_5162.html" target="_blank" rel="noopener">🔗 9月8日発売の新商品(生パスタ)｜ローソン公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="lawson">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>로손 まちかど厨房 — 매장조리 카츠산도·도시락</h4>
     <span class="sja">まちかど厨房</span><span class="sprice">三元豚の厚切りロースカツサンド ¥505 (1개 ¥279) · 厚切りカツ＆タマゴサンド ¥505 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>로손 일부 점포 안 주방에서 <b>직접 튀기고 지은</b> 도시락·샌드위치. 공장 도시락과 밥알·튀김 식감이 다르다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>세오 「점내 조리라 밥알이 신선, <b>저녁 할인</b>이 있다」 강추. 돈카츠 마이센 감수 소스를 쓴 카츠산도가 간판.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>설치 점포가 한정적이다. 인기 품목은 저녁이면 빈다.</div></div>
@@ -3402,31 +3465,35 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기</b><span>YouTube</span></div>
   
 </details><div class="slinkrow"><a href="https://www.lawson.co.jp/recommend/original/machikadochubo/" target="_blank" rel="noopener">🔗 まちかど厨房｜ローソン公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson fami">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>🍜 간사이 한정 한 끼 — 세븐 나니와 니쿠우동 · 로손 니쿠스이·아카시야키 · 패미마 카야쿠고항</h4>
     <span class="sja">千とせ本店監修 浪花の肉うどん / おだしのきいた肉吸い / おだしで食べる 明石焼 / 【関西】かやくごはんおむすび</span><span class="sprice">세븐 浪花の肉うどん ¥602.64 · 播州ラーメン ¥550.80 (近畿 공식)<br>로손(ええモン関西) 肉吸い ¥397 · 明石焼 ¥430 · 南京町監修 ごま香る炒飯 ¥203<br>패미마 【関西】かやくごはんおむすび ¥165 · 【関西】特製濃厚ソースのオムスパ ¥398 (9/22~) (전부 税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>다른 지역 편의점에는 없는 메뉴</b>만 모았다. ① 세븐: 난바 「千とせ」 감수 <b>니쿠우동</b>(고기 우동), 효고 「播州ラーメン」. ② 로손 「ええモン関西」: 오사카 명물 <b>肉吸い(니쿠스이 — 우동 뺀 고기 국)</b>, 효고 아카시의 <b>明石焼(다시에 찍어 먹는 달걀 타코야키)</b>, 고베 <b>南京町(난킨마치) 감수</b> 중화 메뉴. ③ 패미마: 간사이식 채소 영양밥 <b>かやくご飯</b> 오니기리, 9/22 간사이 한정 오므 스파게티.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>편의점 가격으로 <b>간사이 향토 음식을 맛보기</b> 할 수 있다는 게 전부의 명분. 영상 실시식 후기는 확인 못 함 — 공식 한정 표기로만 고른 목록이다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 실제 맛 후기가 없다. 니쿠스이·아카시야키는 <b>식당 탭의 진짜 가게</b>가 일정에 있으면 그쪽이 우선.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>고베 날(9/21)엔 로손 <b>南京町 감수 에그타르트·마라카오</b>(디저트 탭)와 묶으면 「고베 편의점 한정 세트」가 된다.</div></div>
   <div class="sfield "><b>어디서</b><div>세븐 · 로손 · 패미마 近畿 점포</div></div>
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/item/091269/kinki/" target="_blank" rel="noopener">🔗 千とせ本店監修 浪花の肉うどん｜セブン 近畿</a><a href="https://www.sej.co.jp/products/a/item/090819/kinki/" target="_blank" rel="noopener">🔗 播州ラーメン｜セブン 近畿</a><a href="https://www.lawson.co.jp/area/kinki/eemonkansai/" target="_blank" rel="noopener">🔗 ええモン関西｜ローソン研究所</a><a href="https://www.family.co.jp/goods/omusubi/0416849.html" target="_blank" rel="noopener">🔗 【関西】かやくごはんおむすび｜FamilyMart公式</a><a href="https://www.family.co.jp/goods/pasta/0826266.html" target="_blank" rel="noopener">🔗 【関西】特製濃厚ソースのオムスパ｜FamilyMart公式</a></div></div>
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🏪 편의점 ③ 디저트 · 아이스 (2026 가을 한정 포함)</h3><p>편의점 털기의 본체. <b>9/22(화) 신상이 대거 풀린다</b> — 가을 밤·고구마·월견(달맞이) 한정이 지금이 제철이다.</p>
-    <span class="scount">16</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-kb_sweet">
+  <summary class="ssh"><h3>🏪 편의점 ③ 디저트 · 아이스 (2026 가을 한정 포함)</h3><p>편의점 털기의 본체. <b>9/22(화) 신상이 대거 풀린다</b> — 가을 밤·고구마·월견(달맞이) 한정이 지금이 제철이다.</p>
+    <span class="scount">16</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard" data-brands="seven">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>오하요 브륄레 (크림브륄레 아이스)</h4>
     <span class="sja">オハヨー BRULEE</span><span class="sprice">⚠️ 약 ¥400 전후 — 와썹맨 영상 표시 ¥388 / 세븐 공식 「ブリュレ ミルク」 ¥419.04</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>캐러멜 윗면을 <b>숟가락으로 톡 깨 먹는 냉동 크림브륄레</b>. 세븐에서 품절이 잦은 간판 디저트다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>영상 5편(할명수·와썹맨·호캉스·지유롭게·아정)이 추천 — 디저트 중 <b>가장 많이 겹친 품목</b>. 할명수 「카페에서 3,500원은 할 맛」 <b>1위 픽</b>, 와썹맨 「미국엔 이런 편의점 디저트가 없다」.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>주우재는 「뽑기(달고나) 맛과 비슷해 대단하진 않다」 중립. 지유롭게 「생각보다 안 딱딱하고 달다」.</div></div>
@@ -3442,13 +3509,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="VfTLQj9tajk" data-t="(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222" data-a=""><span class="vn">1</span>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</button><button type="button" class="vitem" data-v="Xuk3VDz7VFU" data-t="일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]" data-a=""><span class="vn">2</span>일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]</button><button type="button" class="vitem" data-v="ElxrHLsaSZ8" data-t="2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]" data-a=""><span class="vn">3</span>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마</button><button type="button" class="vitem" data-v="8tJDPIFF5lg" data-t="일본 편의점 이건 무조건 사드세요! 최애 간식 공개🍘(세븐일레븐,로손,패밀리마트)" data-a=""><span class="vn">4</span>일본 편의점 이건 무조건 사드세요! 최애 간식 공개🍘(세븐일레븐,로손,패밀리마트)</button><button type="button" class="vitem" data-v="eHQS1-AYnq8" data-t="일본편의점 털기 전 필수시청🛒 30개 먹어보고 고른 실패 없는 리스트ㅣ로손 세븐일레븐 패밀리마트 도쿄맛집 이마카츠 팡메종소금빵 이치란라멘 하브스케이크 츠케멘 스프카레 먹방 브이로그" data-a=""><span class="vn">5</span>일본편의점 털기 전 필수시청🛒 30개 먹어보고 고른 실패 없는 리스트ㅣ로손 세븐일레븐 패밀리마트 도쿄맛집</button></div>
 </details><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/item/450568/" target="_blank" rel="noopener">🔗 オハヨー乳業 ブリュレ ミルク｜セブン‐イレブン</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson fami">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>오하요 저지 우유 푸딩</h4>
     <span class="sja">オハヨー ジャージー牛乳プリン</span><span class="sprice">⚠️ 변동·미확인 (할명수 영상 기준 약 1,600원)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>저지종 소 우유로 만든 <b>우유 푸딩</b>. 캐러멜 없이 우유 맛 하나로 승부하는 일본 우유 푸딩 점유율 1위 제품. 3사 어디에나 있다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>영상 6편(할명수·주우재·호캉스·여수언니·주둥이방송·아정)에서 추천. 주우재 <b>톱3 중 1위</b>, 할명수 「우유가 어떻게 이런 맛이」 박명수 톱3.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>지유롭게 「느끼해서 제 스타일은 아님(그런데 두 개 비움)」. 계속 먹으면 물린다(아정).</div></div>
@@ -3464,13 +3533,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="VfTLQj9tajk" data-t="(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222" data-a=""><span class="vn">1</span>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</button><button type="button" class="vitem" data-v="U_22eCKqBik" data-t="🍮일본 3대 편의점 달달 간식? 응 내가 다 먹어줄게😇 | 디저트 간식 과자 리뷰, 단 거 먹방" data-a=""><span class="vn">2</span>🍮일본 3대 편의점 달달 간식? 응 내가 다 먹어줄게😇 | 디저트 간식 과자 리뷰, 단 거 먹방</button><button type="button" class="vitem" data-v="ElxrHLsaSZ8" data-t="2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]" data-a=""><span class="vn">3</span>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마</button><button type="button" class="vitem" data-v="_J_nH9YGFJg" data-t="일본 편의점 추천 음식 전부 다 먹기" data-a=""><span class="vn">4</span>일본 편의점 추천 음식 전부 다 먹기</button></div>
 </details><div class="slinkrow"><a href="https://www.ohayo-milk.co.jp/dessert/14050.html" target="_blank" rel="noopener">🔗 ジャージー牛乳プリン｜オハヨー乳業</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="lawson">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>로손 모찌푸요</h4>
     <span class="sja">もちぷよ(北海道産生クリーム入りミルククリーム)</span><span class="sprice">¥127 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>쫀득한 떡 식감 반죽 안에 <b>홋카이도 생크림 밀크크림</b>을 꽉 채운 로손 전용 슈. 로손 우치카페 디저트의 스테디셀러.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>영상 6편(호캉스·와썹맨·여수언니·배블리·주둥이방송·쏘이)에 등장. 와썹맨 박준형 「<b>내 최애 맛</b>」, 호캉스 「왜 유명한지 알겠다」, 쏘이·주둥이방송은 「모찌빵」으로 부르며 극찬.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>여수언니 「기대만큼은 아니었지만 밀크크림은 훌륭」.</div></div>
@@ -3486,13 +3557,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="Xuk3VDz7VFU" data-t="일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]" data-a=""><span class="vn">1</span>일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]</button><button type="button" class="vitem" data-v="ElxrHLsaSZ8" data-t="2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]" data-a=""><span class="vn">2</span>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마</button><button type="button" class="vitem" data-v="m7DdnbuUC4Q" data-t="일본 3대 편의점 추천 음식 싹 다 먹어봤습니다! 일본 편의점 오뎅 전메뉴, 편의점 꿀조합, 존맛 컵라면 추천, 모찌뿌요, 타마고 산도, 세븐일레븐 과일 스무디 먹방 MUKBANG" data-a=""><span class="vn">3</span>일본 3대 편의점 추천 음식 싹 다 먹어봤습니다! 일본 편의점 오뎅 전메뉴, 편의점 꿀조합, 존맛 컵라면</button><button type="button" class="vitem" data-v="kDJec-aKd80" data-t="🇯🇵 #1 나홀로 오사카 여행 시작! 입국하자마자 일본 편의점 음식 먹방(ft. 로손 모찌빵, 세븐일레븐 오뎅, 토미타 규카츠, 돈키호테 쇼핑)" data-a=""><span class="vn">4</span>🇯🇵 #1 나홀로 오사카 여행 시작! 입국하자마자 일본 편의점 음식 먹방(ft. 로손 모찌빵, 세븐일레븐</button></div>
 </details><div class="slinkrow"><a href="https://www.lawson.co.jp/recommend/original/detail/1530060_1996.html" target="_blank" rel="noopener">🔗 もちぷよ｜ローソン公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="lawson">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>로손 롤케이크 3종 — 프리미엄 · 모찌 식감 · 가을 밤가루</h4>
     <span class="sja">プレミアムロールケーキ / もち食感ロール / プレミアムロールケーキ 栗粉</span><span class="sprice">プレミアムロールケーキ ¥214 · 栗粉(9/15 가을판) ¥275 · もち食感ロール 1개 ¥354 / 3개입 ¥211 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>로손 디저트를 대표하는 <b>크림 폭탄 롤케이크</b>. 숟가락으로 떠먹는 컵형 프리미엄 롤과, 떡 같은 반죽의 모찌 식감 롤 두 라인이 있고 9/15에 <b>밤가루(栗粉) 가을판</b>이 나왔다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>영상 5편(호캉스·추성훈·여수언니·유소·배블리). 호캉스 「로손 인기 1위」, 여수언니 「크림 매우 훌륭, 강추」, 유소 「쫄깃한 떡+부드러운 생크림」. 모그나비 주간 랭킹(9/18)에도 もち食感ロール 3위, 프리미엄롤 9위.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>크림 양이 많아 느끼하다는 사람도 있다. 가을 밤가루판의 실시식 후기는 확인 못 함.</div></div>
@@ -3508,13 +3581,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="ElxrHLsaSZ8" data-t="2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]" data-a=""><span class="vn">1</span>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마</button><button type="button" class="vitem" data-v="5NNwuVKqXGk" data-t="온가족 총출동한 일본 편의점 투어(ㅇㄴㅅㅎ등판)" data-a=""><span class="vn">2</span>온가족 총출동한 일본 편의점 투어(ㅇㄴㅅㅎ등판)</button><button type="button" class="vitem" data-v="fcPAObVPgYo" data-t="일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!" data-a=""><span class="vn">3</span>일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!</button><button type="button" class="vitem" data-v="ncMRjIxo9VQ" data-t="SUB)먹방VLOG)일본 3대 편의점 50종 리뷰 먹방🔥추천템 궁금템 또살템/1일 1타마고산도 추천템/대존맛 디저트들 배터지게 먹어도 행복한 편의점 리뷰 못참지 ❤️ MUKBANG" data-a=""><span class="vn">4</span>SUB)먹방VLOG)일본 3대 편의점 50종 리뷰 먹방🔥추천템 궁금템 또살템/1일 1타마고산도 추천템/대</button></div>
 </details><div class="slinkrow"><a href="https://www.lawson.co.jp/recommend/original/detail/1528735_1996.html" target="_blank" rel="noopener">🔗 プレミアムロールケーキ｜ローソン公式</a><a href="https://www.lawson.co.jp/recommend/original/detail/1532075_1996.html" target="_blank" rel="noopener">🔗 プレミアムロールケーキ 栗粉 (9/15)｜ローソン公式</a><a href="https://mognavi.jp/konbini-dessert/ranking/1" target="_blank" rel="noopener">🔗 コンビニスイーツ週間ランキング (9/18)｜もぐナビ</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson fami">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>편의점 흰 붕어빵 (타이야키) 비교</h4>
     <span class="sja">もっちりとした白いたい焼き / クリームたい焼き</span><span class="sprice">로손 白いたい焼き カスタード ¥178 · 패미마 北海道牛乳使用クリームたい焼き ¥178 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>찹쌀 반죽의 <b>하얗고 쫀득한 붕어빵</b>에 커스터드를 넣은 냉장 디저트. 영상마다 「어느 체인이 제일 맛있나」로 갈리는 단골 비교 품목.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>영상 4편 등장. 아정 「<b>로손이 가장 맛있다</b>」, 호캉스도 로손 추천.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>여수언니·주둥이방송은 「<b>세븐 것이 압도적 1위</b>」, 여수언니는 로손 것을 오히려 비추 — 평가가 정면으로 갈린다. 세븐의 현행 타이야키 제품은 近畿 목록에서 확인 못 함.</div></div>
@@ -3530,13 +3605,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본편의점 털기 전 필수시청🛒 30개 먹어보고 고른 실패 없는 리스트ㅣ로손 세븐일레븐 패밀리마트 도쿄맛집 이마카츠 팡메종소금빵</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="eHQS1-AYnq8" data-t="일본편의점 털기 전 필수시청🛒 30개 먹어보고 고른 실패 없는 리스트ㅣ로손 세븐일레븐 패밀리마트 도쿄맛집 이마카츠 팡메종소금빵 이치란라멘 하브스케이크 츠케멘 스프카레 먹방 브이로그" data-a=""><span class="vn">1</span>일본편의점 털기 전 필수시청🛒 30개 먹어보고 고른 실패 없는 리스트ㅣ로손 세븐일레븐 패밀리마트 도쿄맛집</button><button type="button" class="vitem" data-v="ncMRjIxo9VQ" data-t="SUB)먹방VLOG)일본 3대 편의점 50종 리뷰 먹방🔥추천템 궁금템 또살템/1일 1타마고산도 추천템/대존맛 디저트들 배터지게 먹어도 행복한 편의점 리뷰 못참지 ❤️ MUKBANG" data-a=""><span class="vn">2</span>SUB)먹방VLOG)일본 3대 편의점 50종 리뷰 먹방🔥추천템 궁금템 또살템/1일 1타마고산도 추천템/대</button><button type="button" class="vitem" data-v="_J_nH9YGFJg" data-t="일본 편의점 추천 음식 전부 다 먹기" data-a=""><span class="vn">3</span>일본 편의점 추천 음식 전부 다 먹기</button><button type="button" class="vitem" data-v="ElxrHLsaSZ8" data-t="2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]" data-a=""><span class="vn">4</span>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마</button></div>
 </details><div class="slinkrow"><a href="https://www.lawson.co.jp/recommend/original/detail/1496910_1996.html" target="_blank" rel="noopener">🔗 もっちりとした白いたい焼き カスタード｜ローソン公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="fami">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>패미마 수플레 푸딩</h4>
     <span class="sja">スフレ・プリン</span><span class="sprice">¥360 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>위층은 <b>폭신한 수플레 케이크</b>, 아래층은 푸딩인 패미마 디저트 인기 1위 제품(닛케이 트렌디 2020 과자대상).</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>영상 4편 등장. 할명수 「빵과 푸딩 조합이 신기하게 잘 어울린다」, 호캉스 강추, 여수언니 「치즈케이크+바닐라푸딩 조합」 강추.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>주우재 「치즈케이크 싫어하면 비추」 호불호. 할명수 「물릴 수 있다」. <b>¥360으로 예전(¥278)보다 많이 올랐다.</b></div></div>
@@ -3552,13 +3629,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="VfTLQj9tajk" data-t="(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222" data-a=""><span class="vn">1</span>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</button><button type="button" class="vitem" data-v="ElxrHLsaSZ8" data-t="2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]" data-a=""><span class="vn">2</span>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마</button><button type="button" class="vitem" data-v="U_22eCKqBik" data-t="🍮일본 3대 편의점 달달 간식? 응 내가 다 먹어줄게😇 | 디저트 간식 과자 리뷰, 단 거 먹방" data-a=""><span class="vn">3</span>🍮일본 3대 편의점 달달 간식? 응 내가 다 먹어줄게😇 | 디저트 간식 과자 리뷰, 단 거 먹방</button></div>
 </details><div class="slinkrow"><a href="https://www.family.co.jp/goods/dessert.html" target="_blank" rel="noopener">🔗 デザート 목록(スフレ・プリン)｜FamilyMart公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="fami">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>🍂 패미마 홋카이도 단호박 몽블랑 푸딩</h4>
     <span class="sja">北海道かぼちゃのモンブランプリン</span><span class="sprice">¥348 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>쌉쌀한 캐러멜 + 진한 단호박 푸딩 + 단호박 크림을 올린 <b>패미마 가을 간판 디저트</b>. 매년 가을 돌아오는 시즌 한정이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>모그나비 주간 편의점 스위츠 랭킹(9/18) <b>1위</b>. 추성훈 가족 편의점 투어에서 「가성비 최고」 강추(작년판 ¥298). 이미주는 작년 가을 같은 라인의 베니하루카 몽블랑 푸딩을 「최애」로 꼽았다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>작년보다 ¥50 올랐다. 이미주·추성훈 영상은 작년 판이라 올해 판의 한국어 후기는 확인 못 함.</div></div>
@@ -3574,13 +3653,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>온가족 총출동한 일본 편의점 투어(ㅇㄴㅅㅎ등판)</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="5NNwuVKqXGk" data-t="온가족 총출동한 일본 편의점 투어(ㅇㄴㅅㅎ등판)" data-a=""><span class="vn">1</span>온가족 총출동한 일본 편의점 투어(ㅇㄴㅅㅎ등판)</button><button type="button" class="vitem" data-v="1hArWadryV0" data-t="애주가 미주의 오사카 안주 추천 (feat. 일본 편의점 가을 신상) [EN]" data-a=""><span class="vn">2</span>애주가 미주의 오사카 안주 추천 (feat. 일본 편의점 가을 신상) [EN]</button></div>
 </details><div class="slinkrow"><a href="https://mognavi.jp/konbini-dessert/ranking/1" target="_blank" rel="noopener">🔗 コンビニスイーツ週間ランキング (9/18)｜もぐナビ</a><a href="https://www.family.co.jp/goods/dessert.html" target="_blank" rel="noopener">🔗 デザート 목록｜FamilyMart公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="lawson">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>🌕 로손 월견(츠키미) 디저트 — 스위트포테이토 푸딩 · 피낭시에 · 팬케이크 · 바스크 고슈아</h4>
     <span class="sja">月見スイートポテトプリン / 月見フィナンシェケーキ / とろける月見パンケーキ / バスク風ゴシュア</span><span class="sprice">月見スイートポテトプリン ¥281 · 月見フィナンシェケーキ ¥257 · とろける月見パンケーキ ¥292 · バスク風ゴシュア〜月見カスタード〜 ¥322 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>보름달을 노른자색 크림·커스터드로 표현한 <b>9월 한정 월견 스위츠</b>. 로손이 올해 3사 중 가장 공들였다는 평이다. 중추(9/25 ⚠️) 지나면 빠지니 <b>이번 여행이 마지막 기회</b>.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>일본 영상(KENSTYLE, 9/8)에서 5개 체인 신작을 먹고 <b>로손 월견 3종(피낭시에·팬케이크·스위트포테이토 푸딩)을 전부 최고 평가</b> — 「스위트포테이토 푸딩이 이번 영상 전체 최고」. ゆうモグ는 바스크 고슈아에 <b>5점 만점</b> 「초농후 커스터드 최고」.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>같은 ゆうモグ 영상에서 로손 どらもっちモンブラン은 3.5점으로 평범.</div></div>
@@ -3596,39 +3677,45 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>コンビニ5店舗新作スイーツ　美味くてテンション爆上げ　概要欄</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="uKyHb-ITxso" data-t="コンビニ5店舗新作スイーツ　美味くてテンション爆上げ　概要欄" data-a=""><span class="vn">1</span>コンビニ5店舗新作スイーツ　美味くてテンション爆上げ　概要欄</button><button type="button" class="vitem" data-v="yQobGesHu5A" data-t="【コンビニマック正直レビュー】やっぱり最高！月見2026&amp;森永コラボ商品含む新商品食べ比べ！" data-a=""><span class="vn">2</span>【コンビニマック正直レビュー】やっぱり最高！月見2026&amp;森永コラボ商品含む新商品食べ比べ！</button></div>
 </details><div class="slinkrow"><a href="https://www.lawson.co.jp/recommend/original/detail/1531763_1996.html" target="_blank" rel="noopener">🔗 月見スイートポテトプリン｜ローソン公式</a><a href="https://www.lawson.co.jp/recommend/original/detail/1531765_1996.html" target="_blank" rel="noopener">🔗 月見フィナンシェケーキ｜ローソン公式</a><a href="https://www.lawson.co.jp/recommend/original/detail/1531764_1996.html" target="_blank" rel="noopener">🔗 とろける月見パンケーキ｜ローソン公式</a><a href="https://www.lawson.co.jp/recommend/original/detail/1531481_1996.html" target="_blank" rel="noopener">🔗 バスク風ゴシュア｜ローソン公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="lawson">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>로손 오주 몽블랑 (와구리) — 오늘 발매</h4>
     <span class="sja">贅沢すぎ！お重モンブラン(和栗)</span><span class="sprice">¥786 (税込·공식, 9/21 발매) · 717kcal</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>찬합(お重) 모양 용기에 일본 밤 몽블랑을 가득 채운 <b>로손 「贅沢すぎ！(너무 사치)」 시리즈</b> 가을 한정. 오늘 막 나왔다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>발매 당일이라 실시식 후기는 <b>확인 못 함</b>. 같은 날 나온 「贅沢すぎ」 시리즈는 양으로 승부하는 기획이다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 편의점 디저트로 ¥786·717kcal는 <b>식당 우선 예산과 충돌</b>한다. 혼자 먹기엔 양이 과하다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>밤이 목적이면 더 싼 대안 — 로손 ごろっと栗のモンブランタルト ¥340(9/22) · どらもっち モンブラン ¥268(모그나비 2위). 둘이 나눠 먹을 때만 추천.</div></div>
   <div class="sfield "><b>어디서</b><div>로손 (오키나와 제외)</div></div>
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.lawson.co.jp/recommend/original/detail/1532239_1996.html" target="_blank" rel="noopener">🔗 贅沢すぎ！お重モンブラン(和栗)｜ローソン公式</a><a href="https://www.lawson.co.jp/recommend/original/detail/1532237_1996.html" target="_blank" rel="noopener">🔗 ごろっと栗のモンブランタルト (9/22)｜ローソン公式</a><a href="https://www.lawson.co.jp/recommend/original/detail/1531480_1996.html" target="_blank" rel="noopener">🔗 どらもっち モンブラン｜ローソン公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="fami">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>🍠 패미마 9/22 고구마 신상 — 자쿠호로 슈 · 스위트포테이토 테린 · 고구마 카눌레</h4>
     <span class="sja">ザクほろシュー（お芋クリーム）/ 紅はるかのスイートポテトケーキ / おいものカヌレ</span><span class="sprice">ザクほろシュー ¥254 · 紅はるかのスイートポテトケーキ ¥298 · おいものカヌレ ¥285 (税込·공식, 9/22 발매)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>패미마가 <b>9/22(화)에 베니하루카 고구마 디저트를 한꺼번에</b> 낸다. 오사카 첫날이 발매일이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>발매 전이라 후기는 <b>확인 못 함</b>. 같은 라인의 「생 카눌레 스틱」은 일본 영상 2편에서 호평(아래 항목).</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>기존 목록의 「ザクほろシュー お芋クリーム」는 <b>9/22 발매 확인됨</b>(정확). 다만 맛 검증 전이다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>하나만 모험하면 <b>자쿠호로 슈</b>(¥254 · 가장 쌈). 고구마 파면 アイス 「たべる牧場やきいも」(아이스 항목)와 같이.</div></div>
   <div class="sfield "><b>어디서</b><div>패밀리마트 전국</div></div>
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.family.co.jp/goods/dessert/1943207.html" target="_blank" rel="noopener">🔗 ザクほろシュー（お芋クリーム）｜FamilyMart公式</a><a href="https://www.family.co.jp/goods/dessert/1940046.html" target="_blank" rel="noopener">🔗 紅はるかのスイートポテトケーキ｜FamilyMart公式</a><a href="https://www.family.co.jp/goods/newgoods/nextweek.html" target="_blank" rel="noopener">🔗 来週の新商品｜FamilyMart公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="fami">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>패미마 생 카눌레 스틱 케이크</h4>
     <span class="sja">生カヌレスティックケーキ</span><span class="sprice">¥238 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>카눌레를 <b>막대 케이크로 늘린</b> 2층 구조 디저트. 겉은 캐러멜 향, 속은 버터 모찌 식감.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>일본 영상 2편 호평 — 大喰らいちはるん 「캐러멜 향 진하고 모찌 식감」 강추, KENSTYLE 「예상외로 맛있다」. 모그나비 주간 12위.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>모그나비 평점은 4.4/7로 랭킹권 중 낮은 편 — 호불호가 있다.</div></div>
@@ -3644,13 +3731,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>【モッパン】秋の最新コンビニスイーツを食べて糖分大摂取したら気絶しました</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="gOWTi8NoGIw" data-t="【モッパン】秋の最新コンビニスイーツを食べて糖分大摂取したら気絶しました" data-a=""><span class="vn">1</span>【モッパン】秋の最新コンビニスイーツを食べて糖分大摂取したら気絶しました</button><button type="button" class="vitem" data-v="uKyHb-ITxso" data-t="コンビニ5店舗新作スイーツ　美味くてテンション爆上げ　概要欄" data-a=""><span class="vn">2</span>コンビニ5店舗新作スイーツ　美味くてテンション爆上げ　概要欄</button></div>
 </details><div class="slinkrow"><a href="https://www.family.co.jp/goods/dessert/1940732.html" target="_blank" rel="noopener">🔗 生カヌレスティックケーキ｜FamilyMart公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="fami">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>패미마 45주년 밀크초콜릿 에클레어 (메이지 콜라보)</h4>
     <span class="sja">ミルクチョコレートエクレア</span><span class="sprice">¥238 (税込·공식, 9/1~)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>패미마 45주년 「コラボ祭」로 메이지 밀크초콜릿을 쓴 에클레어. 기존 목록에 강추로 있던 품목이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>콜라보 한정이라 화제성은 있다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>일본 리뷰 채널 ゆうモグ 3점/5 「밸런스가 아쉽다」</b> — 같은 영상에서 로손 고슈아가 5점. 기존 목록의 추천 등급을 <b>낮춘다</b>.</div></div>
@@ -3666,13 +3755,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>【コンビニマック正直レビュー】やっぱり最高！月見2026&amp;森永コラボ商品含む新商品食べ比べ！</b><span>YouTube</span></div>
   
 </details><div class="slinkrow"><a href="https://www.family.co.jp/goods/dessert/1943016.html" target="_blank" rel="noopener">🔗 ミルクチョコレートエクレア｜FamilyMart公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>세븐 모찌모찌 크레이프 초코바나나</h4>
     <span class="sja">もっちもち食感クレープ チョコバナナ</span><span class="sprice">¥289.44 (税込·近畿 공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>쫀득한 크레이프 피에 초코·바나나·휘핑을 만 냉장 크레이프.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>주우재 <b>톱3 중 2위</b> 「길거리 크레이프급 퀄리티」. 아정은 세븐 크레이프가 패미마보다 「밀도 낮고 맛있다」.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>크림이 많아 달다.</div></div>
@@ -3688,26 +3779,30 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>🍮일본 3대 편의점 달달 간식? 응 내가 다 먹어줄게😇 | 디저트 간식 과자 리뷰, 단 거 먹방</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="U_22eCKqBik" data-t="🍮일본 3대 편의점 달달 간식? 응 내가 다 먹어줄게😇 | 디저트 간식 과자 리뷰, 단 거 먹방" data-a=""><span class="vn">1</span>🍮일본 3대 편의점 달달 간식? 응 내가 다 먹어줄게😇 | 디저트 간식 과자 리뷰, 단 거 먹방</button><button type="button" class="vitem" data-v="eHQS1-AYnq8" data-t="일본편의점 털기 전 필수시청🛒 30개 먹어보고 고른 실패 없는 리스트ㅣ로손 세븐일레븐 패밀리마트 도쿄맛집 이마카츠 팡메종소금빵 이치란라멘 하브스케이크 츠케멘 스프카레 먹방 브이로그" data-a=""><span class="vn">2</span>일본편의점 털기 전 필수시청🛒 30개 먹어보고 고른 실패 없는 리스트ㅣ로손 세븐일레븐 패밀리마트 도쿄맛집</button></div>
 </details><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/item/113691/kinki/" target="_blank" rel="noopener">🔗 もっちもち食感クレープ チョコバナナ｜セブン 近畿</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>세븐 가을 신상 — 이탈리아 군밤 몽블랑 · 단호박 푸딩 · 군고구마 수플레</h4>
     <span class="sja">イタリア栗の焼き栗モンブラン / かぼちゃの濃厚プリン / 焼きいもスフレ</span><span class="sprice">焼き栗モンブラン ¥429.84 (9/23) · かぼちゃの濃厚プリン ¥302.40 (9/23) · 7P 焼きいもスフレ 4개입 ¥313.20 (9/22) (税込·近畿 공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>세븐의 이번 주 가을 신상. 밤·단호박·고구마 3대 가을 재료를 한 주에 다 냈다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>발매 직전이라 후기는 <b>확인 못 함</b>.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 기존 목록의 <b>세븐 「カリッじゅワッサン」(¥230)은 8/19 수량 한정 재판매</b> 상품이고, <b>세븐카페 베이커리 설치 점포 한정</b>이다. 지금 판매 중인지 확인 못 함 — 보이면 사되 찾아다니지는 말 것.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>세븐 가을 디저트 하나면 <b>焼き栗モンブラン</b>(9/23~). 세븐 슈크림·에클레어는 상시품(カスタードシュー ¥172.80 · エクレア ¥194.40)이라 언제든 된다.</div></div>
   <div class="sfield "><b>어디서</b><div>세븐일레븐 近畿</div></div>
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/item/115528/kinki/" target="_blank" rel="noopener">🔗 イタリア栗の焼き栗モンブラン｜セブン 近畿</a><a href="https://www.sej.co.jp/products/a/item/114205/kinki/" target="_blank" rel="noopener">🔗 かぼちゃの濃厚プリン｜セブン 近畿</a><a href="https://www.sej.co.jp/products/a/item/113996/kinki/" target="_blank" rel="noopener">🔗 ７プレミアム 焼きいもスフレ｜セブン 近畿</a><a href="https://prtimes.jp/main/html/rd/p/000001114.000155396.html" target="_blank" rel="noopener">🔗 カリッじゅワッサン 8/19 数量限定 再登場｜PR TIMES</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson fami">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>아이스 — 아이스노미 · 이타초코 + 가을 한정 3종</h4>
     <span class="sja">アイスの実 / 板チョコアイス / ハーゲンダッツ 濃蜜いも / 銀座千疋屋 まるで和栗モンブラン / たべる牧場やきいも</span><span class="sprice">가을 한정: 하겐다즈 미니컵 濃蜜いも ¥372.60 · 7P 銀座千疋屋 まるで和栗モンブラン ¥324 (세븐 9/15) · 赤城 たべる牧場やきいも ¥278 (패미마 9/22) (税込·공식)<br>아이스노미·이타초코 ⚠️ 변동·미확인</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>상시 강자 2종 + 이번 주에만 있는 가을 아이스 3종. <b>아이스노미</b>는 한입 과즙 구슬 아이스, <b>이타초코(모리나가)</b>는 판초콜릿 코팅 바닐라.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>아이스노미는 영상 4편(할명수·주우재·호캉스·와썹맨) 추천 — 와썹맨은 「이날의 최애」, 할명수 박명수 특별언급. 이타초코는 3편(할명수·주우재·호캉스) 「티코 맛」. 가을 3종은 후기 확인 못 함(기존 목록의 たべる牧場やきいも 9/22 발매 확인).</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>주우재 「다크초코 바나나 냉동은 온도차가 불쾌」 비추. 입덕칭구 「얼린 고구마는 딱딱, 치아 약하면 힘듦」.</div></div>
@@ -3723,44 +3818,50 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="VfTLQj9tajk" data-t="(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222" data-a=""><span class="vn">1</span>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</button><button type="button" class="vitem" data-v="Xuk3VDz7VFU" data-t="일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]" data-a=""><span class="vn">2</span>일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]</button><button type="button" class="vitem" data-v="U_22eCKqBik" data-t="🍮일본 3대 편의점 달달 간식? 응 내가 다 먹어줄게😇 | 디저트 간식 과자 리뷰, 단 거 먹방" data-a=""><span class="vn">3</span>🍮일본 3대 편의점 달달 간식? 응 내가 다 먹어줄게😇 | 디저트 간식 과자 리뷰, 단 거 먹방</button><button type="button" class="vitem" data-v="4vAbwrpfB1g" data-t="일본 여행 전에 저장 필수🔥세븐일레븐 추천템 먹방 | 오사카 2탄 세븐일레븐 편" data-a=""><span class="vn">4</span>일본 여행 전에 저장 필수🔥세븐일레븐 추천템 먹방 | 오사카 2탄 세븐일레븐 편</button></div>
 </details><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/item/450143/kinki/" target="_blank" rel="noopener">🔗 ハーゲンダッツ 濃蜜いも｜セブン 近畿</a><a href="https://www.sej.co.jp/products/a/item/450797/kinki/" target="_blank" rel="noopener">🔗 銀座千疋屋 まるで和栗モンブラン｜セブン 近畿</a><a href="https://www.family.co.jp/goods/ice/3450253.html" target="_blank" rel="noopener">🔗 赤城 たべる牧場やきいも｜FamilyMart公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="lawson fami">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>🍩 간사이 한정 디저트 — 패미마 모찌 생도넛 · 로손 난킨마치 에그타르트</h4>
     <span class="sja">【関西】モッチ生ドーナツ / 南京町監修 エッグタルトパイ</span><span class="sprice">패미마 【関西】モッチ生ドーナツ(ホイップ) 3개입 ¥198 · 로손 南京町監修 エッグタルトパイ ¥216 · マーラーカオ ¥167 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>둘 다 <b>간사이 점포에만</b> 있다. 로손 것은 <b>고베 차이나타운 南京町 감수</b> 시리즈(9/15~)라 고베 날에 의미가 있다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>공식 지역 한정 표기로 고른 품목 — 실시식 후기는 <b>확인 못 함</b>.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>맛 검증 전이다. 로손 「ええモン関西」는 재고 소진 시 종료.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>고베 체류 중이면 로손에서 에그타르트 + 南京町 炒飯(밥 탭)으로 「고베 한정」 조합.</div></div>
   <div class="sfield "><b>어디서</b><div>패미마 関西 · 로손 近畿</div></div>
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.family.co.jp/goods/dessert.html" target="_blank" rel="noopener">🔗 デザート 목록(【関西】モッチ生ドーナツ)｜FamilyMart公式</a><a href="https://www.lawson.co.jp/area/kinki/eemonkansai/" target="_blank" rel="noopener">🔗 ええモン関西(南京町監修)｜ローソン研究所</a></div></div>
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🏪 편의점 ④ 과자 · 간사이 한정</h3><p>과자는 <b>편의점보다 돈키호테가 종류·가격 모두 우세</b>(면세). 편의점에서는 <b>편의점 전용 규격</b>만 노린다.</p>
-    <span class="scount">3</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-kb_snack">
+  <summary class="ssh"><h3>🏪 편의점 ④ 과자 · 간사이 한정</h3><p>과자는 <b>편의점보다 돈키호테가 종류·가격 모두 우세</b>(면세). 편의점에서는 <b>편의점 전용 규격</b>만 노린다.</p>
+    <span class="scount">3</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard" data-brands="_all">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>포테이토칩 간사이 다시쇼유 (68g = 편의점 전용)</h4>
     <span class="sja">ポテトチップス 関西だししょうゆ</span><span class="sprice">⚠️ 변동·미확인</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>다시마·가쓰오 다시 간장맛 감자칩. <b>호쿠리쿠·近畿 한정</b> 판매이고, 카루비 공식에 따르면 <b>68g 봉지는 편의점 전용</b> 규격이다(53g은 편의점 외, 155g은 近畿 전용). 올해로 발매 30주년.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「편의점에서만 파는 간사이 한정」이라는 조건을 정확히 만족하는 몇 안 되는 과자.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>한국어 영상 후기는 확인 못 함. 맛은 <b>간장 감칠맛 위주로 자극이 약하다</b>는 게 일반적 평.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 기존 목록의 「카타아게포테토 쿠시카츠소스」는 카루비 공식 지역한정 목록에 <b>없다</b>(확인 못 함). 같은 다시쇼유 맛의 <b>堅あげポテト 関西だししょうゆ · かっぱえびせん 関西だししょうゆ味</b>가 공식 近畿 한정이다(판매 채널은 확인 못 함).</div></div>
   <div class="sfield "><b>어디서</b><div>近畿 편의점 과자 선반</div></div>
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.calbee.co.jp/products/detail/?p=20100830143904" target="_blank" rel="noopener">🔗 ポテトチップス 関西だししょうゆ｜カルビー</a><a href="https://www.calbee.co.jp/products/select/area.php" target="_blank" rel="noopener">🔗 地域限定商品｜カルビー</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson fami">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>치즈타라 (치즈+생선살 안주)</h4>
     <span class="sja">チーズたら</span><span class="sprice">⚠️ 변동·미확인</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>얇은 대구살 시트 사이에 치즈를 끼운 <b>맥주 안주 스틱</b>. 한국에 잘 없다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>영상 2편 추천 — 입덕칭구 「치즈 좋아하면 강추」 4.5점, 카라미 「스트롱제로와 궁합」.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>짭짤해서 술 없이는 금방 물린다.</div></div>
@@ -3776,31 +3877,35 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 여행 전에 저장 필수🔥세븐일레븐 추천템 먹방 | 오사카 2탄 세븐일레븐 편</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="4vAbwrpfB1g" data-t="일본 여행 전에 저장 필수🔥세븐일레븐 추천템 먹방 | 오사카 2탄 세븐일레븐 편" data-a=""><span class="vn">1</span>일본 여행 전에 저장 필수🔥세븐일레븐 추천템 먹방 | 오사카 2탄 세븐일레븐 편</button><button type="button" class="vitem" data-v="2saf5zrI5mA" data-t="일본 1년에 10번 가는 남자의 편의점 추천" data-a=""><span class="vn">2</span>일본 1년에 10번 가는 남자의 편의점 추천</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="lawson">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>편의점 한정 과자 — 로손 자가리코 타라코치즈 등</h4>
     <span class="sja">じゃがりこ たらこぃチーズ味 (ローソン限定)</span><span class="sprice">¥215 (税込·공식, 9/15)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>로손 「ローソン限定」 코너의 이번 달 자가리코 맛. 편의점 체인 한정 과자는 <b>돈키에 없을 수 있는</b> 유일한 과자 부류다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>체인 한정이라 희소성은 있다. 실시식 후기는 확인 못 함.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>일반 과자는 돈키(면세)가 더 싸고 다양하다 — 쇼핑 탭 돈키 섹션 참조.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>과자는 <b>체인 한정 표기(限定)가 있는 것만</b> 편의점에서 사고, 나머지는 돈키로.</div></div>
   <div class="sfield "><b>어디서</b><div>로손</div></div>
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.lawson.co.jp/recommend/original/detail/1532016_1996.html" target="_blank" rel="noopener">🔗 じゃがりこ たらこぃチーズ味｜ローソン公式</a></div></div>
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🏪 편의점 ⑤ 음료 · 술</h3><p>커피는 세븐, 라떼는 로손. 술은 <b>가을 한정 캔</b>이 지금만 있다. 술은 늘 10% 세율이다.</p>
-    <span class="scount">5</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-kb_drink">
+  <summary class="ssh"><h3>🏪 편의점 ⑤ 음료 · 술</h3><p>커피는 세븐, 라떼는 로손. 술은 <b>가을 한정 캔</b>이 지금만 있다. 술은 늘 10% 세율이다.</p>
+    <span class="scount">5</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard" data-brands="seven">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>세븐카페 커피</h4>
     <span class="sja">セブンカフェ</span><span class="sprice">아이스커피 R ¥140.40 · L ¥250.56 · 아이스 카페라테 R ¥270 · 핫커피 R ¥140.40 (税込·近畿 공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>원두를 매번 갈아 내리는 셀프 머신 커피. <b>¥140에 아메리카노급</b>이라 아침 동선에 가장 싸고 확실하다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>유소 총평 「세븐 = 커피 인기」. 타마고 산도와 아침 세트로 여러 영상에서 권한다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>라떼는 로손이 낫다는 평이 많다(아래).</div></div>
@@ -3816,13 +3921,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!</b><span>YouTube</span></div>
   
 </details><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/sevencafe/kinki/" target="_blank" rel="noopener">🔗 セブンカフェ 近畿｜セブン‐イレブン</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="lawson">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>로손 마치카페 카페라테 (메가 사이즈)</h4>
     <span class="sja">MACHI café カフェラテ</span><span class="sprice">카페라테 M ¥230 · L ¥288 · 메가 핫 ¥380 · 아이스 M ¥280 · 메가 아이스 ¥390 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>직원이 만들어주는 로손 카페 라인. <b>메가 사이즈 라떼가 있는 건 사실상 로손뿐</b>이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>세오 「다른 편의점과 비교해 <b>로손만의 강점</b>, 지역별 생유 100% 우유를 써서 확실히 다르다」.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>세븐 커피보다 ¥90 이상 비싸다. 기존에 드린 가격 정보는 없었음 — 이번에 공식가로 보강.</div></div>
@@ -3838,13 +3945,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기</b><span>YouTube</span></div>
   
 </details><div class="slinkrow"><a href="https://www.lawson.co.jp/recommend/original/coffee/" target="_blank" rel="noopener">🔗 コーヒー・フラッペ｜ローソン公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>세븐 과일 스무디 (머신 블렌딩)</h4>
     <span class="sja">セブン‐イレブン スムージー</span><span class="sprice">⚠️ 변동·미확인 (와썹맨 영상 아사이바나나 ¥362)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>냉동 과일 컵을 사서 <b>매장 전용 머신에 넣으면 갈아주는</b> 스무디. 설치 점포 한정.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>영상 4편(호캉스·추성훈·유소·배블리) 추천 — 추성훈 딸이 좋아했다, 유소 바나나 「진짜 강추」.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 와썹맨은 <b>아사이바나나를 이날 꼴찌</b>로 — 「누가 씹고 뱉은 아사이 맛」. 맛 선택이 성패를 가른다.</div></div>
@@ -3860,13 +3969,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="ElxrHLsaSZ8" data-t="2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]" data-a=""><span class="vn">1</span>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마</button><button type="button" class="vitem" data-v="5NNwuVKqXGk" data-t="온가족 총출동한 일본 편의점 투어(ㅇㄴㅅㅎ등판)" data-a=""><span class="vn">2</span>온가족 총출동한 일본 편의점 투어(ㅇㄴㅅㅎ등판)</button><button type="button" class="vitem" data-v="fcPAObVPgYo" data-t="일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!" data-a=""><span class="vn">3</span>일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!</button><button type="button" class="vitem" data-v="Xuk3VDz7VFU" data-t="일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]" data-a=""><span class="vn">4</span>일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson fami">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>🍂 기린 아키아지 (가을 한정 맥주)</h4>
     <span class="sja">キリン秋味</span><span class="sprice">⚠️ 오픈 가격 (점포별)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>36년째 나오는 <b>가을 한정 맥주</b>. 맥아를 약 1.3배 써서 도수 6%로 묵직하다. 올해 8/18 발매 — <b>지금만 있다.</b> 효고 <b>고베 공장</b>에서도 만든다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>이미주 오사카 편의점 영상에서 현지인 추천 픽 → 「<b>최애 맥주</b>」.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>일반 맥주보다 쓴맛이 강하다.</div></div>
@@ -3882,13 +3993,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>애주가 미주의 오사카 안주 추천 (feat. 일본 편의점 가을 신상) [EN]</b><span>YouTube</span></div>
   
 </details><div class="slinkrow"><a href="https://www.kirin.co.jp/alcohol/beer/akiaji/" target="_blank" rel="noopener">🔗 秋味｜キリン</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson fami">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>츄하이·하이볼 — 효케츠 · 호로요이 · -196(스트롱제로 계열)</h4>
     <span class="sja">氷結 / ほろよい / -196 / ハイボール</span><span class="sprice">세븐 サントリー -196〈巨峰〉350ml ¥177.10 (9/22) · 패미마 スコッチウイスキーハイボール 350ml ¥218 · 로손 小正ジントニック ¥298 (税込·공식)<br>호로요이·가쿠하이볼 ⚠️ 변동·미확인</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>캔 과일 사와·하이볼. 한국에 없는 <b>계절·편의점 한정 맛</b>이 계속 바뀐다. 이번 주 세븐은 -196 거봉.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>할명수·호캉스 「효케츠 레몬은 상큼, 하이볼 같다」. 카라미 「호로요이는 일본이 맛이 더 다양」.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 카라미 「<b>스트롱제로를 하이볼인 줄 알고 먹다가 죽음</b>. 맛있어서 많이 먹는데 도수가 9%」. -196 계열은 도수를 반드시 확인.</div></div>
@@ -3904,18 +4017,20 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 1년에 10번 가는 남자의 편의점 추천</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="2saf5zrI5mA" data-t="일본 1년에 10번 가는 남자의 편의점 추천" data-a=""><span class="vn">1</span>일본 1년에 10번 가는 남자의 편의점 추천</button><button type="button" class="vitem" data-v="VfTLQj9tajk" data-t="(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222" data-a=""><span class="vn">2</span>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</button><button type="button" class="vitem" data-v="ElxrHLsaSZ8" data-t="2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]" data-a=""><span class="vn">3</span>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마</button></div>
 </details><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/item/030299/kinki/" target="_blank" rel="noopener">🔗 サントリー －１９６＜巨峰＞｜セブン 近畿</a><a href="https://www.family.co.jp/goods/alcohol/5612710.html" target="_blank" rel="noopener">🔗 スコッチウイスキーハイボール｜FamilyMart公式</a></div></div>
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🏪 편의점 ⑥ 비식품 (생활 · 뷰티 · 여행 편의)</h3><p>편의점 비식품은 <b>급할 때 쓰는 비상용</b>이다. 같은 물건은 드럭스토어·돈키가 거의 항상 싸다.</p>
-    <span class="scount">4</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-kb_goods">
+  <summary class="ssh"><h3>🏪 편의점 ⑥ 비식품 (생활 · 뷰티 · 여행 편의)</h3><p>편의점 비식품은 <b>급할 때 쓰는 비상용</b>이다. 같은 물건은 드럭스토어·돈키가 거의 항상 싸다.</p>
+    <span class="scount">4</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard" data-brands="fami">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>패미마 라인 양말</h4>
     <span class="sja">ファミマ ラインソックス (コンビニエンスウェア)</span><span class="sprice">¥429 (税込) — 2026 가을 컬러(9/1~)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>패미마 로고색 두 줄 라인이 들어간 <b>편의점 패션 굿즈의 대표작</b>. 양말이 부족할 때 실용+기념품 겸용.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>추성훈 편의점 투어에서도 화제로 언급(연예인 착용). 가볍고 백팩에 부담 없다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>¥429면 무인양품 3족 묶음(쇼핑 탭)이 개당으론 싸다.</div></div>
@@ -3931,13 +4046,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>온가족 총출동한 일본 편의점 투어(ㅇㄴㅅㅎ등판)</b><span>YouTube</span></div>
   
 </details><div class="slinkrow"><a href="https://www.family.co.jp/goods/cw/7411151.html" target="_blank" rel="noopener">🔗 ラインソックス 2026 秋の色｜FamilyMart公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson fami">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>류카쿠산 목캔디</h4>
     <span class="sja">龍角散ののど飴</span><span class="sprice">⚠️ 변동·미확인</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>생약 성분 목캔디. 걷고 떠드는 여행에서 목이 칼칼할 때.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>이미주 「공연 다닐 때 상비」 — 연예인 인기템으로 소개.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>약국·돈키에서 대용량이 더 싸다.</div></div>
@@ -3953,44 +4070,50 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>애주가 미주의 오사카 안주 추천 (feat. 일본 편의점 가을 신상) [EN]</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="seven lawson fami">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>비오레 땀 시트 · 비닐우산 · 메구리즘</h4>
     <span class="sja">ビオレ さらさらパウダーシート / ビニール傘 / めぐりズム</span><span class="sprice">⚠️ 변동·미확인 (편의점가는 드럭스토어보다 대체로 높다)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>9월 오사카는 <b>낮 기온이 아직 높고 소나기</b>가 온다. 땀 시트·비닐우산은 <b>그 자리에서 필요할 때</b> 편의점이 유일한 선택지다. 메구리즘(온열 수면 안대)은 비행·야간 이동 피로용.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>어디에나 있고 24시간이라는 것 자체가 가치.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 계획 구매면 <b>드럭스토어·돈키가 싸다</b>. 메구리즘은 여러 장 사려면 드럭스토어로. 휴족시간은 쇼핑 탭 「이젠 사지 마라」에 이미 비추로 있다(한국에도 동급품) — 편의점에서 사는 건 더더욱 비추.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>우산은 유니클로 UV 우산(쇼핑 탭)을 이미 들고 간다면 불필요.</div></div>
   <div class="sfield "><b>어디서</b><div>3사 일용품 선반</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="lawson">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>로손 무인양품 코너 — 여행용 소분 스킨케어·샴푸</h4>
     <span class="sja">無印良品 スキンケアお試しセット / シャンプー＆コンディショナー お試しセット</span><span class="sprice">스킨케어 お試しセット ¥1,650 · 샴푸&amp;컨디셔너 お試し ¥1,089 · ネイル＆ハンドクリーム ¥548 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>로손 상당수 점포에 <b>무인양품 미니 코너</b>가 있다. 숙소 어메니티가 부족할 때 소분 세트가 유용.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>무인양품 매장까지 안 가도 된다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>같은 물건이면 무인양품 본점(쇼핑 탭)이 선택지가 훨씬 많다. 기념품 가치는 낮다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>어메니티가 떨어졌을 때만. 쇼핑 목적이면 무인양품 섹션으로.</div></div>
   <div class="sfield "><b>어디서</b><div>로손 (무인양품 코너 설치 점포)</div></div>
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.lawson.co.jp/recommend/original/gentei/" target="_blank" rel="noopener">🔗 ローソン限定 取扱商品(無印良品)｜ローソン公式</a></div></div>
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🏪 편의점 ⑦ 공략법</h3><p>주문·세율·결제·쓰레기까지. <b>처음 5분만 알면</b> 매일 쓰는 동선이 편해진다.</p>
-    <span class="scount">7</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-kb_howto">
+  <summary class="ssh"><h3>🏪 편의점 ⑦ 공략법</h3><p>주문·세율·결제·쓰레기까지. <b>처음 5분만 알면</b> 매일 쓰는 동선이 편해진다.</p>
+    <span class="scount">7</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard" data-brands="_all">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>체인별 역할 분담 — 무엇을 어디서</h4>
     <span class="sja">セブン / ローソン / ファミマ</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>세븐 = 밥·샌드위치·커피</b>(타마고 산도, 오니기리, 세븐카페). <b>로손 = 디저트·카페라테·가라아게쿤</b>(우치카페, 마치카페, 매장조리). <b>패미마 = 치킨·콜라보·지역 한정</b>(파미치키, 45주년 콜라보, 【関西】 표기 상품).</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>유소 총평 「세븐=커피, 로손=디저트, 패미마=간단식·튀김」, 호캉스·세오도 같은 결론. 여러 영상에서 거의 그대로 반복되는 공식이다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>같은 NB 상품(저지 푸딩·돈베에·아이스)은 3사 어디든 있다 — 굳이 찾아다닐 필요 없다.</div></div>
@@ -4006,39 +4129,45 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="fcPAObVPgYo" data-t="일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!" data-a=""><span class="vn">1</span>일본 3대 편의점 추천템 잔뜩 먹방🏪 디저트부터 튀김·스무디·라면까지!</button><button type="button" class="vitem" data-v="ElxrHLsaSZ8" data-t="2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마트]" data-a=""><span class="vn">2</span>2026 일본 편의점 추천템 25종 | 일본편의점 간식 추천 리스트 먹방 리뷰 [로손 세븐일레븐 패밀리마</button><button type="button" class="vitem" data-v="psMOvd99J60" data-t="일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기" data-a=""><span class="vn">3</span>일본 편의점 3사 비교 총정리｜세븐, 로손, 패밀리마트 쇼핑리스트 한 번에 몰아보기</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="_all">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>계산대 한마디 — 「温めますか？」와 핫스낵 주문</h4>
     <span class="sja">温めますか？ / お箸 / 袋</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>편의점 대화는 거의 네 가지다. ① <b>温めますか？(데워드릴까요?)</b> → 도시락·파스타는 「はい」, 샌드위치·디저트는 「いいえ、大丈夫です」. ② <b>お箸/スプーンおつけしますか？</b> → 필요하면 「はい」. ③ <b>袋いりますか？(봉투?)</b> → 봉투는 <b>유료</b>(몇 엔). ④ 핫스낵·오뎅·찐빵은 <b>진열대에서 못 집으니</b> 「これ ひとつ ください」+손가락.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>이 네 가지만 알면 대화가 끝난다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>레인지 데우기는 줄이 길면 시간이 걸린다 — 바쁠 땐 숙소 레인지.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>데운 음식과 차가운 음식은 <b>봉투를 나눠 달라</b>: 「別々で」.</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="_all">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>세율 8% vs 10% — 가게 안에서 먹으면 10%</h4>
     <span class="sja">テイクアウト 8% / イートイン 10%</span><span class="sprice">예) 세븐 手巻おにぎり 188円 → 税込203.04円 (8%) · 술 ザ・チョーヤ 245円 → 269.50円 (10%)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>음식은 <b>들고 나가면 8%, 매장 이트인(イートイン) 좌석에서 먹으면 10%</b>다. 술·비식품은 <b>항상 10%</b>. 세븐 공식 가격의 소수점(¥250.56 등)은 8% 기준이라 생긴 것.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>가격표에서 큰 글씨가 <b>세전(本体)</b>, 작은 글씨가 <b>세후(税込)</b>인 경우가 많으니 작은 쪽을 보라.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>이트인에서 먹을 거면 계산할 때 <b>「イートインで」라고 말해야</b> 한다(정직 신고제).</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>차액은 개당 몇 엔이다. 앉을 곳이 필요하면 신경 쓰지 말고 이트인 쓰면 된다.</div></div>
   
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/onigiri/kinki/" target="_blank" rel="noopener">🔗 おにぎり 近畿 가격표기 예｜セブン‐イレブン</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="_all">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>결제 — ICOCA · 카드 터치 · 앱 결제</h4>
     <span class="sja">交通系IC / クレジット / QR</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>3사 모두 <b>ICOCA(교통카드)·신용카드 컨택리스·QR 결제</b>가 된다. 이미 가진 ICOCA 잔액으로 찍는 게 가장 빠르다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>한체스 영상 팁 — IC카드 <b>충전 한도는 2만 엔</b>. 편의점 계산대에서 <b>현금 충전(チャージ)</b>도 된다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>한국 간편결제 앱(카카오페이·네이버페이 해외결제 등)은 <b>점포·앱별 가맹 여부가 달라</b> 확인 못 함 ⚠️. 퍼플GLN 등 캐시백 이벤트는 기간 한정.</div></div>
@@ -4054,39 +4183,45 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>4일 동안 일본 편의점 음식만 먹어봤습니다</b><span>YouTube</span></div>
   
 </details><div class="slinkrow"><a href="https://www.lawson.co.jp/service/payment/settlement/" target="_blank" rel="noopener">🔗 利用できるお支払方法｜ローソン公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="_all">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>면세는 기대하지 마라 — 과자·선물은 돈키로</h4>
     <span class="sja">免税</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>편의점은 <b>대부분 면세점이 아니다</b>(일부 관광지 점포만). 면세점이어도 소모품은 <b>5,000엔(세전) 이상</b>부터. 그래서 <b>같은 과자·컵라면은 면세되는 돈키호테가 싸다</b> — 쇼핑 탭 돈키 섹션의 이치란 컵라면 항목과 같은 이유다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>편의점에서는 <b>편의점·체인 한정품과 냉장·즉석식품만</b> 사면 손해가 없다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>일본 면세는 <b>2026-11-01부터 「리펀드 방식」(구매 시 과세 → 출국 시 환급)</b>으로 바뀐다. 이번 여행(9월)은 <b>기존 방식</b>이다.</div></div>
   
   
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://zenmenkyo.jp/refund/" target="_blank" rel="noopener">🔗 【2026年11月1日施行】リファンド方式解説｜全国免税店協会</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="_all">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>신상은 화요일 — 이번 주는 9/22(화)</h4>
     <span class="sja">新商品は火曜日</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>3사 신상품은 <b>대부분 화요일에 일제히</b> 나온다. 이번 여행에선 <b>9/22(화)</b>에 세븐·로손·패미마 가을 신상이 동시에 풀린다 (세븐 焼きいもスフレ·반숙란, 로손 栗モンブランタルト, 패미마 고구마 디저트·たべる牧場やきいも).</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>공식 신상 페이지에서 날짜를 전부 확인했다 — 세븐 近畿 「来週の新商品」, 로손 「9月22日発売」, 패미마 「来週の新商品」.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「以降順次発売」 — 화요일에 <b>모든 점포에 동시에</b> 깔리진 않는다. 인기 디저트는 저녁이면 빈다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div><b>아침~점심에 디저트 선반</b>을 보는 게 확률이 높다.</div></div>
   
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.sej.co.jp/products/a/nextweek/area/kinki/" target="_blank" rel="noopener">🔗 来週の新商品 近畿｜セブン‐イレブン</a><a href="https://www.lawson.co.jp/recommend/new/list/1532204_5162.html" target="_blank" rel="noopener">🔗 9月22日発売の新商品｜ローソン公式</a><a href="https://www.family.co.jp/goods/newgoods/nextweek.html" target="_blank" rel="noopener">🔗 来週の新商品｜FamilyMart公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="_all">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>쓰레기 · 먹는 자리 · 데우기 매너</h4>
     <span class="sja">ゴミ箱 / イートイン</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>일본 거리엔 <b>쓰레기통이 거의 없다</b>. 편의점 앞 분리수거함(캔·페트·일반)이 사실상 유일하다 — <b>그 가게에서 산 것</b>만 버리는 게 매너. 이트인 좌석이 있는 점포에서 앉아 먹을 수 있다(세율 10% 신고).</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>데운 도시락을 들고 숙소까지 가기 싫으면 이트인이 답.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>걸어가며 먹는 건 오사카 번화가에서도 눈총을 받을 수 있다 — 가게 앞에서 먹고 버리고 가라.</div></div>
@@ -4102,18 +4237,20 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 편의점 이건 무조건 사드세요! 최애 간식 공개🍘(세븐일레븐,로손,패밀리마트)</b><span>YouTube</span></div>
   
 </details></div>
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🏪 편의점 ⑧ 비추 · 여기서 사지 마라</h3><p>영상에서 <b>맛이 반복적으로 혹평</b>됐거나, <b>편의점에서 살 이유가 없는</b> 것들.</p>
-    <span class="scount">4</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-kb_avoid">
+  <summary class="ssh"><h3>🏪 편의점 ⑧ 비추 · 여기서 사지 마라</h3><p>영상에서 <b>맛이 반복적으로 혹평</b>됐거나, <b>편의점에서 살 이유가 없는</b> 것들.</p>
+    <span class="scount">4</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard" data-brands="_all">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>피자만 (피자 찐빵)</h4>
     <span class="sja">ピザまん</span><span class="sprice">세븐 ¥170.64 · 패미마 ¥180 · 로손 ¥188 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>토마토소스·치즈를 넣은 찐빵. 호기심에 많이 사지만 <b>두 영상이 정면 혹평</b>했다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>할명수 「<b>달다, 토핑 없이 소스 맛뿐</b>」. 와썹맨 「미국 통조림 스파게티 맛, <b>안 먹는다</b>」.</div></div>
@@ -4129,39 +4266,45 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="VfTLQj9tajk" data-t="(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222" data-a=""><span class="vn">1</span>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</button><button type="button" class="vitem" data-v="Xuk3VDz7VFU" data-t="일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]" data-a=""><span class="vn">2</span>일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="_all">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>자가리코 타코야키맛을 편의점에서 찾기</h4>
     <span class="sja">じゃがりこ たこ焼き味</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>🔴 <b>기존 목록 정정</b>: 카루비 공식에 따르면 판매 채널이 <b>「공항·역·고속도로 휴게소·기념품점」 중심</b>이다. 편의점에서 찾아다니면 시간 낭비.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>기존 목록의 「프리츠·갓파에비센 타코야키맛」도 편의점 판매는 <b>확인 못 함</b> — 카루비 공식 近畿 한정 목록엔 えびせん은 <b>関西だししょうゆ味</b>만 있다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>귀국일 <b>간사이 공항·신오사카역 기념품점</b>에서 사라. 편의점에선 「ポテトチップス 関西だししょうゆ」(과자 항목)가 대안.</div></div>
   
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.calbee.co.jp/products/detail/?p=20090928135716" target="_blank" rel="noopener">🔗 じゃがりこ たこ焼き味 (販売チャネル)｜カルビー</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="lawson fami">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>편의점 코스메 — &amp;nd by rom&amp;nd · hana by hince</h4>
     <span class="sja">&amp;nd by rom&amp;nd / hana by hince</span><span class="sprice">¥550~1,580 (税込·공식)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>로손·패미마 코스메 코너의 간판이지만 <b>둘 다 한국 브랜드(롬앤·힌스)의 일본 편의점 라인</b>이다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>한국에서 본 브랜드를 일본에서 엔화로 살 이유가 없다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>일본 코스메가 목적이면 드럭스토어로.</div></div>
   <div class="sfield "><b>어디서</b><div>로손 · 패미마</div></div>
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.lawson.co.jp/recommend/original/gentei/" target="_blank" rel="noopener">🔗 &amp;nd by rom&amp;nd｜ローソン公式</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard" data-brands="_all">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>미타라시 당고 · 유자레몬 사이다 — 호불호 폭탄</h4>
     <span class="sja">みたらし団子 / ゆずレモンサイダー</span><span class="sprice">세븐 もっちりみたらし団子 ¥237.60 (税込·近畿 공식) · 사이다 ⚠️ 미확인</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>「일본 편의점 필수」 목록에 자주 오르지만 <b>영상 평가가 부정 쪽으로 기운</b> 두 품목.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>유자레몬 사이다는 카라미가 「가성비」로 강추, 배블리도 「맛있다」.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>당고 — 할명수 「달고 짠 조합이 취향 아님」, 여수언니 「너무 단단해서 실망」. 사이다 — 와썹맨 「<b>방향제 맛</b>, 재구매 안 함」.</div></div>
@@ -4177,88 +4320,100 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="VfTLQj9tajk" data-t="(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222" data-a=""><span class="vn">1</span>(ENG) 배불러 미Chill 것 같아도✨일본 편의점✨ 리뷰는 못 참지 | 할명수 ep.222</button><button type="button" class="vitem" data-v="ncMRjIxo9VQ" data-t="SUB)먹방VLOG)일본 3대 편의점 50종 리뷰 먹방🔥추천템 궁금템 또살템/1일 1타마고산도 추천템/대존맛 디저트들 배터지게 먹어도 행복한 편의점 리뷰 못참지 ❤️ MUKBANG" data-a=""><span class="vn">2</span>SUB)먹방VLOG)일본 3대 편의점 50종 리뷰 먹방🔥추천템 궁금템 또살템/1일 1타마고산도 추천템/대</button><button type="button" class="vitem" data-v="Xuk3VDz7VFU" data-t="일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]" data-a=""><span class="vn">3</span>일본 편의점 3대장 까봐썹! 쭈니형의 브레이크 없는 ⛔팩폭 리뷰⛔ [EN/JP]</button><button type="button" class="vitem" data-v="2saf5zrI5mA" data-t="일본 1년에 10번 가는 남자의 편의점 추천" data-a=""><span class="vn">4</span>일본 1년에 10번 가는 남자의 편의점 추천</button></div>
 </details></div>
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>👟 신발 300mm</h3><p>한국에서 못 구하는 사이즈가 여기엔 있다. 이번 여행의 실질 목표.</p>
-    <span class="scount">5</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-shoes">
+  <summary class="ssh"><h3>👟 신발 300mm</h3><p>한국에서 못 구하는 사이즈가 여기엔 있다. 이번 여행의 실질 목표.</p>
+    <span class="scount">5</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>뉴발란스 574 (30.0cm · 2E)</h4>
     <span class="sja">ニューバランス 574</span><span class="sprice">모델별 상이</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>한국에서는 300mm를 구하는 것 자체가 일인데, 숙소 앞 心斎橋筋에 매장이 늘어서 있다. 574는 <b>2E(넓은) 폭이 나오는 몇 안 되는 모델</b>이라 300mm에 가장 잘 맞는다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>목형이 SL-2라 앞코가 넓다. 같은 30.0cm여도 996보다 확실히 여유가 있다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>뒤꿈치가 약간 뜬다는 평. 🔴 <b>996은 D폭만 나와 같은 30.0cm여도 낀다</b> — 996을 고르지 마라.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>NB는 <b>전 모델 깔창이 빠진다.</b> 빼서 그 위에 서보면 실측이 확실하다. 30.0cm = US 12.</div></div>
   <div class="sfield "><b>어디서</b><div>ニューバランス心斎橋 (心斎橋筋1-4-18)</div></div>
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://shop.newbalance.jp/guide-sizechart.html" target="_blank" rel="noopener">🔗 뉴발란스 JP 공식 사이즈차트</a><a href="https://newbalance-love.com/newbalance-574-996/" target="_blank" rel="noopener">🔗 574 vs 996 목형 비교</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>아디다스 — 30cm 초과도 가능</h4>
     <span class="sja">アディダス</span><span class="sprice">모델별 상이</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>사이즈 상한이 36.5cm</b>로 조사한 브랜드 중 가장 넉넉하다. 300mm가 「가장 큰 사이즈」가 아니라 「중간 사이즈」가 되는 유일한 곳이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>30.0cm가 품절이어도 30.5·31을 신어볼 수 있다. 선택지가 남는다.</div></div>
   
   
   <div class="sfield "><b>어디서</b><div>adidas Store Osaka (心斎橋筋2-2-21 · 11:00–21:00)</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>아식스 퍼포먼스 러닝 — 32cm까지</h4>
     <span class="sja">アシックス</span><span class="sprice">모델별 상이</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>러닝 라인은 <b>32cm까지</b> 나온다. 아침 러닝 4~5km를 하시니 실용적이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>30~32cm 재고가 가장 확실한 곳으로 꼽힌다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>라이프스타일 라인(GEL-1130 등)은 30cm에서 끊긴다.</b> 퍼포먼스 러닝 매대로 갈 것.</div></div>
   
   <div class="sfield "><b>어디서</b><div>ASICS OSAKA SHINSAIBASHI (心斎橋筋1-8-1 · 11:00–20:00)</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>ABC마트 그랜드스테이지 — 가장 늦게까지</h4>
     <span class="sja">ABCマート</span><span class="sprice">모델별 상이</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>22:00까지</b> 열어 저녁 동선의 마지막에 넣을 수 있다. 브랜드 교차 비교가 된다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>요도바시 우메다점 ABC마트가 사이즈 폭이 넓다는 영어권 후기가 있다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>직영점이 아니라 사이즈 전개가 매장마다 다르다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>ABC-MART GRAND STAGE 大阪店 (心斎橋筋2-8-3)</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>미즈노 · NIKE JP — 30.0이 천장</h4>
     <span class="sja">ミズノ / ナイキ</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>🔴 <b>「일본 브랜드라 크게 나온다」는 틀렸다.</b> 미즈노 스니커즈는 30.0cm가 상한이라 300mm면 딱 맞거나 낀다. NIKE JP도 JP 30이 상한이다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>여유 사이즈가 없어 품절이면 그걸로 끝이다.</div></div>
   
   
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🔌 전자제품</h3><p>구형·한국 미출시 기기가 핵심. 신품 대형가전은 오히려 비싸다.</p>
-    <span class="scount">4</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-elec">
+  <summary class="ssh"><h3>🔌 전자제품</h3><p>구형·한국 미출시 기기가 핵심. 신품 대형가전은 오히려 비싸다.</p>
+    <span class="scount">4</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>구형·빈티지 아이폰</h4>
     <span class="sja">中古 iPhone</span><span class="sprice">아이폰7 ≈ 69,000원 · 아이폰5C 3,200엔 · 아이패드 7세대 13,800엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>한국 중고 시세의 <b>절반 이하</b>인 경우가 많다. 면세까지 더하면 격차가 더 벌어진다. 덴덴타운이 9/23 신세카이 동선 바로 옆이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「아이폰7을 69,000원에, 배터리 효율 98%. 한국 중고나라는 13~15만원」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>일본판은 카메라 무음이 안 된다</b> — 해외판을 골라야 한다.<br>🔴 <b>중고는 환불 불가</b>다. 직접 꺼내 테스트하고 결정해야 한다.<br>🔴 등급(A/C) 표기가 왜 그런지 반드시 물어볼 것.</div></div>
@@ -4274,26 +4429,30 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>고독한잡동사니 — 아키하바라 중고 아이폰</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="4eGm1NYnffw" data-t="고독한잡동사니 — 아키하바라 중고 아이폰" data-a=""><span class="vn">1</span>고독한잡동사니 — 아키하바라 중고 아이폰</button><button type="button" class="vitem" data-v="dhf7nPBLFrw" data-t="오사카 아이폰 싼 곳" data-a=""><span class="vn">2</span>오사카 아이폰 싼 곳</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>한국 미출시 기기</h4>
     <span class="sja">日本限定モデル</span><span class="sprice">기종별 상이</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>구글 픽셀9·픽셀워치, 샤프 스마트폰, 아마존 Fire TV/HD, 오디오테크니카 물량, 시그마 카메라 — <b>한국에 아예 안 들어오거나 물량이 없는 것들</b>이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>빅카메라 난바점은 면세 카운터 대기가 짧은 편이라는 평.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>충전기류는 <b>한국에서 쓰려면 돼지코가 따로 필요</b>하다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>빅카메라 난바점(10:00–22:00) · 에디온 난바본점(~21:00)</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>최신 중고 아이패드·아이폰</h4>
     <span class="sprice">아이패드 에어5 256GB 66,000엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>구형과 달리 <b>최근 기종은 한국 중고 시세와 거의 같다.</b> 들고 오는 수고만 남는다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「역시 일본 중고 시세는 저렴하지 않은 상황」</div></div>
@@ -4309,31 +4468,35 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>시나쓰 — 아키하바라 중고</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>대형 가전 전반</h4>
     <span class="sja">大型家電</span><span class="sprice">밥솥 10만엔~ · 냉장고 450L 21만엔 · 에어컨 35만엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>압도적으로 비싸다.</b> 백팩 하나로 다니는 여행이라 애초에 성립하지도 않는다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「브랜드 있는 거 살려면 기본 10만엔은 생각해야 돼. 그만큼 더 맛있냐 하면 그건 모르겠어. 한국도 엄청 맛있거든」</div></div>
   
   
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>👕 유니클로 · GU</h3><p>가장 확실한 명분은 가격이 아니라 <b>GU가 한국에 없다</b>는 것.</p>
-    <span class="scount">8</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-uniqlo">
+  <summary class="ssh"><h3>👕 유니클로 · GU</h3><p>가장 확실한 명분은 가격이 아니라 <b>GU가 한국에 없다</b>는 것.</p>
+    <span class="scount">8</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>GU × 엔지니어드 가먼츠 콜라보 (남성)</h4>
     <span class="sja">GU × Engineered Garments</span><span class="sprice">정가 대비 1/10 수준</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>🔴 <b>GU는 한국에 매장이 아예 없다.</b> 조사한 13편 중 「이제 일본 유니클로·GU는 살 필요 없다」는 발언이 <b>0건</b>이었고, 가장 확실한 명분이 바로 이것이다. 엔지니어드 가먼츠는 원래 비싼 남성 브랜드인데 콜라보 라인은 값이 무너진다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「거의 10분의 1도 안 되는 가격으로 판매하고 있더라고요」 / 「남편이 요즘 거의 이 옷들만 돌아가면서 입고 있을 정도로 만족도가 높아요」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>콜라보는 시즌마다 바뀐다.</b> 9월에 이 라인이 있으리란 보장이 없다 — 가서 봐야 안다.</div></div>
@@ -4349,13 +4512,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>직접 써보고 추천하는 일본 쇼핑리스트 BEST14</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>GU 잡화 — 벨트 · 양말 · 액세서리</h4>
     <span class="sja">GU ベルト・ソックス</span><span class="sprice">벨트 390엔 · 양말 290엔 · 목걸이/귀걸이 590엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>한국에 매장이 없어 여기서만 산다.</b> 무게·부피가 사실상 없어 백팩 여행과 상성이 최고다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「이런 찡 박힌 벨트를 지유에서 팔고 있더라고요. 이게 <b>남성 코너</b>에 있었거든요… 진짜 20년 전 가격인 거야」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>벨트가 작게 나온다 — 「골반에 하기엔 조금 빡빡하다. 제일 크게 뚫어도」</div></div>
@@ -4371,13 +4536,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>유니클로 GU 쇼핑 하울</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>유니클로 UV컷 양산 겸 우산</h4>
     <span class="sja">ユニクロ UVカット傘</span><span class="sprice">2,990엔 (할인 시 1,990엔 · 작년 3,990엔)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>현지가가 오히려 내려간 역주행 사례</b>다. 9월 오사카 잔더위와 소나기에 실사용도 된다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「3만 원도 안 하는 가격에 성능이 기가 막힌 것은 유니클로의 제품… 진짜 꿀템 중에 꿀템이라고 볼 수 있었어요」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>대안 지적 — 「최근 일본에서는 유니클로보다 품질이 좋다고 알아주는 제품으로 몽벨 쿨 파카를 많이들 찾는다」(몽벨 7,000~8,000엔, 약 2배)</div></div>
@@ -4393,13 +4560,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>믿고보는 일본쇼핑 2026 상반기 어워드</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>유니클로 유럽 한정 에디션 · 한국 미입고 UT</h4>
     <span class="sja">ユニクロ ヨーロッパ限定 / UT</span><span class="sprice">니트 정가 3,990엔 → 세일 1,990엔 · UT 1,500엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>한국에 안 들어온 라인</b>이다. 싸서가 아니라 한국에서 못 사서 사는 경우다. 한국에서 단종된 넥라인이 일본 매장에 남아 있기도 하다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「소재가 엄청 탄탄해 가지고 쫀쫀하고 쉽게 후줄근해지지 않는 소재 느낌이 빡 왔어요」 / 「가격 대비해서 이 정도 품질은 유니클로 말고는 나올 수 있는 데가 없죠」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>재고가 거의 없다 — 「이 컬러랑 이 컬러가 딱 두 개 남아 있어 가지고」. 🔴 <b>한국에도 파는 모델이면 메리트가 없다.</b></div></div>
@@ -4415,13 +4584,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>지금 사야할 일본 쇼핑리스트</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>GU 잠옷 상하 세트 · 기본 티셔츠·가디건</h4>
     <span class="sja">GU パジャマ</span><span class="sprice">잠옷 1,990엔 · 가디건/티셔츠 1,490엔 · 쉬어 티 990엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>한국 미진출 브랜드라 여기서만 산다. <b>실험적인 옷을 부담 없이</b> 사볼 수 있는 가격대다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「가격은 저렴한데 디자인도 귀엽고 생각보다 퀄리티까지 괜찮아서」 / 「저렴하다고 해서 디테일이 떨어지지 않아요」</div></div>
   
@@ -4437,57 +4608,65 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 가성비 의류 쇼핑리스트 10곳</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>유니클로 면바지 (디키즈풍 백포켓)</h4>
     <span class="sja">ユニクロ コットンパンツ</span><span class="sprice">3,990엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>더 비싼 브랜드의 대체재로 값이 확실히 싸다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「요게 또 유니클로에서 엄청 평이 좋더라고요. 엉덩이 보시면 이렇게 디키즈 면바지처럼 포켓 주머니가 돼 있죠」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>일본 유니클로는 전반적으로 오버핏</b>이다 — 「S 사이즈인데도 조금 많이 오버사이즈더라고요」. 반드시 입어보고 살 것.</div></div>
   
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>UTme! 커스텀 프린팅</h4>
     <span class="sja">ユニクロ UTme!</span><span class="sprice">티셔츠 본체 1,500엔 · 제작 약 10분</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>물건이 아니라 <b>일본 매장에서만 되는 현장 서비스</b>다. 가방에도 프린팅할 수 있다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「와, 역시 크롭을 하는 게 이쁘긴 하다」 / 「너무 마음에 들어」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>대기가 길다</b> — 「10시 조금 넘어서 왔는데 <b>19번째</b>인 거예요」. 4박5일 일정에서 반나절을 태울 각오가 필요하다.</div></div>
   
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>후리스 · 히트텍 캐시미어 — 이번 여행엔 아님</h4>
     <span class="sja">ユニクロ フリース / ヒートテック</span><span class="sprice">후리스 3만원대 · 히트텍 캐시미어 2만원 미만</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>값은 확실히 싸지만 <b>9월 오사카엔 필요가 없고 백팩 부피를 크게 잡아먹는다.</b> 겨울 여행이면 강추 대상이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「메이킹적인 부분에서는 유니클로 제품 크게 흠잡을 거 없이 굉장히 훌륭하다고 봅니다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「어두운 색상들의 플리스는 폴리에스터다 보니 좀 반딱거리는 광택감이 느껴지거든요」 → 밝은 색 권장.</div></div>
   
   
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🏠 무인양품</h3><p>한국 미발매 라인이 노림수. 국내에도 있는 건 살 이유가 없다.</p>
-    <span class="scount">9</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-muji">
+  <summary class="ssh"><h3>🏠 무인양품</h3><p>한국 미발매 라인이 노림수. 국내에도 있는 건 살 이유가 없다.</p>
+    <span class="scount">9</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>입체 메쉬 케이스 S/M/L</h4>
     <span class="sja">立体メッシュケース</span><span class="sprice">영상에 엔화 표기 없음</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>아직 한국에 안 들어온 신제품</b>이다. 무지 덕후들이 입을 모아 1순위로 꼽는다. 백팩 하나로 다니는 여행에 정확히 맞는 물건이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「이번에 무지에서 산 것 중에 제일 마음에 드는 거. 국내에 나오면 무조건 사세요 강추 강추」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「메쉬 타입이다 보니까 충격 보호에는 조금 약하긴 한데」 → 카메라·충전기엔 별도 완충이 필요하다.</div></div>
@@ -4503,13 +4682,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>15년차 무인양품 덕후의 추천템 &amp; 비추템</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="LwSESmT-68Y" data-t="15년차 무인양품 덕후의 추천템 &amp; 비추템" data-a=""><span class="vn">1</span>15년차 무인양품 덕후의 추천템 &amp; 비추템</button><button type="button" class="vitem" data-v="_VOHYg4TrZ8" data-t="MUJI 덕후의 오사카 하울" data-a=""><span class="vn">2</span>MUJI 덕후의 오사카 하울</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>레토르트 카레 — 규바라니쿠 · 키마</h4>
     <span class="sja">レトルトカレー</span><span class="sprice">버터치킨은 한국보다 1,000~2,000원 저렴</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>규바라니쿠·키마는 한국 무인양품에서 팔지 않는다.</b> 버터치킨은 무지 카레 수십 년 1위다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「우리나라의 무인양품에서 판매하지 않아서 꼭 구매해 가시기에 아주 좋은 제품」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>혹평도 있다 — 「건더기가 거의 들어 있지 않아서」. 레토르트는 무게가 나가니 <b>2~3개만</b>.</div></div>
@@ -4525,13 +4706,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>4대 쇼핑 성지 리스트 총정리</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>소금 카라멜 트러플 · 초코가케 이치고</h4>
     <span class="sja">塩キャラメルトリュフ</span><span class="sprice">트러플 100g에 4,000원 미만</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>일본 매장 라인업이 훨씬 넓고 싸다. <b>가볍고 안 깨져서 백팩에 최적</b>이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「제 인생 초콜릿이 될만한 제품… 일단 진짜 원픽」 / 「불호는 절대 없을 만한 초콜릿 제품으로 절대로 강추드립니다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>9월 오사카는 아직 더워 녹을 수 있다.</b> 귀국 직전에 사는 게 낫다.</div></div>
@@ -4547,13 +4730,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>4대 쇼핑 성지 리스트 총정리</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>메쉬 파우치 · 세탁망 겸 의류백</h4>
     <span class="sja">メッシュパウチ</span><span class="sprice">M 1,090엔 / S 890엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>한국 미발매.</b> 입은 속옷·양말을 담아 그대로 세탁기에 넣는 용도라 백팩 여행에 실용적이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「여행 갔다 와서 입고 난 속옷이나 양말을 그냥 이 안에 담아서 그대로 세탁기에 넣어 버리면 돼. 진짜 개편하지?」</div></div>
   
@@ -4569,13 +4754,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>모르면 손해 일본 쇼핑리스트</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>젤잉크 볼펜 0.38 · A6 그리드 노트</h4>
     <span class="sja">ゲルインキボールペン 0.38</span><span class="sprice">노트 천 원대</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>로이텀 3권 3만원대 vs 무지 천 원대 — <b>가격차가 크다.</b></div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「(0.38) 진짜 잉크 다 닳을 정도로 잘 썼는데」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>단종·품절이 진행 중</b>이다 — 「0.38도 없어진 것 같고 캡식도 없어진 것 같아요」. 보이면 그 자리에서 확보할 것.</div></div>
@@ -4591,13 +4778,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>무인양품 덕후의 추천템</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>마그넷 포켓 · 파일</h4>
     <span class="sja">マグネットポケット</span><span class="sprice">큰 것 390엔 / 작은 것 290엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>한국 미발매.</b> 「최근에 나온 건 다 한국에 없어」</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「바로바로 기억해야 될 메모들을 정리해 놓을 수 있어서 좋더라고요」</div></div>
   
@@ -4613,26 +4802,30 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>모르면 손해 일본 쇼핑리스트</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>양말 3족</h4>
     <span class="sja">靴下 3足</span><span class="sprice">3족 990엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>3족에 1만원 이하다. 백팩 여행의 소모품으로 부담이 없다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「다리가 굵어가지고 너무 짱짱한 양말 신으면 살 튀어나오는 게 심한데 무인양품 양말이 좀 덜하더라고요」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>상시가인지 할인가인지는 확인되지 않았다.</div></div>
   
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>오디오 3종 — 오픈형 W1 · 스피커 CM1 · 노캔 MH1</h4>
     <span class="sja">MUJI オーディオ</span><span class="sprice">이어폰·스피커 각 2,990엔 · 노캔 헤드폰 6,990엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>한국 정발이 안 된 모델</b>이다. 전자제품을 좋아하시니 눈에 걸리는 물건이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「(헤드폰) 노캔이 들어가는데 6만 원대 어마어마하죠? 진짜 어마어마하게 가볍습니다(254g)」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>리뷰어 본인이 선을 그었다</b> — 「물론 일본까지 가서 사올 만한 그런 제품은 아닙니다. 국내에서도 이 정도 가격대는 괜찮은 포터블 스피커가 많거든요」. 헤드폰은 「착용감 별로 안 좋아요」, <b>커널형 M1은 명시적 비추</b>.</div></div>
@@ -4648,13 +4841,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>단돈 2만원에 출시한 무인양품 음향기기</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>케이블 수납 케이스 · 스티키 노트 · 가방걸이</h4>
     <span class="sprice">케이블 케이스 2,900원</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>무지 덕후들이 <b>직접 평가를 뒤집은</b> 품목들이다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>케이블 케이스 — 「안 사셨으면 좋겠어요. 진짜 2,900원의 가치를 하지 못한다」<br>스티키 노트 — 「접착력이 매우 좋지 않다. 어디 붙여도 떨어져요. <b>포스트잇은 3M이다</b>」<br>가방걸이 — 「국내엔 없고 일본에만 있는 걸로 아는데 <b>이거 비추 비추</b>」<br>꺼내기 쉬운 파우치 — 「꺼내기는 쉽지만 <b>닫기는 힘든</b> 그런 파우치」</div></div>
@@ -4670,18 +4865,20 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>무인양품 덕후의 비추템</b><span>YouTube</span></div>
   
 </details></div>
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🛒 돈키호테</h3><p>가볍고 한국에 없는 것만. 평가가 갈리는 품목이 많으니 골라 담는다.</p>
-    <span class="scount">10</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-donki">
+  <summary class="ssh"><h3>🛒 돈키호테</h3><p>가볍고 한국에 없는 것만. 평가가 갈리는 품목이 많으니 골라 담는다.</p>
+    <span class="scount">10</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>시미토리 얼룩 제거제</h4>
     <span class="sja">シミトリ</span><span class="sprice">400엔대</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>옷 몇 벌로 4박5일을 버티는 백팩 여행에 직결되는 소모품</b>이다. 한국 다이소에도 비슷한 게 있지만 세정력이 다르다는 평이 반복된다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「대박 진짜 없어졌어. 와, 미쳤다. 미쳤어.」 / 「이거 없으면 옷이 다 더러워졌을 거야. 진짜 최고.」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>가격 인상 지적 — 「2~3년 전 200엔대였는데… 너무 가격이 많이 오르는 거지」</div></div>
@@ -4697,13 +4894,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>돈키호테에 1000만원은 족히 써본 자의 추천/비추천</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="rW4u1bfOuro" data-t="돈키호테에 1000만원은 족히 써본 자의 추천/비추천" data-a=""><span class="vn">1</span>돈키호테에 1000만원은 족히 써본 자의 추천/비추천</button><button type="button" class="vitem" data-v="43iIgI-PIAg" data-t="돈키호테 살래 말래? | 할명수" data-a=""><span class="vn">2</span>돈키호테 살래 말래? | 할명수</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>야키소바 컵라면 (페양구 · UFO · 잇페이짱)</h4>
     <span class="sja">ペヤング / U.F.O.</span><span class="sprice">제품별 상이</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>싸서가 아니라 <b>한국에 카테고리 자체가 없어서</b>다 — 「야키소바 자체는 우리나라에는 없는 볶음라면의 일종인데」. 가볍고 안 깨져 백팩에 최적이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「이때까지 먹어본 것 중에선 얘(잇페이짱)가 1등으로 제일 맛있었습니다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>제품별 짠맛 편차가 크다 — 「진짜 먹는 순간 &#x27;너무 짜다!&#x27;」</div></div>
@@ -4719,13 +4918,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>사놓고 후회한 적 없음 돈키호테 필수 제품 10가지</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>닌자메시 젤리</h4>
     <span class="sja">忍者めし</span><span class="sprice">—</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>코로로는 한국에 이미 풀렸지만 이건 아직 아니다.</b> 한국 인지도는 낮은데 현지 1위템이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「오히려 일본에서는 코로로보다도 인기가 많은, 일본 젤리 중에서는 원탑」 / 「겉면이 단단하면서 속이 쫀득한 식감이 정말 말도 안 되게 맛있습니다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>마트엔 잘 없고 돈키 위주다.</div></div>
@@ -4741,13 +4942,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>마트/드럭/돈키 추천템 30가지 총정리</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>민티아</h4>
     <span class="sja">MINTIA</span><span class="sprice">—</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>일본 한정 맛(와이드앤쿨 등)이 많고 한국에 대체품이 없다. <b>부피·무게가 사실상 없어 백팩 1개 조건에 완벽하다.</b></div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「여러 가지 맛이 있는데 얘가 짱이에요. 와이드 앤 쿨.」 / 「이거의 대체품들을 찾아봤는데 이만한 게 없어요」</div></div>
   
@@ -4763,39 +4966,45 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>동키장인의 추천템 VS 비추템</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>안약 (로토 골드40 · 산텐 · 1회용 무방부제)</h4>
     <span class="sja">ロート・参天</span><span class="sprice">한국 5,000원대 → 일본 2~3,000원대</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>훨씬 싸고</b> 한국에 없는 등급·종류가 많다. 조사한 돈키 영상 6편 이상에서 반복 등장했다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「이걸 한번 딱 뿌리잖아요. 갑자기 눈이 맑아져. 뭔가 눈을 청소한 느낌」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>골드40은 「충혈 제거 성분이 일부 들어가 있기 때문에 <b>매일매일 수시로 넣는 건 별로</b>」 / 산텐 최강 버전은 「눈알 빠지는 거 아니야? 이러면서 너무 강력해요」</div></div>
   
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>정열가격 튀김 스낵 · 일본 한정 과자 3종</h4>
     <span class="sja">情熱価格 天ぷらスナック</span><span class="sprice">—</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>튀김 스낵은 <b>한국에 수입 자체가 안 된다</b> — 「이건 좀 수입이 됐으면 좋겠다. 진짜로.」 베이크 크리미 치즈·자가리코·프리츠 명란맛은 전부 일본 한정 맛이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「바삭해요. 바삭해. 야채 그 맛이 살아있어요.」 / 「(베이크 크리미 치즈) 제가 진짜 태어나서 먹어 본 치즈맛 과자 중에 원탑입니다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「이게 짠맛만 있어요. 단맛은 없고요.」 봉지 과자라 배낭에서 눌린다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>「의외로 <b>과자만큼은 마트보다 돈키호테가 종류가 훨씬 다양</b>해서 여러 가지를 둘러보고 구매하기에 좋은 장소입니다」</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>일본 손톱깎이 (카이 貝印 · 그린벨)</h4>
     <span class="sja">貝印・グリーンベル</span><span class="sprice">카이 드래곤 에디션 1,290엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>일본 칼 제조사 기술이라 <b>절삭력과 튐 방지가 다르다</b>는 이유로 반복 추천된다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「되게 조용하고 차분하게 싹 절단이 되면서 튀지 않고 안에 잘 모여요」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「근데 되게 촌스럽잖아요」(드래곤 에디션 디자인)</div></div>
@@ -4811,83 +5020,95 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>돈키호테 1위템? 실패 없는 찐추천템</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>라유 (먹는 고추기름) 정열가격 PB</h4>
     <span class="sja">食べるラー油</span><span class="sprice">—</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>PB라서 같은 품질을 더 싸게</b> 준다 — 「일본 이곳저곳에서 유명한 제품들을 다 카피해서 만든 거… 퀄리티가 꽤 괜찮습니다」</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「와 진짜 밥도둑이네… 일본 또 가면 얘는 한 번 더 살 것 같아」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>액체·기름류라 기내 반입 제한 대상</b>이다. 백팩만 들고 타면 위탁이 없으니 용량을 확인할 것.</div></div>
   
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>간장계란밥 소스 (정열가격 PB)</h4>
     <span class="sja">情熱価格 卵かけご飯たれ</span><span class="sprice">—</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>돈키 자체 브랜드라 <b>일본·돈키에서만</b> 살 수 있다. 조사한 영상에서 가장 많이 등장했지만, 바로 그만큼 <b>평가가 정면으로 갈린다.</b></div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「야, 미쳤다. 미쳤어. 간장계장이야.」 / 「엄청 간편하게 그냥 한 끼 딱 할 수 있어 가지고 완전 추천」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 「<b>굳이 왜 이거를 일본까지 가 가지고 사서 와야 되나? 저는 비추템입니다</b>」 / 「계란 가공품이라서 그런지 비린맛이 좀 강하게 올라오고」 / 「억지로 맛있게 만드는 맛이야」</div></div>
   
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>이치란 컵라면</h4>
     <span class="sja">一蘭 カップ麺</span><span class="sprice">537엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>일본 한정이고 <b>돈키가 면세돼서 편의점보다 싸다</b> — 「꼭 돈키호테에서 사세요.」</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「이거 하나면 일본까지 비행기 타고 안 가도 간접적으로 그 맛을 느낄 수 있다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>가성비 반대 의견이 또렷하다 — 「상당히 비싼 가격이네」 / 「100% 같다고 할 수 없어요」</div></div>
   
   
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🚫 이젠 사지 마라</h3><p>2025~2026에 평가가 뒤집힌 것들. 한국이 싸지거나 일본이 올랐다.</p>
-    <span class="scount">6</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-avoid">
+  <summary class="ssh"><h3>🚫 이젠 사지 마라</h3><p>2025~2026에 평가가 뒤집힌 것들. 한국이 싸지거나 일본이 올랐다.</p>
+    <span class="scount">6</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-ban">반입금지</span>
     <h4>🔴 이브(EVE) 계열 진통제 · 파브론 골드</h4>
     <span class="sja">イブ / パブロン ゴールド</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>취향 문제가 아니라 법 문제다.</b> 해당 성분이 한국에서 마약류로 분류돼 반입하면 조사를 받을 수 있다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「국내로 반입하면 <b>마약 밀반입으로 조사를 받을 수가 있는 거야.</b> 이브샷 프리미엄 그것만 가져올 수 있고 나머지는 다 안 된다고」<br>파브론 골드 — 「세관에 걸리면 벌금 내실 수도 있다」</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 <b>면세 처리한 물건은 일본에서 열면 안 된다.</b></div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>동전파스(로이히츠보코) · 휴족시간 · 샤론파스</h4>
     <span class="sja">ロイヒつぼ膏</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>관광객 전용템으로 판명났다.</b> 한국 올리브영에 동급 제품이 비슷한 가격으로 들어왔다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「관광객들에게는 1위 아이템으로 불리지만 <b>일본 현지인들에게는 크게 유명하지 않거나 존재 자체를 모르는 경우도 많습니다</b>」<br>휴족시간 — 「요즘에는 한국에도 좋은 게 너무 많아」</div></div>
   
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>슈프림 · 스투시 등 스트릿 브랜드</h4>
     <span class="sprice">일본 정가 20%+ 인상</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>일본 정가가 올라 한국보다 비싸졌다.</b> 면세를 받아도 역전이 안 된다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「작년에 일본 정가 자체를 20% 이상 올리면서 이제 한국보다 더 비싸졌어요. <b>택스리펀 받은 금액보다 한국 크림에서 프리미엄 붙은 가격이 더 싸다</b>」</div></div>
@@ -4903,47 +5124,54 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>일본 쇼핑 이제 메리트 없는 것들</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>포터 · 존 스메들리 · 명품 남성의류</h4>
     <span class="sprice">포터 39,600엔 → 46,200엔</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>현지가 인상으로 메리트가 사라졌다. 명품 남성의류는 <b>가격이 거의 같아졌다.</b></div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「국내에 있으면 거기서 바로 사는 게 오히려 더 낫다」 / 「특히 <b>남성 의류는 가격이 그냥 거의 똑같았어요</b>」</div></div>
   
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>센카 등 세안폼 · 일본 칫솔 · S&amp;B 골든카레</h4>
     <span class="sprice">센카 면세 ¥600 ≈ 5,235원 vs 쿠팡 6,000원</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>한국 유통이 뚫려 가격차가 사라졌다.</b> 한국 제품 자체도 상향 평준화됐다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「800원 차이면 그냥 쿠팡에서 사는 게 나은 것 같기도」 / 칫솔 — 「우리나라가 너무 많이 발전해서 좋은 제품이 많은 거예요. <b>굳이 안 사도 된다</b>」</div></div>
   
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>이치란 라멘 제품 · 아미노바이탈</h4>
     <span class="sprice">이치란 컵라면 5,000원</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>이치란은 유명세로 가격이 폭등했고, <b>아미노바이탈은 일본이 오히려 더 비싸다.</b></div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>「유명해지니까 가격이 너무 올랐어… 컵라면 하나에 5,000원, 건더기 스프도 없어. 비추천」 / 「이건 돈키가 되게 더 비싼 거예요. <b>쿠팡에서 사도 될 것 같았어요</b>」</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 네이버페이 이치란 페이백(1회 2만원↑ → 1만원)이 있지만, 이번 라멘 슬롯은 우에마치 하나뿐이라 <b>바꾸면 손해다.</b></div></div>
   
   
-</article></div>
-</section>
+  </div>
+</details></div>
+</details>
 </section>
 
 <section class="tabpane hide" data-tab="stay">
@@ -5677,6 +5905,49 @@ blockquote.qb{border-left-color:var(--brick)}
 
 <script>
 (function(){
+  // ── 쇼핑 탭: 섹션 타일 · 모두 펼치기 · 체인 필터 (2026-09-22) ──
+  var secs = [].slice.call(document.querySelectorAll('details.shopsec'));
+  function tileOf(sec){ return document.querySelector('.stile[data-ss="'+sec.id+'"]'); }
+  function syncTiles(){ secs.forEach(function(sec){ var t=tileOf(sec); if(t) t.classList.toggle('on', sec.open); }); }
+  secs.forEach(function(sec){ sec.addEventListener('toggle', syncTiles); });
+  document.querySelectorAll('.stile').forEach(function(t){
+    t.addEventListener('click', function(){
+      var sec = document.getElementById(t.dataset.ss);
+      if(!sec) return;
+      var was = sec.open;
+      sec.open = !was;
+      if(!was) sec.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+  document.querySelectorAll('.sexp').forEach(function(b){
+    b.addEventListener('click', function(){
+      var o = b.dataset.open === "1";
+      secs.forEach(function(sec){ if(!sec.classList.contains('fhide')) sec.open = o; });
+    });
+  });
+  document.querySelectorAll('.sbchip').forEach(function(c){
+    c.addEventListener('click', function(){
+      document.querySelectorAll('.sbchip').forEach(function(x){ x.classList.toggle('on', x===c); });
+      var sel = c.dataset.brand;
+      secs.forEach(function(sec){
+        var cards = [].slice.call(sec.querySelectorAll('details.shopcard'));
+        var branded = cards.some(function(x){ return x.hasAttribute('data-brands'); });
+        var n = 0;
+        cards.forEach(function(x){
+          var bs = (x.getAttribute('data-brands')||"").split(" ");
+          var show = !sel || (branded && (bs.indexOf(sel)!==-1 || bs.indexOf("_all")!==-1));
+          x.classList.toggle('fhide', !show);
+          if(show) n++;
+        });
+        var t = tileOf(sec);
+        sec.classList.toggle('fhide', n===0);
+        if(t){ t.classList.toggle('fhide', n===0); t.querySelector('b').textContent = n; }
+        var sc = sec.querySelector('.scount'); if(sc) sc.textContent = n;
+        if(sel && n) sec.open = true;
+      });
+    });
+  });
+
   // 영상 목록 — 누르면 같은 iframe 을 바꾼다
   document.querySelectorAll('.vidbox').forEach(function(box){
     var fr=box.querySelector('iframe'), cred=box.querySelector('.vcred');

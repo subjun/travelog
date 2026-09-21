@@ -229,6 +229,44 @@ h1{font-size:clamp(32px,6vw,46px); font-weight:700; margin-top:12px; letter-spac
 .slinkrow a:hover{text-decoration:underline}
 @media(max-width:560px){ .shopgrid{grid-template-columns:1fr} .shopcard{padding:14px 13px 15px} }
 
+/* ── 쇼핑 탭 접기·타일·체인 필터 (2026-09-22 개편 — 95항목 스크롤 지옥 해결) ── */
+.stools{display:flex; flex-wrap:wrap; align-items:center; gap:6px 8px; margin:4px 0 10px;
+  font-size:12px; color:var(--ink-3)}
+.stools span{flex:1 1 100%}
+.sexp{font-size:12px; padding:5px 11px; border-radius:7px; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink-2); cursor:pointer}
+.stiles{display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:8px; margin:0 0 24px}
+.stile{display:flex; align-items:center; justify-content:space-between; gap:8px; text-align:left;
+  padding:11px 12px; border-radius:10px; border:1px solid var(--line); background:var(--surface);
+  color:var(--ink); font-size:13px; line-height:1.4; cursor:pointer}
+.stile b{font:600 11.5px/1 "IBM Plex Mono",monospace; color:var(--ink-3); background:var(--surface-2);
+  padding:4px 7px; border-radius:5px; flex:none}
+.stile.on{border-color:var(--jade); background:var(--jade-soft)}
+.stile:hover{border-color:var(--jade)}
+@media(max-width:560px){ .stiles{grid-template-columns:1fr 1fr} .stile{font-size:12.5px; padding:10px} }
+.sbrand{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:0 0 12px}
+.sblab{font-size:12px; font-weight:600; color:var(--ink-2); margin-right:2px}
+.sbchip{font-size:12.5px; padding:6px 12px; border-radius:20px; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink-2); cursor:pointer}
+.sbchip.on{background:var(--jade); border-color:var(--jade); color:#fff}
+details.shopsec{margin:0 0 12px}
+details.shopsec[open]{margin-bottom:30px}
+details.shopsec > summary{list-style:none; cursor:pointer; padding-right:64px}
+details.shopsec > summary::-webkit-details-marker{display:none}
+details.shopsec > summary .scount::after{content:" BE"}
+details.shopsec[open] > summary .scount::after{content:" B4"}
+details.shopsec:not([open]) > summary{margin-bottom:0}
+details.shopcard{padding:0; align-self:start}
+details.shopcard > summary{list-style:none; cursor:pointer; margin:0; padding:13px 40px 13px 15px; position:relative}
+details.shopcard > summary::-webkit-details-marker{display:none}
+details.shopcard > summary::after{content:"BE"; position:absolute; right:15px; top:14px; color:var(--ink-3); font-size:13px}
+details.shopcard[open] > summary::after{content:"B4"}
+details.shopcard[open]{grid-column:1 / -1; border-color:var(--jade)}
+details.shopcard[open] > summary{border-bottom:1px solid var(--line)}
+details.shopcard > summary h4{margin-top:6px}
+.sbody{padding:4px 17px 17px}
+.fhide{display:none!important}
+
 /* ── 날짜 페이저 (2026-09-20 신설) ─────────────────────────────
    내용이 많아져 5일치를 한 화면에 쌓으면 읽히지 않는다.
    Day 1..N 을 «한 번에 하나»만 보여주고 위에서 고른다. */
@@ -6126,17 +6164,18 @@ blockquote.qb{border-left-color:var(--brick)}
 </section>
 
 <section class="tabpane hide shop-tab" data-tab="shop">
-<p class="planlede"><b>유튜브에서 실제로 내용을 확인한 영상</b>만 근거로 삼았습니다. 「왜 사는가」를 「한국에 없어서」·「훨씬 싸서」·「일본 한정이라」 중 무엇인지로 갈라 적었고, 🔴 <b>반대 의견과 「이젠 사지 마라」도 같이</b> 넣었습니다. 추천만 모으면 판단이 안 됩니다.</p>
-<section class="shopsec">
-  <header class="ssh"><h3>🧭 사기 전에 알아야 할 것</h3><p>흥정은 얼마나 먹히는가, 어디가 함정인가, 환급은 받을 만한가.</p>
-    <span class="scount">7</span></header>
+<p class="planlede"><b>유튜브에서 실제로 내용을 확인한 영상</b>만 근거로 삼았습니다. 「왜 사는가」를 「한국에 없어서」·「훨씬 싸서」·「일본 한정이라」 중 무엇인지로 갈라 적었고, 🔴 <b>반대 의견과 「이젠 사지 마라」도 같이</b> 넣었습니다. 추천만 모으면 판단이 안 됩니다.</p><div class="stools"><span>섹션을 누르면 펼쳐집니다 · 카드도 누르면 펼쳐집니다</span><button type="button" class="sexp" data-open="1">모두 펼치기</button><button type="button" class="sexp" data-open="0">모두 접기</button></div><div class="stiles"><button type="button" class="stile" data-ss="ss-howto"><span>🧭 사기 전에 알아야 할 것</span><b>7</b></button><button type="button" class="stile" data-ss="ss-chatuchak"><span>🏬 짜뚜짝 주말시장</span><b>10</b></button><button type="button" class="stile" data-ss="ss-vintage"><span>🧥 구제 · 빈티지</span><b>6</b></button><button type="button" class="stile" data-ss="ss-platinum"><span>👕 플래티넘 · 빠뚜남 도매</span><b>5</b></button><button type="button" class="stile" data-ss="ss-mart"><span>🛒 마트 · 편의점 먹거리</span><b>10</b></button><button type="button" class="stile" data-ss="ss-pharmacy"><span>💊 약국 · 드럭스토어</span><b>8</b></button><button type="button" class="stile" data-ss="ss-durian"><span>🥭 두리안 가공품</span><b>5</b></button><button type="button" class="stile" data-ss="ss-shoes"><span>👟 신발 300mm</span><b>6</b></button><button type="button" class="stile" data-ss="ss-elec"><span>🔌 전자제품</span><b>6</b></button><button type="button" class="stile" data-ss="ss-avoid"><span>🚫 사지 마라 · 반입금지</span><b>6</b></button></div>
+<details class="shopsec" id="ss-howto">
+  <summary class="ssh"><h3>🧭 사기 전에 알아야 할 것</h3><p>흥정은 얼마나 먹히는가, 어디가 함정인가, 환급은 받을 만한가.</p>
+    <span class="scount">7</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>🔴 짜뚜짝은 이미 정찰제다 — 기대치를 낮춰라</h4>
     <span class="sprice">의류 4~17% · 잡화 10~20바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>한국 유튜버 영상 24편 중 짜뚜짝에서 흥정이 실제로 성공한 장면은 단 2건</b>이었다. 관광객이 늘면서 대부분 고정가로 넘어갔다. 「반값까지 깎는다」는 옛말이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>실측: 셔츠 2장 540→<b>520바트(4%)</b> · 고양이 가방 120→100(17%) · 코끼리 지갑 21개 420→400(5%)</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>짝퉁 시장은 정반대다.</b> 팟퐁은 부른 값의 <b>1/3~1/2</b>에서 타결된다 (프라다백 2,500→<b>800바트, 68% 인하</b>). 상인 본인 실토 — 「600~700바트 이걸 사 가지고 온대요 그래서 원래는 1800에 팔아야 되는데」</div></div>
@@ -6152,96 +6191,110 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>노세요 — 짜뚜짝 쇼핑좌표 2026</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="3QjQd3rVmzI" data-t="노세요 — 짜뚜짝 쇼핑좌표 2026" data-a=""><span class="vn">1</span>노세요 — 짜뚜짝 쇼핑좌표 2026</button><button type="button" class="vitem" data-v="aI1y1PaQ368" data-t="아룬 — 짜뚜짝 저렴한 쇼핑" data-a=""><span class="vn">2</span>아룬 — 짜뚜짝 저렴한 쇼핑</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>실제로 먹히는 흥정 기술 6가지</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>자막에 <b>실증된 것만</b> 추렸다. 계산기·태국어 문구·개시 미신 같은 흔한 팁은 검토한 영상 7편 어디에도 근거가 없어 뺐다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div><b>① 가게끼리 경쟁 붙이기</b> — 가장 강력하다. 「이 한 가게에서는 흥정이 어렵습니다… 가게별로 경쟁을 붙이면 돼」 (200→180→<b>150</b>)<br><b>② 돌아서기</b> — 「나 지금 배가 고파서 우선 뭐좀 먹고 둘러 볼게요」 (2,500→<b>1,200</b>)<br><b>③ 숫자를 상인이 적게 하기</b> — 「마지막으로 한번만 찍어 봐요」<br><b>④ 묶음으로 가기</b> — 티셔츠 1개 250 / 2개 450 / <b>3개 600</b><br><b>⑤ 하자를 근거로</b> — 「오염이 있어서」로 깎은 사례<br><b>⑥ 🔴 웃으면서, 낮은 목소리로</b></div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 ⑥이 문화적으로 중요하다 — 「태국에서는 목소리 크고 막 다혈질로 보이는 사람을 되게 급이 낮은 사람이라고 생각하는 경우들이 많거든요. <b>될 일도 목소리 크게 내면은 안 될 수가 있다</b>」</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>키워드는 <b>짜이옌(ใจเย็น = 침착해라)</b>.</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>🔴 위치 법칙 — 골목이 싸다</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>서로 다른 유튜버 2명이 <b>독립적으로 같은 말</b>을 했다. 재현되는 규칙이라 믿을 만하다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「큰 길목보다는 <b>골목으로 들어왔을 때</b>에 있는 상점들이… 가격이 상대적으로 더 저렴합니다」 / 「이 안쪽이 저 바깥에 도로변보다는 조금 더 저렴합니다」 / 구제시장도 같다 — 「확실히 입구 쪽이 좀 더 비싸네 안으로 들어갈수록」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>에어컨이 있으면 비싸다</b> (3중 확인). MBK 댓글 — 「가게세 때문에 죵나게 비싸게 부르네」</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>단 <b>낱개 구매는 큰 길목</b>이 낫다 — 「낱개로 파는 집을 공략하세요」. 골목 가게는 묶음 위주다.</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>🔴 호갱·짝퉁 함정 지도</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>짝퉁은 싸지도 않다</b>는 게 핵심이다. 「이곳에 짝퉁 물건은 저렴하지 않습니다」 — MBK 댓글은 한술 더 뜬다: 「엠티퀘어 백화점 나이키에서 세일때 나이키 티 1000밧 안하는데」 (<b>짝퉁이 정품 세일가보다 비쌀 수 있다</b>).</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div><b>물가 측정법</b>: 과일주스로 잰다. 「저렴한 시장 같은 경우에는 이런 게 <b>20바트</b>」, 보통 30~40, <b>팟퐁은 60바트 → 「여기 엄청 비싼데」</b></div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>팟퐁 시계 매대는 변상 사기다</b> — 「<b>절대 호기심에 시계제품에 손대지 마세요.</b> 시계들이 허접해서 손만 대면 뚜껑이 열리거나 시계줄이 떨어지면 손님 보고 변상하라고 합니다」<br>🔴 <b>짜뚜짝 섹션 16 「럭셔리 브랜드」 골목</b> = 짝퉁 집중 구역<br>🔴 <b>마사지샵 워크인</b> = 정가 3배 구조. 나나역 메뉴판 1,200바트 아로마가 GoWabi 앱으로 <b>400바트 미만</b><br>🔴 「100% 실크·캐시미어」 표기는 신뢰도 0 — 100바트짜리에 붙어 있다</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>방콕 거주 한국인 댓글 — 「<b>방콕 사는 저는 저 시장들 비싸서 안 갑니다</b>ㅋㅋ」</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>💸 VAT 7% 환급 — 이번 여행에선 버려라</h4>
     <span class="sprice">2,000바트 결제 → 실수령 <b>80바트</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>🔴 <b>7%가 아니다.</b> 2,000바트의 실제 VAT는 130.8바트인데 환급은 80바트(실효 4.0%)다. 여권 제시·서류 작성·공항 줄서기를 감안하면 의미가 없다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>줄 설 가치가 생기는 건 <b>한 매장에서 5,000바트(≈21만원) 이상</b> 쓸 때부터다. 20,000바트면 1,060바트(5.3%), 200,000바트 이상이면 6.1%.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>짜뚜짝·구제시장·플래티넘 노점은 애초에 환급이 안 된다.</b> 개별 노점은 VAT 등록 사업자가 아니라 P.P.10 서류를 발급할 수 없다. <b>여기서 아무리 써도 0원이다.</b><br>⚠️ 흔히 도는 「사치품 10,000바트」 기준은 <b>2016년 구버전</b>이다. 현행은 <b>40,000바트</b>.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>백화점(시암파라곤·센트럴월드·아이콘시암)에서 <b>한 번에 5,000바트 이상</b> 지를 때만 챙긴다. 공항은 수완나품 <b>4층 Concourse D, 24시간</b> · 세관 도장은 <b>출국 당일만</b>.</div></div>
   
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://vrtweb.rd.go.th/81.html" target="_blank" rel="noopener">🔗 태국 국세청 VRT 공식</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>🌧 10월 초는 「우기 끝물」이 아니다</h4>
     <span class="sprice">10월 강수 290mm · <b>강수일 18일</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>🔴 <b>10월은 9월 다음으로 비가 많은 달</b>이고, 11월(50mm·6일)의 <b>약 6배</b>다. 강수일 18일이면 <b>이틀에 한 번 이상 비</b>다. 태국 정부 기준 우기가 「5월 중순~10월 중순」이라 10/6~11은 정확히 우기 종료 직전이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>2025년 10월 실제 후기 — 「스콜은 대부분 <b>1~2시간 정도로 짧고</b>, 그 이후엔 이동이나 관광이 충분히 가능했어요」 / 「10월은 우기 막바지라 비는 자주 오지만 <b>더위는 한결 누그러져</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>2025년 10월 4일(작년 같은 날짜) 폭우로 라차테위 구가 90mm 초과, 도심 침수</b>가 있었다. <b>라차테위 = 플래티넘 패션몰·빠뚜남 바로 그 구역</b>이다.<br>🔴 <b>물에 젖어도 되는 신발이 필요하다.</b> 발목까지 차는 국지 침수가 실제로 난다. <b>스니커즈 한 켤레만 들고 가면 하루가 날아간다.</b></div></div>
   <div class="sfield stip"><b>실전 팁</b><div>짜뚜짝은 지붕이 있어 비는 피하지만 <b>통풍이 안 돼 더 덥고 통로에 물이 고인다.</b> 더위 대피처 3곳: <b>MIXT Chatuchak</b>(매일 10~20시, 에어컨) · JJ Mall · 레드빌딩.<br>실내 냉방이 강하니 <b>얇은 긴팔 1장</b>을 챙긴다.</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>💰 시장은 현금만 받는다</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>「시장은 카드가 <b>아예 안 된다</b>고 해요」. 2026년 가이드도 같다 — 대부분의 가판대는 현금이다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>시장 안 환전소는 환율이 나쁘다</b> — 「여기 환율이 그렇게 좋지가 않습니다」</div></div>
   <div class="sfield stip"><b>실전 팁</b><div><b>소액권으로 미리 환전해 가라.</b> 1,000바트짜리를 내밀면 거스름돈이 없다는 이유로 흥정이 무너진다.</div></div>
   
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🏬 짜뚜짝 주말시장</h3><p>10/10(토) 오전이 유일한 기회. <b>섹션 2·3·4</b>가 핵심이다.</p>
-    <span class="scount">10</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-chatuchak">
+  <summary class="ssh"><h3>🏬 짜뚜짝 주말시장</h3><p>10/10(토) 오전이 유일한 기회. <b>섹션 2·3·4</b>가 핵심이다.</p>
+    <span class="scount">10</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>프린트 티셔츠</h4>
     <span class="sja">เสื้อยืด / graphic tee</span><span class="sprice">기본 150바트 · 오버사이즈 180바트 · 아트샵 250~350바트<br>구제 올드스타일 1장 250 · <b>2장 450 · 3장 600</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>빈도 1위 품목</b>이고 남자 기준 가장 확실하다. 태국어 프린트·무뎅·팟타이 그래픽은 한국에 없다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「옷이 하나에 <b>만 원 정도</b>밖에 안 하니까 안 살 수가 없어요」 / 「한 개 180이다 이 좀 싸다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>같은 그래픽이라도 마감 차가 크다</b> — 「옆에가 디테일이 100바트 짜리하고 다르네… 그래픽은 비슷한 걸 찍는데 마감이 살짝 틀려」<br>🔴 <b>사이즈가 전반적으로 작다.</b></div></div>
@@ -6257,13 +6310,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>노세요 — 짜뚜짝 쇼핑좌표 2026</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="3QjQd3rVmzI" data-t="노세요 — 짜뚜짝 쇼핑좌표 2026" data-a=""><span class="vn">1</span>노세요 — 짜뚜짝 쇼핑좌표 2026</button><button type="button" class="vitem" data-v="pIDqfbKWocY" data-t="노세요 — 짜뚜짝 필수 가이드" data-a=""><span class="vn">2</span>노세요 — 짜뚜짝 필수 가이드</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>리사이클·업사이클 가방 · 에코백</h4>
     <span class="sja">กระเป๋ารีไซเคิล</span><span class="sprice">포대백 100바트 · 파우치 60~150 · 빅백 150 · 에코백 290<br>무뎅 프린트 대형 1개 450 · <b>2개 800</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>태국 한정</b>이다. 이케아·스타벅스 패러디, 무뎅, 비료포대 업사이클은 여기서만 나온다. 백팩 하나로 다니는 여행에서 <b>귀국 짐가방 대용</b>으로도 실용적이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「가방이 큰게 하나에 450 두 개 800바트」 — 2개 사면 장당 50바트가 빠진다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 「이거 오리지널 가방 말고 <b>짝퉁도 이렇게 많이 있네요</b>」. 프라이탁 스타일 비료포대백은 마감 편차가 크다.</div></div>
@@ -6279,13 +6334,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>노세요 — 짜뚜짝 필수 가이드</b><span>YouTube</span></div>
   <div class="vlist"><button type="button" class="vitem on" data-v="pIDqfbKWocY" data-t="노세요 — 짜뚜짝 필수 가이드" data-a=""><span class="vn">1</span>노세요 — 짜뚜짝 필수 가이드</button><button type="button" class="vitem" data-v="sG0D9phe0f8" data-t="규텐탁 — 짜뚜짝" data-a=""><span class="vn">2</span>규텐탁 — 짜뚜짝</button></div>
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>양말 · 파우치 · 액세서리 묶음</h4>
     <span class="sprice">양말 5개 100바트 · 파우치 3개 100바트 · <b>액세서리 5개 사면 1개 공짜</b> · 가방 55~80바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>부피·무게가 0에 수렴</b>해서 백팩 여행과 상성이 가장 좋다. 「5개 사면 1개 무료」 구조가 짜뚜짝의 가장 일반적인 할인 방식이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>낱개보다 묶음이 압도적으로 싸다. 직장 선물 뿌리기에도 이 층이 답이다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>품질이 복불복이다. 🔴 색 입힌 나무 젓가락류는 명시적 비추 — 「색깔이 있는 거 얘네들 <b>물 다 빠져요. 비추.</b>」</div></div>
@@ -6301,13 +6358,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>아룬 — 짜뚜짝 저렴한 쇼핑</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>모자 (캡 · 버킷)</h4>
     <span class="sja">หมวก</span><span class="sprice">빈티지 캡 <b>60바트</b>(실구매)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>60바트면 <b>2,600원</b>이다. 실패해도 손해가 없는 가격대라 부담 없이 고를 수 있다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「모자 천국이다」 / 「60바트인데 괜찮은 거 같은데」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>예비군 모자·군용 레플리카 등이 섞인 잡탕이다. 🔴 <b>정품 로고 모자는 거의 짝퉁</b>이다.</div></div>
@@ -6323,13 +6382,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>규텐탁 — 짜뚜짝</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>자수 티셔츠 · 원피스</h4>
     <span class="sja">เสื้อปัก</span><span class="sprice">티셔츠·가방 420바트 · 롱드레스 550바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>프린트가 아니라 <b>기계 자수</b>다. 태국 로컬 디자이너 물건이라 한국에 없다. 선물용으로 좋다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「프린트가 아니라 다 기계 자수에서 <b>퀄리티가 있어요</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>프린트 티의 2~3배 가격이고 <b>정찰제 성향이라 흥정이 거의 안 된다.</b></div></div>
@@ -6345,39 +6406,45 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>노세요 — 짜뚜짝 필수 가이드</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>마그넷 · 키링 · 소품</h4>
     <span class="sja">แม่เหล็กติดตู้เย็น</span><span class="sprice">마그넷 1개 45 · 3개 100 · <b>10개 250바트</b> · 키링 1개 50바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>직장 선물 뿌리기용으로 단가가 가장 낮다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「한 개 45바트지만 <b>열 개면 250</b>, 세 개면 100바트 이렇게 판매하고 있어요」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 흥정폭이 거의 없다 — 「어차피 흥정에도 <b>20바트밖에 차이 나지 않아요</b>」. 태국인 댓글: 「말린 망고 엄청 비싸다, <b>세븐일레븐이 더 싸다</b>」 — 먹거리는 마트가 낫다.</div></div>
   
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>향 제품 — 룸스프레이 · 사쉐 · 캔들</h4>
     <span class="sja">น้ำหอม / ธูปหอม</span><span class="sprice">초향수 2개 100바트 · 아노나 퍼퓸 사쉐 450바트 · 타니야 세라믹 캔들 700~800바트+</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>사바이아롬 짜뚜짝 <b>플래그십 스토어</b>가 있다. 선물용으로 무난하다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「확실히 싸긴 쌉니다」 / 「이건 왁스를 다 쓰고 나서도 보석함이나… <b>영구 소장이 가능합니다</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>시장 저가품은 <b>향이 약하다</b> — 「근데 단점이 향이 강하지 않네」. 사쉐는 「직사광선을 받으면 수명이 짧아진다」. 유명 브랜드에 대해서도 「탄, 한, 카르마카멧 같은… <b>콕 집어 추천해 드리기가 참 애매하더라고요</b>」</div></div>
   
   <div class="sfield "><b>어디서</b><div>섹션 4 · 8</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>코끼리바지</h4>
     <span class="sja">กางเกงช้าง</span><span class="sprice">짜뚜짝 90~100바트 · 빠뚜남 <b>3장 300바트</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>한국에선 배송비 포함 1.5~2만원이다. 현지 착용용으로는 값이 압도적이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「반바지랑 긴바지 상관없이 총 300바트」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>「시장에서 파는 100바트짜리 중에는 싸구려 중국산 수입품이 정말 많습니다」</b><br>판별법 ① 「진짜 태국산은 <b>모든 코끼리가 정방향으로</b> 예쁘게 서 있습니다. 싸구려 중국산은 코끼리가 <b>옆으로 누워있거나 거꾸로 뒤집혀</b> 있는 경우가 허다하죠」<br>판별법 ② 「안쪽 이음새가 <b>두 줄 솔기</b>로 탄탄하게 박음질… 한 줄로 대충 박아놓은 중국산은 여행 첫날 입고 쪼그려 앉았다가 <b>가랑이가 터질 수도</b>」</div></div>
@@ -6393,13 +6460,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>몽키트래블 — 쇼핑리스트 Best 45</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>🔴 신발 — 짜뚜짝에서는 사지 마라</h4>
     <span class="sja">รองเท้า</span><span class="sprice">슬리퍼 79~89바트 · 중고 스니커즈 1,200~1,600바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>이번 리서치에서 <b>유일하게 「사지 마라」는 직설 경고가 나온 품목</b>이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>79~89바트 쪼리만 소모품으로 쓸 만하다. 🌧 침수 대비 젖어도 되는 신발로는 유용하다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 「제가 여러 군데 봤는데 <b>똑같은 신발을 한 곳에선 1600바트, 한 곳에서는 1200바트</b>」<br>🔴 「신발은 그냥 <b>호구 하나 잡으면 로또 먹는다</b>는 느낌 같아요」<br>🔴 「<b>신발은 절대 사지 마시기 바랍니다.</b>」<br>대부분 중고이고 <b>300mm 재고는 사실상 없다.</b></div></div>
@@ -6415,13 +6484,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>아룬 — 짜뚜짝 저렴한 쇼핑</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>법랑 그릇 · 냄비 · 도시락통</h4>
     <span class="sja">เครื่องเคลือบ</span><span class="sprice">소형 법랑 냄비 405바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>레트로 태국 패턴이 예쁘지만 <b>백팩 여행엔 깨지기 쉬운 부피물</b>이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「법랑이다 보니까 일단 <b>가볍고</b>… 손님들 오셨을 때 식기 모자라면 꺼내 쓰기도 좋고」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>실사용 후기가 부정적이다</b> — 「탕하고 부딪히거나 떨어뜨리면 <b>여기가 손상이 돼요.</b> 그러면 안에가 <b>녹슬어</b> 버리기 때문에… 저도 이렇게 된 이후로는 <b>잘 사용을 안 하거든요</b>」. 본인도 냄비는 「관상용으로만」 둔다고 했다.</div></div>
@@ -6437,171 +6508,195 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>러핀 — 방콕 쇼핑 하울</b><span>YouTube</span></div>
   
 </details></div>
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🧥 구제 · 빈티지</h3><p>10/9(금) 팬팁 응암웡완이 일정에 있다. 냉방 실내라 우기에 안전하다.</p>
-    <span class="scount">6</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-vintage">
+  <summary class="ssh"><h3>🧥 구제 · 빈티지</h3><p>10/9(금) 팬팁 응암웡완이 일정에 있다. 냉방 실내라 우기에 안전하다.</p>
+    <span class="scount">6</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>🔴 옷 버핏 (무게·정액 무한 담기)</h4>
     <span class="sja">บุฟเฟ่ต์เสื้อ / clothes buffet</span><span class="sprice">정액제 (행사별 상이)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>팬팁 응암웡완 8층</b>에서 열리는 태국 구제의 명물이다. 10/9(금) 일정에 이미 들어 있고, 🌧 <b>냉방 실내</b>라 우기 10월에 가장 안전한 쇼핑처다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>정액을 내고 담을 수 있는 만큼 담는 구조라, 실패해도 장당 단가가 무너진다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>⚠️ <b>한국어 후기가 없어 태국 현지 소스로 채웠다.</b> 2026년 10월 행사 여부·요금은 <b>확인 불가</b>다. 가서 확인해야 한다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 <b>구제도 골목 법칙이 적용된다</b> — 「확실히 입구 쪽이 좀 더 비싸네 <b>안으로 들어갈수록</b>」</div></div>
   <div class="sfield "><b>어디서</b><div>팬팁 응암웡완 8층</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>빈티지 데님 — 리바이스 · 칼하트 · 디키즈</h4>
     <span class="sja">Levi&#x27;s / Carhartt / Dickies</span><span class="sprice">매물별 상이 (흥정 필수)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>구제의 본류다. 한국 빈티지숍 시세 대비 확실히 싸고, <b>사이즈가 큰 미국 구제</b>라 300mm 발과 달리 <b>체격 문제가 없다.</b></div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>짜뚜짝 5·6구역이 공식적으로 「중고 의류 및 신발」 구역으로 분류돼 있다 — 「<b>보물찾기 장소!</b> 레트로 및 빈티지 의류 애호가들의 천국」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>가짜 빈티지·중국산 프리미엄</b>을 조심해야 한다 — 「요런 거는 400바트면 <b>이거 정품이 아닌 거 같은데</b>」 / 「야 이거는 <b>딱 중국품인데 가격은 상당히 비쌉니다</b>」</div></div>
   
   <div class="sfield "><b>어디서</b><div>짜뚜짝 5·6구역 · 레드빌딩</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>빈티지 그래픽 티셔츠 (80~90s US 프린트)</h4>
     <span class="sprice">매물별 상이</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>하드락 티 등 <b>한국에서는 프리미엄이 붙는 물건</b>이 여기선 구제가로 나온다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>프린트 티셔츠를 좋아하면 짜뚜짝 신품 그래픽 티보다 이쪽이 만족이 높다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>상태 편차가 크고 <b>반품이 안 된다.</b> 목·겨드랑이 마감을 반드시 뒤집어 볼 것.</div></div>
   
   <div class="sfield "><b>어디서</b><div>짜뚜짝 5·6구역</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>밀리터리 구제 · 군복</h4>
     <span class="sprice">매물별 상이</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>짜뚜짝 섹션 6 안쪽(18번 게이트)에 몰려 있다. 잘 고르면 값이 크게 싸다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>사이즈·상태 확인이 어렵고 냄새 이슈가 있다. 시간이 많이 든다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>짜뚜짝 섹션 6 (18번 게이트 안쪽)</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>폴로 · 브랜드 셔츠 (일반인 벼룩)</h4>
     <span class="sja">OT Urban Market</span><span class="sprice"><b>폴로 브랜드 200~250바트</b> · 중고 책 150바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>일반인 판매자가 입던 옷을 직접 파는 벼룩시장이라 <b>브랜드 셔츠가 1만원 이하</b>로 나온다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「매주 화요일과 수요일에 오T 어반 마켓이라는 벼룩 시장이 열리는데 일반인 판매자들이 직접 입던 옷과 중고 패션 잡화를 판매할 수 있습니다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>화·수만 열린다</b> → 이번 일정에선 <b>10/7(수)만 가능</b>한데, 그날은 꼬사메산 스노클링이다. 사실상 어렵다.<br>바닥 돗자리 판매라 검품이 어렵다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>유니온몰 (MRT 랏프라오)</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>빈티지 시계 · 선글라스 — 레드빌딩</h4>
     <span class="sprice">짜뚜짝 선글라스 39바트 · 일반 시계 150바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>39바트 선글라스는 소모품으로 쓸 만하지만, <b>시계는 손대지 마라.</b></div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>맞은편 상가는 에어컨이 있어 「여기가 더 쾌적하고 쇼핑하기 좋아요」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>변상 사기 유형 경고</b> — 「<b>절대 호기심에 절대 시계제품에 손대지 마세요.</b> 시계들이 허접해서 손만 대면 시계 뚜껑이 열리거나 시계줄이 떨어지면 <b>손님 보고 변상하라고 합니다</b>」</div></div>
   
   <div class="sfield "><b>어디서</b><div>레드빌딩 1·2층</div></div>
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>👕 플래티넘 · 빠뚜남 도매</h3><p>도매가로 옷을 담는 곳. 3장 단위가 기본이다.</p>
-    <span class="scount">5</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-platinum">
+  <summary class="ssh"><h3>👕 플래티넘 · 빠뚜남 도매</h3><p>도매가로 옷을 담는 곳. 3장 단위가 기본이다.</p>
+    <span class="scount">5</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>기본 티셔츠 · 캡내장 나시</h4>
     <span class="sprice">도매가 (3장 단위가 기본)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>도매몰이라 낱개보다 3장 묶음이 압도적으로 싸다.</b> 기본 티는 실패 위험이 낮아 묶음으로 사기 가장 좋은 품목이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>같은 물건이 짜뚜짝보다 싸게 나오는 경우가 많다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>가격표가 붙은 매장은 정찰제라 흥정이 안 된다.</b> 🌧 <b>10월 침수 위험 구역(라차테위)</b>이라 비 예보를 보고 가야 한다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 <b>3장부터 도매가</b>가 원칙이다. 2장만 사면 소매가를 받는다.</div></div>
   <div class="sfield "><b>어디서</b><div>플래티넘 패션몰</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>남성 바지 (야외 야시장)</h4>
     <span class="sprice">380 → <b>350바트</b> (흥정 실측)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>빠뚜남 야외 야시장은 플래티넘 몰 안보다 <b>흥정이 먹힌다.</b></div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>실측 8% 인하 성공.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🌧 <b>완전 야외라 스콜 직격</b>을 맞는다. 10월엔 저녁 방문이 위험하다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>빠뚜남 야시장</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>가디건 · 아우터 · 잠옷 트렁크</h4>
     <span class="sprice">도매가</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>🔴 <b>실내 냉방이 강해 얇은 겉옷이 실제로 필요하다</b> — 2025년 10월 후기: 「실내 에어컨이 강해서 <b>얇은 가디건이나 셔츠 하나</b> 챙기면 정말 유용했답니다」. 한국에서 안 가져왔으면 여기서 사면 된다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>현지에서 바로 입고 다닐 수 있어 부피 문제가 없다.</div></div>
   
   
   <div class="sfield "><b>어디서</b><div>플래티넘 패션몰</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>접이식 방수 장바구니 · 파우치</h4>
     <span class="sprice">도매가</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>🌧 <b>10월 방콕에 가장 실용적인 물건</b>이다. 비 올 때 백팩 안 전자기기를 보호한다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>접으면 부피가 0에 가깝다.</div></div>
   
   
   <div class="sfield "><b>어디서</b><div>플래티넘 패션몰</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>멀티 콘센트 · 충전기 (잡화)</h4>
     <span class="sprice">500 → <b>300바트</b> (흥정 실측, <b>40% 인하</b>)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>이번 조사에서 흥정 인하율이 가장 컸던 품목</b>이다(40%).</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>태국은 한국 220V 플러그가 대부분 그대로 들어간다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>품질 보증이 없다.</b> 전자제품 카테고리 결론과 같다 — 충전기류는 한국이 안전하다. 「살 이유 없음」에 가깝지만 현지 임시용으로는 쓸 만하다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>빠뚜남 잡화</div></div>
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🛒 마트 · 편의점 먹거리</h3><p>무게 대비 만족이 가장 높은 층. 빅씨는 저녁 할인이 상시다.</p>
-    <span class="scount">10</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-mart">
+  <summary class="ssh"><h3>🛒 마트 · 편의점 먹거리</h3><p>무게 대비 만족이 가장 높은 층. 빅씨는 저녁 할인이 상시다.</p>
+    <span class="scount">10</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>마마 똥얌꿍 라면</h4>
     <span class="sja">มาม่า ต้มยำกุ้ง / MAMA Tom Yum Kung</span><span class="sprice">사발면 소 14바트 · 중 20~25바트 · 봉지 개당 6~7바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>훨씬 싸고</b> 한국 판매분보다 종류가 많다. 무게 대비 만족이 가장 높은 품목이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「그냥 똠양꿍이야. 식당에서 파는 똠양꿍. 근데 대신 거기에 <b>라면살이 들어가 있다</b>고 생각하시면 됩니다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>주황색보다 <b>빨간색이 더 매콤</b>하다. 🔴 <b>한국 라면은 태국에서 45~48바트</b>라 절대 사지 마라.</div></div>
@@ -6617,13 +6712,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>데니트립 — 태국 편의점 쇼핑리스트</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>세븐일레븐 핑크 새우만두 (현지 취식)</h4>
     <span class="sja">ขนมจีบกุ้ง / shrimp dim sum</span><span class="sprice">5개입 39바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>현지에서 먹는 용도</b>다. 반입은 안 되지만 편의점 간식 중 평이 압도적이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「얘 진짜 꼭 먹어야 되는 핑크 새우만두… 진짜 다섯 개 들었는데 <b>맛만 먹고 얘만 한 3, 40개 먹을 수 있을 것 같아</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>큰 매장일수록 핑크 새우만두가 없다.</b> 없으면 고기 교자만두로 대체.</div></div>
@@ -6639,13 +6736,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>데니트립 — 태국 편의점 쇼핑리스트</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>말린 망고 — 도이캄 · 쿤나</h4>
     <span class="sja">มะม่วงอบแห้ง</span><span class="sprice">도이캄 대형 149바트 · 쿤나 198바트 · 도이캄 말린 딸기 소 30 · 대 155바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>훨씬 싸다.</b> 가볍고 안 상해 백팩 여행의 기본 품목이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「이게 굉장히 <b>소프트하게 드라이</b>돼서 쫄깃쫄깃하고 딱딱하지 않아요」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>「망고 과육 18%」 식 과육 함량 표기를 보고 골라야 한다.</b> 쇼핑몰의 「5개 사면 3개 더」 패키지는 <b>함량 낮은 저가품</b>인 경우가 많다.</div></div>
@@ -6661,13 +6760,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>데니트립 — 태국 마트 2026 최신판</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>차트라무 타이티</h4>
     <span class="sja">ชาตรามือ / ChaTraMue</span><span class="sprice"><b>스틱 5개입 60바트</b> · 파우더 500g 175~200바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>훨씬 싸다.</b> 매장에서 사 마시는 그 맛을 집에서 재현할 수 있다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「아이스 커피 탈 때처럼 물 조금 부어서 녹인 다음에 얼음 가득해서 확 부어서 드시면 아주 <b>차트라무랑 맛이 똑같습니다</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>벌크 파우더는 사지 마라</b> — 「보관은 조금 안 좋을 거 같다」 / 「가루 봉지형은 <b>몇 번 안 먹게 돼요</b>」. <b>스틱 개별포장</b>이 정답이다.</div></div>
@@ -6683,13 +6784,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>뺄래기똥 — 태국 쇼핑 종결편</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>자비 트러플 감자스낵 · 큐피 트러플 마요</h4>
     <span class="sja">Jabi Truffle / Kewpie Truffle Mayo</span><span class="sprice">스낵 소 30바트 · 트러플 마요 65바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>태국 한정</b>이다. 마요는 일본 브랜드지만 태국 공장 생산 한정 맛이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「와 <b>트러플 향이 진짜 미쳤어요</b>… 오버하는 거 아니고 진짜 얘 진짜 좋아」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>마요 용량이 작다. 🔴 <b>액체·소스류는 위탁수하물</b>로 보내야 한다.</div></div>
@@ -6705,83 +6808,95 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>데니트립 — 태국 마트 2026 최신판</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>프레지던트 뱅뱅 · 후프이 비스킷</h4>
     <span class="sja">Bang Bang / Voopy</span><span class="sprice"><b>뱅뱅 25개입 박스 95바트</b> · 후프이 59바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>사무실 돌리기용 가성비가 최고</b>다. 25개입이 4,000원이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「한 박스 25개 들어 있는데 95밧이야. 이거 진짜 저렴한데 진짜 맛있거든요. 여러분 이거 가져가서 <b>사무실 돌리세요</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>후프이는 「질소 포장 없이 가득」 들어 무게가 있다. <b>백팩에는 뱅뱅이 유리</b>하다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>빅씨 · 로터스</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>MK 수끼 소스</h4>
     <span class="sja">น้ำจิ้มสุกี้ MK</span><span class="sprice">약 60바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>한국에 같은 맛이 없다. 2,000원이 안 된다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「가격도 60바트 정도라서 2,000원도 안 하는 거라서 추천드리겠습니다… <b>너무 달지도 않고 깔끔하지</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>반드시 MK 브랜드로 고를 것.</b> 마트 저가 수끼소스는 향신료 향이 강해 호불호가 갈린다. 액체라 <b>위탁수하물</b> 필수.</div></div>
   
   <div class="sfield "><b>어디서</b><div>빅씨 · 로터스</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>테스토 짠계란 감자칩</h4>
     <span class="sja">เทสโตะ ไข่เค็ม / Testo Salted Egg</span><span class="sprice">소 약 30바트대</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>한국에 없는 맛</b>이다. 태국에서 레이·프링글스를 제쳤다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「레이와 프링글스를 제치고 요즘 한참 핫한 감자 스넥입니다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>짠맛이 강해 호불호가 있다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>같은 라인의 <b>짠계란맛 비빔라면</b>도 있다(4입 60바트).</div></div>
   <div class="sfield "><b>어디서</b><div>빅씨 · 로터스</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>포키 · 프레츠 태국 한정맛 (두리안 · 똠얌꿍)</h4>
     <span class="sja">Pocky / Pretz Thai edition</span><span class="sprice">약 20~30바트대</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>태국 한정</b>이다 — 「태국에서만 살 수 있습니다. <b>다른 데서 구하려고 해도 못 구합니다</b>」</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>가볍고 안 깨져 백팩에 최적이다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>평가가 미지근하다 — 같은 영상에서 「이것보다는 <b>뱅뱅이 최고</b>」. 재미로 사는 물건이다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>세븐일레븐 · 빅씨</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>로보 커리 · 팟타이 밀키트 (봉지형만)</h4>
     <span class="sja">โลโบ / Lobo</span><span class="sprice">봉지 30~60바트대</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>훨씬 싸다.</b> 집에서 태국 음식을 재현하는 가장 간단한 방법이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「동봉된 쌀국수 면이 유독 <b>퍼지지 않고 쫄깃해서</b> 맛의 중심을 확실하게 잡아줍니다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>러이타이 액상형(우유팩)은 사지 마라</b> — 무겁고 부피가 크다. 백팩 1개 여행이면 <b>봉지형 로보만</b>.</div></div>
   
   <div class="sfield "><b>어디서</b><div>빅씨 · 로터스</div></div>
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>💊 약국 · 드럭스토어</h3><p>🔴 부츠·왓슨스·빅씨보다 <b>동네 약국이 20~30% 싸다.</b></p>
-    <span class="scount">8</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-pharmacy">
+  <summary class="ssh"><h3>💊 약국 · 드럭스토어</h3><p>🔴 부츠·왓슨스·빅씨보다 <b>동네 약국이 20~30% 싸다.</b></p>
+    <span class="scount">8</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>🔴 동네 약국이 빅씨·부츠보다 20~30% 싸다</h4>
     <span class="sprice">비판텐 — <b>약국 198바트 vs 빅씨 263바트</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>같은 제품인데 가격이 이만큼 벌어진다.</b> 약국 쇼핑의 핵심 원칙이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「이 연고가 여기서는 가격이 263이야… 근데 198. 가격 차이가 이렇게 납니다. 그러니까 <b>약국 쇼핑은 빅씨에도 있지만 꼭 약국 가서 구매하시길 추천</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>동네 약국은 <b>현금만 받는 곳이 많다.</b></div></div>
@@ -6797,13 +6912,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>뺄래기똥 — 태국 쇼핑 종결편</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>타이레놀 500mg 대용량</h4>
     <span class="sja">ไทลินอล</span><span class="sprice">100정 약 6,000원 · 50정 약 4,000원 · 편의점 10정 17바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>방콕에 글로벌 공장이 있어 내수가로 풀린다.</b> 한 정당 가격이 한국의 <b>1/3 이하</b>다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「한국에선 10정에 보통 3,000원 정도지만 태국에선 50정들이 한 통이 약 4,000원 정도로 <b>한 정당 가격이 세 배 이상 저렴</b>하죠」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>술 마신 뒤 복용 금지(간 손상)</b> · <b>1일 8정 초과 금지</b>.</div></div>
@@ -6819,96 +6936,110 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>월간몽키픽 — 태국 가면 약국부터</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>카운터페인 (연고형 파스)</h4>
     <span class="sja">เคาน์เตอร์เพน / Counterpain</span><span class="sprice">대용량 통 (가격 확인 불가)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>한국에 없는 제형</b>이다. 태국 습도에 맞춰 만들어져 붙이는 파스보다 낫다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「태국은 습해서 붙이는 파스는 잘 떨어지지만 이 <b>연고형은 흡수력이 정말 좋아서</b> 바르자마자 끈적임 없이 스며듭니다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>색깔로 용도가 갈린다</b> — 빨강=온열(만성) · 파랑=냉감(급성) · <b>노랑 Plus=소염진통 성분 포함</b>. 상처·눈 주변 금지, 바른 뒤 손 씻을 것.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>하루 종일 걷는 일정이라 실제로 쓰게 된다.</div></div>
   <div class="sfield "><b>어디서</b><div>동네 약국</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>스트렙실 (목 사탕형 약)</h4>
     <span class="sja">สเตร็ปซิล / Strepsils</span><span class="sprice">8정 파우치 ~ 24정 대용량</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>오렌지 비타민C · 쿨 · 기침완화 라인이 한국 미출시</b>다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「한국 제품과 달리 비타민 C가 추가된 상큼한 오렌지 맛, <b>목과 코를 에어컨 켠 것처럼 뻥 뚫어주는 극강의 쿨</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>사탕이 아니라 약이다.</b> 3~6시간 간격을 지킬 것.</div></div>
   
   <div class="sfield "><b>어디서</b><div>동네 약국 · 부츠</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>녹타이 · 뎁타이 콩알치약</h4>
     <span class="sja">เทพไทย / Tepthai</span><span class="sprice">한 튜브로 약 3개월</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>태국 한정</b>이고 고농축이라 오래 쓴다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「요거 한 튜브로 한 <b>3개월 정도</b> 쓰는 거 같아… 엄청 오래 써」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>콩알 크기만 짜야 한다.</b> 일반 치약처럼 짜면 「입안이 <b>얼얼할 정도로 강한 매운맛</b>」</div></div>
   
   <div class="sfield "><b>어디서</b><div>동네 약국 · 마트</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>야돔 (흡입) · 야몽 (바르는 것)</h4>
     <span class="sja">ยาดม / Poy-Sian</span><span class="sprice">스틱형 야몽 소 8바트 · 대 26바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>태국 한정</b>이고 단가가 낮아 선물 뿌리기에 좋다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「얘는 <b>바르는</b> 거예요. 야몽이라고… 여기저기 벌레 물렸다. 그럼 여기저기 발라」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>코로 흡입하는 야돔과 바르는 야몽은 다른 물건</b>이다. 헷갈려서 잘못 사는 경우가 많다.<br>반대 의견 — 「꿀·야돔 이제 그만」류 영상이 나올 만큼 <b>너무 뻔한 선물</b>이라는 피로감이 있다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>세븐일레븐 · 마트 · 약국</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>아크네틴-A 연고 (트레티노인)</h4>
     <span class="sja">Acnetin-A</span><span class="sprice">몇 천 원대</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>한국은 의사 처방이 필수인 성분</b>인데 태국은 처방 없이 살 수 있다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「한국 피부과에서 처방받던 스티바-A와 같은 트레티노인 성분인데 태국에선 <b>단돈 몇 천원에 처방 없이</b> 살 수 있어 가성비가 압도적이죠」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>임산부·임신 준비 중 절대 금지(기형아 유발 위험).</b> 밤에만, 쌀알 크기로, 다음날 선크림 필수. 초보는 <b>초록 0.025%</b>부터.</div></div>
   
   <div class="sfield "><b>어디서</b><div>동네 약국</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>바세린 바디로션 · 선크림</h4>
     <span class="sja">วาสลีน</span><span class="sprice">쿨링 바디로션 대 329바트 · 소 세일 189바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>태국에 바세린 공장이 있어</b> 현지가가 싸다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「태국에 이 바세린 공장이 있기 때문에 이 제품들 굉장히 저렴하게 잘 나오고 있습니다… 굉장히 <b>산뜻한 제형</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>대용량은 백팩에 부담이다. <b>1L급은 비추.</b></div></div>
   
   <div class="sfield "><b>어디서</b><div>빅씨 · 왓슨스</div></div>
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🥭 두리안 가공품</h3><p>동행이 두리안을 좋아하신다. <b>생과일은 금지, 가공품은 통과.</b></p>
-    <span class="scount">5</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-durian">
+  <summary class="ssh"><h3>🥭 두리안 가공품</h3><p>동행이 두리안을 좋아하신다. <b>생과일은 금지, 가공품은 통과.</b></p>
+    <span class="scount">5</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>세븐일레븐 두리안 캔디</h4>
     <span class="sja">Durian Candy</span><span class="sprice"><b>48바트</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>단가가 가장 낮고 냄새가 안 난다.</b> 두리안을 좋아하는 동행에게 가장 부담 없는 선택이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「캔디라고 적혀있지만 <b>사실은 두리안 그 자체</b>예요. 포장이 빡빡하게 되어있어서 <b>냄새는 전혀 안 나고요</b>… 마치 두리안을 압축시켜놓은 느낌?」</div></div>
   
@@ -6924,13 +7055,15 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>몽키트래블 — 세븐일레븐 꿀템</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>프룻킹 동결건조 두리안</h4>
     <span class="sja">ทุเรียนหมอนทองอบกรอบ</span><span class="sprice">15g 71바트 · <b>50g 225바트</b> · <b>90g 399바트</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>🔴 <b>마트가 면세점보다 20~30% 싸다.</b> 같은 프룻킹이 Big C 90g 399바트(100g 환산 443바트)인데 <b>면세점은 100g 540바트</b>다. 면세점은 「깜빡했을 때의 보험」으로만 쓴다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>두리안을 싫어하는 동행도 통과한 사례가 있다 — 「나 두리안 싫어하는데 이상하네. <b>진짜 맛있는데.</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>⚠️ 2025~2026 한국어 영상 중 <b>두리안 가공품 부정 후기는 확인 불가</b>였다 (부정 후기는 전부 2018~2019년 자료).</div></div>
@@ -6946,70 +7079,80 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>먹시미 — 방콕 마트 싹 털어왔습니다</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>동결건조 두리안 찹쌀밥</h4>
     <span class="sja">ข้าวเหนียวมูนทุเรียนอบกรอบ</span><span class="sprice">90g <b>352바트</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>태국 한정성이 가장 높은 품목</b>이다. 두리안 + 코코넛 찹쌀밥을 통째로 동결건조한 물건이라 한국에서는 구할 수 없다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>두리안을 좋아하는 분께 가장 「새로운」 선물이 된다.</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>단가가 높다.</div></div>
   
   <div class="sfield "><b>어디서</b><div>빅씨</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>두리안 꽌(페이스트) · 두리안 코코넛 연유</h4>
     <span class="sja">ทุเรียนหมอนทองกวน / Mali</span><span class="sprice">꽌 100g 85바트 · 200g 165바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>현지에서 먹기엔 좋지만 <b>반입 제약이 있다.</b></div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>연유 후기 — 「의외로 특유의 <b>쿰쿰한 향은 거의 나지 않고</b>, 고소한 코코넛밀크가 부드럽게 잡아줘서 달콤 고소한 풍미가 일품입니다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>액체·겔이라 기내 100ml 규정에 걸린다 → 위탁수하물.</b><br>🔴 <b>연유는 유제품이라 한국 검역 리스크</b>가 있다 — 검역본부는 「유제품도 반입이 안 될 수 있다」는 입장. <b>현지 소비를 권한다.</b></div></div>
   
   <div class="sfield "><b>어디서</b><div>빅씨</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-ban">반입금지</span>
     <h4>🔴 생두리안 — 기내도 위탁도 안 된다</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>항공사와 한국 세관 양쪽에서 막힌다.</b> 「밀봉하면 위탁은 된다」는 통설이 있지만 타이에어아시아는 <b>명문으로 금지</b>하고 있다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 타이에어아시아 약관(2026-06-08 갱신): 「durian, jackfruit and any other pungent-smelling fruits… are <b>not allowed in either checked or cabin baggage</b>」 — <b>위탁도 안 된다.</b><br>🔴 <b>한국 반입 시 생과일은 전면 금지</b>, 최대 1,000만원 과태료. 태국 노선은 검역 탐지견이 집중 배치된 고위험 노선이다.<br>⚠️ 타이항공·대한항공·진에어 공식 페이지엔 두리안 명시 조항이 <b>없다 → 확인 불가</b>.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🟢 <b>생으로 먹는 건 현지에서.</b> 오또꼬 시장이 일정에 두 번(10/9 아침·10/10 낮) 들어 있다.</div></div>
   
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>👟 신발 300mm</h3><p>결론: <b>구할 수 있다.</b> 단 「EU 46」이 아니라 <b>「US 12」</b>로 물어야 한다.</p>
-    <span class="scount">6</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-shoes">
+  <summary class="ssh"><h3>👟 신발 300mm</h3><p>결론: <b>구할 수 있다.</b> 단 「EU 46」이 아니라 <b>「US 12」</b>로 물어야 한다.</p>
+    <span class="scount">6</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>🔴 「EU 46」이 아니라 「US 12」로 물어라</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>이게 성패를 가른다.</b> Supersports 사이즈 필터에 <b>EU 표기는 45까지밖에 없다</b> — 46 이상 항목 자체가 없다. 300mm는 <b>US 표기 상품군에서만</b> 잡힌다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>Supersports(태국 최대 스포츠 체인) 기준 <b>US 12 상품이 1,581개</b>, US 13은 267개다. 「I wear 46. Malls in really touristy areas seem to stock 46… <b>Decathlon sell 46 as well</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>US 13부터는 진짜 없다</b> — 「I&#x27;m a size 14… Been here 23 years, <b>never once found a shoe here that fits me</b>」<br>🔴 <b>슬리퍼류(난양·Kito·ADDA·하바이아나스)는 300mm가 사실상 불가</b>하다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 <b>진열대 = 재고가 아니다</b> — 「Ask the staff as <b>what&#x27;s on the display isn&#x27;t what&#x27;s in the stockroom</b>」</div></div>
   <div class="sfield "><b>어디서</b><div>Supersports 센트럴월드 3F</div></div>
   <div class="sfield slinks"><b>출처 영상</b><div class="slinkrow"><a href="https://www.reddit.com/r/Bangkok/comments/181u15q/guys_wearing_shoe_size_46_or_larger_where_do_you/" target="_blank" rel="noopener">🔗 r/Bangkok — 46 이상 신발 어디서 사나</a></div></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>데카트론 — 300mm가 가장 확실한 곳</h4>
     <span class="sja">Decathlon / เดคาทลอน</span><span class="sprice">러닝화 500~2,000바트대 · 러닝 티셔츠 149바트 · 타이츠 580바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>후기상 EU 47~48까지 있다.</b> 300mm 관점에서 방콕 최고의 선택지다. 값도 싸다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「47/48 here, and <b>Decathlon has them</b>. Just tried on some at the <b>Rama 4 branch</b> a few days ago」 / 「한국에서 살 때는 데카트론이라는 브랜드를 전혀 몰랐어요. 나이키 아디다스 뉴발란스 퓨마 이런 거에 비해서 <b>굉장히 저렴하더라고요</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div><b>브랜드 감성이 없고 디자인이 평범</b>하다. 태국몰 사이즈 셀렉터는 리디렉션으로 <b>확인 불가</b> → 매장 방문 필수.</div></div>
@@ -7025,226 +7168,259 @@ blockquote.qb{border-left-color:var(--brick)}
   <div class="vcred"><b>쿤호 KNOKNO — 태국 아식스 노바블라스트5</b><span>YouTube</span></div>
   
 </details></div>
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>나이키 팩토리스토어 (아울렛)</h4>
     <span class="sja">Nike Factory Store</span><span class="sprice">정가 6,100바트 → <b>3,690바트</b> 사례</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>한국 최저가보다 싸다</b>는 실측이 있다. 태국 나이키몰 사이즈 셀렉터도 <b>US 6~13 전부 활성</b>이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「정식 판매가는 6100바트 지만 판매가는 3690바트로 <b>한국 최저가 검색보다 저렴한 상태</b>이다」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>아울렛은 시내에서 멀다</b>(방나·수완나품 방면). 인기 모델·인기 사이즈는 빠져 있다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>「진열대에 없어도 <b>창고에 있으니 직원에게 물어보라</b>」는 게 현지 팁이다.</div></div>
   <div class="sfield "><b>어디서</b><div>Siam Premium Outlets · 브랜드스토어(센트럴월드 등)</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>아디다스 — UK 13까지</h4>
     <span class="sprice">아울렛 상시 최대 70%</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>태국몰 Samba OG 셀렉터가 <b>UK 3.5~13 전부 활성</b>이다(US 12 = UK 11.5).</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「아울렛이라서 반정도 가격에 팔고. 거기에 <b>2개 사면 한개 신발을 또 40~50%</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>태국은 UK 표기를 쓴다.</b> 「EU 46」 말고 <b>「US 12」</b>로 물어야 한다. 아울렛 재고는 운이다 — 「Adidas Outlet at Central Village <b>sometimes</b> has a 46」</div></div>
   
   <div class="sfield "><b>어디서</b><div>아울렛 · 브랜드스토어</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>난양 창다오 고무 슬리퍼</h4>
     <span class="sja">รองเท้าแตะช้างดาว / Nanyang</span><span class="sprice"><b>119바트</b> (공식몰·빅씨 동일)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>태국 한정</b>이다. 1955년부터 나온 국민 고무슬리퍼로 천연고무 100%, 한국 정식 유통이 없다. 🌧 <b>10월 침수 대비용으로도 실용적</b>이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>「태국인들이 애용하는 슬리퍼로는 <b>창다오 제품이 가장 유명하다</b>」</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>최대 사이즈가 11이고, 이게 28cm인지 29~30cm인지 판매처마다 표기가 엇갈린다.</b> eBay 판매자 표는 11=28cm, Shopee SG 표는 11=29~30cm. <b>300mm는 경계선이라 반드시 신어보고 사야 한다.</b><br>짝퉁도 많다(공식 사이트가 모조품 주의를 경고).</div></div>
   
   <div class="sfield "><b>어디서</b><div>빅씨 · 로터스</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>크록스 · 오니츠카 타이거 · 하바이아나스</h4>
     <span class="sprice">크록스 클래식 클로그 <b>2,190바트(≈91,000원)</b> · 오니츠카 멕시코66 6,200바트(≈258,000원)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>태국이 한국보다 비싸다.</b> 살 이유가 없다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 크록스 — 한국 출시가 59,900원, 실구매 3만원대. 후기: 「가격은 무려 4,570바트. <b>한국 돈으로 17만 원임ㅋㅋㅋㅋ. 크록스 17만 원 주고 사는 사람 어딨나요?</b>」<br>🔴 오니츠카 — 한국 공식가 196,000원 vs 태국 258,000원. <b>태국이 30% 이상 비싸다.</b><br>🔴 하바이아나스 — 브라질 브랜드라 <b>수입 관세</b>가 붙고, 사이즈도 43/44가 최대라 300mm 불가.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>오니츠카는 <b>일본에서 사는 게 정답</b>이다.</div></div>
   
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🔌 전자제품</h3><p>🔴 판팁플라자는 <b>2024년 말 폐점</b>했다. 애플 노트북·에어팟만 의미 있게 싸다.</p>
-    <span class="scount">6</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-elec">
+  <summary class="ssh"><h3>🔌 전자제품</h3><p>🔴 판팁플라자는 <b>2024년 말 폐점</b>했다. 애플 노트북·에어팟만 의미 있게 싸다.</p>
+    <span class="scount">6</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>🔴 판팁플라자는 폐점했다 — 일정에서 빼라</h4>
     <span class="sja">Pantip Plaza</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>「평판이 예전 같지 않다」 수준이 아니라 <b>없어졌다.</b> 2024년 말 <b>PHENIX Pratunam(식품·라이프스타일 복합몰)으로 전환</b>됐다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 네이션타일랜드: 「the name Pantip <b>will be gone</b> 39 years after it came into existence」<br>🔴 2025년 3월 방문 후기: 「Pantip Plaza, <b>no longer exists</b> since late 2024… you will find rather used computer equipment」<br>🔴 <b>빠뚜남은 의류 도매가 본질</b>이라 전자 가치는 0. <b>MBK는 짝퉁 액세서리 위험</b>이 높아 스킵.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>대체: <b>Fortune Town(MRT 프라람9 직결)</b>이 현재 최대 IT몰. 그 외 JIB · Banana · Power Buy · iStudio(센트럴월드·시암파라곤·터미널21).</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>맥북에어 13인치</h4>
     <span class="sja">MacBook Air 13</span><span class="sprice"><b>44,900바트 (약 187만원)</b> vs 한국 219만원 → <b>-15%</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>애플 제품 중 가격차가 가장 크다.</b> VAT 환급까지 하면 약 43만원 차이다.</div></div>
   <div class="sfield sgood"><b>뭐가 좋은가</b><div>애플 공식가 직접 대조(2026-09-20, 1바트≈41.6원).</div></div>
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>USD 800 면세한도를 크게 초과 → 입국 시 자진신고 필수</b>다.<br>🔴 <b>40,000바트 초과라 VAT 환급 시 출국심사 후 세관 재검사</b> → <b>기내 휴대 필수</b>.<br>🔴 <b>태국 내 보증이 기본</b>이다 — 「many electronics sold will have a Thai warranty. <b>Good luck if it breaks abroad</b>」</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>원래 살 계획이 있었을 때만 의미가 있다. 즉흥 구매는 권하지 않는다.</div></div>
   <div class="sfield "><b>어디서</b><div>iStudio (센트럴월드 · 시암파라곤)</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-best">강추</span>
     <h4>에어팟 프로 3</h4>
     <span class="sja">AirPods Pro 3</span><span class="sprice"><b>8,490바트</b> vs 한국 369,000원 → -4% (환급 시 -10%)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>부피가 0</b>이라 백팩 여행에 부담이 없다. 환급까지 하면 차이가 커진다.</div></div>
   
   
   
   <div class="sfield "><b>어디서</b><div>iStudio</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-good">추천</span>
     <h4>아이패드 기본형 · 에어팟 맥스</h4>
     <span class="sprice">아이패드 Wi-Fi 16,900바트(-6%) · 에어팟 맥스 2 18,990바트(-7%)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>의미 있게 싸지만 맥북만큼은 아니다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>에어팟 맥스는 <b>백팩 부피를 크게 잡아먹는다.</b></div></div>
   
   <div class="sfield "><b>어디서</b><div>iStudio</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-mid">상황에 따라</span>
     <h4>DJI · Insta360 액션캠</h4>
     <span class="sprice">Insta360 X5 16,900바트(Lazada) ~ 18,900바트(BNN)</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>중국 브랜드는 태국이 싼 예외 카테고리</b>다 — 「Chinese brands like DJI, Xiaomi and Insta360 <b>can be cheaper in Thailand</b>… Bought a DJI Action 4 in MBK. With Tax Refund it was around 80유로 cheaper」</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>⚠️ <b>한국 대비 가격차는 확인 불가</b>다(유럽 대비만 확인됨).</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 <b>출국 전 한국 가격 스크린샷을 찍어 가라.</b> 현장에서 비교해야 한다.</div></div>
   <div class="sfield "><b>어디서</b><div>Fortune Town · JIB · Banana</div></div>
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>아이폰 · 애플워치 · 보조배터리 · 충전기</h4>
     <span class="sprice">아이폰 17 256GB 34,900바트 = 한국과 <b>동일</b> · 애플워치 S12는 <b>한국이 더 싸다</b></span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>가격차가 0이거나 역전</b>된다. 들고 오는 수고만 남는다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 현지 장기체류자 평가 — 「<b>Thailand is simply bad for buying electronics</b>… the prices were higher than Hong Kong, Singapore or the US」 / 「Imported finished Electronics have a minimum 7% VAT added but can have more, <b>sometimes up to 20%</b>」<br>🔴 Anker 보조배터리 10000이 899바트로 <b>살 이유가 없다.</b></div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 <b>보조배터리 기내 규정이 2026-04-20에 바뀌었다</b> — 1인 최대 2개, <b>위탁수하물 전면 금지</b>, 기내 사용·충전 금지, 선반 보관 금지.</div></div>
   
   
-</article></div>
-</section>
-<section class="shopsec">
-  <header class="ssh"><h3>🚫 사지 마라 · 반입금지</h3><p>돈 낭비와 <b>형사처벌</b>을 갈라 적었다.</p>
-    <span class="scount">6</span></header>
+  </div>
+</details></div>
+</details>
+<details class="shopsec" id="ss-avoid">
+  <summary class="ssh"><h3>🚫 사지 마라 · 반입금지</h3><p>돈 낭비와 <b>형사처벌</b>을 갈라 적었다.</p>
+    <span class="scount">6</span></summary>
   <div class="shopgrid">
-<article class="shopcard">
-  <header class="sh">
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-ban">반입금지</span>
     <h4>🔴 육류 가공품 — 최대 1,000만원</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>태국 육포, 돼지고기 소시지, 고기 든 라면 스프·즉석식품</b>이 전부 해당한다. 라면 스프에 고기 성분이 들어간 경우가 많아 무심코 걸린다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 미신고 적발 <b>최고 1,000만원</b>. ASF 관련 돼지고기는 1회 500만 / 2회 750만 / 3회 1,000만원.<br>🔴 <b>태국은 검역본부가 중국·베트남·몽골과 함께 탐지견을 집중 배치한 고위험 노선</b>이다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🟢 <b>모르고 가져왔어도 입국 시 자진신고하거나 자진신고함에 폐기하면 과태료가 없다</b>(물품만 압수).</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-ban">반입금지</span>
     <h4>🔴 크라톰 · 대마(CBD/THC) 표시 식품 — 형사처벌</h4>
     <span class="sja">ใบกระท่อม / Kratom</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>🔴 <b>태국에서 합법적으로 편의점에 팔린다는 게 함정</b>이다. 한국에서는 마약류다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>크라톰</b>(잎·음료·젤리) — 미트라지닌이 마약류다. <b>형사처벌 대상.</b><br>🔴 <b>대마 표시 젤리·쿠키·음료·과자</b> — 태국은 합법이지만 <b>한국인은 국외 소지·흡연도 처벌</b>된다. 식약처가 2026년 7월 「대마/헴프」 표시 해외직구식품 32개 중 <b>22개에서 마약류 성분을 검출</b>했다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>편의점 음료 코너에서 초록 잎 그림이 붙은 제품은 집지 마라.</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-ban">반입금지</span>
     <h4>🔴 전자담배 — 태국에서 소지만 해도 불법</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>한국 반입이 아니라 태국 입국 단계에서 걸린다.</b> 태국은 2014년부터 <b>소지 자체가 불법</b>이다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 수입 <b>최대 징역 10년</b>, 소지 <b>최대 5년</b>. 2026년 6월 경찰 전담 단속센터가 신설됐고 <b>신고자 포상제</b>가 운영 중이다.<br>🔴 2026년 4월 관광객 1인 <b>40,000바트(약 $1,228) 징수 사례</b>가 있다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🔴 <b>한국에 두고 가라.</b></div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-ban">반입금지</span>
     <h4>🔴 생과일 · 12cm 초과 불상 · 악어가죽 · 짝퉁</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>각각 다른 법에 걸린다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>생과일 전부</b> — 생두리안·망고·망고스틴·코코넛·람부탄. <b>1~2개라도 안 된다.</b> 씨 든 건조과일도 일부 금지.<br>🔴 <b>12cm 초과 불상</b> — 태국 예술국 수출허가 필수. <b>불상의 머리·손·발은 전면 반출 금지.</b><br>🔴 <b>악어가죽 지갑·뱀가죽·산호·상아</b> — CITES. 무허가 시 3년 이하 징역 또는 2천만원 이하 벌금.<br>🔴 <b>짝퉁</b>(빠뚜남·MBK) — 통관보류·압수. 과거 단속에서 1인 평균 140만원 벌금 보도. 「개인 1점은 봐준다」는 <b>명문 규정 확인 불가</b>다.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🟢 <b>안전한 것</b>: 밀봉 가공식품(육류 무함유) · 소스·페이스트 · 커피·차 · 씨 없는 건망고 · 의류·잡화 · 전자제품 · 6병 이내 의약품.</div></div>
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>한국 라면 · 대용량 바디용품 · 액상 밀키트</h4>
     <span class="sprice">한국 라면 태국가 45~48바트</span>
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div><b>돈 낭비이거나 백팩에 안 맞는다.</b></div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>한국 라면은 태국에서 45~48바트</b>(약 2,000원)로 한국보다 비싸다.<br>🔴 <b>러이타이 액상 밀키트</b>는 무겁고 부피가 크다. 봉지형 로보로 대체.<br>🔴 <b>1L급 바디로션</b>은 백팩 여행에 맞지 않는다.</div></div>
   
   
   
-</article>
-<article class="shopcard">
-  <header class="sh">
+  </div>
+</details>
+<details class="shopcard">
+  <summary class="sh">
     <span class="sgrade g-bad">비추</span>
     <h4>의약품 6병 초과 · 짜뚜짝 신발 · 짝퉁 시계</h4>
     
-  </header>
+  </summary>
+  <div class="sbody">
   <div class="sfield "><b>왜 사는가</b><div>한도를 넘기거나, 이미 「사지 마라」 경고가 나온 것들이다.</div></div>
   
   <div class="sfield sbad"><b>주의 · 반대 의견</b><div>🔴 <b>의약품은 자가사용 총 6병</b>까지만 면세다(초과 시 3개월 복용량까지). 건강기능식품도 6병.<br>🔴 <b>항생제·수면제·트라마돌·다이어트약</b>은 현지에서 합법 구매해도 <b>한국 법 기준으로 마약류 판단</b>된다.<br>🔴 <b>짜뚜짝 신발</b> — 「신발은 절대 사지 마시기 바랍니다」<br>🔴 <b>팟퐁 시계 매대</b> — 손대면 변상 요구.</div></div>
   <div class="sfield stip"><b>실전 팁</b><div>🟢 Tiffy·Decolgen 감기약은 성분상 문제없다(슈도에페드린 미포함). 6병 이내면 OK.</div></div>
   
   
-</article></div>
-</section>
+  </div>
+</details></div>
+</details>
 </section>
 
 <section class="tabpane hide" data-tab="stay">
@@ -8236,6 +8412,49 @@ blockquote.qb{border-left-color:var(--brick)}
 
 <script>
 (function(){
+  // ── 쇼핑 탭: 섹션 타일 · 모두 펼치기 · 체인 필터 (2026-09-22) ──
+  var secs = [].slice.call(document.querySelectorAll('details.shopsec'));
+  function tileOf(sec){ return document.querySelector('.stile[data-ss="'+sec.id+'"]'); }
+  function syncTiles(){ secs.forEach(function(sec){ var t=tileOf(sec); if(t) t.classList.toggle('on', sec.open); }); }
+  secs.forEach(function(sec){ sec.addEventListener('toggle', syncTiles); });
+  document.querySelectorAll('.stile').forEach(function(t){
+    t.addEventListener('click', function(){
+      var sec = document.getElementById(t.dataset.ss);
+      if(!sec) return;
+      var was = sec.open;
+      sec.open = !was;
+      if(!was) sec.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+  document.querySelectorAll('.sexp').forEach(function(b){
+    b.addEventListener('click', function(){
+      var o = b.dataset.open === "1";
+      secs.forEach(function(sec){ if(!sec.classList.contains('fhide')) sec.open = o; });
+    });
+  });
+  document.querySelectorAll('.sbchip').forEach(function(c){
+    c.addEventListener('click', function(){
+      document.querySelectorAll('.sbchip').forEach(function(x){ x.classList.toggle('on', x===c); });
+      var sel = c.dataset.brand;
+      secs.forEach(function(sec){
+        var cards = [].slice.call(sec.querySelectorAll('details.shopcard'));
+        var branded = cards.some(function(x){ return x.hasAttribute('data-brands'); });
+        var n = 0;
+        cards.forEach(function(x){
+          var bs = (x.getAttribute('data-brands')||"").split(" ");
+          var show = !sel || (branded && (bs.indexOf(sel)!==-1 || bs.indexOf("_all")!==-1));
+          x.classList.toggle('fhide', !show);
+          if(show) n++;
+        });
+        var t = tileOf(sec);
+        sec.classList.toggle('fhide', n===0);
+        if(t){ t.classList.toggle('fhide', n===0); t.querySelector('b').textContent = n; }
+        var sc = sec.querySelector('.scount'); if(sc) sc.textContent = n;
+        if(sel && n) sec.open = true;
+      });
+    });
+  });
+
   // 영상 목록 — 누르면 같은 iframe 을 바꾼다
   document.querySelectorAll('.vidbox').forEach(function(box){
     var fr=box.querySelector('iframe'), cred=box.querySelector('.vcred');
