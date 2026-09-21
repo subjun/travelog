@@ -253,14 +253,14 @@ details.shopsec{margin:0 0 12px}
 details.shopsec[open]{margin-bottom:30px}
 details.shopsec > summary{list-style:none; cursor:pointer; padding-right:64px}
 details.shopsec > summary::-webkit-details-marker{display:none}
-details.shopsec > summary .scount::after{content:" BE"}
-details.shopsec[open] > summary .scount::after{content:" B4"}
+details.shopsec > summary .scount::after{content:" \25BE"}
+details.shopsec[open] > summary .scount::after{content:" \25B4"}
 details.shopsec:not([open]) > summary{margin-bottom:0}
 details.shopcard{padding:0; align-self:start}
 details.shopcard > summary{list-style:none; cursor:pointer; margin:0; padding:13px 40px 13px 15px; position:relative}
 details.shopcard > summary::-webkit-details-marker{display:none}
-details.shopcard > summary::after{content:"BE"; position:absolute; right:15px; top:14px; color:var(--ink-3); font-size:13px}
-details.shopcard[open] > summary::after{content:"B4"}
+details.shopcard > summary::after{content:"\25BE"; position:absolute; right:15px; top:14px; color:var(--ink-3); font-size:13px}
+details.shopcard[open] > summary::after{content:"\25B4"}
 details.shopcard[open]{grid-column:1 / -1; border-color:var(--jade)}
 details.shopcard[open] > summary{border-bottom:1px solid var(--line)}
 details.shopcard > summary h4{margin-top:6px}
