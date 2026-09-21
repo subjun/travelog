@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>바닷가의 공장들 — 한신공업지대 150년 — 삼토의 Travelog 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F3; --surface:#FFFFFF; --surface-2:#EAEDE8; --sunken:#E2E7E1;
+  --ink:#19211D; --ink-2:#48544D; --ink-3:#7B877F;
+  --line:#D7DCD5; --line-2:#C3CAC1;
+  --jade:#2C7A67; --jade-ink:#1B5648; --jade-soft:#DBEAE4;
+  --amber:#9C6B12; --amber-soft:#F5EAD1;
+  --brick:#9E3628; --brick-soft:#F4DDD8;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111614; --surface:#191F1C; --surface-2:#212925; --sunken:#0C110F;
+  --ink:#E7EDE9; --ink-2:#A6B2AC; --ink-3:#75817B;
+  --line:#2A332E; --line-2:#3A453F;
+  --jade:#6BBEA6; --jade-ink:#8FD2BD; --jade-soft:#1C302A;
+  --amber:#D5A343; --amber-soft:#2F2716;
+  --brick:#DE7A6A; --brick-soft:#33201C;}}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--jade-ink)}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}
+header.top{padding:40px 0 20px; border-bottom:1px solid var(--line)}
+/* 🔴 해설집에서 보드까지만 갈 수 있었다 — 아카이브 홈으로 가는 길도 둔다 (2026-09-09) */
+.crumb{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
+.back.home{color:var(--ink-3)}
+.back{font-size:12.5px; color:var(--jade-ink); text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:4px 11px; display:inline-block}
+.back:hover{border-color:var(--jade); background:var(--jade-soft)}
+h1{font-family:"Gowun Batang",serif; font-size:clamp(28px,5.5vw,40px); font-weight:700; margin:16px 0 0; line-height:1.3}
+.sub{color:var(--ink-2); font-size:15px; margin-top:8px; font-family:"Gowun Batang",serif}
+.lens{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.lens span{font-size:11.5px; color:var(--jade-ink); background:var(--jade-soft); padding:3px 9px; border-radius:20px}
+article{margin-top:8px}
+article h2{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; margin:0 0 4px}
+article h3{font-family:"Gowun Batang",serif; font-size:21px; font-weight:700; margin:38px 0 10px;
+  padding-top:6px; border-top:1px solid var(--line)}
+article h4{font-size:16.5px; font-weight:600; margin:26px 0 8px; color:var(--jade-ink)}
+article h5{font-size:14.5px; font-weight:600; margin:20px 0 6px}
+article p{margin:0 0 14px; font-size:15.5px}
+article ul,article ol{margin:0 0 14px; padding-left:22px; font-size:15.5px}
+article li{margin-bottom:6px}
+article hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+article strong{font-weight:600}
+article code{font-family:"IBM Plex Mono",monospace; font-size:13px; background:var(--surface-2);
+  padding:2px 5px; border-radius:4px}
+blockquote.note{margin:18px 0; padding:14px 18px; background:var(--jade-soft);
+  border-left:3px solid var(--jade); border-radius:0 10px 10px 0}
+blockquote.note p:last-child{margin-bottom:0}
+blockquote.note p{font-size:14.5px}
+.tw{overflow-x:auto; margin:0 0 18px}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top; line-height:1.65}
+th{background:var(--surface-2); font-weight:600; font-size:12.5px; color:var(--ink-2)}
+.places{margin-top:40px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:12px}
+.places b{display:block; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3); margin-bottom:9px}
+.places a{display:inline-block; font-size:13px; text-decoration:none; border:1px solid var(--line-2);
+  border-radius:6px; padding:5px 11px; margin:0 6px 6px 0}
+.places a:hover{border-color:var(--jade); background:var(--jade-soft)}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); line-height:1.7}
+
+/* ── 해설집 미디어 (2026-09-07) ─────────────────────────── */
+.gal.ess{position:relative; background:var(--sunken); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin:22px 0}
+.gal.ess .gtrack{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.gal.ess .gtrack::-webkit-scrollbar{display:none}
+.gal.ess .slide{flex:0 0 100%; margin:0; scroll-snap-align:center; display:flex; flex-direction:column}
+.gal.ess .slide img{display:block; width:100%; height:330px; object-fit:contain; background:var(--sunken)}
+.gal.ess .slide figcaption{padding:8px 12px; font-size:11.5px; color:var(--ink-3);
+  background:var(--surface); line-height:1.5}
+.gal.ess figcaption a{color:inherit; text-decoration:none}
+.gal.ess figcaption a:hover{color:var(--jade-ink)}
+.gnav{position:absolute; top:150px; transform:translateY(-50%); width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(20,26,23,.52); color:#fff; font-size:21px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .15s; z-index:2}
+.gal:hover .gnav{opacity:1}
+.gnav:hover{background:rgba(20,26,23,.78)}
+.gnav.prev{left:8px} .gnav.next{right:8px}
+.gnav[disabled]{opacity:0 !important; pointer-events:none}
+.gcount{position:absolute; top:10px; right:10px; z-index:2; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; color:#fff; background:rgba(20,26,23,.55); padding:2px 8px; border-radius:20px}
+figure.emap, figure.evid, figure.epic{margin:22px 0; border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; background:var(--surface)}
+figure.emap iframe{display:block; width:100%; height:320px; border:0}
+.vwrap{position:relative; width:100%; aspect-ratio:16/9; background:#000}
+.vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+figure.epic img{display:block; width:100%; background:var(--sunken)}
+figure.emap figcaption, figure.evid figcaption, figure.epic figcaption{
+  padding:8px 12px; font-size:11.5px; color:var(--ink-3); line-height:1.5}
+@media (max-width:560px){
+  .gal.ess .slide img{height:240px}
+  figure.emap iframe{height:260px}
+  .gnav{display:none}
+}
+@media (hover:none){ .gnav{display:none} }
+
+.ecat{display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.04em;
+  color:#fff; background:var(--jade); padding:3px 11px; border-radius:20px}
+.ecat.big{margin-top:16px; margin-bottom:2px}
+.ecat:empty{display:none}
+
+/* ── 옛 지도 ↔ 지금 대조 ─────────────────────────────────── */
+.vsbox{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:24px 0}
+.vsbox figure{margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); display:flex; flex-direction:column}
+.vsbox img{display:block; width:100%; height:300px; object-fit:contain; background:var(--sunken)}
+.vsbox iframe{display:block; width:100%; height:300px; border:0}
+.vsbox figcaption{padding:8px 11px; font-size:11.5px; color:var(--ink-3); line-height:1.5; flex:1}
+.vsbox figcaption b{display:inline-block; font-size:10.5px; font-weight:600; color:#fff;
+  background:var(--jade); border-radius:20px; padding:1px 8px; margin-right:6px}
+.vsold figcaption b{background:var(--amber)}
+@media (max-width:620px){
+  .vsbox{grid-template-columns:1fr}
+  .vsbox img, .vsbox iframe{height:240px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="crumb">
+    <a class="back" href="../">← 오사카·고베 보드로</a>
+    <a class="back home" href="../../">← 여행 목록</a>
+  </div>
+  <div class="ecat big">경제</div>
+  <h1>바닷가의 공장들 — 한신공업지대 150년</h1>
+  <p class="sub">방적에서 잠수함·수소까지, 그리고 울산에서 온 눈으로 보기</p>
+  <div class="lens"><span>경제</span><span>역사</span><span>산업</span><span>지금의 이슈</span><span>한국과의 비교</span></div>
+</header>
+<article><blockquote class="note"><p>9/21 간사이공항 → 고베 리무진버스 차창에 계속 이어지던 굴뚝·탱크·크레인이 무엇이었는지 풀어 두는 꼭지입니다. 「일본 경제는 지금」 편의 「오사카·고베라는 지역 경제」가 도시 전체를 다뤘다면, 이 편은 <strong>공장과 산업</strong>만 파고듭니다. 고베 개항사·지진은 「고베」 편, 하버랜드·메리켄파크의 재개발은 각 편에 있습니다. ⚠️ 통계는 조회 시점(2026-09) 기준입니다. 1차 출처(경제산업성·국토교통성·회사 발표)를 원문으로 대조한 수치는 ✅, 보도·2차 자료만 본 수치는 ⚠️로 표시했습니다.</p></blockquote>
+<h3>한 문단 요약</h3>
+<p>오사카만 해안의 공장 띠는 <strong>「한신공업지대(阪神工業地帯)」</strong>라고 부릅니다. 메이지 시대에 오사카의 면방적과 고베의 조선소로 시작해 <strong>전쟁 직전까지 일본 최대의 공업지대</strong>였고, 전후에는 바다를 메워 제철소·정유소·석유화학 단지를 줄줄이 세웠습니다. 그 뒤 반세기는 내리막이었습니다 — 자동차를 가진 나고야권(중경공업지대)에 1위를 내줬고, 1995년 지진이 고베항을 부쉈고, 2000년대에 「패널베이」라 불리며 수조 엔을 쏟아부은 디스플레이 공장들은 10년도 못 가 문을 닫았습니다. 지금 그 해안에는 <strong>AI 데이터센터·물류창고·잠수함·액화수소선·배터리 공장</strong>이 들어서 있습니다. 조선·석유화학·중공업이 바다를 따라 늘어선 풍경은 울산과 닮았지만, <strong>울산에는 있고 한신에는 없는 것이 자동차</strong>이고, <strong>한신에는 있고 울산에는 아직 없는 것이 「공장이 떠난 뒤」의 경험</strong>입니다.</p>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/harborland_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_1.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe.harborland.mosaic.jpg" target="_blank" rel="noopener">작가 미상 · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_2.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe.harborland.mosaic2.JPG" target="_blank" rel="noopener">작가 미상 · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_3.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_takahama03s3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_4.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_takahama01s3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_5.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_takahama05s3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_6.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Mosaic09s3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_7.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic14s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_8.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic15s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_9.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic16n3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_10.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic17s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_11.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic18s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/harborland_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/harborland_12.jpg" alt="harborland"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Mosaic19s3072.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<h3>뼈대</h3>
+<div class="tw"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>범위</td><td>오사카부·효고현 남동부의 오사카만 연안 (넓게 잡으면 사카이·센보쿠, 하리마 연안, 교토·시가 내륙까지)</td></tr><tr><td>출발점</td><td>1882 오사카방적 설립 · 1896 가와사키조선소 주식회사화 · 1905 고베제강소 · 1909 던롭 고베 공장</td></tr><tr><td>전성기</td><td>전쟁 전 <strong>일본 1위 공업지대</strong> (출하액으로 태평양전쟁 직전 게이힌에 추월당함)</td></tr><tr><td>지금 순위</td><td>공업지대 단위로는 중경(아이치 중심) 다음 <strong>2위권</strong> ⚠️</td></tr><tr><td>부·현 단위 ✅</td><td>2023년 제조품 출하액 <strong>오사카부 19조 3,430억 엔(전국 3위) · 효고현 18조 4,617억 엔(5위)</strong> — 아이치 58조 218억 엔의 3분의 1</td></tr><tr><td>산업 구성 ✅</td><td>오사카: 생산용기계 11.9% · 화학 10.4% · 철강 9.3% / 효고: 철강 14.5% · 화학 13.6% · 수송기계 10.4%</td></tr><tr><td>오사카의 특이점 ✅</td><td>제조 사업소 수 <strong>1만 8,481곳 — 전국 1위</strong> (아이치보다 많다)</td></tr><tr><td>지금의 키워드</td><td>잠수함 · 액화수소 · 배터리 · AI 데이터센터 · 의료산업도시 · 유메시마 IR</td></tr></tbody></table></div>
+<h3>1. 차창에 보인 것 — 공항에서 고베까지 구간별 해설</h3>
+<p>리무진버스는 간사이공항 연결교를 건너 <strong>한신고속 4·5호 완간선(湾岸線)</strong>을 타고 오사카만 해안을 따라 북상했다가 고베 쪽에서 3호 고베선으로 갈아타는 것으로 알려져 있습니다. ⚠️ 운행사는 정확한 경로를 공표하지 않습니다 — 아래는 완간선 연변 기준이고, 그날 버스가 일부 구간에서 다른 길을 탔을 수 있습니다.</p>
+<div class="tw"><table><thead><tr><th>구간 (남 → 북)</th><th>무엇이 있나</th><th>비고</th></tr></thead><tbody><tr><td><strong>린쿠·이즈미사노·가이즈카</strong></td><td>공항 배후 매립지, 물류창고. 가이즈카에 파나소닉에너지 공장</td><td>이즈미사노는 <strong>일본 타월 발상지</strong>(1887) — 센슈 섬유산업의 흔적</td></tr><tr><td><strong>기시와다·다다오카·이즈미오쓰</strong></td><td>목재 콤비나트, 페리 부두, 매립 처분장(이즈미오쓰 피닉스)</td><td>여기부터 공장 밀도가 올라간다</td></tr><tr><td><strong>다카이시·사카이 — 사카이·센보쿠 임해공업지대</strong></td><td>🔴 <strong>차창의 하이라이트.</strong> ENEOS·코스모 사카이 정유소, 석유화학 공장, 오사카가스 센보쿠 LNG 기지, 간사이전력 사카이코 발전소, 일본제철 사카이 지구, 옛 샤프 사카이 공장</td><td>원장님이 「울산 같다」고 느끼셨을 구간. 아래 따로 설명</td></tr><tr><td><strong>스미노에·난코(사키시마)</strong></td><td>컨테이너 부두, 간사이전력 난코 발전소, 파나소닉에너지 스미노에 공장(전기차 배터리 개발 거점)</td><td>⚠️ 스미노에 공장이 차창에서 식별되는지는 미확인</td></tr><tr><td><strong>덴포잔·고노하나</strong></td><td>오사카항, 유니버설 스튜디오 재팬(옛 조선소·공장 부지), 바다 건너 유메시마(엑스포 부지·IR 공사)</td><td>공장이 테마파크·카지노로 바뀌는 구간</td></tr><tr><td><strong>아마가사키</strong></td><td>옛 파나소닉 플라스마 패널 3개 공장 → <strong>지금은 전부 초대형 물류창고</strong>, 제철·화학 공장</td><td>「패널베이」의 무덤</td></tr><tr><td><strong>니시노미야·아시야</strong></td><td>매립지 위 요트항·고층 주택단지(니시노미야하마·아시야하마)</td><td>공업 해안이 주거 해안으로 바뀐 구간</td></tr><tr><td><strong>고베 동부 — 롯코아일랜드·스미요시·나다</strong></td><td>인공섬 롯코아일랜드, 고베제강 고베제철소와 <strong>석탄화력 고베발전소</strong>(나다하마의 큰 굴뚝)</td><td>나다고고 사케 양조장은 이 해안 안쪽 국도 43호선 쪽 — 고속도로에서는 잘 안 보인다</td></tr></tbody></table></div>
+<h4>사카이·센보쿠 — 가장 울산 같았던 구간</h4>
+<ul><li><strong>어떻게 생겼나</strong>: 오사카부 기업국이 <strong>1957~1972년</strong>에 바다를 메워 만든 약 1,700만㎡의 인공 땅입니다. 약 240개 사업소가 석유화학·철강·기계·에너지로 모여 있습니다. ⚠️ (면적·사업소 수는 2차 자료 인용)</li><li><strong>정유소</strong>: ENEOS 사카이 제유소(1960년대 가동)와 코스모석유 사카이 제유소. 울산의 SK에너지·S-Oil과 같은 역할입니다 — 원유를 들여와 휘발유·경유·나프타를 뽑고, 나프타가 옆 석유화학 공장의 원료가 되는 <strong>콤비나트</strong> 구조입니다.</li><li><strong>제철</strong>: 1961년 야와타제철이 세운 <strong>사카이 제철소</strong> — 1965년 제1고로, 1967년 제2고로에 불을 넣었고 ✅ 1984년 제1고로 불을 껐습니다 ✅. 지금은 고로 없이 H형강을 만드는 「일본제철 간사이제철소 사카이 지구」입니다. <strong>「쇳물을 만드는 제철소」가 「쇳물을 받아 가공하는 공장」으로 격하된 것</strong> — 한신 전체에서 반복되는 패턴의 첫 사례입니다.</li><li><strong>옛 샤프 사카이 공장</strong>: 2009년 가동한 세계 최초의 10세대 액정 패널 공장. 한때 「샤프 = 액정」의 상징이었지만, 한국·중국 패널에 밀리며 샤프 자체가 2016년 대만 훙하이(폭스콘)에 넘어갔고, <strong>2024년 패널 생산을 멈췄습니다.</strong> 그 땅은 <strong>KDDI(2026-01-22 가동 ✅ 보도)와 소프트뱅크(약 1,000억 엔에 부지 45만㎡ 매입, 약 150MW급)의 AI 데이터센터</strong>가 되고 있습니다. 공장의 거대한 전력·냉각 설비가 데이터센터에 그대로 맞았다는 게 포인트입니다. ⚠️ 소프트뱅크 쪽 가동 시점은 2026년 목표였다가 늦춰졌다는 보도가 있어 확정하지 않습니다.</li></ul>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/TDdV0Bmrvp4" title="工場夜景 堺泉北臨海工業地帯 — 사카이·센보쿠 공장 야경" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>工場夜景 堺泉北臨海工業地帯 — 사카이·센보쿠 공장 야경 · YouTube</figcaption></figure>
+<h3>2. 150년의 역사 — 다섯 번의 전환</h3>
+<h4>① 면방적 — 「동양의 맨체스터」 (1880s~1920s)</h4>
+<p>1882년 시부사와 에이이치의 주도로 <strong>오사카방적</strong>(지금의 도요보)이 세워지고, 이듬해 증기기관으로 1만 추 규모의 공장을 돌렸습니다. 이 성공에 자극받아 1886~1892년에 20개 가까운 방적 회사가 잇따라 생겼고, 오사카는 영국 면공업 도시에 빗대 <strong>「동양의 맨체스터」</strong>로 불리게 됩니다. 굴뚝 연기가 「번영의 상징」으로 그림엽서에 실리던 시대입니다.</p>
+<p>면방적은 오사카만 남쪽 <strong>센슈(泉州) 지방</strong>으로 번져, 이즈미사노는 1887년 <strong>일본 최초의 타월 공장</strong>이 생긴 곳이 됐습니다. 원장님이 버스로 지나신 린쿠 배후지가 거기입니다.</p>
+<h4>② 고베의 3대 기둥 — 배·쇠·고무 (1890s~1910s)</h4>
+<p>오사카가 실을 뽑는 동안, 고베는 <strong>바다와 쇠</strong>로 갔습니다.</p>
+<div class="tw"><table><thead><tr><th>연도</th><th>사건</th><th>지금</th></tr></thead><tbody><tr><td>1886</td><td>가와사키 쇼조가 관영 효고조선소를 빌려 <strong>가와사키조선소</strong>로 통합</td><td></td></tr><tr><td><strong>1896</strong> ✅</td><td>주식회사 가와사키조선소 설립, 초대 사장 <strong>마쓰카타 고지로</strong></td><td>가와사키중공업 — 고베공장이 하버랜드 바로 서쪽</td></tr><tr><td><strong>1905</strong></td><td>미쓰비시 <strong>고베조선소</strong> 조업 개시</td><td>미쓰비시중공업 고베조선소 — 와다미사키</td></tr><tr><td><strong>1905</strong> ✅</td><td>무역상 <strong>스즈키상점</strong>이 고바야시제강소를 사들여 <strong>고베제강소</strong> 창업</td><td>고베제강(KOBELCO)</td></tr><tr><td><strong>1909</strong> ✅</td><td>영국 <strong>던롭</strong>이 고베에 공장 — <strong>일본 최초의 근대 고무공장</strong>. 1913년 국산 1호 자동차 타이어</td><td>스미토모고무(1963년 사명 변경) — 본사 고베</td></tr></tbody></table></div>
+<p>고무공장이 생기자 고베 서부 <strong>나가타</strong>에 고무 신발 공장이 모였고, 전후 이것이 합성수지 신발, 곧 <strong>「케미컬슈즈」</strong> 산업이 됩니다. 1995년 지진 때 나가타가 불타면서 이 산업이 결정타를 맞았습니다(아래 ④).</p>
+<p>마쓰카타 고지로는 조선으로 번 돈으로 유럽 미술품을 사 모은 사람입니다 — 도쿄 국립서양미술관의 「마쓰카타 컬렉션」이 그것입니다. <strong>고베 조선소의 이윤이 일본 서양미술 컬렉션의 뿌리</strong>라는 사실은 알아 둘 만합니다.</p>
+<h4>③ 일본 1위에서 2위로 — 전쟁과 매립 (1930s~1970s)</h4>
+<p>한신공업지대는 출하액으로 <strong>태평양전쟁 직전까지 일본 1위</strong>였습니다(그 직전에 도쿄·요코하마의 게이힌공업지대에 추월당함 — 위키백과 인용, ⚠️ 연도별 원통계 미대조). 오사카가 1925년 도쿄를 제치고 일본 최대 도시가 된 「다이오사카」 시대는 이 공업력의 결과였습니다.</p>
+<p>전쟁 중에는 고베 두 조선소가 항공모함·잠수함을 만드는 군수 거점이 됐고, 그래서 공습으로 크게 파괴됐습니다. 전후 고도성장기에는 <strong>바다를 메워 중화학공업 단지를 만드는 방식</strong>이 전국에서 펼쳐졌고, 한신에서는 그 대표작이 사카이·센보쿠(1957~72)입니다. 고베시는 산을 깎은 흙으로 포트아일랜드·롯코아일랜드를 메웠습니다.</p>
+<p>그러나 이 시기 성장의 주역은 <strong>자동차</strong>였고, 자동차 공장은 도요타의 나고야권(중경)과 도쿄권으로 갔습니다. 한신은 섬유·철강·조선·가전이라는 「앞 세대 산업」 비중이 컸고, 공장 부지가 좁고 낡았으며, 본사는 도쿄로 빠져나갔습니다. 이 긴 상대적 쇠퇴를 일본어로 <strong>「지반침하(地盤沈下)」</strong>라고 부릅니다.</p>
+<p>🔴 <strong>이 단어는 말장난이 아닙니다.</strong> 오사카 서부 임해 공장들이 지하수를 과도하게 퍼 올린 탓에 실제로 <strong>땅이 가라앉았습니다</strong>(니시요도가와·고노하나 일대). 공업이 땅을 문자 그대로 가라앉혔고, 그 뒤엔 경제가 비유적으로 가라앉은 셈입니다. ⚠️ 침하 폭의 구체 수치는 1차 자료 미대조라 싣지 않습니다.</p>
+<p>공해도 울산과 같은 길을 걸었습니다. 한신 국도 43호선·임해 공장 배기가스로 인한 천식 피해를 두고 <strong>니시요도가와 공해소송</strong>(1978년 제소)·<strong>아마가사키 공해소송</strong>이 제기됐고, 1990년대~2000년에 걸쳐 기업·국가와의 화해·판결로 이어졌습니다. ⚠️ 연도는 2차 자료 기억치 — 원문 미대조.</p>
+<h4>④ 1995년 — 지진이 가른 것</h4>
+<p>1995년 1월 17일 한신·아와지 대지진(피해 전반은 「고베」·「메리켄파크」 편)은 산업에도 선을 그었습니다.</p>
+<ul><li><strong>항만</strong>: 고베항은 1980년 컨테이너 145.6만 TEU로 <strong>세계 4위</strong> ✅였고, 1994년 사상 최고를 기록한 직후 지진을 맞았습니다. 1995년 물동량은 절반으로 떨어졌고, 복구 기간에 빠져나간 환적 화물은 부산·가오슝으로 가서 돌아오지 않았습니다. <strong>2023년 고베항은 283.6만 TEU로 세계 72위</strong> ✅ — 같은 해 부산은 2,303.6만 TEU로 <strong>7위</strong> ✅입니다. 물동량 자체는 1980년의 두 배가 됐는데도 순위는 4위 → 72위. 세계가 훨씬 빨리 컸다는 뜻입니다.</li><li><strong>케미컬슈즈(나가타)</strong>: 조합 가맹 192개사 중 <strong>158개사</strong>의 공장이 전·반파 또는 소실됐고, 생산액은 1994년 659억 엔 → 1995년 285억 엔으로 반토막 이하가 됐습니다 ⚠️(업계 인터뷰·지자체 자료 인용). 이후 저가 수입품에 밀려 회복하지 못했습니다.</li><li><strong>그 대신 태어난 것</strong>: 부흥 사업으로 시작한 <strong>고베 의료산업도시</strong>(포트아일랜드). 아래 3절.</li></ul>
+<h4>⑤ 패널베이의 흥망 (2000s~2010s)</h4>
+<p>2000년대 중반 오사카만 연안에는 디스플레이·전지 공장이 한꺼번에 들어섰고, 언론은 이를 <strong>「패널베이」</strong>라 불렀습니다. 샤프 사카이(액정, 2009), 파나소닉 아마가사키(플라스마 3개 공장), 파나소닉 히메지(액정) 등. 파나소닉은 아마가사키 플라스마 공장에만 <strong>약 5,000억 엔</strong>을 투입했습니다 ⚠️(보도 인용).</p>
+<p>결과는 참혹했습니다.</p>
+<div class="tw"><table><thead><tr><th>공장</th><th>가동</th><th>끝</th><th>지금</th></tr></thead><tbody><tr><td>파나소닉 아마가사키 PDP 3개 공장</td><td>2005년 전후</td><td><strong>2013년 말 생산 종료</strong></td><td>3곳 모두 <strong>물류창고</strong>. ESR 아마가사키 DC는 연면적 약 39만㎡로 국내 최대급</td></tr><tr><td>샤프 사카이 (10세대 액정)</td><td>2009</td><td><strong>2024년 생산 정지</strong></td><td>KDDI·소프트뱅크 <strong>AI 데이터센터</strong></td></tr></tbody></table></div>
+<p>한국 패널(삼성·LG)과 중국 패널(BOE 등)의 가격 공세, 그리고 <strong>TV 한 품목에 거대 공장을 통째로 건 투자 방식</strong>이 실패 원인으로 꼽힙니다. 원장님이 차창으로 보신 아마가사키의 거대한 창고들이 그 무덤입니다 — 공장이 사라진 자리를 <strong>아마존과 택배가 채웠습니다.</strong></p>
+<h3>3. 지금 (2024~2026) — 무엇으로 먹고사나</h3>
+<h4>숫자로 본 현재 ✅</h4>
+<p>경제산업성 「2024년 경제구조실태조사(제조업사업소조사)」의 2023년 1년치 실적(2025-08-29 공표) 원문입니다.</p>
+<blockquote class="note"><p>「都道府県別構成比をみると、愛知県（58 兆 218 億円、構成比 15.5％）、静岡県（19 兆 7732 億円、同 5.3％）、大阪府（19 兆 3430 億円、同 5.2％）、神奈川県（18 兆 4795 億円、同 5.0％）、兵庫県（18 兆 4617 億円、同 4.9％）の順となっている」</p></blockquote>
+<p><strong>해석</strong>:</p>
+<ul><li>전국 제조품 출하액은 373조 2,388억 엔. 오사카+효고를 합쳐도 약 37.8조 엔으로 <strong>아이치 한 현(58.0조)의 3분의 2</strong>입니다.</li><li>전년(2022년) 순위와 비교하면 오사카 2위 → 3위, 효고 4위 → 5위로 <strong>각각 한 계단씩 내려갔습니다</strong>(표의 「前回順位」 열 기준).</li><li>아이치는 출하액의 <strong>56.7%가 수송기계(자동차)</strong>입니다. 오사카는 1위 업종이 생산용기계 11.9%에 불과할 만큼 <strong>골고루 분산</strong>돼 있고, 효고는 철강 14.5%·화학 13.6%가 앞섭니다. 한신에는 「한 방」이 없는 대신 한 업종이 무너져도 전체가 무너지지는 않는 구조입니다.</li><li>🔴 <strong>오사카부는 제조 사업소 수 1만 8,481곳으로 전국 1위</strong>입니다(아이치 1만 8,414곳). 출하액은 3위인데 공장 수는 1위 — <strong>작은 공장이 많다</strong>는 뜻이고, 그 상징이 히가시오사카입니다.</li></ul>
+<blockquote class="note"><p>⚠️ 공업지대 단위(중경 약 60조·한신 약 33조·게이힌 약 26조 엔 등) 수치는 교과서·수험 사이트가 「일본국세도회」를 인용한 것으로, 공업지대의 경계 정의가 자료마다 달라 1차 원문을 대조하지 못했습니다. 자릿수로만 읽어 주세요.</p></blockquote>
+<h4>오사카 — 작은 공장과 약(藥)의 도시</h4>
+<ul><li><strong>히가시오사카의 마치코바(町工場)</strong>: 2009년 공업통계 기준 사업소 6,016곳, <strong>가주지 면적당 공장 밀도 전국 1위</strong> ⚠️(시 자료 인용). 나사·금형·스프링 같은 부품을 만드는 10인 이하 공장이 대부분입니다. 이 동네 사장님들이 뭉쳐 만든 소형 위성 <strong>「마이도 1호(まいど1号)」</strong>가 <strong>2009년 1월 23일 H-IIA 로켓으로 발사</strong>됐습니다 — 「오사카 사투리로 '매번 고맙습니다'」라는 이름의 위성. 한국으로 치면 창원·반월 공단의 협력업체들이 위성을 쏜 셈입니다.</li><li><strong>도쇼마치(道修町)의 제약</strong>: 에도 시대 약재 도매상 거리가 그대로 제약 본사 거리가 됐습니다. 다케다약품(1781년 도쇼마치 창업)·시오노기 등이 이 골목에서 출발했습니다. 9/25 나카노시마 도서관에서 남쪽으로 몇 블록 거리입니다.</li><li><strong>다이킨</strong>: 1924년 오사카 창업, 에어컨 세계 최대급 기업으로 본사가 우메다에 있습니다 ⚠️(규모 순위는 회사 주장·업계 통념, 원문 미대조).</li><li><strong>배터리</strong>: 파나소닉에너지는 스미노에 공장(오사카시)에 2024년 생산공정 개발동을 세우고 2024년 1월 CO₂ 실질 배출 제로 공장을 달성했다고 발표했습니다. 신형 전기차 전지(4680)는 와카야마 공장에서 양산을 준비했고, 2027년 이후 스미노에·가이즈카 공장 전지를 마쓰다에 공급할 계획입니다 ⚠️(보도 인용).</li><li><strong>유메시마</strong>: 산업폐기물·준설토 매립지였던 인공섬이 2025 엑스포를 거쳐 <strong>IR(카지노 리조트)</strong> 공사장이 됐습니다. 2025-04-24 기공, <strong>2030년 가을 개업 목표</strong>, 총투자 약 1조 2,700억 엔(오사카부·시 발표 기반 보도). 공업용 매립지 → 박람회장 → 카지노라는 용도 변경 자체가 한신의 방향 전환을 보여 줍니다.</li></ul>
+<h4>고베 — 잠수함·수소·의료</h4>
+<p><strong>① 잠수함 — 일본의 잠수함은 전부 고베에서 만든다</strong></p>
+<p>하버랜드 바로 서쪽 <strong>가와사키중공업 고베공장</strong>과 그 서쪽 와다미사키의 <strong>미쓰비시중공업 고베조선소</strong>가 해상자위대 잠수함을 번갈아 건조합니다. 일본에서 잠수함을 만들 수 있는 곳은 이 두 조선소뿐입니다.</p>
+<div class="tw"><table><thead><tr><th>함명</th><th>조선소</th><th>일정 ✅(회사·보도)</th></tr></thead><tbody><tr><td>「라이게이(雷鯨)」 타이게이형 4번함</td><td>가와사키 고베</td><td>2025-03-06 인도 — 전후 31번째</td></tr><tr><td>「조게이(長鯨)」 5번함</td><td>미쓰비시 고베</td><td>2024-10-04 진수, 2026-03 인도</td></tr><tr><td>「소게이(蒼鯨)」 6번함</td><td>가와사키 고베</td><td><strong>2025-10-14 진수</strong> — 전후 32번째, 길이 84m·약 3,000톤, 건조비 약 736억 엔, 2027-03 인도 예정</td></tr></tbody></table></div>
+<p>미쓰비시 고베조선소는 <strong>2012년 6월 마지막 상선을 인도하고 상선 건조에서 철수</strong>했습니다. 지금은 잠수함과 <strong>원자력 발전 설비</strong>, 항공·우주 부품이 주력입니다. 한때 세계 1위였던 일본 상선 조선이 한국·중국에 밀려난 결과가 이 조선소 하나에 압축돼 있습니다.</p>
+<p><strong>② 액화수소 — 세계 최초의 운반선이 고베에서 떴다</strong></p>
+<p>가와사키중공업은 고베공항 섬에 <strong>액화수소 하역 실증기지 「Hy touch 고베」</strong>(2,500㎥ 구형 탱크)를 짓고, 세계 최초의 액화수소 운반선 <strong>「스이소 프론티어(すいそ ふろんてぃあ)」</strong>(길이 116m, 탱크 1,250㎥)를 건조했습니다. 이 배는 <strong>2021-12-24 고베를 떠나 2022-01-20 호주 빅토리아주 헤이스팅스항에 도착</strong>, 호주 갈탄으로 만든 수소를 싣고 고베로 돌아왔습니다 ✅(회사·상사 발표).</p>
+<p>다음 단계로 <strong>2026-01-06 일본수소에너지(JSE)와 4만㎥급 대형 액화수소 운반선 건조 계약</strong>을 맺었습니다 — 2030년 완성 목표, 정부 그린이노베이션기금의 상용화 실증 사업입니다 ✅(회사 발표). 다만 갈탄 수소는 생산 과정의 CO₂ 처리(CCS)가 전제라 「진짜 친환경이냐」는 비판이 계속 따라붙습니다.</p>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/-DnZc-rh4Mc" title="川崎重工 — 호주 갈탄 유래 액화수소를 실은 「스이소 프론티어」 고베 귀항 (회사 공식)" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>川崎重工 — 호주 갈탄 유래 액화수소를 실은 「스이소 프론티어」 고베 귀항 (회사 공식) · YouTube</figcaption></figure>
+<p><strong>③ 쇠와 석탄 — 고베제강</strong></p>
+<p>고베제강은 <strong>2017년 10월 31일 고베제철소의 고로를 끄고 제선·제강을 가코가와제철소로 통합</strong>했습니다 ✅. 고베에는 가코가와에서 반제품을 받아 선재·봉강을 만드는 공정만 남았습니다(사카이와 같은 패턴). 그 대신 고로 자리 옆에 <strong>석탄화력 고베발전소</strong>를 키웠습니다 — 기존 1·2호기(합계 140만kW)에 <strong>3호기(2022-02)·4호기(2023-02, 각 65만kW)</strong>를 더해 <strong>총 270만kW</strong> ✅. 주민들이 환경영향평가를 문제 삼아 소송을 냈고, 탈탄소 시대에 도시 한복판에 석탄화력을 증설한 사례로 지금도 논쟁적입니다. 버스가 고베로 들어올 때 왼편(바다 쪽) 나다하마에 보이는 높은 굴뚝이 이것입니다 — 북상하다 서쪽으로 꺾어 들어오므로 바다는 내내 왼쪽이었습니다.</p>
+<p><strong>④ 공장 없는 본사들 — 신발·의료·소비재</strong></p>
+<ul><li><strong>아식스</strong>: 1949년 오니쓰카 기하치로가 고베에서 창업한 오니쓰카 주식회사가 뿌리. 본사는 포트아일랜드이고, <strong>2028년 산노미야 신버스터미널 빌딩으로 글로벌 본사를 옮깁니다.</strong> 같은 빌딩에 의료진단기기 기업 <strong>시스멕스</strong>(고베 창업)도 본사를 옮깁니다 — 효고현 시가총액 1·2위가 한 빌딩에 들어가는 셈입니다 ⚠️(보도 인용).</li><li><strong>스미토모고무</strong>(던롭 타이어), <strong>UCC커피</strong>, <strong>P&amp;G 재팬·네슬레 일본</strong>의 일본 본사가 고베에 있습니다 ⚠️(각 사 소재지는 통념, 원문 미대조).</li><li><strong>고베 의료산업도시</strong>: 지진 부흥책으로 1998년 구상, 포트아일랜드에 <strong>2024년 3월 말 365개 기업·단체</strong> 집적, 고용 약 1.27만 명 ⚠️(추진기구 공표치 인용). 이화학연구소 계산과학연구센터의 슈퍼컴퓨터 <strong>「후가쿠」</strong>가 여기 있습니다. 「고베」 편에 나온 334개사는 다른 시점 수치입니다 — 해마다 조금씩 늘고 있습니다.</li><li><strong>나다고고(灘五郷)</strong>: 니시노미야~고베 히가시나다의 다섯 양조 마을. <strong>일본 청주의 약 4분의 1</strong>을 만든다고 조합이 밝힙니다 ⚠️(조합 주장). 2018년 지리적표시(GI) 지정 ✅. 롯코산의 경수 「미야미즈」와 해안의 수운이 만든 산업 — 한신 해안 최고(最古)의 「공장 지대」는 사실 이 양조장들입니다.</li></ul>
+<div class="gal ess" data-n="3"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/nada-sake_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nada-sake_1.jpg" alt="nada-sake"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:A_Hakutsuru_Sake_Brewery_Museum_exhibit.jpg" target="_blank" rel="noopener">hslo · CC BY-SA 2.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nada-sake_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nada-sake_2.jpg" alt="nada-sake"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kikumasamune_Kobe_Japan01-r.jpg" target="_blank" rel="noopener">Oilstreet · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/nada-sake_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/nada-sake_3.jpg" alt="nada-sake"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kikumasamune_Kobe_Japan02-r.jpg" target="_blank" rel="noopener">Oilstreet · CC BY 2.5</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/3</span></div>
+<h3>4. 울산에서 온 사람이 보면</h3>
+<p>원장님이 버스에서 느끼신 「울산 같다」는 인상은 정확합니다. 둘 다 <strong>바다를 메워 만든 땅 위에 정유·석유화학·조선이 늘어선 임해 공업도시</strong>입니다. 차이는 <strong>시간</strong>입니다 — 한신은 울산보다 약 70년 먼저 시작했고, 그만큼 먼저 늙었습니다.</p>
+<div class="tw"><table><thead><tr><th></th><th>한신 (오사카·고베)</th><th>울산</th></tr></thead><tbody><tr><td>시작</td><td>1880~1900년대 (방적·조선·제강)</td><td>1962년 울산공업센터 지정</td></tr><tr><td>조선</td><td>가와사키·미쓰비시 고베 — <strong>상선 철수, 잠수함·수소선 특화</strong></td><td>HD현대중공업 — 1972 설립, 1983 세계 1위 조선사, <strong>지금도 상선 세계 선두</strong></td></tr><tr><td>자동차</td><td><strong>없다</strong> — 한신의 결정적 공백</td><td>현대차 울산공장 — 단일 공장 세계 최대급(연 140만 대 안팎 ⚠️)</td></tr><tr><td>가전·전자</td><td>파나소닉·샤프 — <strong>패널베이 붕괴</strong>, 데이터센터·물류로 대체</td><td>없음 (삼성SDI 울산 배터리 공장 정도 ⚠️)</td></tr><tr><td>석유화학</td><td>사카이·센보쿠 — 1960~70년대 매립, 지금은 유지·축소 국면</td><td>울산·온산 국가산단 — SK에너지·S-Oil(대형 신규 설비 샤힌 프로젝트 ⚠️)</td></tr><tr><td>철강</td><td>고로 전부 소등(사카이 1980년대, 고베 2017) — 가공만 남음</td><td>고로 없음 (포항·광양 담당)</td></tr><tr><td>공해의 기억</td><td>니시요도가와·아마가사키 공해소송</td><td>온산병(1980년대) ⚠️</td></tr><tr><td>인구</td><td>고베 150만 선 붕괴(2025 국세조사 속보 149.8만)</td><td><strong>2015년 약 117만 정점 → 2024년 110만 선 붕괴</strong>(보도: 조선 불황기 인구 유출) ⚠️</td></tr><tr><td>지역경제의 제조업 의존</td><td>오사카는 업종 분산, 고베는 서비스·의료로 이동</td><td>지역 생산의 <strong>82.8%가 광·제조업 — 전국 최고</strong> ⚠️(보도 인용)</td></tr><tr><td>전환 카드</td><td>수소 운반선·의료 클러스터·AI 데이터센터·IR</td><td>수소(석유화학 부생수소)·이차전지·해상풍력 ⚠️</td></tr></tbody></table></div>
+<h4>고베 조선소와 울산 조선소는 이어져 있다</h4>
+<p>현대중공업의 출발에는 <strong>고베의 가와사키중공업</strong>이 있습니다. 1971년 정주영 회장은 영국 컨설팅사 애플도어를 통해 스코트리스고(영국)의 26만 톤급 초대형유조선(VLCC) 설계도를 사고 그리스 선주 리바노스에게 첫 수주를 받았는데, <strong>1972년 12월에는 가와사키중공업과 23만 톤급 VLCC 설계도 제공·수주 대행·기자재 구매 알선을 포함한 기본협정</strong>을 맺었습니다 ✅(송성수 교수 「대한민국 기술혁신 명장면」, 헬로디디 2026-03 연재). 1974년 6월 울산조선소 준공식과 함께 1·2호선 「애틀랜틱 배런」·「애틀랜틱 배러니스」 명명식이 열렸습니다.</p>
+<p>그리고 50년 뒤 결과는 이렇습니다. 국토교통성 자료에 따르면 <strong>2024년 세계 신조선 수주에서 중국이 7할 이상, 일본은 8%로 떨어졌습니다</strong> ✅. 건조량 기준으로는 중국이 약 50%를 차지합니다. <strong>스승의 조선소는 상선을 접고 잠수함을 만들고, 제자의 조선소는 세계 상선 시장에서 중국과 겨룹니다.</strong> 하버랜드 서쪽 크레인을 볼 때 이 대비를 떠올려 보세요.</p>
+<h4>울산이 한신에서 볼 만한 것 — 공정하게</h4>
+<p><strong>배울 것</strong></p>
+<ol><li><strong>공장이 떠난 땅은 반드시 다른 용도가 된다 — 준비된 쪽이 고른다.</strong> 샤프 사카이는 전력·냉각 인프라 덕에 1년도 안 돼 데이터센터로 바뀌었습니다. 울산의 석유화학 설비가 줄어들 때 그 전력·용수·부지를 무엇에 쓸지 미리 그려 두는 것이 차이를 만듭니다.</li><li><strong>중공업의 기술을 새 에너지로 옮기는 방식.</strong> 가와사키는 LNG선의 극저온 기술을 액화수소선으로 옮겼습니다. 울산도 조선의 LNG 기술과 석유화학의 부생수소를 이미 갖고 있습니다 — 한신보다 오히려 원재료가 좋습니다.</li><li><strong>「본사」의 무게.</strong> 아식스·시스멕스가 도쿄로 가지 않고 고베 도심으로 본사를 옮기는 것은 도시가 붙잡은 드문 성공입니다. 울산의 대기업들은 연구·본사 기능이 수도권(판교·서울)에 있습니다.</li></ol>
+<p><strong>조심할 것</strong></p>
+<ol><li><strong>패널베이의 교훈 — 한 품목에 도시를 거는 투자.</strong> 수천억 엔짜리 공장도 제품 사이클이 끝나면 10년 안에 창고가 됩니다. 이차전지·수소에 대한 대형 베팅도 같은 위험을 안고 있습니다.</li><li><strong>의료산업도시의 규모 감각.</strong> 30년 가까이 공을 들여 고용 약 1.3만 명입니다. 의미 있는 성과지만 <strong>중공업이 잃은 일자리를 대체하는 크기는 아닙니다.</strong> 「바이오로 전환」이라는 구호를 숫자로 검증해야 한다는 교훈입니다.</li><li><strong>석탄으로의 후퇴.</strong> 고로를 끈 자리에 석탄화력을 늘린 고베제강의 선택은 단기 수익과 탈탄소 사이의 긴장을 보여 줍니다.</li></ol>
+<p><strong>반대로 한신이 울산을 부러워할 것</strong> — 자동차. 한신 쇠퇴의 뿌리는 결국 고도성장기에 자동차 공장을 갖지 못한 데 있습니다. 울산은 조선·자동차·석유화학이라는 세 다리가 아직 모두 현역입니다.</p>
+<h3>이 여행에서 확인해 볼 것</h3>
+<ol><li><strong>하버랜드 모자이크 서쪽 끝에서 가와사키 고베공장 크레인 보기 (9/21 저녁)</strong> — 「하버랜드」 편의 「놓치기 쉬운 것 4번」 자리입니다. 의장 부두에 <strong>검은 잠수함 선체</strong>가 떠 있는 날도 있습니다. ⚠️ 보이느냐는 날마다 다르고, 조선소는 촬영 제한 표지가 있을 수 있으니 보이면 눈으로만.</li><li><strong>9/22 아침 메리켄파크 러닝</strong> — 서쪽 바다 건너 크레인 두 무리(가깝게 가와사키, 멀리 와다미사키의 미쓰비시)를 구분해 보세요. 일본 잠수함 전량이 저 두 곳에서 나옵니다.</li><li><strong>가와사키월드 (고베해양박물관 안)</strong> — 가와사키중공업의 기업 박물관. 신칸센 0계·오토바이·헬리콥터 실물 전시.</li></ol>
+<ul><li>원문: 「10:00～18:00（最終入館は17:30まで）」「月曜日（祝日の場合は翌平日休館）」「大人 900円」(해양박물관 공통권)</li><li><strong>우리 날짜와 대조</strong>: 9/21(월·축일)은 개관하지만 메리켄파크 도착이 17:40이라 최종입관 17:30을 넘깁니다. 9/22는 아침 러닝 뒤 09:50 아리마행이라 개관(10:00) 전에 떠납니다. → 🔴 <strong>이번 일정으로는 입관이 안 됩니다.</strong></li><li>게다가 <strong>2026-09-25에 20주년 리뉴얼 오픈</strong>이 예고돼 있습니다(창업자 애니메이션·비행기 모형 체험존 신설). ⚠️ 리뉴얼 전 부분 휴관 여부는 공식 원문에서 확인하지 못했습니다(공식 페이지 403). 다음 고베 방문 때 새 전시로 보는 게 낫습니다.</li></ul>
+<ol><li><strong>9/22 산노미야역 앞 크레인 숲</strong> — 그중 하나가 <strong>아식스·시스멕스 새 본사가 들어갈 버스터미널 빌딩</strong>입니다.</li><li><strong>아식스 매장 두 곳</strong> — 고베 기업의 오사카 매장입니다. 숙소 근처 <strong>ASICS OSAKA SHINSAIBASHI</strong>(신사이바시스지 1-8-1, 신사이바시역 5번 출구 1분)와, 9/25 우메다권 <strong>ASICS GRAND FRONT</strong>(「실무」 편 쇼핑 목록에 있음). 러닝화를 신고 매일 달리시니, 「고베에서 시작한 러닝화」를 오사카에서 보는 셈입니다.</li><li><strong>9/25 난카이 전철로 공항 갈 때 — 오른쪽(서쪽) 창가</strong> — 남행 열차의 서쪽이 바다 쪽입니다. 사카이~다카이시~이즈미오쓰 구간에서 임해 공업지대의 굴뚝·탱크가, 린쿠타운 이후 공항 연결교에서 오사카만 해안이 보입니다. ⚠️ 난카이 본선은 옛 해안선을 따라가 매립지보다 안쪽이라 버스만큼 가깝게 보이지는 않습니다. 오셨던 버스(북행)는 <strong>왼쪽</strong>이 바다였습니다.</li><li><strong>9/25 오전 나카노시마~도쇼마치</strong> — 도서관 남쪽 몇 블록이 제약 본사 거리입니다. 시간이 남으면 골목 이름만 확인해도 「약재상 → 제약 대기업」 300년이 보입니다.</li></ol>
+<div class="gal ess" data-n="12"><div class="gtrack"><figure class="slide"><a class="shot" href="../img/meriken-park_1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_1.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park01bs3200.jpg" target="_blank" rel="noopener">663highland · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_2.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_001.JPG" target="_blank" rel="noopener">Pastern · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_3.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_atrium_lobby_20120106-001.jpg" target="_blank" rel="noopener">J o · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_4.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_20120825-001.jpg" target="_blank" rel="noopener">J o · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_5.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_20120825-002.jpg" target="_blank" rel="noopener">J o · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_6.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken-Park_Oriental_Hotel_in_2012.JPG" target="_blank" rel="noopener">Mti · CC BY-SA 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_7.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_Kobe_Japan01-r.jpg" target="_blank" rel="noopener">Oilstreet · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_8.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_Kobe_Japan02-r.jpg" target="_blank" rel="noopener">Oilstreet · CC BY 2.5</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_9.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_9.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken-Park_Oriental_Hotel.JPG" target="_blank" rel="noopener">Tokumeigakarinoaoshima · CC0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_10.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_-_panoramio.jpg" target="_blank" rel="noopener">DVMG · CC BY 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_11.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_-_panoramio_(1).jpg" target="_blank" rel="noopener">Bohao Zhao · CC BY 3.0</a></figcaption></figure><figure class="slide"><a class="shot" href="../img/meriken-park_12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../img/meriken-park_12.jpg" alt="meriken-park"></a><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_and_Cruise_ship_%22Concerto%22_at_Kobe_Port_at_night.jpg" target="_blank" rel="noopener">そらみみ · CC BY-SA 4.0</a></figcaption></figure></div><button class="gnav prev" type="button">‹</button><button class="gnav next" type="button">›</button><span class="gcount"><b>1</b>/12</span></div>
+<h3>참고 영상</h3>
+<figure class="evid"><div class="vwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Ct4bN3TqsIc" title="潜水艦「そうげい」命名・進水式 — 가와사키중공업 고베공장 (고베신문)" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>潜水艦「そうげい」命名・進水式 — 가와사키중공업 고베공장 (고베신문) · YouTube</figcaption></figure>
+<ul><li>📺 <a href="https://www.youtube.com/watch?v=Ct4bN3TqsIc" target="_blank" rel="noopener">潜水艦「そうげい」命名・進水式 最新鋭艦「たいげい型」の6隻目 川崎重工業神戸工場</a> — 고베신문, 일본어. 하버랜드 옆 조선소에서 잠수함이 물에 들어가는 장면</li><li>📺 <a href="https://www.youtube.com/watch?v=-DnZc-rh4Mc" target="_blank" rel="noopener">川崎重工: 豪州褐炭由来液化水素を積載した「すいそ ふろんてぃあ」が神戸に帰港</a> — 가와사키그룹 공식 채널, 일본어</li><li>📺 <a href="https://www.youtube.com/watch?v=TDdV0Bmrvp4" target="_blank" rel="noopener">工場夜景 堺泉北臨海工業地帯 Sakai Senboku Coastal Industrial Zone Night</a> — 버스로 지나온 사카이·센보쿠의 밤 풍경</li></ul>
+<hr>
+<blockquote class="note"><p>⚠️ <strong>미확인 정리</strong></p>
+<ul><li>리무진버스의 정확한 주행 경로 (운행사 비공표)</li><li>공업지대 단위 출하액 (교과서 인용, 경계 정의가 자료마다 다름)</li><li>태평양전쟁 직전 게이힌 추월의 구체 연도·수치, 니시요도가와·아마가사키 공해소송 연도, 오사카 서부 지반침하 폭</li><li>파나소닉 아마가사키 투자액, 케미컬슈즈 피해 수치, 의료산업도시 집적 수, 나다고고 점유율 (보도·단체 공표치)</li><li>울산 측 수치 전반 (현대차 생산능력, 인구 정점, 제조업 비중, 샤힌 프로젝트) — 통계청·울산시 원문 미대조</li><li>가와사키월드 리뉴얼 전 휴관 여부 (공식 페이지가 봇 차단 403 — 보도·고베해양박물관 페이지로 요금·휴관 규정만 대조)</li></ul></blockquote>
+<h3>지도</h3>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=川崎重工業+神戸工場&output=embed" title="가와사키중공업 고베공장 — 하버랜드 바로 서쪽"></iframe><figcaption>가와사키중공업 고베공장 — 하버랜드 바로 서쪽 · 구글지도</figcaption></figure>
+<figure class="emap"><iframe loading="lazy" src="https://www.google.com/maps?q=堺泉北臨海工業地帯&output=embed" title="사카이·센보쿠 임해공업지대"></iframe><figcaption>사카이·센보쿠 임해공업지대 · 구글지도</figcaption></figure>
+<h3>출처</h3>
+<p><strong>1차 출처 (원문 대조)</strong></p>
+<ul><li>경제산업성·총무성 「2024년 경제구조실태조사 2차 집계 결과 〈제조업사업소조사〉 결과 개요」(2025-08-29) — https://www.meti.go.jp/statistics/tyo/kkj/pdf/seizo_gaikyo2024.pdf</li><li>국토교통성 「세계 항만별 컨테이너 취급 개수 순위 1980년·2023년」 — https://www.mlit.go.jp/statistics/details/content/001517678.pdf</li><li>국토교통성 해사국 「조선업의 현황과 조선업 재생 로드맵」(2026-01) — https://wwwtb.mlit.go.jp/tohoku/content/000366415.pdf</li><li>가와사키중공업 「潜水艦『そうげい』進水」 — https://www.khi.co.jp/pressrelease/detail/20251014_1.html</li><li>가와사키중공업 「潜水艦『らいげい』を引き渡し」 — https://www.khi.co.jp/pressrelease/detail/20250306_1.html</li><li>가와사키중공업 「世界初の液化水素荷役実証ターミナル『Hy touch 神戸』を納入」 — https://www.khi.co.jp/pressrelease/detail/20201203_1.html</li><li>가와사키중공업·일본수소에너지 4만㎥ 액화수소선 계약 (2026-01-06) — https://www.khi.co.jp/pressrelease/news_260106-1.pdf</li><li>가와사키중공업 연혁 — https://www.khi.co.jp/history/timeline/tl_01.html</li><li>미쓰비시중공업 「ちょうげい」 명명·진수 — https://www.mhi.com/jp/news/241004.html</li><li>고베제강 「神戸製鉄所 上工程休止について」 — https://www.kobelco.co.jp/releases/1197930_15541.html</li><li>고베제강 「神戸発電所4号機の営業運転開始について」 — https://www.kobelco.co.jp/releases/1211432_15541.html</li><li>일본제철 사카이 지구 연혁 — https://www.nipponsteel.com/works/kansai/osaka/history/sakai.html</li><li>스미토모고무 연혁 — https://www.srigroup.co.jp/corporate/history.html</li><li>고베해양박물관 개관시간·요금 — https://kobe-maritime-museum.com/price/</li><li>고베시 이벤트 사이트 「カワサキワールドがリニューアルオープンします！」 — https://event.city.kobe.lg.jp/event/xxkpYVZZ1hPSDnz95wm8</li><li>KDDI 「大阪堺データセンターを1月22日から稼働開始」 — https://newsroom.kddi.com/news/detail/kddi_nr-891_4287.html</li><li>소프트뱅크 「シャープ堺工場の土地や建物の取得に関する契約を締結」 — https://www.softbank.jp/corp/news/press/sbkk/2025/20250314_01/</li><li>국립공문서관 「大阪紡績会社（山辺丈夫）」 — https://www.archives.go.jp/exhibition/digital/hatsumei/contents/29.html</li><li>오사카부 IR 진척 — https://www.pref.osaka.lg.jp/o080020/irs-suishin/ir_sintyoku/index.html</li><li>송성수 「조선소 건설과 선박 건조의 병행」 (헬로디디, 2026-03-23) — https://www.hellodd.com/news/articleView.html?idxno=111238</li></ul>
+<p><strong>보도·2차 자료 (⚠️ 표시 수치의 출처)</strong></p>
+<ul><li>위키백과 「阪神工業地帯」 — https://ja.wikipedia.org/wiki/阪神工業地帯</li><li>위키백과 「HD Hyundai Heavy Industries」 — https://en.wikipedia.org/wiki/HD_Hyundai_Heavy_Industries</li><li>닛케이 「三菱重工、神戸造船所での商船建造から撤退」 — https://www.nikkei.com/article/DGXNASDD210BI_R20C10A7000000/</li><li>닛케이 「パナソニック、プラズマから撤退 尼崎工場売却へ」 — https://www.nikkei.com/article/DGXNASDD080RV_Y3A001C1MM8000/</li><li>닛케이 「パナソニックの尼崎工場跡地、京阪神で最大規模の物流拠点に」 — https://www.nikkei.com/article/DGXLASHD11H70_R10C16A5LDA000/</li><li>고베신문 「神鋼の石炭火力、３号機が発電開始」 — https://www.kobe-np.co.jp/news/sougou/202202/0015026631.shtml</li><li>고베신문 「神戸・長田のケミカルシューズ業界の『現在地』」 — https://www.kobe-np.co.jp/news/keizai/202301/0015970187.shtml</li><li>NTT동일본 「被災したケミカルシューズ業界、復興の鍵は意識改革」 — https://business.ntt-east.co.jp/bizdrive/column/dr00066-005.html</li><li>고베의료산업도시 포털 — https://www.fbri-kobe.org/kbic/about/</li><li>고베신문 「発祥の神戸からグローバル展開 アシックス」 — https://www.kobe-np.co.jp/news/economy/202408/0018051209.shtml</li><li>灘五郷酒造組合 — https://www.nadagogo.ne.jp/hyogo-fieldpavilion/</li><li>東大阪市 「モノづくりのまち」 — https://www.city.higashiosaka.lg.jp/category/21-13-0-0-0-0-0-0-0-0.html</li><li>宇宙開発協同組合SOHLA 「まいど1号について」 — https://sohla.com/maido.html</li><li>파나소닉에너지 스미노에 생산공정개발동 (PR TIMES) — https://prtimes.jp/main/html/rd/p/000005677.000003442.html</li><li>泉州タオル (위키백과) — https://ja.wikipedia.org/wiki/泉州タオル</li><li>堺泉北臨海工業地帯 (Weblio/위키백과) — https://www.weblio.jp/content/堺泉北臨海工業地帯</li><li>ASICS OSAKA SHINSAIBASHI (공식) — https://www.asics.com/jp/ja-jp/mk/store/asics-osaka-shinsaibashi</li><li>울산MBC 「울산 인구 7월 말 기준 109만 9866명..110만 명 선 무너져」 — https://www.usmbc.co.kr/article/ANOplnNhjyC</li><li>울산MBC 「울산 제조업 중심 도시‥서비스업 비중 '최하위'」 — https://www.usmbc.co.kr/NewsArticle/841043</li><li>국가데이터처 「2023년 광업·제조업조사 결과(잠정)」 — https://mods.go.kr/board.es?act=view&amp;bid=232&amp;list_no=434213&amp;mid=a10301090200</li></ul></article>
+<div class="places"><b>이 해설이 걸린 장소</b><a href="../#p-meriken-park">메리켄파크 — 지진 메모리얼파크</a><a href="../#p-harborland">하버랜드 모자이크 야경</a><a href="../#p-nada-sake">나다 사케 양조장 — 하쿠츠루 · 기쿠마사무네</a><a href="../#p-disaster-museum">인간과 방재 미래센터 (한신·아와지 대지진 기념관)</a><a href="../#p-nakanoshima">오사카부립 나카노시마 도서관</a></div>
+<footer>삼토의 Travelog · 방콕 해설집 · 비상업 개인 여행 기록입니다. 검색엔진 수집은 막아두었습니다.<br>
+숫자와 연도는 조사 시점(2026-09) 기준이며, ⚠️ 표시가 붙은 것은 공식 원문 대조 전입니다.</footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.gal').forEach(function(g){
+    var tr=g.querySelector('.gtrack'), cnt=g.querySelector('.gcount b');
+    var prev=g.querySelector('.gnav.prev'), next=g.querySelector('.gnav.next');
+    var n=parseInt(g.dataset.n||'1',10);
+    if(n<2) return;
+    var i=0, timer=null;
+    function paint(){ if(cnt) cnt.textContent=String(i+1);
+      if(prev) prev.disabled=i<=0; if(next) next.disabled=i>=n-1; }
+    function show(k){
+      i=Math.max(0,Math.min(k,n-1));
+      var t=i*tr.clientWidth;
+      try{ tr.scrollTo({left:t,behavior:'smooth'}); }catch(e){ tr.scrollLeft=t; }
+      setTimeout(function(){ if(Math.abs(tr.scrollLeft-t)>4) tr.scrollLeft=t; }, 420);
+      paint();
+    }
+    if(prev) prev.addEventListener('click',function(e){e.preventDefault();show(i-1);});
+    if(next) next.addEventListener('click',function(e){e.preventDefault();show(i+1);});
+    tr.addEventListener('scroll',function(){ clearTimeout(timer);
+      timer=setTimeout(function(){ var k=Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));
+        if(k!==i){ i=Math.max(0,Math.min(k,n-1)); paint(); } }, 90); }, {passive:true});
+    paint();
+  });
+})();
+</script>
+</body>
+</html>
