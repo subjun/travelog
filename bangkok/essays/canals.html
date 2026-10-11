@@ -27,6 +27,9 @@
 *{box-sizing:border-box}
 body{margin:0; background:var(--ground); color:var(--ink); line-height:1.85;
   font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+/* 한글은 낱말(어절) 단위로만 꺾는다 — 손대지 않으면 「간단/한」처럼 글자 사이에서 갈린다.
+   lang(ko) 로 묶은 이유: 중국어판은 띄어쓰기가 없어 keep-all 을 주면 줄이 안 꺾인다 (2026-10-11 실측 195건→0) */
+html:lang(ko) body{word-break:keep-all; overflow-wrap:break-word}
 img{max-width:100%}
 a{color:var(--jade-ink)}
 .wrap{max-width:760px; margin:0 auto; padding:0 20px 90px}

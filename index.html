@@ -8,6 +8,9 @@
 :root{--ground:#F4F6F3;--surface:#fff;--ink:#19211D;--ink-2:#48544D;--ink-3:#7B877F;--line:#D7DCD5;--jade:#2C7A67;--jade-ink:#1B5648;--jade-soft:#DBEAE4;--amber:#B4762A;--amber-soft:#F7EEDF}
 @media(prefers-color-scheme:dark){:root{--ground:#111614;--surface:#191F1C;--ink:#E7EDE9;--ink-2:#A6B2AC;--ink-3:#75817B;--line:#2A332E;--jade:#6BBEA6;--jade-ink:#8FD2BD;--jade-soft:#1C302A;--amber:#D9A863;--amber-soft:#2A2318}}
 body{margin:0;background:var(--ground);color:var(--ink);font-family:"IBM Plex Sans KR",system-ui,sans-serif;line-height:1.7}
+/* 한글은 낱말(어절) 단위로만 꺾는다 — 손대지 않으면 「간단/한」처럼 글자 사이에서 갈린다.
+   lang(ko) 로 묶은 이유: 중국어판은 띄어쓰기가 없어 keep-all 을 주면 줄이 안 꺾인다 (2026-10-11 실측 195건→0) */
+html:lang(ko) body{word-break:keep-all; overflow-wrap:break-word}
 .w{max-width:660px;margin:0 auto;padding:68px 20px 56px}
 h1{font-family:"Gowun Batang",serif;font-size:40px;font-weight:700;margin:0}
 p.s{color:var(--ink-2);margin:10px 0 34px;font-size:14.5px}
